@@ -1,0 +1,21 @@
+<view class="body">
+<view class="container">
+  <view class="page-body">
+  <view class="slogan"><text>Embrace your Journey</text>
+  </view>
+    <view class="page-section page-section-spacing swiper">
+      <swiper id="mySwiper" indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+        current="{{current}}">
+        <block wx:for="{{background}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+          <swiper-item>
+            <image class="swiper-item" src="{{item}}" mode="aspectFill"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view bindtap="prevImage" class="leftArrow">{{Arrow1}}</view>
+      <view bindtap="nextImage" class="rightArrow">{{Arrow2}}</view>
+    </view>
+  </view>
+</view>
+</view>
