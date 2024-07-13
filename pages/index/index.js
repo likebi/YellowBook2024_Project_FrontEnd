@@ -13,7 +13,14 @@ Page({
     nickname: 'wechat_user',
     current: 0,
     Arrow1: "<",
-    Arrow2: ">"
+    Arrow2: ">",
+    namePosition: "厦门",
+    dropdownVisible: false,
+    options: [
+      { label: '选项1', value: 'page1' },
+      { label: '选项2', value: 'page2' },
+      { label: '选项3', value: 'page3' }
+    ]
   },
 
   onLoad: function () {
@@ -47,8 +54,6 @@ Page({
     this.saveUserInfo();
   },
 
-
-
   onChooseNickname(e) {
     console.log(e);
     this.setData({
@@ -77,6 +82,21 @@ Page({
         });
       }
     });
+  },
+
+  toggleDropdown() {
+    this.setData({
+      dropdownVisible: !this.data.dropdownVisible
+    });
+  },
+
+  onOptionSelect(e) {
+    const value = e.currentTarget.dataset.value;
+    wx.navigateTo({
+      url: `/pages/${value}/${value}`
+    });
+    this.setData({
+      dropdownVisible: false
+    });
   }
 });
-
