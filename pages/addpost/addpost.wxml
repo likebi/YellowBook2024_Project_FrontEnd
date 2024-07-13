@@ -1,0 +1,20 @@
+<!--pages/addpost/addpost.wxml-->
+<view class="container1">
+  <!--图片上传区域-->
+  <view class="upload-box">
+    <view class="header">
+      <view class="arrow" bindtap="onBack">{{arrow}}</view>
+    </view>
+    <image class="upload-icon" src="{{plus}}" mode="aspectFit"/>
+    <input type="file" name="file" id="file"/>
+  </view>
+  <!--文字上传区域-->
+  <view class="input-text">
+    <input class="title" type="text" name="title" placeholder="添加标题会有更多赞哦~"/>
+  </view>
+  <input class="content" type="textarea" name="content" placeholder="添加正文"/>
+  <!--话题标签区域-->
+  <view class="element">
+
+  </view>
+</view>
