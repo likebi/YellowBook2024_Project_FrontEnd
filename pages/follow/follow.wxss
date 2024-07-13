@@ -1,0 +1,85 @@
+#container {
+  padding: 20rpx;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.arrow-left {
+  font-size: 50rpx;
+  cursor: pointer;
+}
+
+.follow-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.follow-window {
+  display: flex;
+  gap: 20rpx;
+}
+
+.followed,
+.fans {
+  padding: 10rpx 20rpx;
+  border: none;
+  background-color:azure;
+  color: black;
+  border-radius: 30rpx;
+  cursor: pointer;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.search-window {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 30rpx;
+  padding: 0 10rpx;
+}
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10rpx;
+  border: none;
+}
+
+.search-button {
+  padding: 10rpx 20rpx;
+  border: none;
+  background-color: white;
+  color:#007AFF;
+  border-radius: 30rpx;
+  cursor: pointer;
+}
+
+.content {
+  margin-top: 20rpx;
+}
+
+.myfollow {
+  font-size: 20rpx;
+  margin-bottom: 10rpx;
+}
+
+.order {
+  display: flex;
+  justify-content: flex-end;
+}
