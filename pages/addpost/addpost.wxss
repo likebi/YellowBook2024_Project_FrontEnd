@@ -1,52 +1,50 @@
 /* pages/addpost/addpost.wxss */
 .container1 {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   padding: 0;
+  margin: 0;
   height: 100vh;
   width: 100vw;
-  align-items: flex-start;
   border: black 1px solid;
 }
 .upload-box {
   width: 100%;
-  height: auto;
   padding-bottom: 50rpx;
 }
 .header {
   width: 100%;
-  height: 25px;
-  margin-bottom: 10px;
+  height: 60rpx;
+  margin-bottom: 10rpx;
 }
 .arrow {
-  width: 10px;
-  height: 10px;
   font-size: 50rpx;
   margin-bottom: 50rpx;
   margin-left: 2%;
+}.arrowr {
+  font-size: 50rpx;
 }
 .upload-icon {
-  position: relative;
   font-size: 6rem;
   display: flex;
+  justify-content: center;
+  align-items: center;
   border-radius: 10rpx;
   border: 1px solid black;
   margin-left: 3%;
-  width: 10%;
+  width: 10%; 
   height: 100rpx;
   padding: 80rpx;
 }
 #file {
-  display: flex;
   position: absolute;
   top: 0;
   margin-left: 3%;
   width: 30%;
 }
 .input-text{
-  display: flex;
-  margin-top: 20rpx;
   width: 100%;
+  height: auto;
 }
 .title {
   width: 100%;
@@ -56,11 +54,41 @@
   font-size: 16px;
 }
 .content {
-  margin-top: 10rpx;
   padding-left: 1%;
   width: 100%;
-  height: 30%;
-  overflow: hidden;
+  height: 20%;
   font-size: 14px;
+  border-bottom: 1px solid black;
+}
+.element {
+  width: 100%;
+  padding: 20rpx 5%;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+.htag {
+  height: 50rpx;
+  width: 50rpx;
+  margin-right: 10rpx;
+}
+.location {
+  width: 100%;
+  padding: 20rpx 5%;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+.select-input {
+  width: 75%;
+}
+.post-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500rpx;
+}
+.post-btn {
+  background-color: #99aa20;
 }
 
