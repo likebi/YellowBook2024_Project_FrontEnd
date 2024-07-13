@@ -62,5 +62,12 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  onHandlerPageTo(){
+    wx.navigateTo({ 
+      url: '/pages/AI-chat/AI-chat',
+    })
   }
+
 })

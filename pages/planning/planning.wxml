@@ -1,2 +1,20 @@
 <!--pages/planning/planning.wxml-->
-<text>pages/planning/planning.wxml</text>
+<view id="container">
+  <view class="title-bar">
+    <text class="title">旅徒</text>
+  </view>
+  <view class="history" bind:tap="onHandlerPageTo">
+    北京之旅
+  </view>
+  <view class="type-bar">
+    <view class="input-bar">
+      <input class="type" type="text" placeholder="发消息"/>
+    </view> 
+   <button class="send-btn">
+    <image class="send" src="/static/fasong.png" mode="aspectFit"/>
+   </button>
+   <button class="attach-btn">
+    <image class="attach" src="/static/jia.png" mode="aspectFit"/>
+   </button>
+  </view>
+</view>

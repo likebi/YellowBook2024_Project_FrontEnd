@@ -1,0 +1,33 @@
+<!--pages/AI-chat/AI-chat.wxml-->
+<view id="container">
+  <view class="title-bar">
+    <text class="title">北京之旅</text>
+    <button class="more-btn">
+      <image class="more" src="/static/more.png" mode="aspectFit"/>
+    </button>
+  </view>
+  <view class="time">今天 15：04</view>
+  <view class="AI-chatbox">
+   <view class="AI">
+    <image class="AI-avatar" src="/static/bianzu2.png" mode="aspectFit"/>
+   </view>
+   <text class="AI-chat">您好，请问有什么能帮您？</text>
+  </view>
+  <view class="user-chatbox">
+   <text class="user-chat">请您帮我规划去往北京的旅游计划</text>
+   <view class="user">
+    <image class="user-avatar" src="/static/yonghu.png" mode="aspectFit"/>
+   </view>
+  </view>
+  <view class="type-bar">
+    <view class="input">
+      <input class="type" type="text" placeholder="发消息"/>
+    </view> 
+   <button class="send-btn">
+    <image class="send" src="/static/fasong.png" mode="aspectFit"/>
+   </button>
+   <button class="attach-btn">
+    <image class="attach" src="/static/jia.png" mode="aspectFit"/>
+   </button>
+  </view>
+</view>
