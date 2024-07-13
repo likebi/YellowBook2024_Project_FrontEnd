@@ -1,0 +1,31 @@
+<view id="container">
+  <!-- 顶部搜索栏 -->
+  <view class="header">
+    <view class="arrow-left" bindtap="onBack">
+      {{arrowl}}
+    </view>
+
+    <view class="search-container">
+      <view class="search-window">
+        <image class="icon" src="/static/sousuo.png" />
+        <input type="text" class="search-input" placeholder="输入搜索内容" bindinput="onInput" value="{{value}}" />
+      </view>
+    </view>
+
+    <view class="search-button" bindtap="onSearch">搜索</view>
+  </view>
+
+  <!-- 历史记录 -->
+  <view class="history">
+    <text class="history-title">历史记录</text>
+    <view wx:for="{{historyList}}" wx:key="index" class="history-item">
+      <text>{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 搜索发现 -->
+  <view class="discover">
+    <text class="discover-title">搜索发现</text>
+    <!-- 你可以在这里添加搜索发现内容 -->
+  </view>
+</view>

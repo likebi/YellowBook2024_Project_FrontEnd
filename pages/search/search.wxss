@@ -1,0 +1,72 @@
+#container {
+  padding: 20rpx;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.arrow-left {
+  font-size: 50rpx;
+  cursor: pointer;
+  color: #007AFF;
+}
+
+.search-container {
+  flex: 1;
+  margin: 0 20rpx;
+}
+
+.search-window {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 30rpx;
+  padding: 0 10rpx;
+}
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10rpx;
+  border: none;
+}
+
+.search-button {
+  cursor: pointer;
+  color: #007AFF;
+}
+
+.history {
+  margin-bottom: 20rpx;
+}
+
+.history-title {
+  font-size: 30rpx;
+  padding-left: 50rpx;
+  font-weight: bolder;
+}
+
+.history-item {
+  display: flex;
+  margin-bottom: 10rpx;
+  padding-left: 50rpx;
+}
+
+.discover {
+  margin-bottom: 20rpx;
+}
+
+.discover-title {
+  font-weight: bolder;
+  font-size: 30rpx;
+  padding: 50rpx;
+  margin-bottom: 10rpx;
+}
