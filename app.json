@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/fans/fans",
+    "pages/follower/follower",
     "pages/index/index",
     "pages/follow/follow",
     "pages/addpost/addpost",
@@ -7,7 +9,7 @@
     "pages/AI-chat/AI-chat",
     "pages/me/me",
     "pages/planning/planning"
-
+ 
   ],
   "tabBar": {
     "color": "#555555",
