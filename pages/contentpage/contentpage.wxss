@@ -1,0 +1,162 @@
+/* pages/planning/planning.wxss */
+.post-page {
+  width: 100vw;
+}
+.post-page-header {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.image_back{
+  justify-content: flex-start;
+  padding-left: 10px;
+  padding-top: 23px;
+  font-size: 35px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+}
+.post-image {
+  width: 30px;
+  height: 30px;
+  border: solid 1px black;
+  border-radius: 50%;
+  margin: 13px;
+  justify-content: center;
+  align-items: center;
+  padding: 3%;
+  overflow: hidden;
+}
+.post-image .post-image-size {
+  width: 100%; /* Changed from percentage to fixed size */
+  height: 100%; /* Changed from percentage to fixed size */
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.post-username-box {
+  margin-left: 10px;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.post-user {
+  font-size: 25px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 10px;
+}
+.follow-button {
+  width: 20%;
+  margin: 20px;
+  margin-left: 9%;
+}
+.follow-button-set {
+  justify-content: flex-end;
+  text-align: center;
+  background-color: #EEEEEE;
+  
+}
+.location-image {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+.post-username-font {
+  font-size: 14px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.swiper-post {
+  width: 100%; /* 设置 Swiper 容器的宽度 */
+  height: 300px; /* 设置 Swiper 容器的高度 */
+  overflow: hidden; /* 确保内容超出部分被隐藏 */
+}
+
+.swipper-size {
+  width: 100%; /* 设置 Swiper 组件的宽度 */
+  height: 100%; /* 设置 Swiper 组件的高度 */
+}
+
+.swiper-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* 确保图片占据整个父容器的宽度 */
+  height: 100%; /* 确保图片占据整个父容器的高度 */
+}
+
+.centered-image {
+  width: 100%; /* 让图片宽度填充父容器 */
+  height: 100%; /* 让图片高度填充父容器 */
+  object-fit: cover; /* 让图片按比例填充，并居中显示 */
+}
+
+.text-post {
+  margin: 10px ;
+}
+comment-container {
+  padding: 20px;
+}
+comments-section {
+  margin: 20px;
+}
+.comment {
+  /* ini kasi jarak antara comment */
+  display: flex;
+  margin-bottom: 10px;
+}
+.user-image-comment {
+  /* ini kasi jarak antara foto user dengan isi dan juga dengan border */
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.comment-content {
+  /* ini biar comments dari nama isi like dari atas ke bawah */
+  display: flex;
+  flex-direction: column;
+}
+.user-name-content {
+  font-weight: bold;
+}
+.comment-text {
+  /* ini kasi jarak antara nama message like di comments */
+  margin-top: 5px;
+}
+.input-section {
+  /* ini biar submit button ada di samping write comment */
+  display: flex;
+}
+.comment-button {
+  /* comment button submit */
+  padding: 10px;
+  background-color: #007aff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+}
+.like-section {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.like-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+input {
+  /* input comments */
+  flex: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+
+

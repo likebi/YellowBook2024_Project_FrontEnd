@@ -5,9 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    arrow:'<',
-    plus:'/static/plus-icon.png'
+    arrowl:'<',
+    arrowr:'>',
+    plus:'/static/plus-icon.png',
+    htag:'/static/htag.png',
+    location:''
   },
-
   
 })

@@ -2,10 +2,11 @@
   "pages": [
     "pages/fans/fans",
     "pages/follower/follower",
+    "pages/index/index",
     "pages/follow/follow",
     "pages/addpost/addpost",
     "pages/search/search",
-    "pages/index/index",
+    "pages/AI-chat/AI-chat",
     "pages/me/me",
     "pages/planning/planning"
  

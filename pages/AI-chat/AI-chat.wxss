@@ -1,0 +1,146 @@
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-bar {
+  box-sizing: border-box;
+  display: flex;
+  height: 50rpx;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.more-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  position: relative;
+  left: 105rpx;
+  width: 50rpx;
+}
+
+.more {
+  width: 50rpx;
+  height: 40rpx;
+}
+
+.title {
+  width: 430rpx;
+  text-align: right;
+}
+
+.time{
+  width: 100%;
+  margin: 30rpx auto;
+  font-size: 20rpx;
+  text-align: center;
+}
+
+.AI-chatbox{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 50rpx auto;
+  padding: 0 20rpx;
+}
+
+.AI{
+  width: 50rpx;
+  height: 80rpx;
+}
+
+.AI-avatar{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.AI-chat{
+  background-color: aqua;
+  margin: 0 45rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: inline-block;
+  padding: 0 25rpx;
+  border-radius: 40rpx;
+}
+
+.user-chatbox{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  margin-top: 5rpx;
+  margin-left: 150rpx;
+} 
+
+.user{
+  width: 50rpx;
+  height: 80rpx;
+}
+
+.user-avatar{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.user-chat{
+  background-color: aqua;
+  margin-right: 5rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: inline-block;
+  padding: 0 25rpx;
+  border-radius: 40rpx;
+}
+
+.type-bar{
+  position: fixed;
+  bottom: 50rpx;
+  height: 80rpx;
+  left: 30rpx;
+  width: 100%;
+  flex-wrap: nowrap;
+  display: flex;
+  align-items: center; 
+}
+
+.input{
+  width: 80%;
+}
+
+.type{
+  background-color: cornflowerblue;
+  height: 80rpx;
+  width: 520rpx;
+  border-radius: 25rpx;
+  padding-left: 20rpx;
+}
+
+.send-btn, .attach-btn {
+  width: 50rpx; 
+  height: 60rpx; 
+  padding: 0; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box; /* 确保内边距和边框在宽度内 */
+  background: none;
+}
+
+.send{
+  position: relative;
+  left: 5rpx;
+  width: 100%; 
+  height: 100%;
+}
+
+.attach{
+    position: relative;
+    right: 26rpx;
+    width: 100%; 
+    height: 100%;
+}
