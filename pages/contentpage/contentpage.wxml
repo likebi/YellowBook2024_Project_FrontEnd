@@ -57,11 +57,12 @@ Russia has around 100,000 rivers, including some of the longest and most powerfu
             <text class="user-name-comment">{{item.userName}}</text>
             <text class="comment-text">{{item.comment}}</text>
             <view class="like-section" data-id="{{item.id}}" bindtap="toggleLike">
-              <image 
-                class="like-icon" 
-               src="{{heart}}" 
-              />
+              <image src="{{heart}}" class="like-icon" src="{{heart}}"/>
               <text>{{item.likes}}</text>
+            </view>
+            <view class="save-section" data-id="{{item.id}}" bindtap="togglesave">
+              <image class="save-icon" src="{{star}}" />
+              <text>{{item.saves}}</text>
             </view>
           </view>
         </view>
@@ -78,85 +79,12 @@ Russia has around 100,000 rivers, including some of the longest and most powerfu
     <button class="comment-button" bindtap="submitComment">Submit</button>
   </view>
 </view>
-  <!-- <view class="comment-header">
-    <view class="icon-user">
-      <image class="dollar-image" src="/static/money-dollar-symbol.png" mode=""/>
-    </view>
-    <input class="comment-box" 
-    type="text"
-    placeholder="评论..."/>
-    <button class="enter-button" open-type="getUserInfo" bindgetuserinfo="getuserinfo"  size="mini" plain="plain">enter</button>
-  </view> -->
- 
-  <!-- <view class="comment-text">
-    <view class="icon-user">
-      <image class="dollar-image" src="/static/money-dollar-symbol.png" mode=""/>
-    </view>
-    <view class="comment-username">
-      <text>Baba:</text>
-    </view>
-    <view class="comment-chat">
-      <text>普廷啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊！！！！！</text>
-    </view>
-    <view class="comment-heart">
-      <image class="heart-image" src="{{heart}}" mode=""/>
-    </view>
-  </view>
-
-  <view class="comment-text">
-    <view class="icon-user">
-      <image class="dollar-image" src="/static/money-dollar-symbol.png" mode=""/>
-    </view>
-    <view class="comment-username">
-      <text>Bobo:</text>
-    </view>
-    <view class="comment-chat">
-      <text>为什么我们啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊！！</text>
-    </view>
-    <view class="comment-heart">
-      <image class="heart-image" src="{{heart}}" mode=""/>
-    </view>
-  </view>
   
-  <view class="comment-text">
-    <view class="icon-user">
-      <image class="dollar-image" src="/static/money-dollar-symbol.png" mode=""/>
-    </view>
-    <view class="comment-username">
-      <text>Bibi:</text>
-    </view>
-    <view class="comment-chat">
-      <text>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊!!!!!!!!!!!，MOSCOW MOSCOWWW MOSCOW!!!!!!</text>
-    </view>
-    <view class="comment-heart">
-      <image class="heart-image" src="{{heart}}" mode=""/>
-    </view>
-  </view>
-
-  <view class="comment-text">
-    <view class="icon-user">
-      <image class="dollar-image" src="/static/money-dollar-symbol.png" mode=""/>
-    </view>
-    <view class="comment-username">
-      <text>Bubu:</text>
-    </view>
-    <view class="comment-chat">
-      <text>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊!!!!!!!!!!!</text>
-    </view>
-    <view class="comment-heart">
-      <image class="heart-image" src="{{heart}}" mode=""/>
-    </view>
-  </view>
-
-  <view class="bottom-comment-box">
-    <view class="bottom-comment-left">
-      <image class="bottom-comment-pencil" src="{{pencil_notes}}" mode=""/>
-      <text class="bottom-comment-text">说点什么吧。。。</text> 
-    </view>
+   <!-- <view class="bottom-comment-box">
     <view class="bottom-comment-right">
-      <image class="bottom-comment-pencil" src="{{heart}}" mode=""/>32
-      <image class="bottom-comment-pencil" src="{{star}}" mode=""/>30
-      <image class="bottom-comment-pencil" src="{{comments}}" mode=""/>20
+      <image class="bottom-comment-image" src="{{heart}}" mode=""/>
+      <image class="bottom-comment-image" src="{{star}}" mode=""/>
+      <image class="bottom-comment-image" src="{{comment}}" mode=""/>
     </view>
   </view> -->
 
