@@ -1,40 +1,47 @@
 {
-    "pages": [
-      "pages/index/index",
-      "pages/me/me",
-      "pages/planning/planning"
-    ],
-    "tabBar": {
-      "color": "#555555",
-      "selectedColor": "#ff6600",
-      "list": [
-        {
-          "pagePath": "pages/index/index",
-          "text": "首页",
-          "iconPath": "./static/index.png",
-          "selectedIconPath": "./static/index.png"
-        },
-        {
-          "pagePath": "pages/planning/planning",
-          "text": "规划",
-          "iconPath": "./static/plan.png",
-          "selectedIconPath": "./static/plan.png"
-        },
-        {
-          "pagePath": "pages/me/me",
-          "text": "我的",
-          "iconPath": "./static/me.png",
-          "selectedIconPath": "./static/me.png"
-        }
-      ]
-    },
-    "window": {
-      "navigationBarTextStyle": "black",
-      "navigationBarTitleText": "旅游",
-      "navigationBarBackgroundColor": "#fff"
-    },
-    "style": "v2",
-    "componentFramework": "glass-easel",
-    "sitemapLocation": "sitemap.json",
-    "lazyCodeLoading": "requiredComponents"
-  }
+  "pages": [
+    "pages/index/index",
+    "pages/fans/fans",
+    "pages/follower/follower",
+    "pages/follow/follow",
+    "pages/addpost/addpost",
+    "pages/search/search",
+    "pages/AI-chat/AI-chat",
+    "pages/me/me",
+    "pages/planning/planning"
+
+  ],
+  "tabBar": {
+    "color": "#555555",
+    "selectedColor": "#ff6600",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "./static/index.png",
+        "selectedIconPath": "./static/index.png"
+      },
+      {
+        "pagePath": "pages/planning/planning",
+        "text": "规划",
+        "iconPath": "./static/plan.png",
+        "selectedIconPath": "./static/plan.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的",
+        "iconPath": "./static/me.png",
+        "selectedIconPath": "./static/me.png"
+      }
+    ]
+  },
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "旅游",
+    "navigationBarBackgroundColor": "#fff"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

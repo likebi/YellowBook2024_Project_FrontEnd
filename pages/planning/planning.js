@@ -28,71 +28,63 @@ Page({
   /**
    * Lifecycle function--Called when page load
    */
-  toggleFollow() {
-    this.setData({
-      followStatus: !this.data.followStatus
-    });
+  onLoad(options) {
+
   },
 
-  onInput(e){
-    this.setData({
-      inputValue: e.detail.value
-    });
-  },
-  submitComment() {
-    if (this.data.inputValue.trim() === '') {
-      // Do nothing if the input is empty
-      return;
-    }
-    const comment = {
-      id: new Date().getTime(),
-      userImage: '/static/putinn.jpeg',  // Replace with actual user image path
-      userName: 'Ilya',  // Replace with actual user name
-      comment: this.data.inputValue,
-      liked: false,
-      likes: 0, //default num
-      saved: false,
-      saves: 0 //default number
-    };
+  /**
+   * Lifecycle function--Called when page is initially rendered
+   */
+  onReady() {
 
-    const newComments = this.data.comments.concat(comment);
-    this.setData({
-      comments: newComments,
-      inputValue: '',
-    });
   },
-    toggleLike(e) {
-      const commentId = e.currentTarget.dataset.id;
-      const comments = this.data.comments.map(comment => {
-        if (comment.id === commentId) {
-          comment.liked = !comment.liked;
-          comment.likes = comment.liked ? comment.likes + 1 : comment.likes - 1;
-        }
-        return comment;
-      });
-      this.setData({
-        comments
-      });
-    },
-    togglesave(e) {
-      const commentId = e.currentTarget.dataset.id;
-      const comments = this.data.comments.map(comment => {
-        if (comment.id === commentId) {
-          if (!comment.saved) {
-            comment.saved = true;
-            comment.saves += 1; // Increment saves count
-          }else {
-            comment.saved = false;
-            comment.saves = 0; // Reset saves count
-          }
-        }
-        return comment;
-      });
-      this.setData({
-        comments
-      });
-    },
-  getuserinfo(e) {
-    console.log(e)
+
+  /**
+   * Lifecycle function--Called when page show
+   */
+  onShow() {
+
+  },
+
+  /**
+   * Lifecycle function--Called when page hide
+   */
+  onHide() {
+
+  },
+
+  /**
+   * Lifecycle function--Called when page unload
+   */
+  onUnload() {
+
+  },
+
+  /**
+   * Page event handler function--Called when user drop down
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * Called when page reach bottom
+   */
+  onReachBottom() {
+
+  },
+
+  /**
+   * Called when user click on the top right corner to share
+   */
+  onShareAppMessage() {
+
+  },
+
+  onHandlerPageTo(){
+    wx.navigateTo({ 
+      url: '/pages/AI-chat/AI-chat',
+    })
   }
-});
+
+})
