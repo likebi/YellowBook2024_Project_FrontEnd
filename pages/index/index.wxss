@@ -1,17 +1,101 @@
 .container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   padding: 0;
   height: 100vh;
+  width: 100%;
+  background-color: #f5f5f5;
 }
 
-.slogan{
-  margin-top: 30px;
-  text-align: center;
-  font-weight: 700;
+.first_container{
+  margin-top: 15px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.index-position {
+  display: flex;
+  line-height: 20px;
+  align-items: center; 
+  width: auto; 
+}
+
+.image-type {
+  width: 20px;
+  height: 20px;
+  margin-right: 3px; 
+}
+.search-container {
+  flex: 1;
+  margin: 0 30rpx;
+}
+
+.search-window {
+  display: flex;
+  margin-top: 5px;
   align-items: center;
+  top: 10px;
+  height: 30px;
+  list-style: 30px;
+  border: 1px solid #ddd;
+  border-radius: 30rpx;
+  padding: 0 30rpx;
+}
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.search-link {
+  flex: 1;
+  padding: 10rpx 25rpx;
+  color: #666;
+  font-size: 14px;
+  text-decoration: none;
+  line-height: 30rpx;
+}
+
+.dropdown-container {
+  display: flex;
+  margin-top: 4px;
+  padding-right: 10px;
+  align-items: center;
+}
+
+.dropdown-menu {
+  position: absolute; /* 绝对定位 */
+  top: 40px; /* 根据需要调整位置 */
+  right:6px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* 确保在最上层 */
+}
+
+.dropdown-img{
+  width: 26px;
+  height: 26px;
+}
+
+.dropdown-item {
+  width: 100%;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+
+.position-name {
+  flex: 1;
+  flex-wrap: nowrap; /* 保持文本不换行 */
+  width: auto; /* 根据内容自动调整宽度 */
 }
 
 .page-body {
@@ -25,17 +109,16 @@
   width: 100%;
   padding: 0;
   position: relative; 
-  
 }
 
 .page-section-spacing {
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .swiper {
   border-radius: 20px;
   margin:0 auto;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 20px;
   width: 95%;
   height: 150px;
@@ -116,4 +199,61 @@ button{
   border: none;
   background: none;
   padding: 0;
+}
+
+.selected {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  width: 96%;
+}
+
+.index_selected{
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border-radius: 70px;
+  background-color: #333;
+}
+
+.fontSuggestion{
+  text-align: center;
+  margin: 20px auto;
+  font-weight: 700;
+  color: #333;
+  font-size: 19px;
+}
+
+.first {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  height: auto;
+  background-color: #fff;
+}
+
+button-sug{
+  display: inline-block;
+}
+
+.box-suggestion {
+  display: flex; /* 使用flex布局 */
+  flex-wrap: wrap; /* 允许换行 */
+  justify-content: space-around; /* 在主轴上平均分配空间 */
+}
+.image1 {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.intro {
+  overflow: hidden; /* 超出内容隐藏 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  display: -webkit-box; /* 使用 Flexbox 进行布局 */
+  -webkit-line-clamp: 3; /* 限制显示两行 */
+  -webkit-box-orient: vertical; /* 垂直排列 */
+  margin: 10px 5px;
 }

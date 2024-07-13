@@ -1,1 +1,180 @@
-/* pages/me/me.wxss */
+.background {
+  height: 185px;
+  position: absolute; /* 绝对定位 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.me-info {
+  position: relative; 
+  z-index: 1; 
+  height: 185px; 
+  display: flex;
+  justify-content: center;
+}
+
+.change-bg-button {
+  width: 100px !important;
+  position: absolute; /* 绝对定位 */
+  top: 10px; /* 距离顶部10px */
+  right: 1px; /* 距离右侧10px */
+  font-size: 14px;
+  border: none; /* 无边框 */
+}
+
+button {
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+.avatar1 {
+  height: 90px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+
+.button-user {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  width: 70px !important;
+  height: 70px !important;
+  border: none;
+  padding: 0;
+  box-sizing: border-box; /* 包括边框和内边距在内 */
+}
+
+.user-info {
+  margin: 30px 0px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 190px;
+}
+
+.user-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.user-name-input {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  padding: 0;
+  width: auto;
+}
+
+.id_user {
+  font-size: 14px; /* Adjust font size as needed */
+  color: #333; /* Adjust color as needed */
+  margin-top: 5px; /* Add some spacing between input and text */
+}
+
+.editProfil{
+  position:absolute;
+  left: 20px;
+  bottom: 60px;
+  margin-top: 20px;
+  width: 250px;
+  font-size: 12px;
+}
+
+.profile-stats {
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
+  display: flex; /* 使用 flexbox 布局 */
+  justify-content: space-between; /* 平均分配空间 */
+  margin-top: 10px; /* 上边距 */
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  align-items: center; /* 水平居中 */
+  margin-left: 30px;
+}
+
+.number {
+  font-size: 14px; /* 数字字体大小 */
+  font-weight: 700;
+}
+
+.label {
+  font-size: 12px; /* 标签字体大小 */
+  color: #333;
+  font-weight: 600;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 10rpx 0;
+  height: 100vh;
+}
+
+.reds-sticky {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+.reds-tabs-list {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.reds-tab-item {
+  flex: 1;
+  padding: 15px 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.reds-tab-item.active span {
+  color: #ff0000; /* 活动标签的字体颜色 */
+}
+
+.active-tag {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  height: 2px;
+  background-color: #ff0000;
+  bottom: 0;
+  transition: left 0.3s, width 0.3s;
+}
+
+.swiper-container {
+  flex: 1;
+  width: 80%;
+  margin-top: 15px;
+}
+
+
+.content_title{
+  margin: 0 40px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #ff0000;
+}
