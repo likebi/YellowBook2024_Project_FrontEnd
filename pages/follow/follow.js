@@ -1,8 +1,25 @@
 Page({
   data: {
-    arrowl:'<',
+    buttonState:'button-default',
+    arrowl: '<',
     value: '',
-    historyList: []
+    historyList: [],
+    followedList: [
+      // 示例数据，可以根据需要替换
+      { id: 1, name: 'User 1', followerNumber: '100', background: '/static/me.png' },
+      { id: 2, name: 'User 2', followerNumber: '200', background: '/static/me.png' },
+      { id: 3, name: 'User 3', followerNumber: '100', background: '/static/me.png' },
+      { id: 4, name: 'User 4', followerNumber: '100', background: '/static/me.png' },
+      { id: 5, name: 'User 5', followerNumber: '100', background: '/static/me.png' },
+      { id: 6, name: 'User 6', followerNumber: '100', background: '/static/me.png' },
+      { id: 6, name: 'User 6', followerNumber: '100', background: '/static/me.png' },
+      { id: 6, name: 'User 6', followerNumber: '100', background: '/static/me.png' },
+      { id: 6, name: 'User 6', followerNumber: '100', background: '/static/me.png' },
+      { id: 6, name: 'User 6', followerNumber: '100', background: '/static/me.png' },
+      { id: 6, name: 'User 6', followerNumber: '100', background: '/static/me.png' }
+
+    ],
+    searchResults: [] // 添加一个用于存储搜索结果的数组
   },
   onLoad() {
     this.getRecord();
@@ -40,6 +57,7 @@ Page({
       this.setData({
         value: ''
       });
+      this.performSearch(val); // 调用搜索函数
     }
   },
   // 判断历史记录是否超过10条
@@ -73,6 +91,19 @@ Page({
       }
     }
   },
+  // 模拟搜索函数，更新搜索结果
+  performSearch(query) {
+    // 模拟搜索结果，可以根据实际需求替换为实际的搜索逻辑
+    const searchResults = [
+      `Result for ${query} 1`,
+      `Result for ${query} 2`,
+      `Result for ${query} 3`,
+      `Result for ${query} 4`
+    ];
+    this.setData({
+      searchResults
+    });
+  },
   // 是否展示modal
   showModal() {
     this.setData({
@@ -95,15 +126,22 @@ Page({
   },
   // 处理返回事件
   onBack() {
-    // 示例：返回到上一个页面
     wx.navigateBack();
   },
   // 处理关注按钮点击事件
   onFollowed() {
     console.log('Followed button clicked');
+    this.setData({
+      buttonState:this.data.buttonState === 'button-default'? 'button-clicked':'button-default'
+    })
   },
   // 处理粉丝按钮点击事件
   onFans() {
     console.log('Fans button clicked');
+  },
+  // 处理排序按钮点击事件
+  onOrderChange() {
+    console.log('Order button clicked');
+    // 在这里添加排序逻辑
   }
 });
