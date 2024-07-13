@@ -9,7 +9,11 @@ Page({
     arrowr:'>',
     plus:'/static/plus-icon.png',
     htag:'/static/htag.png',
-    location:''
+    location:'/static/position.png'
   },
-  
+  onBack() {
+    wx.navigateTo({
+      url: '/pages/index/index',
+    })
+  }
 })

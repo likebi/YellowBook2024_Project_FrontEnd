@@ -1,13 +1,12 @@
 {
   "pages": [
+    "pages/addpost/addpost",
     "pages/index/index",
     "pages/follow/follow",
-    "pages/addpost/addpost",
     "pages/search/search",
     "pages/AI-chat/AI-chat",
     "pages/me/me",
     "pages/planning/planning"
-
   ],
   "tabBar": {
     "color": "#555555",

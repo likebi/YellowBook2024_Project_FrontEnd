@@ -65,9 +65,7 @@ Page({
   },
 
   onHandlerPageTo(){
-    wx.navigateTo({ 
-      url: '/pages/AI-chat/AI-chat',
-    })
+    wx.navigateBack();
   }
 
 })

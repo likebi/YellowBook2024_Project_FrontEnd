@@ -10,7 +10,7 @@
     </view>
     <!--文字上传区域-->
     <input class="title" type="text" name="title" placeholder="添加标题会有更多赞哦~"/>
-    <input class="content" type="text" name="content" placeholder="添加正文"/>
+    <textarea class="content" value="" placeholder="添加正文" auto-focus/>
     <!--话题标签区域-->
     <view class="element">
       <image class="htag" src="{{htag}}" mode="aspectFit"/>
@@ -19,7 +19,7 @@
     </view>
     <!--添加地点区域-->
     <view class="location">
-      <image class="htag" src="{{htag}}" mode="aspectFit"/>
+      <image class="htag" src="{{location}}" mode="aspectFit"/>
       <a href="#" class="select-input">添加地点</a>
       <view class="arrowr" bindtap="">{{arrowr}}</view>
     </view>
