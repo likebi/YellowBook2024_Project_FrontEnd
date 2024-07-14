@@ -81,7 +81,7 @@ Russia has around 100,000 rivers, including some of the longest and most powerfu
 </view>
   
    <!-- <view class="bottom-comment-box">
-    <view class="bottom-comment-right">
+    <view class="bottom-comment-right">s
       <image class="bottom-comment-image" src="{{heart}}" mode=""/>
       <image class="bottom-comment-image" src="{{star}}" mode=""/>
       <image class="bottom-comment-image" src="{{comment}}" mode=""/>

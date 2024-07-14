@@ -12,7 +12,7 @@ Page({
       {img:"https://ts1.cn.mm.bing.net/th/id/R-C.abe0f299fbb2c557325e0bfeed166aa8?rik=9HMMKTYIAK62qA&riu=http%3a%2f%2fdeadstate.org%2fwp-content%2fuploads%2f2015%2f04%2fputin-13.jpg&ehk=3l2xpfPMNScbGxtGjqofM2KlC1tbGJWhyRcZfGroxTI%3d&risl=&pid=ImgRaw&r=0"},
       {img:"https://tse4-mm.cn.bing.net/th/id/OIP-C.76JWnN2y3dT8UNtOuCrBlQHaEL?rs=1&pid=ImgDetMain"},
     ],
-    followStatus :false, //original not followed
+    followStatus :false, //original not followed test
     img_left: "<",
     user_image:"/static/Vladimir-Putin-.jpg",
     username:"Ilya Natalia",
