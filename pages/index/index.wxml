@@ -9,7 +9,7 @@
       <view class="search-container">
         <view class="search-window">
           <image class="icon" src="../../static/search.png" />
-          <navigator url="" class="search-link">输入搜索内容</navigator>
+          <navigator url="/pages/search/search" class="search-link">输入搜索内容</navigator>
         </view>
       </view>
 
