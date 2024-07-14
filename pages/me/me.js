@@ -1,4 +1,8 @@
 Page({
+
+  /**
+   * Page initial data
+   */
   data: {
     userImage: '/static/me.png',
     nickname: 'wechat_user',
@@ -11,10 +15,10 @@ Page({
     activeTagWidth: 64,
     activeTagLeft: 0,
     tabPositions: [22, 136, 250],
-    intro_user:'将用户的头像、昵称、用户 ID 和背景图存储到本地确保用户在不同页面的操作面可以获取到最新的信息。的作用是将当前用户的相关信息',
+    intro_user: '将用户的头像、昵称、用户 ID 和背景图存储到本地确保用户在不同页面的操作面可以获取到最新的信息。的作用是将当前用户的相关信息',
   },
 
-  onLoad: function() {
+  onLoad: function () {
     this.getUserInfo();
     this.setData({
       activeTagLeft: this.data.tabPositions[this.data.currentTab]
@@ -22,16 +26,16 @@ Page({
   },
 
   onShow() {
-    this.getUserInfo(); 
+    this.getUserInfo();
   },
 
 
   back() {
-    this.getUserInfo(); 
+    this.getUserInfo();
     wx.navigateBack();
-  },  
+  },
 
-  onChooseBackground: function() {
+  onChooseBackground: function () {
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
@@ -48,7 +52,7 @@ Page({
     });
   },
 
-  onChooseAvatar: function() {
+  onChooseAvatar: function () {
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
@@ -106,4 +110,4 @@ Page({
       url: '/pages/profile/clickProfile',
     });
   }
-});
+})

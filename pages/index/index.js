@@ -54,7 +54,7 @@ Page({
     this.setData({ current: currentPageIndex });
   },
 
-  like_post: function(e) {
+  like_post: function (e) {
     const index = e.currentTarget.dataset.index;
     const items = this.data.items;
     items[index].isLiked = !items[index].isLiked;
@@ -62,6 +62,8 @@ Page({
 
     this.setData({ items });
   },
+
+
 
   getUserInfo() {
     wx.getStorage({
@@ -98,3 +100,4 @@ Page({
     this.setData({ dropdownVisible: false });
   },
 });
+

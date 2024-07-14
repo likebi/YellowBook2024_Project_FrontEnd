@@ -7,19 +7,9 @@
 
     <view class="follow-container">
       <view class="follow-window">
-        <button class="followed {{followButtonState}}" bindtap="onFollowed">关注</button>
-        <button class="fans {{fanButtonState}}" bindtap="onFans">粉丝</button>
+        <text class="followed">关注</text>
       </view>
     </view>
-  </view>
-
-  <!-- 搜索栏 -->
-  <view class="search-container">
-    <view class="search-window">
-      <image class="icon" src="/static/sousuo.png" />
-      <input type="text" class="search-input" placeholder="输入搜索内容" bindinput="onInput" value="{{value}}" />
-    </view>
-    <view class="search-button" bindtap="onSearch">搜索</view>
   </view>
 
   <!-- 内容部分 -->

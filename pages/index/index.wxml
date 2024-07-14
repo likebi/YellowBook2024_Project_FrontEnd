@@ -26,7 +26,9 @@
     </view>
 
     <view class="page-section page-section-spacing swiper">
-      <swiper id="mySwiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}">
+      <swiper id="mySwiper" indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+        current="{{current}}">
         <block wx:for="{{background}}" wx:for-item="item" wx:for-index="index" wx:key="index">
           <swiper-item>
             <image class="swiper-item" src="{{item}}" mode="aspectFill"></image>

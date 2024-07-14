@@ -1,19 +1,58 @@
 /* pages/planning/planning.wxss */
-#container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+.post-page {
+  width: 100vw;
 }
-
-.title-bar {
+.post-page-header {
+  display: flex;
   width: 100%;
-  margin: 15rpx auto;
+  margin-bottom: 10px;
+}
+.image_back{
+  justify-content: flex-start;
+  padding-left: 10px;
+  padding-top: 23px;
+  font-size: 35px;
+  height: 20px;
+  line-height: 20px;
   text-align: center;
 }
+.post-image {
+  width: 30px;
+  height: 30px;
+  border: solid 1px black;
+  border-radius: 50%;
+  margin: 13px;
+  justify-content: center;
+  align-items: center;
+  padding: 3%;
+  overflow: hidden;
+}
+.post-image .post-image-size {
+  width: 100%; /* Changed from percentage to fixed size */
+  height: 100%; /* Changed from percentage to fixed size */
+  object-fit: cover;
+  border-radius: 50%;
+}
 
-.title {
-  width: 100%;
+.post-username-box {
+  margin-left: 10px;
+  width: auto;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.post-user {
+  font-size: 25px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top: 10px;
+}
+.follow-button {
+  width: 20%;
+  margin: 20px;
+  margin-left: 9%;
+}
+.follow-button-set {
+  justify-content: flex-end;
   text-align: center;
 }
 
@@ -37,7 +76,10 @@
   width: 100%;
   flex-wrap: nowrap;
   display: flex;
-  align-items: center; 
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* 确保图片占据整个父容器的宽度 */
+  height: 100%; /* 确保图片占据整个父容器的高度 */
 }
 
 .input-bar{
@@ -52,11 +94,28 @@
   padding-left: 20rpx;
   border: 1px solid rgb(30,144,255);
 }
+.input-section {
+  /* ini biar submit button ada di samping write comment */
+  display: flex;
+}
+.comment-button {
+  /* comment button submit */
+  padding: 10px;
+  background-color: #007aff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+}
 
-.send-btn, .attach-btn {
-  width: 50rpx; 
-  height: 60rpx; 
-  padding: 0; 
+.like-section {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  cursor: pointer;
+  /* background-color: crimson; */
+  
+}
+.save-section {
   display: flex;
   align-items: center;
   justify-content: center;
