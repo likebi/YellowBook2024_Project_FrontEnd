@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0;
+}
+
+.header_profile {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}
+
+#header_backBtn {
+  margin-right: auto; /* 推动按钮到左侧 */
+  font-size: 25px;
+}
+
+.header_title {
+  text-align: center;
+  flex-grow: 1;
+  padding-right: 10px;
+  font-size: 18px;
+}
+
+
+.avatar1 {
+  height: 90px;
+  margin-top: 20px;
+}
+
+
+.button-user {
+  width: 70px !important;
+  height: 70px !important;
+  border-radius: 50%;
+  padding: 0;
+  box-sizing: border-box; /* 包括边框和内边距在内 */
+}
+
+.user-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* 分开左右 */
+  align-items: center; /* 垂直居中 */
+  padding-bottom: 5px;
+  margin: 20px;
+  width: 100%;
+  margin-left: 10px;
+}
+
+.title-info {
+  display: flex;
+  width: 100%; 
+}
+
+.profile-info {
+  flex: 1; 
+  padding-left: 25px;
+  color: #666;
+}
+
+.user-info {
+  flex: 1; /* 右侧内容占据空间 */
+  text-align: right; /* 右对齐 */
+  padding-right: 30px;
+  font-weight: 600;
+}
+
+.arrOw{
+  flex:0;
+  padding-right: 20px;
+  text-align: right; /* 右对齐 */
+  color: #999;
+}
+
+

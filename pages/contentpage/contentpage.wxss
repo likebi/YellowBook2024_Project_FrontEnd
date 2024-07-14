@@ -87,7 +87,7 @@
 }
 
 .centered-image {
-  width: 100%; /* 让图片宽度填充父容器 */
+  width: 100%; /* 让图片宽度填充父容器. */
   height: 100%; /* 让图片高度填充父容器 */
   object-fit: cover; /* 让图片按比例填充，并居中显示 */
 }
@@ -138,17 +138,73 @@ comments-section {
   border: none;
   border-radius: 5px;
 }
+
 .like-section {
   display: flex;
   align-items: center;
   margin-top: 5px;
   cursor: pointer;
+  /* background-color: crimson; */
+  
+}
+.save-section {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  cursor: pointer;
+  /* background-color: yellow; */
+}
+.like-icon, .save-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}
+.like-count {
+  margin-right: 10px;
+}
+/* .like-icon .liked {
+  filter: none; Remove grayscale filter
+  color: crimson; Change to crimson red
+}
+.save-icon .saved {
+  filter: none; Remove grayscale filter
+  color: yellow; Change to yellow
+} */
+
+/* .like-icon {
+  filter: grayscale(100%); Original color effect
+} 
+.save-icon {
+  filter: grayscale(100%);  Original color effect
+}  */
+
+
+/* .like-section {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  cursor: pointer;
+  box-shadow: none;
+  border: none;
 }
 .like-icon {
   width: 20px;
   height: 20px;
   margin-right: 5px;
+  box-shadow: none;
+  border: none;
 }
+save-section {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  cursor: pointer;
+}
+.save-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+} */
 input {
   /* input comments */
   flex: 1;
@@ -157,6 +213,18 @@ input {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-
+.bottom-comment-box {
+  border: soild 1px black;
+  width: auto;
+  height: auto;
+}
+.bottom-comment-right {
+  display: flex;
+  flex-direction: row;
+}
+.bottom-comment-image {
+  width: 30px;
+  height: 30px;
+}
 
 

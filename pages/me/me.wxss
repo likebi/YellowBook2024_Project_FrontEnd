@@ -1,5 +1,5 @@
 .background {
-  height: 185px;
+  height: 200px;
   position: absolute; /* 绝对定位 */
   top: 0;
   left: 0;
@@ -15,7 +15,7 @@
 .me-info {
   position: relative; 
   z-index: 1; 
-  height: 185px; 
+  height: 195px; 
   display: flex;
   justify-content: center;
 }
@@ -78,22 +78,21 @@ button {
 
 .id_user {
   font-size: 14px; /* Adjust font size as needed */
-  color: #333; /* Adjust color as needed */
+  color: #000; /* Adjust color as needed */
   margin-top: 5px; /* Add some spacing between input and text */
 }
 
 .editProfil{
   position:absolute;
   left: 20px;
-  bottom: 60px;
-  margin-top: 20px;
-  width: 250px;
+  bottom: 50px;
+  width: 300px;
   font-size: 12px;
 }
 
 .profile-stats {
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   left: 5px;
   display: flex; /* 使用 flexbox 布局 */
   justify-content: space-between; /* 平均分配空间 */
@@ -121,6 +120,7 @@ button {
 .container {
   display: flex;
   flex-direction: column;
+  margin-top: 30rpx;
   padding: 10rpx 0;
   height: 100vh;
 }
@@ -177,4 +177,19 @@ button {
   justify-content: center;
   height: 100%;
   background-color: #ff0000;
+}
+
+.button_edit{
+  position: absolute;
+  right: 60px;
+  bottom: 8px;
+  margin-top: 5px;
+  width: 80px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  background-color: rgba(56, 52, 52, 0.4);
+  border-radius: 10px;
+  font-size: 12px;
+  color: #fff;
 }

@@ -1,5 +1,8 @@
 .container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   align-items: flex-start;
   justify-content: flex-start;
   padding: 0;
@@ -7,6 +10,7 @@
   width: 100%;
   background-color: #f5f5f5;
 }
+
 
 .first_container{
   margin-top: 15px;
@@ -97,28 +101,21 @@
   flex-wrap: nowrap; /* 保持文本不换行 */
   width: auto; /* 根据内容自动调整宽度 */
 }
-
-.page-body {
-  width: 100%;
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-}
-
 .page-section {
   width: 100%;
   padding: 0;
   position: relative; 
+  
 }
 
 .page-section-spacing {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 
 .swiper {
   border-radius: 20px;
   margin:0 auto;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-bottom: 20px;
   width: 95%;
   height: 150px;
@@ -144,6 +141,7 @@
   width: 30px;
   height: 60px;
   background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
   color: #fff;
   text-align: center;
   font-size: 20px;
@@ -253,7 +251,34 @@ button-sug{
   overflow: hidden; /* 超出内容隐藏 */
   text-overflow: ellipsis; /* 超出部分显示省略号 */
   display: -webkit-box; /* 使用 Flexbox 进行布局 */
-  -webkit-line-clamp: 3; /* 限制显示两行 */
+  -webkit-line-clamp: 2; /* 限制显示两行 */
   -webkit-box-orient: vertical; /* 垂直排列 */
-  margin: 10px 5px;
+  margin: 10px 20rpx;
+  font-size: 20rpx;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item-image {
+  width: 25px; /* 设置图片的宽度 */
+  height: 25px; /* 设置图片的高度 */
+  border-radius: 40rpx;
+  margin-right: 10px; /* 图片与文字之间的间距 */
+  margin-left: 20rpx;
+}
+
+.item-love{
+  width: 20px; /* 设置图片的宽度 */
+  height: 20px; /* 设置图片的高度 */
+  border-radius: 40rpx;
+  margin-right: 10px; /* 图片与文字之间的间距 */
+  margin-left: 60rpx;
+}
+
+.item-text {
+  font-size: 10px; /* 设置文字的大小 */
+  color: #333; /* 设置文字的颜色 */
 }

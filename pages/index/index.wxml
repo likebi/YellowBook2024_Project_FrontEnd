@@ -5,13 +5,13 @@
         <image src="../../static/position.png" class="image-type" />
         <text class="position-name">{{namePosition}}</text>
       </view>
-      
+
       <view class="search-container">
         <view class="search-window">
-        <image class="icon" src="../../static/serach.png" />
-        <navigator url="" class="search-link">输入搜索内容</navigator>
+          <image class="icon" src="../../static/search.png" />
+          <navigator url="/pages/search/search" class="search-link">输入搜索内容</navigator>
+        </view>
       </view>
-    </view>
 
       <view class="dropdown-container">
         <image src="../../static/plus.png" bindtap="toggleDropdown" class="dropdown-img"/>
@@ -26,7 +26,9 @@
     </view>
 
     <view class="page-section page-section-spacing swiper">
-      <swiper id="mySwiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}">
+      <swiper id="mySwiper" indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+        current="{{current}}">
         <block wx:for="{{background}}" wx:for-item="item" wx:for-index="index" wx:key="index">
           <swiper-item>
             <image class="swiper-item" src="{{item}}" mode="aspectFill"></image>
@@ -36,11 +38,12 @@
       <view bindtap="prevImage" class="leftArrow">{{Arrow1}}</view>
       <view bindtap="nextImage" class="rightArrow">{{Arrow2}}</view>
     </view>
+
     <view class="selected">
-    <a href="" class="index_selected"></a>
-    <a href="" class="index_selected"></a>
-    <a href="" class="index_selected"></a>
-    <a href="" class="index_selected"></a>
+      <navigator href="" class="index_selected"></navigator>
+      <navigator href="" class="index_selected"></navigator>
+      <navigator href="" class="index_selected"></navigator>
+      <navigator href="" class="index_selected"></navigator>
     </view>
 
     <view class="fontSuggestion"> 
@@ -49,19 +52,17 @@
 
     <view class="contentSuggestion">
       <view class="box-suggestion">
-          <view class="first">
-          <a href="">
+        <view class="first" wx:for="{{items}}" wx:key="id">
+          <navigator href="">
             <image class="image1" src="https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp" mode="aspectFill" />
             <text class="intro">联想（Lenovo）拯救者27英寸2K FastIPS 原生180Hz原生低蓝光</text>
-          </a>
-          </view>
-
-          <view class="first">
-          <a href="">
-            <image class="image1" src="https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp" mode="aspectFill" />
-            <text class="intro">这是一个比较长的描述，可能会导致这个盒子这是一个比较长的描述，可能会导致这个盒子更高这是一个比较长的描述，可能会导致这个盒子更高这是一个比较长的描述，可能会导致这个盒子更高更高这是一个比较长的描述，可能会导致这个盒子更高</text>
-          </a>
-          </view>
+            <view class="item">
+              <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
+              <text class="item-text">{{item.text}}</text>
+              <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+            </view>
+          </navigator>
+        </view>
       </view>
     </view>
   </view>
