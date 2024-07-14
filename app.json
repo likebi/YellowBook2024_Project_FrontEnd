@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/fans/fans",
     "pages/follower/follower",
-    "pages/index/index",
     "pages/follow/follow",
     "pages/addpost/addpost",
     "pages/search/search",
