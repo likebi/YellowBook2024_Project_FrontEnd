@@ -1,0 +1,21 @@
+<view class="container_edit">
+  <view class="editTitle">Edit Gender</view>
+  <view class="editMention">
+    <text>选择你的性别</text>
+    <view class="genderOptions">
+      <view class="genderOption" 
+            bindtap="selectGender" 
+            data-gender="男" 
+            style="cursor: pointer; background-color: {{selectedGender === '男' ? '#e0e0e0' : 'transparent'}};">
+        <text>男</text>
+      </view>
+      <view class="genderOption" 
+            bindtap="selectGender" 
+            data-gender="女" 
+            style="cursor: pointer; background-color: {{selectedGender === '女' ? '#e0e0e0' : 'transparent'}};">
+        <text>女</text>
+      </view>
+    </view>
+    <button form-type="submit" bindtap="submitGender">提交</button>
+  </view>
+</view>

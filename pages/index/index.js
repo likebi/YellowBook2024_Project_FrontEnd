@@ -1,3 +1,4 @@
+
 Page({
   data: {
     demoText1: 'https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient',
@@ -5,7 +6,6 @@ Page({
     demoText3: 'https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient',
     background: [],
     indicatorDots: true,
-    vertical: false,
     autoplay: true,
     interval: 4000,
     duration: 500,
@@ -20,7 +20,21 @@ Page({
       { label: '选项1', value: 'page1' },
       { label: '选项2', value: 'page2' },
       { label: '选项3', value: 'page3' }
-    ]
+    ],
+    items: [
+      {
+        id: 1,
+        text: "迷人的灰太狼",
+        loveImage: "../../static/love.png",
+        isLiked: false,
+      },
+      {
+        id: 2,
+        text: "另一项内容",
+        loveImage: "../../static/love.png",
+        isLiked: false,
+      }
+    ],
   },
 
   onLoad: function () {
@@ -31,35 +45,37 @@ Page({
   },
 
   nextImage: function () {
-    let currentPageIndex = this.data.current;
-    currentPageIndex = (currentPageIndex + 1) % this.data.background.length;
-    this.setData({
-      current: currentPageIndex
-    });
+    let currentPageIndex = (this.data.current + 1) % this.data.background.length;
+    this.setData({ current: currentPageIndex });
   },
 
   prevImage: function () {
-    let currentPageIndex = this.data.current;
-    currentPageIndex = (currentPageIndex - 1 + this.data.background.length) % this.data.background.length;
-    this.setData({
-      current: currentPageIndex
-    });
+    let currentPageIndex = (this.data.current - 1 + this.data.background.length) % this.data.background.length;
+    this.setData({ current: currentPageIndex });
   },
 
-  onChooseAvatar(e) {
-    console.log(e);
-    this.setData({
-      userImage: e.detail.avatarUrl
-    });
-    this.saveUserInfo();
+  like_post: function(e) {
+    const index = e.currentTarget.dataset.index;
+    const items = this.data.items;
+    items[index].isLiked = !items[index].isLiked;
+    items[index].loveImage = items[index].isLiked ? '../../static/love.png' : '../../static/love2.png';
+
+    this.setData({ items });
   },
 
-  onChooseNickname(e) {
-    console.log(e);
-    this.setData({
-      nickname: e.detail.value
+  getUserInfo() {
+    wx.getStorage({
+      key: 'userInfo',
+      success: res => {
+        this.setData({
+          userImage: res.data.userImage,
+          nickname: res.data.nickname
+        });
+      },
+      fail: () => {
+        console.log('获取用户信息失败');
+      }
     });
-    this.saveUserInfo();
   },
 
   saveUserInfo() {
@@ -72,31 +88,13 @@ Page({
     });
   },
 
-  getUserInfo() {
-    wx.getStorage({
-      key: 'userInfo',
-      success: res => {
-        this.setData({
-          userImage: res.data.userImage,
-          nickname: res.data.nickname
-        });
-      }
-    });
-  },
-
   toggleDropdown() {
-    this.setData({
-      dropdownVisible: !this.data.dropdownVisible
-    });
+    this.setData({ dropdownVisible: !this.data.dropdownVisible });
   },
 
   onOptionSelect(e) {
     const value = e.currentTarget.dataset.value;
-    wx.navigateTo({
-      url: `/pages/${value}/${value}`
-    });
-    this.setData({
-      dropdownVisible: false
-    });
-  }
+    wx.navigateTo({ url: `/pages/${value}/${value}` });
+    this.setData({ dropdownVisible: false });
+  },
 });

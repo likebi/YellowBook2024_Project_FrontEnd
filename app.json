@@ -6,8 +6,13 @@
     "pages/search/search",
     "pages/AI-chat/AI-chat",
     "pages/me/me",
-    "pages/planning/planning"
-
+    "pages/planning/planning",
+    "pages/profile/clickProfile",
+    "pages/editName/editName",
+    "pages/editId/editId",
+    "pages/editBio/editBio",
+    "pages/editGender/editGender"
+    
   ],
   "tabBar": {
     "color": "#555555",

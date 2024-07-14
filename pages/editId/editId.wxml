@@ -1,0 +1,18 @@
+<view class="container_edit">
+  <view class="editTitle">Edit Uid</view>
+  <view class="editMention">
+    <text>小黄书号是账号的唯一凭证，只能修改一次</text>
+  </view>
+  <view class="editArea">
+    <view class="inputContainer">
+      <input 
+        placeholder="请输入小黄书号" 
+        class="text_pla" 
+        maxlength="24" 
+        bindinput="onInput" 
+      />
+      <text class="countText">{{currentLength}}/24</text>
+    </view>
+  </view>
+  <button form-type="submit" bindtap="inputContent"> 提交 </button>
+</view>

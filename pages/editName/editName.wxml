@@ -1,0 +1,18 @@
+<view class="container_edit">
+  <view class="editTitle">Edit Name</view>
+  <view class="editMention">
+    <text>您可以在七天内修改一次姓名</text>
+  </view>
+  <view class="editArea">
+    <view class="inputContainer">
+      <input 
+        placeholder="添加您的名字" 
+        class="text_pla" 
+        maxlength="24" 
+        bindinput="onInput" 
+      />
+      <text class="countText">{{currentLength}}/24</text>
+    </view>
+  </view>
+  <button form-type="submit" bindtap="inputContent"> 提交 </button>
+</view>

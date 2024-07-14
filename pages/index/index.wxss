@@ -144,6 +144,7 @@
   width: 30px;
   height: 60px;
   background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
   color: #fff;
   text-align: center;
   font-size: 20px;
@@ -253,7 +254,34 @@ button-sug{
   overflow: hidden; /* 超出内容隐藏 */
   text-overflow: ellipsis; /* 超出部分显示省略号 */
   display: -webkit-box; /* 使用 Flexbox 进行布局 */
-  -webkit-line-clamp: 3; /* 限制显示两行 */
+  -webkit-line-clamp: 2; /* 限制显示两行 */
   -webkit-box-orient: vertical; /* 垂直排列 */
-  margin: 10px 5px;
+  margin: 10px 20rpx;
+  font-size: 20rpx;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item-image {
+  width: 25px; /* 设置图片的宽度 */
+  height: 25px; /* 设置图片的高度 */
+  border-radius: 40rpx;
+  margin-right: 10px; /* 图片与文字之间的间距 */
+  margin-left: 20rpx;
+}
+
+.item-love{
+  width: 20px; /* 设置图片的宽度 */
+  height: 20px; /* 设置图片的高度 */
+  border-radius: 40rpx;
+  margin-right: 10px; /* 图片与文字之间的间距 */
+  margin-left: 60rpx;
+}
+
+.item-text {
+  font-size: 10px; /* 设置文字的大小 */
+  color: #333; /* 设置文字的颜色 */
 }

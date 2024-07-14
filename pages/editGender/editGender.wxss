@@ -1,0 +1,52 @@
+/* pages/editName/editName.wxss */
+.container_edit {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+  background-color: #f8f8f8;
+  align-items: center; 
+}
+
+.editTitle {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 50rpx;
+}
+
+.editMention {
+  text-align: center; /* 内容居中 */
+  font-size: 13px;
+  color: black;
+  margin-bottom: 15px;
+}
+
+.genderOptions {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  margin-top: 10px;
+}
+.genderOption {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+.genderOption:hover {
+  background-color: #f0f0f0;
+}
+
+button {
+  width: 100%;
+  height: 60rpx;
+  margin-top: 50rpx;
+  background-color: #888;
+  opacity: 0.6;
+  color: white;
+  font-size: 25rpx;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+}

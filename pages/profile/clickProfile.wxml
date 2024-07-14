@@ -1,0 +1,53 @@
+<view class="container">
+  <view class="header_profile">
+    <text class="header_title">Edit Profile</text>
+  </view>
+
+  <view class="avatar1">
+    <button open-type="chooseImage" bindtap="onChooseAvatar" class="button-user">
+      <image class="user-image" src="{{userImage}}" mode="aspectFill"></image>
+    </button>
+  </view>
+
+  <block>
+    <navigator url="/pages/editName/editName" style="display: block; width: 100%;">
+      <view class="user-profile">
+        <view class="title-info">
+          <text class="profile-info">姓名</text>
+          <text class="user-info">{{nickname}}</text>
+          <text class="arrOw">></text>
+        </view>
+      </view>
+    </navigator>
+
+    <navigator url="/pages/editId/editId" style="display: block; width: 100%;">
+      <view class="user-profile">
+        <view class="title-info">
+          <text class="profile-info">小黄书 ID</text>
+          <text class="user-info">{{Uid}}</text>
+          <text class="arrOw">></text>
+        </view>
+      </view>
+    </navigator>
+
+    <navigator url="/pages/editBio/editBio" style="display: block; width: 100%;">
+      <view class="user-profile">
+        <view class="title-info">
+          <text class="profile-info">Bio</text>
+          <text class="user-info">{{Bio}}</text>
+          <text class="arrOw">></text>
+        </view>
+      </view>
+    </navigator>
+
+    <navigator url="/pages/editGender/editGender" style="display: block; width: 100%;">
+      <view class="user-profile">
+        <view class="title-info">
+          <text class="profile-info">Gender</text>
+          <text class="user-info">{{gender}}</text>
+          <text class="arrOw">></text>
+        </view>
+      </view>
+    </navigator>
+  </block>
+</view>
