@@ -1,6 +1,6 @@
 .background {
-  height: 200px;
-  position: absolute; /* 绝对定位 */
+  height: 210px;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
@@ -9,12 +9,21 @@
   background-position: center; 
   background-repeat: no-repeat;
   z-index: 0;
-  opacity: 0.6;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
 }
 
 .me-info {
   position: relative; 
-  z-index: 1; 
+  z-index: 2; 
   height: 195px; 
   display: flex;
   justify-content: center;
@@ -22,25 +31,25 @@
 
 .change-bg-button {
   width: 100px !important;
-  position: absolute; /* 绝对定位 */
-  top: 10px; /* 距离顶部10px */
-  right: 1px; /* 距离右侧10px */
+  position: absolute;
+  top: 10px; 
+  right: 1px; 
   font-size: 14px;
-  border: none; /* 无边框 */
+  border: none;
+  color: #ccc; 
 }
 
 button {
   border: none;
   background: none;
   padding: 0;
+  color: #ccc; 
 }
 
 .avatar1 {
   height: 90px;
   margin-top: 20px;
-  margin-left: 20px;
 }
-
 
 .button-user {
   position: absolute;
@@ -50,7 +59,7 @@ button {
   height: 70px !important;
   border: none;
   padding: 0;
-  box-sizing: border-box; /* 包括边框和内边距在内 */
+  box-sizing: border-box; 
 }
 
 .user-info {
@@ -71,49 +80,51 @@ button {
 .user-name-input {
   font-size: 20px;
   font-weight: 700;
-  color: #000;
+  color: #ccc; 
   padding: 0;
   width: auto;
 }
 
 .id_user {
-  font-size: 14px; /* Adjust font size as needed */
-  color: #000; /* Adjust color as needed */
-  margin-top: 5px; /* Add some spacing between input and text */
+  font-size: 14px;
+  color: #ccc; 
+  margin-top: 5px;
 }
 
-.editProfil{
-  position:absolute;
+.editProfil {
+  position: absolute;
   left: 20px;
   bottom: 50px;
   width: 300px;
   font-size: 12px;
+  color: #ccc; /* 字体颜色 */
 }
 
 .profile-stats {
   position: absolute;
   bottom: 0px;
   left: 5px;
-  display: flex; /* 使用 flexbox 布局 */
-  justify-content: space-between; /* 平均分配空间 */
-  margin-top: 10px; /* 上边距 */
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .stat-item {
   display: flex;
-  flex-direction: column; /* 垂直排列 */
-  align-items: center; /* 水平居中 */
+  flex-direction: column;
+  align-items: center;
   margin-left: 30px;
 }
 
 .number {
-  font-size: 14px; /* 数字字体大小 */
+  font-size: 14px;
   font-weight: 700;
+  color: #ccc; /* 字体颜色 */
 }
 
 .label {
-  font-size: 12px; /* 标签字体大小 */
-  color: #333;
+  font-size: 12px;
+  color: #ccc; /* 字体颜色 */
   font-weight: 600;
 }
 
@@ -147,7 +158,7 @@ button {
 }
 
 .reds-tab-item.active span {
-  color: #ff0000; /* 活动标签的字体颜色 */
+  color: #ff0000;
 }
 
 .active-tag {
@@ -166,8 +177,7 @@ button {
   margin-top: 15px;
 }
 
-
-.content_title{
+.content_title {
   margin: 0 40px;
 }
 
@@ -179,7 +189,7 @@ button {
   background-color: #ff0000;
 }
 
-.button_edit{
+.button_edit {
   position: absolute;
   right: 60px;
   bottom: 8px;
@@ -191,5 +201,5 @@ button {
   background-color: rgba(56, 52, 52, 0.4);
   border-radius: 10px;
   font-size: 12px;
-  color: #fff;
+  color: #fff; /* 字体颜色 */
 }

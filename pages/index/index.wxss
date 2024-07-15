@@ -19,6 +19,7 @@
   justify-content: space-around;
 }
 
+
 .index-position {
   display: flex;
   line-height: 20px;
@@ -120,7 +121,7 @@
   width: 95%;
   height: 150px;
   text-align: center;
-  box-shadow: 0 0 4px 6px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.2);
 }
 
 .swiper-item {
@@ -199,20 +200,35 @@ button{
   padding: 0;
 }
 
+.container_icon {
+  display: flex;
+  justify-content: center; 
+}
+
 .selected {
   display: flex;
   justify-content: space-around;
-  margin-top: 20px;
-  width: 96%;
+  width: 100vw; 
 }
 
-.index_selected{
-  display: inline-block;
+.index_selected {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
   width: 70px;
-  height: 70px;
-  border-radius: 70px;
-  background-color: #333;
+  height: 70px; 
 }
+
+.icon_function {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.icon-title {
+  margin-top: 5px; 
+  font-size: 14px; 
+}
+
 
 .fontSuggestion{
   text-align: center;

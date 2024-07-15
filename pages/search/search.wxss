@@ -9,11 +9,6 @@
   margin-bottom: 20rpx;
 }
 
-.arrow-left {
-  font-size: 50rpx;
-  cursor: pointer;
-  color: #007AFF;
-}
 
 .search-container {
   flex: 1;
@@ -41,7 +36,7 @@
 
 .search-button {
   cursor: pointer;
-  color: #007AFF;
+  color: #999;
 }
 
 .history {
