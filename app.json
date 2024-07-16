@@ -13,7 +13,8 @@
     "pages/editName/editName",
     "pages/editId/editId",
     "pages/editBio/editBio",
-    "pages/editGender/editGender"
+    "pages/editGender/editGender",
+    "pages/contentpage/contentpage"
     
   ],
   "tabBar": {

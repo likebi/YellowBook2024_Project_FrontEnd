@@ -6,11 +6,11 @@ Page({
    */
   data: {
     imgurl:[
-      {img:"https://tse3-mm.cn.bing.net/th/id/OIP-C.IyhKsUY-cD_jd7LCOvpIFwHaG2?rs=1&pid=ImgDetMain"},
-      {img:"https://ts1.cn.mm.bing.net/th/id/R-C.0852e70e9ad92bd6e6c6cf3c226b186b?rik=uy3sr6stJD4WpQ&riu=http%3a%2f%2fstatic6.businessinsider.com%2fimage%2f5527bee66bb3f71f7a28a779-480%2fputin-meme.jpg&ehk=1nJoJ%2bOEzUAWTb9Fd26hkajWHXEH14W7AUY4r46W3Tk%3d&risl=&pid=ImgRaw&r=0"},
-      {img:"https://tse1-mm.cn.bing.net/th/id/OIP-C.pCqraDWilICKRnJZqmuBUAHaF6?rs=1&pid=ImgDetMain"},
-      {img:"https://ts1.cn.mm.bing.net/th/id/R-C.abe0f299fbb2c557325e0bfeed166aa8?rik=9HMMKTYIAK62qA&riu=http%3a%2f%2fdeadstate.org%2fwp-content%2fuploads%2f2015%2f04%2fputin-13.jpg&ehk=3l2xpfPMNScbGxtGjqofM2KlC1tbGJWhyRcZfGroxTI%3d&risl=&pid=ImgRaw&r=0"},
-      {img:"https://tse4-mm.cn.bing.net/th/id/OIP-C.76JWnN2y3dT8UNtOuCrBlQHaEL?rs=1&pid=ImgDetMain"},
+      {img:"https://sns-webpic-qc.xhscdn.com/202407142124/d6d9e57a82067916cc21223cf76a807a/1040g2sg3121pc3iu3i005pfjtmah9a7uj0v4ldo!nd_dft_wlteh_webp_3"},
+      {img:"https://sns-webpic-qc.xhscdn.com/202407142124/3a2b092c095068d545f78b71ecfeb183/1040g2sg3121pc3iu3i1g5pfjtmah9a7u3kdq150!nd_dft_wlteh_webp_3"},
+      {img:"https://c-ssl.duitang.com/uploads/item/202002/08/20200208034637_hz4HJ.jpeg"},
+      {img:"https://cdn.donmai.us/sample/7d/b4/__elysia_and_elysia_honkai_and_1_more_drawn_by_macaroni_0101__sample-7db413e1f173d044760ea7e281633813.jpg"},
+      {img:"https://th.bing.com/th/id/OIP.6TFlvYxNI2FD6oaQz9ZuTgHaDU?w=317&h=157&c=7&r=0&o=5&pid=1.7"},
     ],
     followStatus :false, //original not followed test
     img_left: "<",

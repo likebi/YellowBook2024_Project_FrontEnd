@@ -1,90 +1,57 @@
-<!--pages/planning/planning.wxml-->
-<view class="post-page">
-  <view class="post-page-header">
-    <view class="image_back">
-      <text>{{img_left}}</text>
-    </view>
-    <view class="post-image">
-      <image class="post-image-size" src="{{user_image}}" mode="cover" />
-    </view>
-    <view class="post-username-box">
-      <view class="post-user">{{username}} </view>
-      <view>
-        <image class="location-image" src="{{location}}" mode=""/>
-        <text class="post-username-font">Moscow,Russia</text>
-      </view>
-    </view>
-    <view class= "follow-button">
-      <button class="follow-button-set" size="mini" bind:tap="toggleFollow">
-        {{ followStatus ? '已关注' : '关注' }}
-      </button>
+<view>
+  <view class="post-page">
+    <view class="item">
+      <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
+      <text class="item-text">默默</text>
+      <view class="button_follow">关注</view>
     </view>
   </view>
-</view>
 
-<view class="swiper-post">
-  <swiper 
-    interval="2500"
-    circular="true"
-    indicator-dots="true"
-    class="swipper-size">
-    <swiper-item wx:for="{{imgurl}}" wx:key="*this">
-      <view class="swiper-img">
-        <image src="{{item.img}}" class="centered-image"/>
-      </view>
-    </swiper-item>
-  </swiper>
-</view>
-
-<view class="text-post">
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Russia: geography and landscape
-As the world’s largest country, Russia occupies one-tenth of all the land on Earth. It spans 11 time zones across two continents (Europe and Asia) and has shores on three oceans (the Atlantic, Pacific and Arctic Ocean).
-
-The Russian landscape varies from sandy and frozen deserts, tall mountains to giant marshes. Much of Russia is made up of rolling, treeless plains called “steppes”. The region of Siberia, which occupies three-quarters of Russia, is dominated by sprawling pine forests called “taigas”.
-
-Russia facts
-The Russian landscape varies from desert to frozen coastline, tall mountains to giant marshes
-Russia has around 100,000 rivers, including some of the longest and most powerful in the world. It also has many lakes, including Ladoga and Onega (Europe’s two largest lakes), and Lake Baikal, which contains more water than any other lake on Earth.
-</view>
-
-<view class="comment-post">
-  <view class="comment-container">
-    <view class="comments-section">
-      <block wx:for="{{comments}}" wx:key="id">
-        <view class="comment">
-          <image class="user-image-comment" src="{{item.userImage}}" />
-          <view class="comment-content">
-            <text class="user-name-comment">{{item.userName}}</text>
-            <text class="comment-text">{{item.comment}}</text>
-            <view class="like-section" data-id="{{item.id}}" bindtap="toggleLike">
-              <image src="{{heart}}" class="like-icon" src="{{heart}}"/>
-              <text>{{item.likes}}</text>
-            </view>
-            <view class="save-section" data-id="{{item.id}}" bindtap="togglesave">
-              <image class="save-icon" src="{{star}}" />
-              <text>{{item.saves}}</text>
-            </view>
-          </view>
+  <view class="swiper-post">
+    <swiper 
+      interval="2500"
+      circular="true"
+      indicator-dots="true"
+      class="swipper-size">
+      <swiper-item wx:for="{{imgurl}}" wx:key="*this">
+        <view class="swiper-img">
+          <image src="{{item.img}}" class="centered-image" mode="aspectFit"/>
         </view>
-      </block>
-    </view>
+      </swiper-item>
+    </swiper>
   </view>
-  <view class="input-section">
-    <input 
-    type="text" 
-    bindinput="onInput" 
-    bindconfirm="submitComment"
-    placeholder="Write a comment..." 
-    value="{{inputValue}}" />
-    <button class="comment-button" bindtap="submitComment">Submit</button>
-  </view>
-</view>
-  
-   <!-- <view class="bottom-comment-box">
-    <view class="bottom-comment-right">s
-      <image class="bottom-comment-image" src="{{heart}}" mode=""/>
-      <image class="bottom-comment-image" src="{{star}}" mode=""/>
-      <image class="bottom-comment-image" src="{{comment}}" mode=""/>
-    </view>
-  </view> -->
 
+  <view class="text-post">
+    <view>
+      <text class="title_post">陪伴我十年青春的男孩 一眨眼都长大啦</text>
+    </view>
+    <view class="text_post">
+      <text>很多人都说中学的恋情是最长情 最深刻的 我们2015年相识 真的一眨眼十年过去了</text>
+    </view>
+    <view class="position-date">
+      <text>0708</text>
+      <text class='position_content'>江西</text>
+    </view>
+  </view>
+
+  <view class="header_comment">
+    <text>共45条评论</text>
+  </view>
+
+  <view class="commentArea">
+    <input type="text" placeholder="留下你的想法" class="leave_comment"/>
+    <image src="../../static/comments.png" class="comment-icon" />
+  </view>
+
+  <view class="user_comment">
+  <image src="../../static/test.png" class="commentuser-image" mode="aspectFill"></image>
+  
+  <view class="commentuser_info">
+    <text class="commentuser-name">小米</text>
+    <text class="commentuser-text">小米是个好手机</text>
+    <text class="commentuser-position">4天前 福建</text>
+  </view>
+  <image src="/static/love.png" mode="" class="icon_love"/>
+</view>
+
+</view>
