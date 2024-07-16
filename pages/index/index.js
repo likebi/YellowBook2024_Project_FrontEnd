@@ -17,7 +17,7 @@ Page({
     namePosition: "厦门",
     dropdownVisible: false,
     options: [
-      { label: '选项1', value: 'page1' },
+      { label: '发布', value: '/pages/addpost/addpost' },
       { label: '选项2', value: 'page2' },
       { label: '选项3', value: 'page3' }
     ],
@@ -37,6 +37,17 @@ Page({
     ],
   },
 
+
+  onOptionSelect(e) {
+    const value = e.currentTarget.dataset.value;
+    wx.navigateTo({
+      url: value
+    });
+    this.setData({
+      dropdownVisible: false
+    });
+  },
+  
   onLoad: function () {
     this.setData({
       background: [this.data.demoText1, this.data.demoText2, this.data.demoText3]
@@ -96,7 +107,7 @@ Page({
 
   onOptionSelect(e) {
     const value = e.currentTarget.dataset.value;
-    wx.navigateTo({ url: `/pages/${value}/${value}` });
+    wx.navigateTo({ url: value });
     this.setData({ dropdownVisible: false });
   },
 });

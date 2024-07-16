@@ -9,7 +9,7 @@
       <view class="search-container">
         <view class="search-window">
           <image class="icon" src="../../static/search.png" />
-          <navigator url="" class="search-link">输入搜索内容</navigator>
+          <navigator url="/pages/search/search" class="search-link">输入搜索内容</navigator>
         </view>
       </view>
 
@@ -39,12 +39,28 @@
       <view bindtap="nextImage" class="rightArrow">{{Arrow2}}</view>
     </view>
 
-    <view class="selected">
-      <navigator href="" class="index_selected"></navigator>
-      <navigator href="" class="index_selected"></navigator>
-      <navigator href="" class="index_selected"></navigator>
-      <navigator href="" class="index_selected"></navigator>
-    </view>
+    <view class="container_icon">
+  <view class="selected">
+    <navigator class="index_selected" url="/pages/hotel/hotel">
+      <image src="../../static/hotel.png" class="icon_function" mode=""/>
+      <text class="icon-title">酒店</text>
+    </navigator>
+<<<<<<< HEAD
+    <navigator class="index_selected" url="../Trip/trip">
+=======
+    <navigator class="index_selected" url="/pages/trip/trip">
+>>>>>>> da77a7778f33fe02433b09962af8abb242c9ff9d
+      <image src="../../static/trip.png" class="icon_function" mode=""/>
+      <text class="icon-title">旅游</text>
+    </navigator>
+    <navigator class="index_selected" url="/pages/food/food">
+      <image src="../../static/food.png" class="icon_function" mode=""/>
+      <text class="icon-title">美食</text>
+    </navigator>
+  </view>
+</view>
+
+
 
     <view class="fontSuggestion"> 
       <text>为您推荐</text>
@@ -53,7 +69,7 @@
     <view class="contentSuggestion">
       <view class="box-suggestion">
         <view class="first" wx:for="{{items}}" wx:key="id">
-          <navigator href="">
+          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
             <image class="image1" src="https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp" mode="aspectFill" />
             <text class="intro">联想（Lenovo）拯救者27英寸2K FastIPS 原生180Hz原生低蓝光</text>
             <view class="item">

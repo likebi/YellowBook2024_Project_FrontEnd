@@ -2,9 +2,6 @@
   <scroll-view class="container1" scroll-y="true">
     <!--图片上传区域-->
     <view class="upload-box">
-      <view class="header">
-        <view class="arrow" bindtap="onBack">{{arrowl}}</view>
-      </view>
       <image class="upload-icon" src="{{plus}}" mode="aspectFit"/>
       
     </view>
