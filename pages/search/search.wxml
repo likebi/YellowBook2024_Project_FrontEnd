@@ -14,8 +14,10 @@
   <!-- 历史记录 -->
   <view class="history">
     <text class="history-title">历史记录</text>
-    <view wx:for="{{historyList}}" wx:key="index" class="history-item">
-      <text>{{item}}</text>
+    <view class="history-list">
+      <view wx:for="{{historyList}}" wx:key="index" class="history-item">
+        <text>{{item}}</text>
+      </view>
     </view>
   </view>
 

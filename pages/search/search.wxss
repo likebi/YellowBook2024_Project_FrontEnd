@@ -9,7 +9,6 @@
   margin-bottom: 20rpx;
 }
 
-
 .search-container {
   flex: 1;
   margin: 0 20rpx;
@@ -30,8 +29,9 @@
 
 .search-input {
   flex: 1;
-  padding: 10rpx;
+  padding: 5rpx 20rpx;
   border: none;
+  font-size: 25rpx;
 }
 
 .search-button {
@@ -46,13 +46,24 @@
 .history-title {
   font-size: 30rpx;
   padding-left: 50rpx;
-  font-weight: bolder;
+  font-weight: 600;
+}
+
+.history-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10rpx;
+  padding-left: 40rpx;
 }
 
 .history-item {
   display: flex;
-  margin-bottom: 10rpx;
-  padding-left: 50rpx;
+  margin: 10rpx;
+  padding: 10rpx;
+  border: 1px solid #ddd;
+  border-radius: 40rpx;
+  font-size: 25rpx;
+  background-color: rgba(200, 200, 200, 0.4);
 }
 
 .discover {
@@ -60,7 +71,7 @@
 }
 
 .discover-title {
-  font-weight: bolder;
+  font-weight: 700;
   font-size: 30rpx;
   padding: 50rpx;
   margin-bottom: 10rpx;

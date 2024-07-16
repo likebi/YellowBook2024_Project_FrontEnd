@@ -1,26 +1,31 @@
-  <!--pages/addpost/addpost.wxml-->
-  <scroll-view class="container1" scroll-y="true">
-    <!--图片上传区域-->
-    <view class="upload-box">
-      <image class="upload-icon" src="{{plus}}" mode="aspectFit"/>
-      
-    </view>
-    <!--文字上传区域-->
-    <input class="title" type="text" name="title" placeholder="添加标题会有更多赞哦~"/>
-    <textarea class="content" value="" placeholder="添加正文" auto-focus/>
-    <!--话题标签区域-->
-    <view class="element">
-      <image class="htag" src="{{htag}}" mode="aspectFit"/>
-      <a href="#" class="select-input">参与话题</a>
-      <view class="arrowr" bindtap="">{{arrowr}}</view>
-    </view>
-    <!--添加地点区域-->
-    <view class="location">
-      <image class="htag" src="{{location}}" mode="aspectFit"/>
-      <a href="#" class="select-input">添加地点</a>
-      <view class="arrowr" bindtap="">{{arrowr}}</view>
-    </view>
-    <view class="post-box">
-      <button class="post-btn">发布笔记</button>
-    </view>
-  </scroll-view>
+<scroll-view class="container1" scroll-y="true">
+  <!-- 图片上传区域 -->
+  <view class="upload-box">
+    <image class="upload-icon" src="{{plus}}" mode="aspectFit" bindtap="addImage"/>
+    <block wx:for="{{images}}" wx:key="index">
+      <image class="uploaded-image" src="{{item}}" mode="aspectFit"/>
+    </block>
+  </view>
+  
+  <!-- 文字上传区域 -->
+  <input class="title" type="text" name="title" placeholder="添加标题会有更多赞哦~"/>
+  <textarea class="content" value="" placeholder="添加正文" auto-focus/>
+  
+  <!-- 话题标签区域 -->
+  <view class="element">
+    <image class="htag" src="{{htag}}" mode="aspectFit"/>
+    <navigator class="select-input" url="">参与话题</navigator>
+    <view class="arrowr" bindtap="">{{arrowr}}</view>
+  </view>
+  
+  <!-- 添加地点区域 -->
+  <view class="location">
+    <image class="htag" src="{{location}}" mode="aspectFit"/>
+    <navigator class="select-input" url="">添加地点</navigator>
+    <view class="arrowr" bindtap="">{{arrowr}}</view>
+  </view>
+  
+  <view class="post-box">
+    <button class="post-btn" bindtap="submitPost">发布笔记</button>
+  </view>
+</scroll-view>

@@ -15,8 +15,8 @@
     "pages/editBio/editBio",
     "pages/editGender/editGender",
     "pages/contentpage/contentpage",
-    "pages/Trip/trip"
-    
+    "pages/Trip/trip",
+    "pages/userPage/userPage"
   ],
   "tabBar": {
     "color": "#555555",
