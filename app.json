@@ -14,7 +14,8 @@
     "pages/editId/editId",
     "pages/editBio/editBio",
     "pages/editGender/editGender",
-    "pages/contentpage/contentpage"
+    "pages/contentpage/contentpage",
+    "pages/Trip/trip"
     
   ],
   "tabBar": {
