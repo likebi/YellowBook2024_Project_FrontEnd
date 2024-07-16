@@ -45,7 +45,11 @@
       <image src="../../static/hotel.png" class="icon_function" mode=""/>
       <text class="icon-title">酒店</text>
     </navigator>
+<<<<<<< HEAD
     <navigator class="index_selected" url="../Trip/trip">
+=======
+    <navigator class="index_selected" url="/pages/trip/trip">
+>>>>>>> da77a7778f33fe02433b09962af8abb242c9ff9d
       <image src="../../static/trip.png" class="icon_function" mode=""/>
       <text class="icon-title">旅游</text>
     </navigator>

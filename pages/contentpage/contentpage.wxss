@@ -1,76 +1,51 @@
-/* pages/planning/planning.wxss */
 .post-page {
+  display: flex;
   width: 100vw;
 }
-.post-page-header {
+.item {
   display: flex;
-  width: 100%;
-  margin-bottom: 10px;
-}
-.image_back{
-  justify-content: flex-start;
-  padding-left: 10px;
-  padding-top: 23px;
-  font-size: 35px;
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-}
-.post-image {
-  width: 30px;
-  height: 30px;
-  border: solid 1px black;
-  border-radius: 50%;
-  margin: 13px;
-  justify-content: center;
   align-items: center;
-  padding: 3%;
-  overflow: hidden;
-}
-.post-image .post-image-size {
-  width: 100%; /* Changed from percentage to fixed size */
-  height: 100%; /* Changed from percentage to fixed size */
-  object-fit: cover;
-  border-radius: 50%;
+  margin: 10px;
 }
 
-.post-username-box {
-  margin-left: 10px;
-  width: auto;
-  height: auto;
+.item-image {
+  width: 80rpx; 
+  height: 80rpx; 
+  border-radius: 50%;
+  margin-right: 10px; 
+  margin-left: 20rpx;
+}
+
+.item-text {
+  margin-left: 3rpx;
+  font-weight: 550;
+  font-size: 13px; 
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji, BlinkMacSystemFont, Helvetica Neue, Arial, PingFang SC, PingFang TC, PingFang HK, Microsoft Yahei, Microsoft JhengHei;
+  color: var(--color-secondary-label);
+}
+
+.button_follow{
   display: flex;
-  flex-direction: column;
-}
-.post-user {
-  font-size: 25px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-top: 10px;
-}
-.follow-button {
-  width: 20%;
-  margin: 20px;
-  margin-left: 9%;
-}
-.follow-button-set {
-  justify-content: flex-end;
+  justify-content: center;
+  margin-left: 390rpx;
+  width: 80rpx;
+  height: 45rpx;
+  line-height: 45rpx;
   text-align: center;
-  background-color: #EEEEEE;
+  font-size: 10px;
+  color: #fff;
+  border: 1px solid ;
+  background-color: #ff2e4d;
+  border-radius: 25rpx;
   
 }
-.location-image {
-  width: 15px;
-  height: 15px;
-  margin-right: 10px;
-}
-.post-username-font {
-  font-size: 14px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
+
+
 
 .swiper-post {
   width: 100%; /* 设置 Swiper 容器的宽度 */
-  height: 300px; /* 设置 Swiper 容器的高度 */
-  overflow: hidden; /* 确保内容超出部分被隐藏 */
+  height: 300px; 
+  overflow: hidden; 
 }
 
 .swipper-size {
@@ -87,27 +62,119 @@
 }
 
 .centered-image {
-  width: 100%; /* 让图片宽度填充父容器 */
+  width: 100%; /* 让图片宽度填充父容器. */
   height: 100%; /* 让图片高度填充父容器 */
   object-fit: cover; /* 让图片按比例填充，并居中显示 */
 }
 
-.text-post {
-  margin: 10px ;
+.text-post{
+  padding: 0 0;
+  font-size: 40rpx;
+  margin: 20px 40rpx;
+
 }
-comment-container {
-  padding: 20px;
+
+.title_post{
+  font-size: 17px;
+  font-weight: 600;
 }
-comments-section {
-  margin: 20px;
+
+.text_post{
+  margin-top: 15px;
+  font-size: 16px;
 }
-.comment {
-  /* ini kasi jarak antara comment */
+
+.position-date{
+  padding:30rpx 0;
+  border-bottom: 1px solid rgba(200, 200, 200,0.5);
+  font-size: 12px;
+  color: #999;
+  width: 100%;
+}
+.position_content{
+  padding-left: 10rpx;
+}
+
+.header_comment{
+  margin-left: 40rpx;
+  font-size: 12px;
+  color: #666;
+}
+
+.comment-post{
+  margin-top: 50rpx;
+}
+
+.leave_comment {
+  border: none; 
+  background: none; 
+  padding: 0; 
+  outline: none; 
+  width: 90%; 
+  height: 30px; 
+  padding-left: 40rpx;
+  border-radius: 5px; 
+  background-color: rgba(200, 200, 200,0.3);
+  border-radius: 20px;
+}
+
+
+.commentArea{
   display: flex;
-  margin-bottom: 10px;
+  margin: 40rpx 30rpx;
 }
-.user-image-comment {
-  /* ini kasi jarak antara foto user dengan isi dan juga dengan border */
+.commentArea image{
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.user_comment{
+  position: relative;
+  display: flex;
+  margin: 10rpx 20rpx;
+}
+
+.commentuser-image{
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%;
+}
+
+.commentuser-name{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.commentuser-text{
+  margin-left: 20rpx;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.commentuser-position{
+  margin-left: 40rpx;
+  font-size: 12px;
+  font-weight: 500;
+  color: #999;
+}
+
+.icon_love{
+  position: absolute;
+  right: 5px;
+  top: 6px;
+  width: 60rpx;
+  height: 60rpx;
+  
+}
+
+/*  .user-image-comment {
+  ini kasi jarak antara foto user dengan isi dan juga dengan border 
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -115,23 +182,24 @@ comments-section {
   margin-left: 10px;
 }
 .comment-content {
-  /* ini biar comments dari nama isi like dari atas ke bawah */
+  /* ini biar comments dari nama isi like dari atas ke bawah 
   display: flex;
   flex-direction: column;
+  margin-top: 20rpx;
 }
 .user-name-content {
   font-weight: bold;
 }
 .comment-text {
-  /* ini kasi jarak antara nama message like di comments */
+  /* ini kasi jarak antara nama message like di comments 
   margin-top: 5px;
 }
 .input-section {
-  /* ini biar submit button ada di samping write comment */
+  /* ini biar submit button ada di samping write comment 
   display: flex;
 }
 .comment-button {
-  /* comment button submit */
+  /* comment button submit 
   padding: 10px;
   background-color: #007aff;
   color: #ffffff;
@@ -144,7 +212,7 @@ comments-section {
   align-items: center;
   margin-top: 5px;
   cursor: pointer;
-  /* background-color: crimson; */
+  /* background-color: crimson; 
   
 }
 .save-section {
@@ -152,7 +220,7 @@ comments-section {
   align-items: center;
   margin-top: 5px;
   cursor: pointer;
-  /* background-color: yellow; */
+  /* background-color: yellow; 
 }
 .like-icon, .save-icon {
   width: 20px;
@@ -161,7 +229,7 @@ comments-section {
 }
 .like-count {
   margin-right: 10px;
-}
+} */
 /* .like-icon .liked {
   filter: none; Remove grayscale filter
   color: crimson; Change to crimson red
@@ -204,9 +272,9 @@ save-section {
   width: 20px;
   height: 20px;
   margin-right: 5px;
-} */
+} 
 input {
-  /* input comments */
+ input comments 
   flex: 1;
   padding: 10px;
   margin-right: 10px;
@@ -227,4 +295,4 @@ input {
   height: 30px;
 }
 
-
+ */

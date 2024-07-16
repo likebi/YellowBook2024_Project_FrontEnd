@@ -222,6 +222,7 @@ button{
 .icon_function {
   width: 80rpx;
   height: 80rpx;
+<<<<<<< HEAD
 }
 
 .icon-title {
@@ -230,7 +231,15 @@ button{
 }
 .contentSuggestion{
   width: 100%;
+=======
+>>>>>>> da77a7778f33fe02433b09962af8abb242c9ff9d
 }
+
+.icon-title {
+  margin-top: 5px; 
+  font-size: 14px; 
+}
+
 
 .fontSuggestion{
   text-align: center;
