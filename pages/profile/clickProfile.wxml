@@ -38,13 +38,16 @@
       </view>
     </navigator>
 
+    <navigator url="/pages/editGender/editGender" style="display: block; width: 100%;">
     <view style="display: block; width: 100%;">
       <view class="user-profile">
         <view class="title-info">
           <text class="profile-info">Gender</text>
           <text class="user-info">{{gender}}</text>
+          <text class="arrOw">></text>
         </view>
       </view>
     </view>
+    </navigator>
   </block>
 </view>
