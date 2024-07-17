@@ -1,3 +1,8 @@
+.page{
+  background-color: #f0f0f0; /* 设置整个页面的背景颜色 */
+  min-height: 100vh; /* 确保页面至少占满视口高度 */
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -238,26 +243,25 @@ button{
   font-size: 19px;
 }
 
-.first {
-  display: flex;
-  flex-direction: column;
-  width: 45%;
-  background-color: white;
-  border-radius: 10px;
-  margin-bottom: 15px;
-  height: auto;
-  background-color: #fff;
-}
+.box-suggestion {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 一行两列 */
+  }
+  
+  .first {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+  }
+
 
 button-sug{
   display: inline-block;
 }
 
-.box-suggestion {
-  display: flex; /* 使用flex布局 */
-  flex-wrap: wrap; /* 允许换行 */
-  justify-content: space-around; /* 在主轴上平均分配空间 */
-}
+
 .image1 {
   width: 100%;
   border-radius: 10px;
@@ -290,8 +294,7 @@ button-sug{
   width: 20px;
   height: 20px; 
   border-radius: 40rpx;
-  margin-right: 10px; 
-  margin-left: 60rpx;
+  margin-left: 98rpx;
 }
 
 .item-text {

@@ -11,13 +11,11 @@ App({
           this.userLogin();
         }
       })
-
     }
    // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs) 
-
   },
   userLogin() {
     wx.login({
@@ -27,6 +25,11 @@ App({
           url: 'http://localhost:3000/login?code=' + res.code,
           success: res => {
             console.log('后端code登录请求', res.data);
+            let userToken = res.data.data;
+            wx.setStorage({
+              key:'token',
+              data:userToken
+            })
           }
         })
       }

@@ -11,10 +11,16 @@
 }
 .upload-box {
   margin-top: 15px;
-
   width: 100%;
   padding-bottom: 50rpx;
 }
+
+.uploaded-image {
+  width: 100px; 
+  height: 100px; 
+  margin-right: 5px; 
+}
+
 .header {
   width: 100%;
   height: 60rpx;
@@ -52,15 +58,16 @@
 }
 .title {
   width: 100%;
-  padding-left: 3%;
+  padding-left: 4%;
   border-bottom: solid 1px rgba(200, 200, 200, 0.6);
   padding-bottom: 30rpx;
   font-size: 16px;
 }
 .content {
-  padding:3%;
+  margin-top: 20rpx;
+  padding-left: 4%;
   width: 100%;
-  height: 20%;
+  height: 15%;
   font-size: 14px;
   border-bottom: 1px solid rgba(200, 200, 200, 0.6);
 }

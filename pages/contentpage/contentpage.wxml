@@ -1,57 +1,54 @@
-<view>
-  <view class="post-page">
+<view class="post-page">
+  <view class="touch-area" bindtouchstart="handleTouchStart" bindtouchmove="handleTouchMove" bindtouchend="handleTouchEnd">
     <view class="item">
-      <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
-      <text class="item-text">默默</text>
-      <view class="button_follow">关注</view>
+      <view class="item" bindtap="navigateToUserPage">
+         <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
+            <text class="item-text">默默</text>
+      </view>
+
+      <view class="button_follow" bindtap="toggleFollow">{{followStatus ? '已关注' : '关注'}}</view>
+    </view>
+
+    <view class="swiper-post">
+      <swiper interval="2500" circular="true" indicator-dots="true" class="swipper-size">
+        <swiper-item wx:for="{{imgurl}}" wx:key="index">
+          <view class="swiper-img">
+            <image src="{{item.img}}" class="centered-image" mode="aspectFit"/>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+
+    <view class="text-post">
+      <view>
+        <text class="title_post">陪伴我十年青春的男孩 一眨眼都长大啦</text>
+      </view>
+      <view class="text_post">
+        <text>很多人都说中学的恋情是最长情 最深刻的 我们2015年相识 真的一眨眼十年过去了</text>
+      </view>
+      <view class="position-date">
+        <text>0708</text>
+        <text class='position_content'>江西</text>
+      </view>
+    </view>
+
+    <view class="header_comment">
+      <text>共45条评论</text>
+    </view>
+
+    <view class="commentArea">
+      <input type="text" placeholder="留下你的想法" class="leave_comment" bindinput="onInput"/>
+      <image src="../../static/comments.png" class="comment-icon" bindtap="submitComment"/>
+    </view>
+
+    <view class="user_comment" wx:for="{{comments}}" wx:key="id">
+      <image src="{{item.userImage}}" class="commentuser-image" mode="aspectFill"></image>
+      <view class="commentuser_info">
+        <text class="commentuser-name">{{item.userName}}</text>
+        <text class="commentuser-text">{{item.comment}}</text>
+        <text class="commentuser-position">4天前 福建</text>
+      </view>
+      <image src="{{item.loveImage}}" class="icon_love" data-index="{{index}}" bindtap="like_post"/>
     </view>
   </view>
-
-  <view class="swiper-post">
-    <swiper 
-      interval="2500"
-      circular="true"
-      indicator-dots="true"
-      class="swipper-size">
-      <swiper-item wx:for="{{imgurl}}" wx:key="*this">
-        <view class="swiper-img">
-          <image src="{{item.img}}" class="centered-image" mode="aspectFit"/>
-        </view>
-      </swiper-item>
-    </swiper>
-  </view>
-
-  <view class="text-post">
-    <view>
-      <text class="title_post">陪伴我十年青春的男孩 一眨眼都长大啦</text>
-    </view>
-    <view class="text_post">
-      <text>很多人都说中学的恋情是最长情 最深刻的 我们2015年相识 真的一眨眼十年过去了</text>
-    </view>
-    <view class="position-date">
-      <text>0708</text>
-      <text class='position_content'>江西</text>
-    </view>
-  </view>
-
-  <view class="header_comment">
-    <text>共45条评论</text>
-  </view>
-
-  <view class="commentArea">
-    <input type="text" placeholder="留下你的想法" class="leave_comment"/>
-    <image src="../../static/comments.png" class="comment-icon" />
-  </view>
-
-  <view class="user_comment">
-  <image src="../../static/test.png" class="commentuser-image" mode="aspectFill"></image>
-  
-  <view class="commentuser_info">
-    <text class="commentuser-name">小米</text>
-    <text class="commentuser-text">小米是个好手机</text>
-    <text class="commentuser-position">4天前 福建</text>
-  </view>
-  <image src="/static/love.png" mode="" class="icon_love"/>
-</view>
-
 </view>
