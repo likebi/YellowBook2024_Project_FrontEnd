@@ -321,6 +321,18 @@ hotel-header {
   margin-left: 160px;
   font-weight: 600;
 }
+.item-text1 {
+  font-size: 17px; 
+  color:#287dfa; 
+  margin-left: 170px;
+  font-weight: 600;
+}
+.item-text4 {
+  font-size: 17px; 
+  color:#287dfa; 
+  margin-left: 170px;
+  font-weight: 600;
+}
 .booknow-box {
   width: auto;
   height: auto;
@@ -351,7 +363,7 @@ hotel-header {
   height: 20px; 
   border-radius: 40rpx;
   margin-right: 10px; 
-  margin-left: 80px;
+  margin-left: 105px;
   margin-top: 10px;
 }
 .item-love2{
@@ -359,7 +371,7 @@ hotel-header {
   height: 20px; 
   border-radius: 40rpx;
   margin-right: 10px; 
-  margin-left: 55px;
+  margin-left: 57px;
   margin-top: 10px;
 }
 .item-love3{
@@ -367,7 +379,7 @@ hotel-header {
   height: 20px; 
   border-radius: 40rpx;
   margin-right: 10px; 
-  margin-left: 55px;
+  margin-left: 45px;
   margin-top: 10px;
 }
 .item-love4{
@@ -375,7 +387,7 @@ hotel-header {
   height: 20px; 
   border-radius: 40rpx;
   margin-right: 10px; 
-  margin-left: 100px;
+  margin-left: 135px;
   margin-top: 10px;
 }
 .item-fivestar{

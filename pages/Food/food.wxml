@@ -25,7 +25,7 @@
 <text class="title_box">推荐目的地</text>
 <view class="suggestion-box">
   <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
-    <navigator url="../../pages/hotelcontent/hotelcontent" class="link_suggestion_box"><view class="style_box">
+    <navigator url="../../pages/foodcontent/foodcontent" class="link_suggestion_box"><view class="style_box">
       <text class="title_suggestion">北京</text>
       <image src="https://th.bing.com/th/id/R.cdbe0fe09e25108143388dc3462f8ce2?rik=1E2m%2bFFHtfoJpg&riu=http%3a%2f%2fimg95.699pic.com%2fphoto%2f50071%2f3462.jpg_wh860.jpg&ehk=ntJVViZ9MFYGb0twTvOv5EBVQ%2f2FACJAWrwttvzJNO0%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill"/>
     </view>

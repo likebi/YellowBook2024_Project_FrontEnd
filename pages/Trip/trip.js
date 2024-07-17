@@ -5,19 +5,26 @@ Page({
    * Page initial data
    */
   data: {
+    text: "人人有爱，很想您",
+    text2: "坚持一天拉拉啦",
+    text3: "爬山Bro，Go Let's Go",
+    text4: "冬天长城，打卡啦！",
+    loveImage: "../../static/love.png",
+    isLiked: false,
     items: [
+      
       {
         id: 1,
-        text: "迷人的灰太狼",
-        loveImage: "../../static/love.png",
-        isLiked: false,
+        // text: "迷人的灰太狼",
+        // loveImage: "../../static/love.png",
+        // isLiked: false,
       },
-      {
-        id: 2,
-        text: "另一项内容",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      }
+      // {
+      //   id: 2,
+      //   text: "另一项内容",
+      //   loveImage: "../../static/love.png",
+      //   isLiked: false,
+      // }
     ],
   },
 

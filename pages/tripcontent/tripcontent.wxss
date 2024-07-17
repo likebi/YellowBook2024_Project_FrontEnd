@@ -251,7 +251,7 @@ button{
 .first {
   display: flex;
   flex-direction: column;
-  width: 95%;
+  width: 100%;
   background-color: white;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -265,12 +265,12 @@ button-sug{
   display: inline-block;
 }
 
-/* .box-suggestion {
-  display: flex; 使用flex布局
-  flex-wrap: wrap; 允许换行
-  justify-content: space-around; 在主轴上平均分配空间
+.box-suggestion {
+  display: flex;/* 使用flex布局*/
+  flex-wrap: wrap; /*允许换行*/
+  justify-content: space-around; /*在主轴上平均分配空间*/
   
-} */
+}
 .image1 {
   width: 100%;
   border-radius: 10px;
@@ -318,7 +318,19 @@ hotel-header {
 .item-text {
   font-size: 17px; 
   color:#287dfa; 
-  margin-left: 160px;
+  margin-left: 180px;
+  font-weight: 600;
+}
+.item-text1 {
+  font-size: 17px; 
+  color:#287dfa; 
+  margin-left: 190px;
+  font-weight: 600;
+}
+.item-text4 {
+  font-size: 17px; 
+  color:#287dfa; 
+  margin-left: 170px;
   font-weight: 600;
 }
 .booknow-box {
@@ -330,7 +342,7 @@ hotel-header {
   margin: 2%;
   padding: 2%;
   cursor: pointer;
-  margin-left: 20px;
+  margin-left: 10px;
   
 
 }
@@ -346,12 +358,12 @@ hotel-header {
   margin-left: 20rpx;
 }
 
-.item-love{
+.item-love1{
   width: 20px;
   height: 20px; 
   border-radius: 40rpx;
   margin-right: 10px; 
-  margin-left: 80px;
+  margin-left: 115px;
   margin-top: 10px;
 }
 .item-love2{
@@ -359,7 +371,7 @@ hotel-header {
   height: 20px; 
   border-radius: 40rpx;
   margin-right: 10px; 
-  margin-left: 55px;
+  margin-left: 90px;
   margin-top: 10px;
 }
 .item-love3{
@@ -367,7 +379,7 @@ hotel-header {
   height: 20px; 
   border-radius: 40rpx;
   margin-right: 10px; 
-  margin-left: 55px;
+  margin-left: 45px;
   margin-top: 10px;
 }
 .item-love4{
@@ -375,7 +387,7 @@ hotel-header {
   height: 20px; 
   border-radius: 40rpx;
   margin-right: 10px; 
-  margin-left: 100px;
+  margin-left: 135px;
   margin-top: 10px;
 }
 .item-fivestar{

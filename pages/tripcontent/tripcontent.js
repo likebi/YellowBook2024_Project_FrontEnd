@@ -1,8 +1,8 @@
 Page({
   data: {
-    demoText1: 'https://ns-strategy.cdn.bcebos.com/ns-strategy/upload/fc_big_pic/part-00761-2342.jpg',
-    demoText2: 'https://ts1.cn.mm.bing.net/th/id/R-C.eaa5039697cc5ebed12558271a48095d?rik=L9JhhdEYltN9Tg&riu=http%3a%2f%2fwww.ysbx.com%2fuploads%2fallimg%2f1605%2f1_160518203610_1.jpg&ehk=10xg3%2fM7UgmBtVtrWhUNDINGPBlejQoLJb4E9VtbBYI%3d&risl=&pid=ImgRaw&r=0',
-    demoText3: 'https://img.zcool.cn/community/01437d5c968523a801208f8b8fb321.jpg?x-oss-process=image/auto-orient,1/resize,m_lfit,w_1280,limit_1/sharpen,100',
+    demoText1: 'https://dimg04.c-ctrip.com/images/100a0g00000087qb8E7CE_C_1180_462.jpg',
+    demoText2: 'https://dimg04.c-ctrip.com/images/0106j120008y7o3hcC541_R_1600_10000.jpg',
+    demoText3: 'https://dimg04.c-ctrip.com/images/0100j1200046x94ebB936_R_1600_10000.jpg',
     background: [],
     indicatorDots: true,
     autoplay: true,
@@ -19,10 +19,10 @@ Page({
     loveImage: "../../static/love.png",
     locationImage:"../../static/location.png",
     isLiked: false,
-    text: "320¥",
-    text1: "75¥",
-    text2: "550¥",
-    text3: "25¥",
+    text: "55¥",
+    text1: "959¥",
+    text2: "120¥",
+    text3: "150¥",
     options: [
       { label: '发布', value: '/pages/addpost/addpost' },
       { label: '选项2', value: 'page2' },
