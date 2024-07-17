@@ -19,9 +19,7 @@
     "pages/Hotel/hotel",
     "pages/Food/food",
     "pages/userPage/userPage",
-    "pages/hotelcontent/hotelcontent",
-    "pages/foodcontent/foodcontent",
-    "pages/tripcontent/tripcontent"
+    "pages/hotelcontent/hotelcontent"
   ],
   "tabBar": {
     "color": "#555555",
