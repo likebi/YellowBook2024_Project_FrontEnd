@@ -1,0 +1,140 @@
+<scroll-view scroll-y="true" style="height: 100vh;">
+  <view class="container">
+    <view class="first_container">
+      <view class="index-position">
+        <image src="../../static/position.png" class="image-type" />
+        <text class="position-name">{{namePosition}}</text>
+      </view>
+      <view class="header">
+        <view class="search-container">
+          <view class="search-window">
+            <image class="icon" src="/static/sousuo.png" />
+            <input type="text" class="search-input" placeholder="搜索任何酒店相关" bindinput="onInput" value="{{value}}" />
+          </view>
+        </view>
+        <view class="search-button" bindtap="onSearch">搜索</view>
+      </view>
+    </view>
+    
+
+    <view class="page-section page-section-spacing swiper">
+      <swiper id="mySwiper" indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+        current="{{current}}">
+        <block wx:for="{{background}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+          <swiper-item>
+            <image class="swiper-item" src="{{item}}" mode="aspectFill"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view bindtap="prevImage" class="leftArrow">{{Arrow1}}</view>
+      <view bindtap="nextImage" class="rightArrow">{{Arrow2}}</view>
+    </view>
+
+  
+    <view class="fontSuggestion"> 
+      <text>为您推荐</text>
+    </view>
+
+    <view class="contentSuggestion">
+      <view class="box-suggestion">
+        <view class="first" wx:for="{{items}}" wx:key="id">
+          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
+            <image class="image1" src="https://lingdian-image.oss-cn-shenzhen.aliyuncs.com/20201117/f813aa545f8121169a1c7968d039faf5output_00002.jpg" mode="aspectFill" />
+            <view class="hotel-header">
+              <text class="intro"> 北京JW万豪酒店</text>
+              <image src="{{fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+              <image src="{{loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" ></image>
+            </view>
+            <view>
+              <image src="{{locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
+              <text class="room-intro">北京朝阳区华贸中心建国路83号, 100025</text>
+            </view>
+            <view class="item">
+              <view class="review-box">
+                <text>4.8</text>
+                <image class="review-star" src="/static/stars.png"/>
+              </view>
+              <text class="item-text">{{text}}</text>
+              <view class="booknow-box">
+                <text>预定</text>
+              </view>
+            </view>
+          </navigator>
+        </view>
+        <view class="first" wx:for="{{items}}" wx:key="id">
+          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
+            <image class="image1" src="https://dimg04.c-ctrip.com/images/1mc2l12000bhwaqg6F7A9_W_1080_808_R5_D.jpg" mode="aspectFill" />
+            <view class="hotel-header">
+              <text class="intro">北京东方君悦大酒店</text>
+              <image src="{{fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+              <image src="{{loveImage}}" class="item-love2" mode="aspectFill" bindtap="like_post" ></image>
+            </view>
+            <view>
+              <image src="{{locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
+              <text class="room-intro">北京东城区长安街1号东方广场, 100738</text>
+            </view>
+            <view class="item">
+              <view class="review-box">
+                <text>4.9</text>
+                <image class="review-star" src="/static/stars.png"/>
+              </view>
+              <text class="item-text">{{text1}}</text>
+              <view class="booknow-box">
+                <text>预定</text>
+              </view>
+            </view>
+          </navigator>
+        </view>
+        <view class="first" wx:for="{{items}}" wx:key="id">
+          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
+            <image class="image1" src="https://dimg04.c-ctrip.com/images/02061120008ha36jg518F_R_600_400_R5_D.jpg" mode="aspectFill" />
+            <view class="hotel-header">
+              <text class="intro">北京丽思卡尔顿酒店</text>
+              <image src="{{fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+              <image src="{{loveImage}}" class="item-love3" mode="aspectFill" bindtap="like_post" ></image>
+            </view>
+            <view>
+              <image src="{{locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
+              <text class="room-intro">北京朝阳区华贸中心建国路甲83号, 100025</text>
+            </view>
+            <view class="item">
+              <view class="review-box">
+                <text>4.6</text>
+                <image class="review-star" src="/static/stars.png"/>
+              </view>
+              <text class="item-text">{{text2}}</text>
+              <view class="booknow-box">
+                <text>预定</text>
+              </view>
+            </view>
+          </navigator>
+        </view>
+        <view class="first" wx:for="{{items}}" wx:key="id">
+          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
+            <image class="image1" src="https://dimg04.c-ctrip.com/images/02018120008xpt3jmF4C3_W_1080_808_R5_D.jpg" mode="aspectFill" />
+            <view class="hotel-header">
+              <text class="intro">北京四季酒店</text>
+              <image src="{{fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+              <image src="{{loveImage}}" class="item-love4" mode="aspectFill" bindtap="like_post" ></image>
+            </view>
+            <view>
+              <image src="{{locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
+              <text class="room-intro">北京朝阳区亮马桥路48号, 100125</text>
+            </view>
+            <view class="item">
+              <view class="review-box">
+                <text>4.7</text>
+                <image class="review-star" src="/static/stars.png"/>
+              </view>
+              <text class="item-text">{{text}}</text>
+              <view class="booknow-box">
+                <text>预定</text>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
