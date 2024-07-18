@@ -29,6 +29,17 @@
     "pages/foodcontentID/foodcontentID",
     "pages/foodcontentMY/foodcontentMY"
   ],
+
+  "requiredPrivateInfos": [
+    "getLocation"
+  ],
+
+  "permission": {
+    "scope.userLocation": {
+      "desc": "您的位置将用于小程序位接口的效果展示"
+    }
+  },
+
   "tabBar": {
     "color": "#555555",
     "selectedColor": "#ff6600",
@@ -54,6 +65,7 @@
     ]
   },
   "window": {
+    "backgroundTextStyle":"light",
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "旅游",
     "navigationBarBackgroundColor": "#fff"

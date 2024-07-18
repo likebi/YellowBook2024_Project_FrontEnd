@@ -12,6 +12,7 @@ App({
         }
       })
     }
+    
    // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -41,7 +42,8 @@ App({
   // 全局属性
   globalData: {
     requestUrl: 'http://localhost:3000/',
-    userInfo: null
+    userInfo: null,
+    userLocation:null
   },
   // 全局方法
   globalMethod: {
