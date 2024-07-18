@@ -40,101 +40,31 @@
       <view class="box-suggestion">
         <view class="first" wx:for="{{items}}" wx:key="id">
           <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="https://dimg04.c-ctrip.com/images/1mc1w12000enmdcwd8C74_R_600_400_R5_D.jpg" mode="aspectFill" />
+            <image class="image1" src="{{item.hotelImage}}" mode="aspectFill" />
+            <text class="intro"> {{item.hotelIntroduction}}</text>
+            <image src="{{item.hotelfiveStars}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+          </navigator>
+
             <view class="hotel-header">
-              <text class="intro"> 北京JW万豪酒店</text>
-              <image src="{{fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-              <image src="{{loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" ></image>
+              <image src="{{item.hotellocationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
+              <text class="room-intro">{{item.hotelDescription}}</text>
+              <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
             </view>
-            <view>
-              <image src="{{locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
-              <text class="room-intro">北京朝阳区华贸中心建国路83号, 100025</text>
-            </view>
+            
             <view class="item">
               <view class="review-box">
-                <text>4.8</text>
-                <image class="review-star" src="/static/stars.png"/>
+                <text>{{item.hotelReview}}</text>
+                <image class="review-star" src="{{item.hotelstarRating}}"/>
               </view>
-              <text class="item-text">{{text}}</text>
+              <text class="item-text">{{item.hotelPrice}}</text>
               <view class="booknow-box">
                 <text>预定</text>
               </view>
             </view>
-          </navigator>
-        </view>
-        <view class="first" wx:for="{{items}}" wx:key="id">
-          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="https://dimg04.c-ctrip.com/images/1mc2l12000bhwaqg6F7A9_W_1080_808_R5_D.jpg" mode="aspectFill" />
-            <view class="hotel-header">
-              <text class="intro">北京东方君悦大酒店</text>
-              <image src="{{fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-              <image src="{{loveImage}}" class="item-love2" mode="aspectFill" bindtap="like_post" ></image>
-            </view>
-            <view>
-              <image src="{{locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
-              <text class="room-intro">北京东城区长安街1号东方广场, 100738</text>
-            </view>
-            <view class="item">
-              <view class="review-box">
-                <text>4.9</text>
-                <image class="review-star" src="/static/stars.png"/>
-              </view>
-              <text class="item-text">{{text1}}</text>
-              <view class="booknow-box">
-                <text>预定</text>
-              </view>
-            </view>
-          </navigator>
-        </view>
-        <view class="first" wx:for="{{items}}" wx:key="id">
-          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="https://dimg04.c-ctrip.com/images/02061120008ha36jg518F_R_600_400_R5_D.jpg" mode="aspectFill" />
-            <view class="hotel-header">
-              <text class="intro">北京丽思卡尔顿酒店</text>
-              <image src="{{fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-              <image src="{{loveImage}}" class="item-love3" mode="aspectFill" bindtap="like_post" ></image>
-            </view>
-            <view>
-              <image src="{{locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
-              <text class="room-intro">北京朝阳区华贸中心建国路甲83号, 100025</text>
-            </view>
-            <view class="item">
-              <view class="review-box">
-                <text>4.6</text>
-                <image class="review-star" src="/static/stars.png"/>
-              </view>
-              <text class="item-text">{{text2}}</text>
-              <view class="booknow-box">
-                <text>预定</text>
-              </view>
-            </view>
-          </navigator>
-        </view>
-        <view class="first" wx:for="{{items}}" wx:key="id">
-          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="https://dimg04.c-ctrip.com/images/02018120008xpt3jmF4C3_W_1080_808_R5_D.jpg" mode="aspectFill" />
-            <view class="hotel-header">
-              <text class="intro">北京四季酒店</text>
-              <image src="{{fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-              <image src="{{loveImage}}" class="item-love4" mode="aspectFill" bindtap="like_post" ></image>
-            </view>
-            <view>
-              <image src="{{locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
-              <text class="room-intro">北京朝阳区亮马桥路48号, 100125</text>
-            </view>
-            <view class="item">
-              <view class="review-box">
-                <text>4.7</text>
-                <image class="review-star" src="/static/stars.png"/>
-              </view>
-              <text class="item-text">{{text}}</text>
-              <view class="booknow-box">
-                <text>预定</text>
-              </view>
-            </view>
-          </navigator>
         </view>
       </view>
     </view>
   </view>
 </scroll-view>
+
+        

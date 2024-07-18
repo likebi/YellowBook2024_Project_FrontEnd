@@ -248,6 +248,15 @@ button{
   font-size: 19px;
 }
 
+.contentSuggestion{
+ width: auto;
+ height: auto;
+}
+.box-suggestion {
+  width: auto;
+  height: auto;
+}
+
 .first {
   display: flex;
   flex-direction: column;
@@ -258,7 +267,7 @@ button{
   height: auto;
   background-color: #fff;
   margin-left: 10px;
-  margin-right: 10px;
+  margin-right: 50px;
 }
 
 button-sug{
@@ -294,13 +303,6 @@ hotel-header {
   margin-bottom: 10px;
   
 }
-.room-intro {
-  padding-top: 10px;
-  font-size: 14px;
-  margin-left: 10px;
-
-}
-
 .item {
   display: flex;
   align-items: center;
@@ -321,6 +323,26 @@ hotel-header {
   margin-left: 160px;
   font-weight: 600;
 }
+.item-location{
+  width: 20px;
+  height: 20px; 
+  margin-left: 10px;
+  margin-top: 5px;
+}
+.room-intro {
+  padding-top: 10px;
+  font-size: 14px;
+  /* margin-left: 10px; */
+}
+.item-love{
+  width: 20px;
+  height: 20px; 
+  border-radius: 40rpx;
+  margin-right: 10px; 
+  margin-left: 50px;
+  margin-top: 10px;
+}
+
 .booknow-box {
   width: auto;
   height: auto;
@@ -345,59 +367,12 @@ hotel-header {
   margin-right: 10px; 
   margin-left: 20rpx;
 }
-
-.item-love{
-  width: 20px;
-  height: 20px; 
-  border-radius: 40rpx;
-  margin-right: 10px; 
-  margin-left: 80px;
-  margin-top: 10px;
-}
-.item-love2{
-  width: 20px;
-  height: 20px; 
-  border-radius: 40rpx;
-  margin-right: 10px; 
-  margin-left: 55px;
-  margin-top: 10px;
-}
-.item-love3{
-  width: 20px;
-  height: 20px; 
-  border-radius: 40rpx;
-  margin-right: 10px; 
-  margin-left: 55px;
-  margin-top: 10px;
-}
-.item-love4{
-  width: 20px;
-  height: 20px; 
-  border-radius: 40rpx;
-  margin-right: 10px; 
-  margin-left: 100px;
-  margin-top: 10px;
-}
 .item-fivestar{
   width: 100px;
   height: 20px; 
   border-radius: 40rpx;
   margin-right: 10px; 
-  margin-left: 10px;
-}
-/* .item-fivestar2{
-  width: 100px;
-  height: 20px; 
-  border-radius: 40rpx;
-  margin-right: 5px; 
-  margin-left: 10px;
-} */
-.item-location{
-  width: 20px;
-  height: 20px; 
-  border-radius: 40rpx;
-  margin-left: 10px;
-  margin-top: 5px;
+  margin-left: 5px;
   
 }
 

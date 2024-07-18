@@ -15,9 +15,8 @@ Page({
     Arrow2: ">",
     namePosition: "北京",
     dropdownVisible: false,
-    fivestarImage:"/static/fivestar.png",
-    loveImage: "../../static/love.png",
-    locationImage:"../../static/location.png",
+    
+    
     isLiked: false,
     text: "55¥",
     text1: "959¥",
@@ -31,17 +30,61 @@ Page({
     items: [
       {
         id: 1,
-        // text: "1490¥",
-        // loveImage: "../../static/love.png",
-        // locationImage:"../../static/location.png",
-        // isLiked: false,
+        loveImage: "../../static/love.png",
+        locationImage:"../../static/location.png",
+        isLiked: false,
+        tripImage:'https://dimg04.c-ctrip.com/images/100e080000003j0ju8D3A_R_1600_10000.jpg',
+        fivestarImage:"/static/fivestar.png",
+        locationImage:"../../static/location.png",
+        tripName:'八达岭长城',
+        tripLocation:'北京市延庆区G6京藏高速',
+        tripRating:'5.0',
+        tripreviewStar:'/static/stars.png',
+        tripPrice: '120¥',
       },
-      // {
-      //   id: 2,
-      //   text: "另一项内容",
-      //   loveImage: "../../static/love.png",
-      //   isLiked: false,
-      // }
+      {
+        id: 2,
+        loveImage: "../../static/love.png",
+        locationImage:"../../static/location.png",
+        isLiked: false,
+        tripImage:'http://djclub.cdn.bcebos.com/uploads/images/pageimg/20230325/64-23032521024M.jpeg',
+        fivestarImage:"/static/fivestar.png",
+        locationImage:"../../static/location.png",
+        tripName:'故宫',
+        tripLocation:'北京市延庆区G6京藏高速',
+        tripRating:'4.9',
+        tripreviewStar:'/static/stars.png',
+        tripPrice: '170¥',
+      },
+      {
+        id: 3,
+        loveImage: "../../static/love.png",
+        locationImage:"../../static/location.png",
+        isLiked: false,
+        tripImage:'https://tse2-mm.cn.bing.net/th/id/OIP-C.x-6vPCUZYjEl725Z5IWx5gHaEk?rs=1&pid=ImgDetMain',
+        fivestarImage:"/static/fivestar.png",
+        locationImage:"../../static/location.png",
+        tripName:'颐和园',
+        tripLocation:'北京市延庆区G6京藏高速',
+        tripRating:'5.0',
+        tripreviewStar:'/static/stars.png',
+        tripPrice: '100¥',
+      },
+      {
+        id: 4,
+        loveImage: "../../static/love.png",
+        locationImage:"../../static/location.png",
+        isLiked: false,
+        tripImage:'https://tse1-mm.cn.bing.net/th/id/OIP-C.MdbWbIBifnwTED-1XcKmcgHaES?rs=1&pid=ImgDetMain',
+        fivestarImage:"/static/fivestar.png",
+        locationImage:"../../static/location.png",
+        tripName:'鸟巢',
+        tripLocation:'北京市延庆区G6京藏高速',
+        tripRating:'4.5',
+        tripreviewStar:'/static/stars.png',
+        tripPrice: '50¥',
+      },
+      
     ],
   },
 
@@ -119,4 +162,3 @@ Page({
     this.setData({ dropdownVisible: false });
   },
 });
-

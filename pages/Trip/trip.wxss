@@ -118,7 +118,7 @@
 
 
 .image-suggestion{
-  width: 110px; 
+  width: 120px; 
   height: 130rpx; 
   border-radius: 20rpx;
 }
@@ -126,17 +126,18 @@
   position: relative;
   display: block;
   flex-direction: column;
-  width: 110px; 
+  width: 120px; 
   height: 130rpx; 
+  margin-right: 10px;
 }
 
 .box_third{
   position: relative;
   display: block;
   flex-direction: column;
-  width: 110px; 
+  width: 120px; 
   height: 130rpx; 
-  margin-right: 5px;
+  margin-right: 10px;
   margin-top: 20rpx;
 }
 
@@ -176,7 +177,8 @@ button-sug{
   -webkit-line-clamp: 2; /* 限制显示两行 */
   -webkit-box-orient: vertical; /* 垂直排列 */
   margin: 10px 20rpx;
-  font-size: 20rpx;
+  font-size: 14px;
+  font: 500;
 }
 
 .item {
@@ -193,14 +195,14 @@ button-sug{
 }
 
 .item-love{
-  width: 20px; /* 设置图片的宽度 */
-  height: 20px; /* 设置图片的高度 */
+  width: 15px; /* 设置图片的宽度 */
+  height: 15px; /* 设置图片的高度 */
   border-radius: 40rpx;
   margin-right: 10px; /* 图片与文字之间的间距 */
   margin-left: 60rpx;
 }
 
 .item-text {
-  font-size: 10px; /* 设置文字的大小 */
+  font-size: 11px; /* 设置文字的大小 */
   color: #333; /* 设置文字的颜色 */
 }

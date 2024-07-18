@@ -14,6 +14,13 @@ Page({
       userName: '小米',
       comment: '小米是个好人',
       loveImage: '../../static/love.png', // 默认显示未点赞的图标
+      isLiked: false, // 标记是否已点赞
+
+      id: 2,
+      userImage: 'https://cdn.donmai.us/sample/7d/b4/__elysia_and_elysia_honkai_and_1_more_drawn_by_macaroni_0101__sample-7db413e1f173d044760ea7e281633813.jpg',
+      userName: '小米',
+      comment: '小米是个好人haha',
+      loveImage: '../../static/love.png', // 默认显示未点赞的图标
       isLiked: false // 标记是否已点赞
     }],
     inputValue: '',

@@ -70,53 +70,23 @@
   </scroll-view>
 </view>
 
-<view class="suggestion_title">当季去哪儿?</view>
+<view class="suggestion_title">旅游住在哪儿?</view>
 
 <view class="contentSuggestion">
       <view class="box-suggestion">
         <view class="first" wx:for="{{items}}" wx:key="id">
           <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="https://ts1.cn.mm.bing.net/th/id/R-C.a86878663b4dbfad3a4722e53a755f79?rik=5m8UAKHAbQaOHw&riu=http%3a%2f%2fn.sinaimg.cn%2ftranslate%2f201%2fw600h401%2f20190306%2fh8cG-htwhfzs6942512.jpg&ehk=dQONT%2fYVOK9nlu6NYSlV5FsF5%2fNLxvEcFNua%2b8%2fv2M4%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" mode="aspectFill" />
-            <text class="intro">上海迪斯尼乐园</text>
-            <view class="item">
-              <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
-              <text class="item-text">{{text}}</text>
-              <image src="{{loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-            </view>
+            <image class="image1" src="{{item.userImage}}" mode="aspectFill" />
+            <text class="intro">{{item.intro}}</text>
+
           </navigator>
-        </view>
-        <view class="first" wx:for="{{items}}" wx:key="id">
-          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="https://ts1.cn.mm.bing.net/th/id/R-C.c79700238e37c8ddb1798b42dba0f523?rik=4yjlJlgz3Rta2A&riu=http%3a%2f%2fimg1.qunarzz.com%2ftravel%2fd9%2f1501%2fc6%2f053ba632e148d2.jpg&ehk=kAKtD2wsgbazyq5CRvtkEYIgjGUKu86nKMAUGlLN%2bFI%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill" />
-            <text class="intro">四川，九寨沟</text>
-            <view class="item">
-              <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
-              <text class="item-text">{{text2}}</text>
-              <image src="{{loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+          <view class="item">
+              <image src="{{item.userimageComment}}" class="item-image" mode="aspectFill"></image>
+              <text class="item-text">{{item.text}}</text>
+              <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
             </view>
-          </navigator>
-        </view>
-        <view class="first" wx:for="{{items}}" wx:key="id">
-          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="https://tse1-mm.cn.bing.net/th/id/OIP-C.6YSYnRrJiX4sd9T3GoN7yQHaEp?rs=1&pid=ImgDetMain" mode="aspectFill" />
-            <text class="intro">安徽，黄山</text>
-            <view class="item">
-              <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
-              <text class="item-text">{{text3}}</text>
-              <image src="{{loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-            </view>
-          </navigator>
-        </view>
-        <view class="first" wx:for="{{items}}" wx:key="id">
-          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.lTyDhY6iLakxji3xC0ua8QHaE8?rs=1&pid=ImgDetMain" mode="aspectFill" />
-            <text class="intro">北京，万里长城</text>
-            <view class="item">
-              <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
-              <text class="item-text">{{text4}}</text>
-              <image src="{{loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-            </view>
-          </navigator>
         </view>
       </view>
+
+      
     </view>

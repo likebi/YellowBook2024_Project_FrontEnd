@@ -5,26 +5,46 @@ Page({
    * Page initial data
    */
   data: {
-    text: "人人有爱，很想您",
-    text2: "坚持一天拉拉啦",
-    text3: "爬山Bro，Go Let's Go",
-    text4: "冬天长城，打卡啦！",
-    loveImage: "../../static/love.png",
     isLiked: false,
     items: [
       
       {
         id: 1,
-        // text: "迷人的灰太狼",
-        // loveImage: "../../static/love.png",
-        // isLiked: false,
+        tripImage:'https://tse3-mm.cn.bing.net/th/id/OIP-C.9p2Ha8ecYTki3TGpmfOTtQHaET?rs=1&pid=ImgDetMain',
+        tripTitle:'上海迪斯尼乐园',
+        userimageFoodrec:'https://tse3-mm.cn.bing.net/th/id/OIP-C.hi4qsCrTeld62WOum9HFswHaLI?rs=1&pid=ImgDetMain',
+        userimageFoodtext:'hehehe',
+        loveImage: "../../static/love.png",
+        isLiked: false,
       },
-      // {
-      //   id: 2,
-      //   text: "另一项内容",
-      //   loveImage: "../../static/love.png",
-      //   isLiked: false,
-      // }
+      {
+        id: 2,
+        tripImage:'https://tse2-mm.cn.bing.net/th/id/OIP-C.4sO5pSUXQJPqcJUR4x_fkAHaE7?rs=1&pid=ImgDetMain',
+        tripTitle:'上海迪斯尼乐园',
+        userimageFoodrec:'https://tse3-mm.cn.bing.net/th/id/OIP-C.hi4qsCrTeld62WOum9HFswHaLI?rs=1&pid=ImgDetMain',
+        userimageFoodtext:'hahaha',
+        loveImage: "../../static/love.png",
+        isLiked: false,
+      },
+      {
+        id: 3,
+        tripImage:'https://tse2-mm.cn.bing.net/th/id/OIP-C.ut6ogC6odbyuXG_05v8yPQHaE8?rs=1&pid=ImgDetMain',
+        tripTitle:'上海迪斯尼乐园',
+        userimageFoodrec:'https://tse3-mm.cn.bing.net/th/id/OIP-C.hi4qsCrTeld62WOum9HFswHaLI?rs=1&pid=ImgDetMain',
+        userimageFoodtext:'hihihi',
+        loveImage: "../../static/love.png",
+        isLiked: false,
+      },
+      {
+        id: 4,
+        tripImage:'https://tse3-mm.cn.bing.net/th/id/OIP-C.0x2fCRq5BHhD4YEIlNhE1QHaJ4?rs=1&pid=ImgDetMain',
+        tripTitle:'上海迪斯尼乐园',
+        userimageFoodrec:'https://tse3-mm.cn.bing.net/th/id/OIP-C.hi4qsCrTeld62WOum9HFswHaLI?rs=1&pid=ImgDetMain',
+        userimageFoodtext:'hohoho',
+        loveImage: "../../static/love.png",
+        isLiked: false,
+      },
+      
     ],
   },
 

@@ -26,6 +26,39 @@ Page({
     items: [
       {
         id: 1,
+        itemImage: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.1xIwmlF2qTdBieTBW7pkFAHaE8?rs=1&pid=ImgDetMain',
+        intro:'SOTO BETAWI 印度尼西亚黄椰汤',
+        text: "Agus",
+        loveImage: "../../static/love.png",
+        isLiked: false,
+      },
+      {
+        id: 2,
+        itemImage: 'https://video.cgtn.com/news/2022-09-29/Shanghai-s-Huangpu-River-boosts-economy-in-Yangtze-River-Delta-1dIM1NhfZKM/video/5f46a45b50c2455bbd175b1056c5122f/5f46a45b50c2455bbd175b1056c5122f.jpeg',
+        intro:'我的城市',
+        text: "真的的上海人",
+        loveImage: "../../static/love.png",
+        isLiked: false,
+      },
+
+      {
+        id: 3,
+        itemImage: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.iACihbLRXkucP2AK7dhGfgHaEK?rs=1&pid=ImgDetMain',
+        intro:'北海道冬天温泉市',
+        text: "北海道666",
+        loveImage: "../../static/love.png",
+        isLiked: false,
+      },
+      {
+        id: 4,
+        itemImage: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.jXEJdOp1OOMAMi3qB8FpPAHaE8?rs=1&pid=ImgDetMain',
+        intro:'马来西亚椰浆饭',
+        text: "马来西亚better then SG",
+        loveImage: "../../static/love.png",
+        isLiked: false,
+      },
+      {
+        id: 5,
         itemImage: 'https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp',
         intro:'联想（Lenovo）拯救者27英寸2K FastIPS 原生180Hz',
         text: "迷人的灰太狼",
@@ -33,7 +66,7 @@ Page({
         isLiked: false,
       },
       {
-        id: 2,
+        id: 6,
         itemImage: 'https://cdn.donmai.us/sample/7d/b4/__elysia_and_elysia_honkai_and_1_more_drawn_by_macaroni_0101__sample-7db413e1f173d044760ea7e281633813.jpg',
         intro:'我推的孩子',
         text: "另一项内容",
@@ -43,7 +76,7 @@ Page({
       },
 
       {
-        id: 3,
+        id: 7,
         itemImage: 'https://cdn.donmai.us/sample/7d/b4/__elysia_and_elysia_honkai_and_1_more_drawn_by_macaroni_0101__sample-7db413e1f173d044760ea7e281633813.jpg',
         intro:'我推的孩子',
         text: "另一项内容",
@@ -52,76 +85,7 @@ Page({
         isLiked: false,
       },
       {
-        id: 4,
-        itemImage: 'https://media.9game.cn/gamebase/2021/7/12/227692967.jpg',
-        intro:'我推的孩子',
-        text: "另一项内容",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 1,
-        itemImage: 'https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp',
-        intro:'联想（Lenovo）拯救者27英寸2K FastIPS 原生180Hz',
-        text: "迷人的灰太狼",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 2,
-        itemImage: 'https://cdn.donmai.us/sample/7d/b4/__elysia_and_elysia_honkai_and_1_more_drawn_by_macaroni_0101__sample-7db413e1f173d044760ea7e281633813.jpg',
-        intro:'我推的孩子',
-        text: "另一项内容",
-
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-
-      {
-        id: 3,
-        itemImage: 'https://cdn.donmai.us/sample/7d/b4/__elysia_and_elysia_honkai_and_1_more_drawn_by_macaroni_0101__sample-7db413e1f173d044760ea7e281633813.jpg',
-        intro:'我推的孩子',
-        text: "另一项内容",
-
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 4,
-        itemImage: 'https://media.9game.cn/gamebase/2021/7/12/227692967.jpg',
-        intro:'我推的孩子',
-        text: "另一项内容",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 1,
-        itemImage: 'https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp',
-        intro:'联想（Lenovo）拯救者27英寸2K FastIPS 原生180Hz',
-        text: "迷人的灰太狼",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 2,
-        itemImage: 'https://cdn.donmai.us/sample/7d/b4/__elysia_and_elysia_honkai_and_1_more_drawn_by_macaroni_0101__sample-7db413e1f173d044760ea7e281633813.jpg',
-        intro:'我推的孩子',
-        text: "另一项内容",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-
-      {
-        id: 3,
-        itemImage: 'https://cdn.donmai.us/sample/7d/b4/__elysia_and_elysia_honkai_and_1_more_drawn_by_macaroni_0101__sample-7db413e1f173d044760ea7e281633813.jpg',
-        intro:'我推的孩子',
-        text: "另一项内容",
-
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 4,
+        id: 8,
         itemImage: 'https://media.9game.cn/gamebase/2021/7/12/227692967.jpg',
         intro:'我推的孩子',
         text: "另一项内容",

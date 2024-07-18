@@ -40,100 +40,32 @@
       <view class="box-suggestion">
         <view class="first" wx:for="{{items}}" wx:key="id">
           <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="https://dimg04.c-ctrip.com/images/100e080000003j0ju8D3A_R_1600_10000.jpg" mode="aspectFill" />
+            <image class="image1" src="{{item.tripImage}}" mode="aspectFill" />
+            <text class="intro">{{item.tripName}}</text>
+              <image src="{{item.fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+          
+          </navigator>
+
             <view class="hotel-header">
-              <text class="intro">八达岭长城</text>
-              <image src="{{fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-              <image src="{{loveImage}}" class="item-love1" mode="aspectFill" bindtap="like_post" ></image>
+              <image src="{{item.locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
+              <text class="room-intro">{{item.tripLocation}}</text>
+              <image src="{{item.loveImage}}" class="item-love1" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
             </view>
-            <view>
-              <image src="{{locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
-              <text class="room-intro">北京市延庆区G6京藏高速58号出口</text>
-            </view>
+            
             <view class="item">
               <view class="review-box">
-                <text>4.8</text>
-                <image class="review-star" src="/static/stars.png"/>
+                <text>{{item.tripRating}}</text>
+                <image class="review-star" src="{{item.tripreviewStar}}"/>
               </view>
-              <text class="item-text1">{{text}}</text>
+              <text class="item-text1">{{item.tripPrice}}</text>
               <view class="booknow-box">
                 <text>预定</text>
               </view>
             </view>
-          </navigator>
+         
         </view>
-        <view class="first" wx:for="{{items}}" wx:key="id">
-          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="https://dimg04.c-ctrip.com/images/0106j120008y7o3hcC541_R_1600_10000.jpg" mode="aspectFill" />
-            <view class="hotel-header">
-              <text class="intro">北京环球度假区</text>
-              <image src="{{fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-              <image src="{{loveImage}}" class="item-love2" mode="aspectFill" bindtap="like_post" ></image>
-            </view>
-            <view>
-              <image src="{{locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
-              <text class="room-intro">北京市通州区北京环球度假区</text>
-            </view>
-            <view class="item">
-              <view class="review-box">
-                <text>4.9</text>
-                <image class="review-star" src="/static/stars.png"/>
-              </view>
-              <text class="item-text">{{text1}}</text>
-              <view class="booknow-box">
-                <text>预定</text>
-              </view>
-            </view>
-          </navigator>
-        </view>
-        <view class="first" wx:for="{{items}}" wx:key="id">
-          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="https://dimg04.c-ctrip.com/images/010671200087d4o7zEA88_R_1600_10000.jpg" mode="aspectFill" />
-            <view class="hotel-header">
-              <text class="intro">故宫博物院</text>
-              <image src="{{fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-              <image src="{{loveImage}}" class="item-love3" mode="aspectFill" bindtap="like_post" ></image>
-            </view>
-            <view>
-              <image src="{{locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
-              <text class="room-intro">北京朝阳区华贸中心建国路甲83号, 100025</text>
-            </view>
-            <view class="item">
-              <view class="review-box">
-                <text>4.6</text>
-                <image class="review-star" src="/static/stars.png"/>
-              </view>
-              <text class="item-text">{{text2}}</text>
-              <view class="booknow-box">
-                <text>预定</text>
-              </view>
-            </view>
-          </navigator>
-        </view>
-        <view class="first" wx:for="{{items}}" wx:key="id">
-          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="https://dimg04.c-ctrip.com/images/100l1f000001gqejyFCAB_R_1600_10000.jpg" mode="aspectFill" />
-            <view class="hotel-header">
-              <text class="intro">颐和园</text>
-              <image src="{{fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-              <image src="{{loveImage}}" class="item-love4" mode="aspectFill" bindtap="like_post" ></image>
-            </view>
-            <view>
-              <image src="{{locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
-              <text class="room-intro">北京市海淀区新建宫门路19号</text>
-            </view>
-            <view class="item">
-              <view class="review-box">
-                <text>4.7</text>
-                <image class="review-star" src="/static/stars.png"/>
-              </view>
-              <text class="item-text">{{text}}</text>
-              <view class="booknow-box">
-                <text>预定</text>
-              </view>
-            </view>
-          </navigator>
-        </view>
+        
+
       </view>
     </view>
   </view>

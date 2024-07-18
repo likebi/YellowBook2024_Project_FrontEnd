@@ -1,5 +1,5 @@
 <scroll-view class="container1" scroll-y="true">
-  <!-- 图片上传区域 -->
+  <!-- 图片上传区域s -->
   <view class="upload-box">
     <image class="upload-icon" src="{{plus}}" mode="aspectFit" bindtap="addImage"/>
     <block wx:for="{{images}}" wx:key="index">
