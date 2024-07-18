@@ -42,7 +42,7 @@
 
     <view class="container_icon">
   <view class="selected">
-    <navigator class="index_selected" url="/pages/hotel/hotel">
+    <navigator class="index_selected" url="/pages/Hotel/hotel">
       <image src="../../static/hotel.png" class="icon_function" mode=""/>
       <text class="icon-title">酒店</text>
     </navigator>
@@ -50,7 +50,7 @@
       <image src="../../static/trip.png" class="icon_function" mode=""/>
       <text class="icon-title">旅游</text>
     </navigator>
-    <navigator class="index_selected" url="/pages/food/food">
+    <navigator class="index_selected" url="/pages/Food/food">
       <image src="../../static/food.png" class="icon_function" mode=""/>
       <text class="icon-title">美食</text>
     </navigator>

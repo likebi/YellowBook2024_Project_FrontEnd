@@ -1,0 +1,208 @@
+#container {
+  padding: 20rpx;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rpx;
+  margin-left: 30rpx;
+  width: 90%;
+}
+
+.suggestion-header{
+  width: auto;
+  height: 30px;
+  margin-left: 40rpx;
+  margin-bottom: 40rpx;
+  width: 100%;
+}
+
+.link_sugges_header{
+  display: inline-block;
+}
+
+.history_header{
+  display: inline-block; 
+  width: 90rpx; 
+  height: 40rpx; 
+  line-height: 40rpx;
+  text-align: center;
+  background-color: rgba(200, 200, 200, 0.9); 
+  margin-right: 10px;
+  border-radius: 40rpx;
+  font-size: 20rpx;
+  color: #fff;
+}
+
+
+.search-container {
+  flex: 1;
+  margin: 30rpx 20rpx;
+}
+
+.search-window {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 30rpx;
+  padding: 0 10rpx;
+}
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10rpx;
+  border: none;
+}
+
+.search-button {
+  cursor: pointer;
+  color: #999;
+}
+
+.title_box{
+  margin-left: 40rpx;
+  font-weight: 550;
+  font-size: 35rpx;
+}
+
+.suggestion-box{
+  margin-left: 40rpx;
+  margin-top: 20rpx;
+  height: 280rpx;
+}
+.link_suggestion_box{
+  display: inline-block;
+}
+
+.style_box{
+  position: relative;
+  width: 110px; 
+  height: 280rpx; 
+  margin-right: 10px;
+}
+
+
+
+.title_suggestion{
+  position: absolute;
+  top: 10rpx;
+  left: 10px;
+  font-size: 35rpx;
+  padding: 5rpx 10rpx;
+  color: #fff;
+  border-radius: 5rpx;
+}
+
+.style_box image{
+  width: 110px; height: 280rpx;
+  border-radius: 20rpx;
+}
+
+
+.view{
+  display: inline-block;
+  vertical-align: top;
+}
+
+.style_box2{
+  display: inline-block; 
+  vertical-align: top;
+}
+
+
+.image-suggestion{
+  width: 120px; 
+  height: 130rpx; 
+  border-radius: 20rpx;
+}
+.box_second{
+  position: relative;
+  display: block;
+  flex-direction: column;
+  width: 120px; 
+  height: 130rpx; 
+  margin-right: 10px;
+}
+
+.box_third{
+  position: relative;
+  display: block;
+  flex-direction: column;
+  width: 120px; 
+  height: 130rpx; 
+  margin-right: 10px;
+  margin-top: 20rpx;
+}
+
+.suggestion_title{
+  margin: 40rpx;
+  font-size: 35rpx;
+}
+
+.first {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  height: auto;
+  background-color: #fff;
+}
+
+button-sug{
+  display: inline-block;
+}
+.box-suggestion {
+  display: flex; /* 使用flex布局 */
+  flex-wrap: wrap; /* 允许换行 */
+  justify-content: space-around; /* 在主轴上平均分配空间 */
+}
+.image1 {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.intro {
+  overflow: hidden; /* 超出内容隐藏 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  display: -webkit-box; /* 使用 Flexbox 进行布局 */
+  -webkit-line-clamp: 2; /* 限制显示两行 */
+  -webkit-box-orient: vertical; /* 垂直排列 */
+  margin: 10px 20rpx;
+  font-size: 14px;
+  font: 500;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.item-image {
+  width: 25px; /* 设置图片的宽度 */
+  height: 25px; /* 设置图片的高度 */
+  border-radius: 40rpx;
+  margin-right: 10px; /* 图片与文字之间的间距 */
+  margin-left: 20rpx;
+}
+
+.item-love{
+  width: 15px; /* 设置图片的宽度 */
+  height: 15px; /* 设置图片的高度 */
+  border-radius: 40rpx;
+  margin-right: 10px; /* 图片与文字之间的间距 */
+  margin-left: 60rpx;
+}
+
+.item-text {
+  font-size: 11px; /* 设置文字的大小 */
+  color: #333; /* 设置文字的颜色 */
+}

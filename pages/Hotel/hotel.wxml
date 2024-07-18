@@ -17,13 +17,15 @@
     <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
     <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
     <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
+    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
+    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
   </scroll-view>
 </view>
 
 <text class="title_box">推荐目的地</text>
 <view class="suggestion-box">
   <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
-    <navigator url="../../pages/tripcontent/tripcontent" class="link_suggestion_box"><view class="style_box">
+    <navigator url="../../pages/hotelcontent/hotelcontent" class="link_suggestion_box"><view class="style_box">
       <text class="title_suggestion">北京</text>
       <image src="https://th.bing.com/th/id/R.cdbe0fe09e25108143388dc3462f8ce2?rik=1E2m%2bFFHtfoJpg&riu=http%3a%2f%2fimg95.699pic.com%2fphoto%2f50071%2f3462.jpg_wh860.jpg&ehk=ntJVViZ9MFYGb0twTvOv5EBVQ%2f2FACJAWrwttvzJNO0%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill"/>
     </view>
@@ -71,18 +73,6 @@
 <view class="suggestion_title">当季去哪儿?</view>
 
 <view class="contentSuggestion">
-<<<<<<< HEAD
-  <view class="box-suggestion">
-    <view class="first" wx:for="{{items}}" wx:key="id">
-      <navigator url="../../pages/contentpage/contentpage">
-        <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
-        <text class="intro">{{item.intro}}</text>
-      </navigator>
-      <view class="item">
-          <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
-          <text class="item-text">{{item.text}}</text>
-          <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-=======
       <view class="box-suggestion">
         <view class="first" wx:for="{{items}}" wx:key="id">
           <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
@@ -127,8 +117,6 @@
               <image src="{{loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
             </view>
           </navigator>
->>>>>>> caee3f50245101c14f12062b5bc1605c0596860c
         </view>
+      </view>
     </view>
-  </view>
-</view>

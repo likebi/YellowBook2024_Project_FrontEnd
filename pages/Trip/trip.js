@@ -5,9 +5,17 @@ Page({
    * Page initial data
    */
   data: {
+    text: "人人有爱，很想您",
+    text2: "坚持一天拉拉啦",
+    text3: "爬山Bro，Go Let's Go",
+    text4: "冬天长城，打卡啦！",
+    loveImage: "../../static/love.png",
+    isLiked: false,
     items: [
+      
       {
         id: 1,
+<<<<<<< HEAD
         itemImage: 'https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp',
         intro:'联想（Lenovo）拯救者27英寸2K FastIPS 原生180Hz',
         text: "迷人的灰太狼",
@@ -76,6 +84,18 @@ Page({
         loveImage: "../../static/love.png",
         isLiked: false,
       },
+=======
+        // text: "迷人的灰太狼",
+        // loveImage: "../../static/love.png",
+        // isLiked: false,
+      },
+      // {
+      //   id: 2,
+      //   text: "另一项内容",
+      //   loveImage: "../../static/love.png",
+      //   isLiked: false,
+      // }
+>>>>>>> caee3f50245101c14f12062b5bc1605c0596860c
     ],
   },
 
