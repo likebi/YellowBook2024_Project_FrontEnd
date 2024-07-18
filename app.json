@@ -16,7 +16,12 @@
     "pages/editGender/editGender",
     "pages/contentpage/contentpage",
     "pages/Trip/trip",
-    "pages/userPage/userPage"
+    "pages/Hotel/hotel",
+    "pages/Food/food",
+    "pages/userPage/userPage",
+    "pages/hotelcontent/hotelcontent",
+    "pages/foodcontent/foodcontent",
+    "pages/tripcontent/tripcontent"
   ],
   "tabBar": {
     "color": "#555555",
