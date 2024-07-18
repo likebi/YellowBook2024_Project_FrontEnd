@@ -71,17 +71,17 @@
 <view class="suggestion_title">当季去哪儿?</view>
 
 <view class="contentSuggestion">
-      <view class="box-suggestion">
-        <view class="first" wx:for="{{items}}" wx:key="id">
-          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp" mode="aspectFill" />
-            <text class="intro">联想（Lenovo）生低蓝光</text>
-            <view class="item">
-              <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
-              <text class="item-text">{{item.text}}</text>
-              <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-            </view>
-          </navigator>
+  <view class="box-suggestion">
+    <view class="first" wx:for="{{items}}" wx:key="id">
+      <navigator url="../../pages/contentpage/contentpage">
+        <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
+        <text class="intro">{{item.intro}}</text>
+      </navigator>
+      <view class="item">
+          <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
+          <text class="item-text">{{item.text}}</text>
+          <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
         </view>
-      </view>
     </view>
+  </view>
+</view>
