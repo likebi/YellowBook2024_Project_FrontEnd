@@ -4,14 +4,22 @@
 <view class="me-info">
   <button open-type="chooseImage" bindtap="onChooseBackground" class="change-bg-button">更换背景</button>  
   <view class="avatar1">
-    <button open-type="chooseImage" bindtap="onChooseAvatar" class="button-user">
+    <!-- <button open-type="chooseImage" bindtap="onChooseAvatar" class="button-user">
       <image class="user-image" src="{{userImage}}" mode="aspectFill"></image>
+    </button> -->
+    <button class="button-user" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <image src="{{userImage}}" class="user-image" mode="aspectFill" />
     </button>
   </view>
-  <view class="user-info">
+  <!-- <view class="user-info">
     <view class="user-name-input">{{nickname}}</view>
     <text class="id_user">小黄书号: {{Uid}}</text>
+  </view> -->
+
+  <view class="nickname">
+    <input type="nickname" value="{{nickname}}" class="user-name-input" bind:change="onChooseNickname" />
   </view>
+
 
   <view class="editProfil">
   <navigator url="/pages/editBio/editBio"  open-type="navigate">
