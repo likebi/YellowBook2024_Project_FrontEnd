@@ -37,6 +37,7 @@ Page({
     });
   },
 
+
   handleTouchStart(event) {
     this.setData({
       startX: event.touches[0].pageX,
