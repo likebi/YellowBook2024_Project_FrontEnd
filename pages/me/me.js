@@ -12,7 +12,7 @@ Page({
     userImage: '/static/me.png',
     backgroundImage: "https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient",
     Uid: '',
-    nickname:'Wechat_user',
+    nickname: 'Wechat_user',
     follow_num: '0',
     fans_num: '0',
     like_num: '0',
@@ -26,7 +26,7 @@ Page({
       {
         id: 1,
         itemImage: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.1xIwmlF2qTdBieTBW7pkFAHaE8?rs=1&pid=ImgDetMain',
-        intro:'SOTO BETAWI 印度尼西亚黄椰汤cdscsdvsvsvsvrvervsrfvsev srvsvsrevs',
+        intro: 'SOTO BETAWI 印度尼西亚黄椰汤cdscsdvsvsvsvrvervsrfvsev srvsvsrevs',
         text: "Agus",
         loveImage: "../../static/love.png",
         isLiked: false,
@@ -34,7 +34,7 @@ Page({
       {
         id: 2,
         itemImage: 'https://video.cgtn.com/news/2022-09-29/Shanghai-s-Huangpu-River-boosts-economy-in-Yangtze-River-Delta-1dIM1NhfZKM/video/5f46a45b50c2455bbd175b1056c5122f/5f46a45b50c2455bbd175b1056c5122f.jpeg',
-        intro:'我的城市',
+        intro: '我的城市',
         text: "真的的上海人",
         loveImage: "../../static/love.png",
         isLiked: false,
@@ -43,7 +43,7 @@ Page({
       {
         id: 3,
         itemImage: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.iACihbLRXkucP2AK7dhGfgHaEK?rs=1&pid=ImgDetMain',
-        intro:'北海道冬天温泉市',
+        intro: '北海道冬天温泉市',
         text: "北海道666",
         loveImage: "../../static/love.png",
         isLiked: false,
@@ -51,7 +51,7 @@ Page({
       {
         id: 4,
         itemImage: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.jXEJdOp1OOMAMi3qB8FpPAHaE8?rs=1&pid=ImgDetMain',
-        intro:'马来西亚椰浆饭',
+        intro: '马来西亚椰浆饭',
         text: "马来西亚better then SG",
         loveImage: "../../static/love.png",
         isLiked: false,
@@ -59,7 +59,7 @@ Page({
       {
         id: 5,
         itemImage: 'https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp',
-        intro:'联想（Lenovo）拯救者27英寸2K FastIPS 原生180Hz',
+        intro: '联想（Lenovo）拯救者27英寸2K FastIPS 原生180Hz',
         text: "迷人的灰太狼",
         loveImage: "../../static/love.png",
         isLiked: false,
@@ -68,7 +68,7 @@ Page({
       {
         id: 3,
         itemImage: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.iACihbLRXkucP2AK7dhGfgHaEK?rs=1&pid=ImgDetMain',
-        intro:'北海道冬天温泉市',
+        intro: '北海道冬天温泉市',
         text: "北海道666",
         loveImage: "../../static/love.png",
         isLiked: false,
@@ -76,7 +76,7 @@ Page({
       {
         id: 4,
         itemImage: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.jXEJdOp1OOMAMi3qB8FpPAHaE8?rs=1&pid=ImgDetMain',
-        intro:'马来西亚椰浆饭',
+        intro: '马来西亚椰浆饭',
         text: "马来西亚better then SG",
         loveImage: "../../static/love.png",
         isLiked: false,
@@ -84,7 +84,7 @@ Page({
       {
         id: 5,
         itemImage: 'https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp',
-        intro:'联想（Lenovo）拯救者27英寸2K FastIPS 原生180Hz',
+        intro: '联想（Lenovo）拯救者27英寸2K FastIPS 原生180Hz',
         text: "迷人的灰太狼",
         loveImage: "../../static/love.png",
         isLiked: false,
@@ -97,7 +97,24 @@ Page({
     this.setData({
       activeTagLeft: this.data.tabPositions[this.data.currentTab]
     });
+
+    // 检查全局数据
+    const app = getApp();
+    if (app.globalData.uid) {
+      this.setData({
+        Uid: app.globalData.uid
+      });
+    } else {
+      // 从本地存储中获取 uid
+      const uid = wx.getStorageSync('Uid');
+      if (uid) {
+        this.setData({
+          Uid: uid
+        });
+      }
+    }
   },
+
 
   onShow() {
     this.getUserInfo();
@@ -109,8 +126,8 @@ Page({
     wx.navigateBack();
   },
 
-   // 获取用户头像
-   onChooseAvatar(e) {
+  // 获取用户头像
+  onChooseAvatar(e) {
     console.log(e);
     this.setData({
       userImage: e.detail.avatarUrl
@@ -118,22 +135,38 @@ Page({
     this.saveUserInfo();
   },
 
-  // 获取用户信息
-onChooseNickname() {
-  wx.getUserProfile({
-    desc: '用于更新你的昵称', // 说明使用该信息的目的
-    success: (res) => {
-      console.log(res.userInfo);
-      this.setData({
-        nickname: res.userInfo.nickName // 更新数据绑定的昵称
-      });
-      this.saveUserInfo(); // 保存用户信息
-    },
-    fail: (err) => {
-      console.error('获取用户信息失败', err);
-    }
-  });
-},
+
+  // 选择昵称
+  onChooseNickname(e) {
+    console.log(e);
+    this.setData({
+      nickname: e.detail.value
+    });
+    this.saveUserInfo();
+    this.sendNicknameToServer(e.detail.value); // 调用函数发送昵称到服务器
+  },
+
+  // 发送昵称到服务器
+  sendNicknameToServer(nickname) {
+    wx.request({
+      url: 'http://localhost:3000/saveNickname', // 替换为你的后端API地址
+      method: 'POST',
+      data: {
+        nickname: nickname,
+        Uid: this.data.Uid // 传递用户UID
+      },
+      header: {
+        'content-type': 'application/json', // 默认值
+        'Authorization': wx.getStorageSync('token') // 需要传递的token
+      },
+      success(res) {
+        console.log('Nickname saved successfully:', res);
+      },
+      fail(err) {
+        console.error('Failed to save nickname:', err);
+      }
+    });
+  },
 
   onChooseBackground: function () {
     wx.chooseImage({
@@ -152,27 +185,26 @@ onChooseNickname() {
     });
   },
 
-
   saveUserInfo() {
     wx.setStorageSync('userInfo', {
       userImage: this.data.userImage,
       backgroundImage: this.data.backgroundImage,
       nickname: this.data.nickname,
-      Uid: this.data.Uid,
-      Bio:this.data.intro_user
-  });
-},
+      Uid: String(this.data.Uid), // 确保这里的变量名一致
+    });
+  },
 
   getUserInfo() {
     const userInfo = wx.getStorageSync('userInfo') || {};
     this.setData({
       userImage: userInfo.userImage || this.data.userImage,
       nickname: userInfo.nickname || this.data.nickname,
-      Uid: userInfo.Uid || this.data.Uid,
+      Uid: String(userInfo.Uid || this.data.Uid), // 修复这里的变量名
       backgroundImage: userInfo.backgroundImage || this.data.backgroundImage,
-      intro_user:userInfo.Bio|| this.data.intro_user
+      intro_user: userInfo.Bio || this.data.intro_user
     });
   },
+
 
   switchTab(e) {
     const index = e.currentTarget.dataset.index;
