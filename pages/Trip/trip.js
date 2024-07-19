@@ -30,12 +30,7 @@ Page({
         loveImage: "../../static/love.png",
         isLiked: false,
       },
-      // {
-      //   id: 2,
-      //   text: "另一项内容",
-      //   loveImage: "../../static/love.png",
-      //   isLiked: false,
-      // }
+    
     ],
   },
 

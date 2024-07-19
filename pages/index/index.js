@@ -68,33 +68,6 @@ Page({
         loveImage: "../../static/love.png",
         isLiked: false,
       },
-      {
-        id: 6,
-        itemImage: 'https://cdn.donmai.us/sample/7d/b4/__elysia_and_elysia_honkai_and_1_more_drawn_by_macaroni_0101__sample-7db413e1f173d044760ea7e281633813.jpg',
-        intro:'我推的孩子',
-        text: "另一项内容",
-
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-
-      {
-        id: 3,
-        itemImage: 'https://cdn.donmai.us/sample/7d/b4/__elysia_and_elysia_honkai_and_1_more_drawn_by_macaroni_0101__sample-7db413e1f173d044760ea7e281633813.jpg',
-        intro:'我推的孩子',
-        text: "另一项内容",
-
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 4,
-        itemImage: 'https://media.9game.cn/gamebase/2021/7/12/227692967.jpg',
-        intro:'我推的孩子',
-        text: "另一项内容",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
     ],
   },
 
