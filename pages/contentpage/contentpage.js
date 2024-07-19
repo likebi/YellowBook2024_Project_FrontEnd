@@ -6,8 +6,21 @@ Page({
       { img: "https://c-ssl.duitang.com/uploads/item/202002/08/20200208034637_hz4HJ.jpeg" },
     ],
     followStatus: false,
+    post_text:[{
+      id:1,
+      userImage:'../../static/test.png',
+      userName:'ali',
+      title_post:'陪伴我十年青春的男孩 一眨眼都长大啦',
+      text_post:'很多人都说中学的恋情是最长情 最深刻的 我们2015年相识 真的一眨眼十年过去了',
+      content_date:'0709',
+      position_content:'江南',
+    }],
+
+
+
     comments: [{
       id: 1,
+  
       userImage: 'https://cdn.donmai.us/sample/7d/b4/__elysia_and_elysia_honkai_and_1_more_drawn_by_macaroni_0101__sample-7db413e1f173d044760ea7e281633813.jpg',
       userName: '小米',
       comment: '小米是个好人',
@@ -20,7 +33,9 @@ Page({
       userName: '小米',
       comment: '小米是个好人haha',
       loveImage: '../../static/love.png', // 默认显示未点赞的图标
-      isLiked: false // 标记是否已点赞
+      isLiked: false,// 标记是否已点赞
+      day:'5',
+      place:'福建'
     }],
     inputValue: '',
     startX: 0,

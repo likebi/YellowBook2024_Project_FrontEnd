@@ -32,14 +32,4 @@ Page({
     console.log('提交的昵称:', this.data.nickname);
     wx.navigateBack(); // 返回上一页
   },
-
-  loadNickname() {
-    const userInfo = wx.getStorageSync('userInfo');
-    if (userInfo && userInfo.nickname) {
-      this.setData({
-        nickname: userInfo.nickname,
-        currentLength: userInfo.nickname.length // 设置当前长度
-      });
-    }
-  },
 });

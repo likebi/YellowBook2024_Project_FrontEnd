@@ -1,9 +1,9 @@
 <view class="post-page">
   <view class="touch-area" bindtouchstart="handleTouchStart" bindtouchmove="handleTouchMove" bindtouchend="handleTouchEnd">
-    <view class="item">
+    <view class="item" wx:for="{{post_text}}" wx:key="id">
       <view class="item" bindtap="navigateToUserPage">
-         <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
-            <text class="item-text">默默</text>
+         <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
+            <text class="item-text">{{item.userName}}</text>
       </view>
 
       <view class="button_follow" bindtap="toggleFollow">{{followStatus ? '已关注' : '关注'}}</view>
@@ -19,22 +19,19 @@
       </swiper>
     </view>
 
-    <view class="text-post">
+    <view class="text-post" >
       <view>
-        <text class="title_post">陪伴我十年青春的男孩 一眨眼都长大啦</text>
+        <text class="title_post">{{item.title_post}}</text>
       </view>
       <view class="text_post">
-        <text>很多人都说中学的恋情是最长情 最深刻的 我们2015年相识 真的一眨眼十年过去了</text>
+        <text>{{item.text_post}}</text>
       </view>
       <view class="position-date">
-        <text>0708</text>
-        <text class='position_content'>江西</text>
+        <text>{{item.content_date}}</text>
+        <text class='position_content'>{{item.position_content}}</text>
       </view>
     </view>
 
-    <view class="header_comment">
-      <text>共{{num_comment}}条评论</text>
-    </view>
 
     <view class="commentArea">
       <input type="text" placeholder="留下你的想法" class="leave_comment" bindinput="onInput"/>
@@ -46,9 +43,9 @@
       <view class="commentuser_info">
         <text class="commentuser-name">{{item.userName}}</text>
         <text class="commentuser-text">{{item.comment}}</text>
-        <text class="commentuser-position">4天前 福建</text>
+        <text class="commentuser-position">{{item.day}}天前 {{item.place}}</text>
       </view>
-      <image src="{{item.loveImage}}" class="icon_love" data-index="{{index}}" bindtap="like_post"/>
+      <image src="{{loveImage}}" class="icon_love" data-index="{{index}}" bindtap="like_post"/>
     </view>
   </view>
 </view>

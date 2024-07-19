@@ -45,7 +45,7 @@
       </navigator> 
     </view>
 
-    <!-- <view class="style_box2">
+    <view class="style_box2">
       <navigator url="../../pages/tripcontentID/tripcontentID">
       <view class="box_second">
         <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.M6g9p33OhZ0sWEE2NzJNUQHaEo?rs=1&pid=ImgDetMain" mode="aspectFill"/>
@@ -75,7 +75,7 @@
         <text class="title_suggestion">马来西亚</text>
       </view>
       </navigator> 
-    </view> -->
+    </view>
   </scroll-view>
 </view>
 

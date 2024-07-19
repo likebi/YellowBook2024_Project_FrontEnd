@@ -1,4 +1,9 @@
 Page({
+  "permission": {
+    "scope.userInfo": {
+      "desc": "获取你的昵称、头像、地区及性别"
+    }
+  },
 
   /**
    * Page initial data
@@ -15,13 +20,13 @@ Page({
     activeTagWidth: 64,
     activeTagLeft: 0,
     tabPositions: [22, 136, 250],
-    intro_user: '将用户的头',
+    intro_user: 'Bio',
 
     items: [
       {
         id: 1,
         itemImage: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.1xIwmlF2qTdBieTBW7pkFAHaE8?rs=1&pid=ImgDetMain',
-        intro:'SOTO BETAWI 印度尼西亚黄椰汤',
+        intro:'SOTO BETAWI 印度尼西亚黄椰汤cdscsdvsvsvsvrvervsrfvsev srvsvsrevs',
         text: "Agus",
         loveImage: "../../static/love.png",
         isLiked: false,
@@ -113,14 +118,22 @@ Page({
     this.saveUserInfo();
   },
 
-   // 选择昵称
-   onChooseNickname(e) {
-    console.log(e);
-    this.setData({
-      nickname: e.detail.value
-    })
-    this.saveUserInfo();
-  },
+  // 获取用户信息
+onChooseNickname() {
+  wx.getUserProfile({
+    desc: '用于更新你的昵称', // 说明使用该信息的目的
+    success: (res) => {
+      console.log(res.userInfo);
+      this.setData({
+        nickname: res.userInfo.nickName // 更新数据绑定的昵称
+      });
+      this.saveUserInfo(); // 保存用户信息
+    },
+    fail: (err) => {
+      console.error('获取用户信息失败', err);
+    }
+  });
+},
 
   onChooseBackground: function () {
     wx.chooseImage({
@@ -146,8 +159,9 @@ Page({
       backgroundImage: this.data.backgroundImage,
       nickname: this.data.nickname,
       Uid: this.data.Uid,
-    });
-  },
+      Bio:this.data.intro_user
+  });
+},
 
   getUserInfo() {
     const userInfo = wx.getStorageSync('userInfo') || {};
@@ -156,6 +170,7 @@ Page({
       nickname: userInfo.nickname || this.data.nickname,
       Uid: userInfo.Uid || this.data.Uid,
       backgroundImage: userInfo.backgroundImage || this.data.backgroundImage,
+      intro_user:userInfo.Bio|| this.data.intro_user
     });
   },
 
@@ -179,5 +194,14 @@ Page({
     wx.navigateTo({
       url: '/pages/profile/clickProfile',
     });
-  }
+  },
+
+  like_post: function (e) {
+    const index = e.currentTarget.dataset.index;
+    const items = this.data.items;
+    items[index].isLiked = !items[index].isLiked;
+    items[index].loveImage = items[index].isLiked ? '../../static/love.png' : '../../static/love2.png';
+    this.setData({ items });
+  },
+
 })

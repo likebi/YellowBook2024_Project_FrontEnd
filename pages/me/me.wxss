@@ -21,6 +21,8 @@
   z-index: 1;
 }
 
+
+
 .me-info {
   position: relative; 
   z-index: 2; 
@@ -204,16 +206,20 @@ button {
   color: #fff; /* 字体颜色 */
 }
 .box-suggestion {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 一行两列 */
+  display: flex; /* 使用flex布局 */
+  flex-wrap: wrap; /* 允许换行 */
+  justify-content: space-around; /* 在主轴上平均分配空间 */
 }
 
 .first {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  width: 45%;
+  background-color: white;
   border-radius: 10px;
-  padding: 10px;
+  margin-bottom: 15px;
+  height: auto;
+  background-color: #fff;
 }
 
 
