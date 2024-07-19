@@ -7,7 +7,7 @@ Page({
     userImage: '/static/me.png',
     nickname: 'wechat_user',
     backgroundImage: "https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient",
-    Uid: "",
+    Uid: app.globalData.uid,
     follow_num: '0',
     fans_num: '0',
     like_num: '0',
@@ -23,23 +23,7 @@ Page({
     this.setData({
       activeTagLeft: this.data.tabPositions[this.data.currentTab]
     });
-
-    // 检查全局数据
-    const app = getApp();
-    if (app.globalData.uid) {
-      this.setData({
-        Uid: app.globalData.uid
-      });
-    } else {
-      // 从本地存储中获取 uid
-      const uid = wx.getStorageSync('Uid');
-      if (uid) {
-        this.setData({
-          Uid: uid
-        });
-      }
-    }
-  },
+},
 
   onShow() {
     this.getUserInfo();

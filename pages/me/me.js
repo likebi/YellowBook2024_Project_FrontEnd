@@ -92,7 +92,24 @@ Page({
     this.setData({
       activeTagLeft: this.data.tabPositions[this.data.currentTab]
     });
+  
+    // 检查全局数据
+    const app = getApp();
+    if (app.globalData.uid) {
+      this.setData({
+        Uid: app.globalData.uid
+      });
+    } else {
+      // 从本地存储中获取 uid
+      const uid = wx.getStorageSync('Uid');
+      if (uid) {
+        this.setData({
+          Uid: uid
+        });
+      }
+    }
   },
+  
 
   onShow() {
     this.getUserInfo();
@@ -113,14 +130,38 @@ Page({
     this.saveUserInfo();
   },
 
+ 
    // 选择昵称
-   onChooseNickname(e) {
-    console.log(e);
-    this.setData({
-      nickname: e.detail.value
-    })
-    this.saveUserInfo();
-  },
+onChooseNickname(e) {
+  console.log(e);
+  this.setData({
+    nickname: e.detail.value
+  });
+  this.saveUserInfo();
+  this.sendNicknameToServer(e.detail.value); // 调用函数发送昵称到服务器
+},
+
+// 发送昵称到服务器
+sendNicknameToServer(nickname) {
+  wx.request({
+    url: 'http://localhost:3000/saveNickname', // 替换为你的后端API地址
+    method: 'POST',
+    data: {
+      nickname: nickname,
+      Uid: this.data.Uid // 传递用户UID
+    },
+    header: {
+      'content-type': 'application/json', // 默认值
+      'Authorization': wx.getStorageSync('token') // 需要传递的token
+    },
+    success(res) {
+      console.log('Nickname saved successfully:', res);
+    },
+    fail(err) {
+      console.error('Failed to save nickname:', err);
+    }
+  });
+},
 
   onChooseBackground: function () {
     wx.chooseImage({
@@ -139,13 +180,12 @@ Page({
     });
   },
 
-
   saveUserInfo() {
     wx.setStorageSync('userInfo', {
       userImage: this.data.userImage,
       backgroundImage: this.data.backgroundImage,
       nickname: this.data.nickname,
-      Uid: this.data.Uid,
+      Uid: String(this.data.Uid), // 确保这里的变量名一致
     });
   },
 
@@ -154,10 +194,11 @@ Page({
     this.setData({
       userImage: userInfo.userImage || this.data.userImage,
       nickname: userInfo.nickname || this.data.nickname,
-      Uid: userInfo.Uid || this.data.Uid,
+      Uid: String(userInfo.Uid || this.data.Uid), // 修复这里的变量名
       backgroundImage: userInfo.backgroundImage || this.data.backgroundImage,
     });
   },
+  
 
   switchTab(e) {
     const index = e.currentTarget.dataset.index;

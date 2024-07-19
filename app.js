@@ -49,7 +49,7 @@ App({
         console.log('后端获取session_key和uid请求', res.data);
         let uid = res.data.data.uid;
         wx.setStorage({
-          key: 'uid',
+          key: 'Uid',
           data: uid
         });
         this.globalData.uid = uid; // 设置全局 uid
