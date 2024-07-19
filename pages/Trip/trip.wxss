@@ -158,7 +158,7 @@
   background-color: #E5E4E4  ;
   border: #E5E4E4 solid 1px  ;
   border-radius: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   height: auto;
   background-color: #fff;
 }
@@ -193,8 +193,6 @@ button-sug{
   justify-content: space-around;
   width: auto;
   height: auto;
-  /* border: 1px solid black;
-   */
 }
 .comment-image-box {
   width: auto;
@@ -202,26 +200,26 @@ button-sug{
   /* border: crimson solid 1px; */
   align-items: center;
   justify-content: center;
-  margin-right: 5px;
+  margin: 1%;
 }
 .comment-like-box {
-  width: 20px;
-  height: 25px;
+  width: auto;
+  height: auto;
+  margin-right: 2%;
   /* border: black 1px solid; */
 }
 .comment-textcomment-box {
-  width: 150px;
-  height: 55px;
+  width: auto;
+  height: auto;
   /* border: blue solid 1px; */
-  padding: 5px;
+  margin: 2%;
+  margin-bottom: 10%;
 }
 .item-image {
-  width: 30px; /* 设置图片的宽度 */
-  height: 30px; /* 设置图片的高度 */
+  width: 25px; /* 设置图片的宽度 */
+  height: 25px; /* 设置图片的高度 */
   border-radius: 40rpx;
-  border: 1px solid grey;
   margin: 2%;
-  
 }
 
 .item-love{
@@ -229,16 +227,14 @@ button-sug{
   height: 25px; /* 设置图片的高度 */
   border-radius: 40rpx;
   margin: 2%;
-  /* margin-left: 10px; */
-  border: 1px solid white;
 }
 
 .item-text {
-  font-size: 11px; /* 设置文字的大小 */
+  overflow: hidden; /* 超出内容隐藏 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  display: -webkit-box; /* 使用 Flexbox 进行布局 */
+  -webkit-line-clamp: 2; /* 限制显示两行 */
+  -webkit-box-orient: vertical; /* 垂直排列 */
+  font-size: 22rpx; /* 设置文字的大小 */
   color: #333; /* 设置文字的颜色 */
-  /* border: solid 1px violet; */
-  width: 100px;
-  height: auto;
-  margin-top: 2%;
-  font-size: 30rpx;
 }

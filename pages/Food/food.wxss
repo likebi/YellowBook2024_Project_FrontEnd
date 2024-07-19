@@ -155,11 +155,12 @@
   display: flex;
   flex-direction: column;
   width: 45%;
-  background-color: white;
+  background-color: #E5E4E4  ;
+  border: #E5E4E4 solid 1px  ;
   border-radius: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   height: auto;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 
 button-sug{
@@ -169,6 +170,7 @@ button-sug{
   display: flex; /* 使用flex布局 */
   flex-wrap: wrap; /* 允许换行 */
   justify-content: space-around; /* 在主轴上平均分配空间 */
+  height: auto;
 }
 .image1 {
   width: 100%;
@@ -182,13 +184,12 @@ button-sug{
   -webkit-line-clamp: 2; /* 限制显示两行 */
   -webkit-box-orient: vertical; /* 垂直排列 */
   margin: 10px 20rpx;
-  font-size: 14px;
+  font-size: 30rpx;
   font: 500;
 }
 
 .item {
   display: flex;
-  border: gray 1px solid;
   /* align-items: center; */
   justify-content: space-around;
   width: auto;
@@ -200,44 +201,45 @@ button-sug{
   /* border: crimson solid 1px; */
   align-items: center;
   justify-content: center;
-  margin-right: 5px;
-  /* border: blue 1px solid; */
+  margin: 1%;
+  
 }
 .comment-like-box {
-  width: 20px;
-  height: 25px;
-  border: black 1px solid;
+  width: auto;
+  height: auto;
+  margin-right: 2%;
+  /* border: black 1px solid; */
 }
 .comment-textcomment-box {
-  width: 150px;
-  height: 55px;
-  padding: 5px;
+  width: auto;
+  height: auto;
+  /* border: blue solid 1px; */
+  margin: 2%;
+  margin-bottom: 10%;
 }
 .item-image {
   width: 30px; /* 设置图片的宽度 */
-  height: 30px;  /*设置图片的高度 */
+  height: 30px; /* 设置图片的高度 */
   border-radius: 40rpx;
-  margin: 3%;
-  margin-right: 10px; /*图片与文字之间的间距*/
-  margin-left: 20rpx;
-  /* border: 1px solid green; */
+  margin: 10%;
+  /* margin-right: 10px; 图片与文字之间的间距 */
+  /* margin-left: 20rpx; */
 }
 
 .item-love{
-  width: 25px; /* 设置图片的宽度 */
-  height: 25px; /* 设置图片的高度 */
+  width: 20px; /* 设置图片的宽度 */
+  height: 20px; /* 设置图片的高度 */
   border-radius: 40rpx;
-  /* margin-left: 10px; */
-  border: solid white 1px;
-  margin-top: 5px;
+ 
+  margin: 2%;
 }
 
 .item-text {
-  font-size: 11px; /* 设置文字的大小 */
+  overflow: hidden; /* 超出内容隐藏 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  display: -webkit-box; /* 使用 Flexbox 进行布局 */
+  -webkit-line-clamp: 2; /* 限制显示两行 */
+  -webkit-box-orient: vertical; /* 垂直排列 */
+  font-size: 22rpx; /* 设置文字的大小 */
   color: #333; /* 设置文字的颜色 */
-  /* border: blue solid 1px; */
-  width: 100px;
-  height: auto;
-  padding: 1%;
-  
 }

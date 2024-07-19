@@ -201,18 +201,21 @@ button-sug{
   /* border: crimson solid 1px; */
   align-items: center;
   justify-content: center;
-  margin: 2%;
+  margin: 1%;
+  
 }
 .comment-like-box {
-  width: 20px;
-  height: 20px;
+  width: auto;
+  height: auto;
+  margin-right: 2%;
   /* border: black 1px solid; */
 }
 .comment-textcomment-box {
-  width: 150px;
-  height: 55px;
+  width: auto;
+  height: auto;
   /* border: blue solid 1px; */
   margin: 2%;
+  margin-bottom: 10%;
 }
 .item-image {
   width: 30px; /* 设置图片的宽度 */
@@ -232,6 +235,11 @@ button-sug{
 }
 
 .item-text {
-  font-size: 30rpx; /* 设置文字的大小 */
+  overflow: hidden; /* 超出内容隐藏 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  display: -webkit-box; /* 使用 Flexbox 进行布局 */
+  -webkit-line-clamp: 2; /* 限制显示两行 */
+  -webkit-box-orient: vertical; /* 垂直排列 */
+  font-size: 22rpx; /* 设置文字的大小 */
   color: #333; /* 设置文字的颜色 */
 }
