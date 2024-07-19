@@ -4,11 +4,6 @@ Page({
    * Page initial data
    */
   data: {
-    // text: "人人有爱，很想您",
-    // text2: "坚持一天拉拉啦",
-    // text3: "爬山Bro，Go Let's Go",
-    // text4: "冬天长城，打卡啦！",
-    // loveImage: "../../static/love.png",
     isLiked: false,
     items: [
       
@@ -16,7 +11,7 @@ Page({
         id: 1,
         userImage:'https://ts1.cn.mm.bing.net/th/id/R-C.a86878663b4dbfad3a4722e53a755f79?rik=5m8UAKHAbQaOHw&riu=http%3a%2f%2fn.sinaimg.cn%2ftranslate%2f201%2fw600h401%2f20190306%2fh8cG-htwhfzs6942512.jpg&ehk=dQONT%2fYVOK9nlu6NYSlV5FsF5%2fNLxvEcFNua%2b8%2fv2M4%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1',
         userimageComment:'https://tse4-mm.cn.bing.net/th/id/OIP-C.wsZ0tnm9gXJot1pfshIeEwHaE8?rs=1&pid=ImgDetMain',
-        text: "迷人的灰太狼",
+        text: "太爱了，上海迪斯尼乐园",
         intro:'上海迪斯尼乐园',
         loveImage: "../../static/love.png",
         isLiked: false,

@@ -105,28 +105,28 @@ Page({
     wx.navigateBack();
   },
 
-  // onChooseBackground: function () {
-  //   wx.chooseImage({
-  //     count: 1,
-  //     sizeType: ['original', 'compressed'],
-  //     sourceType: ['album', 'camera'],
-  //     success: (res) => {
-  //       this.setData({
-  //         backgroundImage: res.tempFilePaths[0]
-  //       });
-  //       this.saveUserInfo();
-  //     },
-  //     fail: (err) => {
-  //       console.error(err);
-  //     }
-  //   });
-  // },
+  onChooseBackground: function () {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: (res) => {
+        this.setData({
+          backgroundImage: res.tempFilePaths[0]
+        });
+        this.saveUserInfo();
+      },
+      fail: (err) => {
+        console.error(err);
+      }
+    });
+  },
 
    // 获取用户头像
    onChooseAvatar(e) {
     console.log(e);
     this.setData({
-      userImage: e.detail.userImage
+      userImage: e.detail.avatarUrl
     })
     this.saveUserInfo();
   },

@@ -17,6 +17,7 @@
   margin-left: 40rpx;
   margin-bottom: 40rpx;
   width: 100%;
+  color: crimson;
 }
 
 .link_sugges_header{
@@ -29,11 +30,11 @@
   height: 40rpx; 
   line-height: 40rpx;
   text-align: center;
-  background-color: rgba(200, 200, 200, 0.9); 
+  background-color: #ABABAB; 
   margin-right: 10px;
   border-radius: 40rpx;
   font-size: 20rpx;
-  color: #fff;
+  color: #FFFFFF;
 }
 
 
@@ -76,9 +77,12 @@
   margin-left: 40rpx;
   margin-top: 20rpx;
   height: 280rpx;
+  background-color: lightblue;
+  height: auto;
 }
 .link_suggestion_box{
   display: inline-block;
+  margin: 1%;
 }
 
 .style_box{
@@ -86,6 +90,7 @@
   width: 110px; 
   height: 280rpx; 
   margin-right: 10px;
+  /* background-color: crimson; */
 }
 
 
@@ -94,9 +99,9 @@
   position: absolute;
   top: 10rpx;
   left: 10px;
-  font-size: 35rpx;
+  font-size: 30rpx;
   padding: 5rpx 10rpx;
-  color: #fff;
+  color: #FFFFFF;
   border-radius: 5rpx;
 }
 
@@ -118,24 +123,24 @@
 
 
 .image-suggestion{
-  width: 120px; 
-  height: 130rpx; 
+  width: 100px; 
+  height: 120rpx; 
   border-radius: 20rpx;
+  margin-top: 5px;
 }
 .box_second{
   position: relative;
   display: block;
   flex-direction: column;
-  width: 120px; 
+  width: 100px; 
   height: 130rpx; 
-  margin-right: 10px;
 }
 
 .box_third{
   position: relative;
   display: block;
   flex-direction: column;
-  width: 120px; 
+  width: 100px; 
   height: 130rpx; 
   margin-right: 10px;
   margin-top: 20rpx;
@@ -152,7 +157,7 @@
   width: 45%;
   background-color: white;
   border-radius: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   height: auto;
   background-color: #fff;
 }
@@ -183,26 +188,56 @@ button-sug{
 
 .item {
   display: flex;
-  align-items: center;
+  border: gray 1px solid;
+  /* align-items: center; */
+  justify-content: space-around;
+  width: auto;
+  height: 40px;
 }
-
+.comment-image-box {
+  width: auto;
+  height: auto;
+  /* border: crimson solid 1px; */
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  /* border: blue 1px solid; */
+}
+.comment-like-box {
+  width: 20px;
+  height: 25px;
+  border: black 1px solid;
+}
+.comment-textcomment-box {
+  width: 150px;
+  height: 55px;
+  padding: 5px;
+}
 .item-image {
-  width: 25px; /* 设置图片的宽度 */
-  height: 25px; /* 设置图片的高度 */
+  width: 30px; /* 设置图片的宽度 */
+  height: 30px;  /*设置图片的高度 */
   border-radius: 40rpx;
-  margin-right: 10px; /* 图片与文字之间的间距 */
+  margin: 3%;
+  margin-right: 10px; /*图片与文字之间的间距*/
   margin-left: 20rpx;
+  /* border: 1px solid green; */
 }
 
 .item-love{
-  width: 15px; /* 设置图片的宽度 */
-  height: 15px; /* 设置图片的高度 */
+  width: 25px; /* 设置图片的宽度 */
+  height: 25px; /* 设置图片的高度 */
   border-radius: 40rpx;
-  margin-right: 10px; /* 图片与文字之间的间距 */
-  margin-left: 60rpx;
+  /* margin-left: 10px; */
+  border: solid white 1px;
+  margin-top: 5px;
 }
 
 .item-text {
   font-size: 11px; /* 设置文字的大小 */
   color: #333; /* 设置文字的颜色 */
+  /* border: blue solid 1px; */
+  width: 100px;
+  height: auto;
+  padding: 1%;
+  
 }
