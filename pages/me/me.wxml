@@ -62,6 +62,7 @@
       <view class="active-tag" style="width: {{activeTagWidth}}px; left: {{activeTagLeft}}px;"></view>
     </view>
   </view>
+  
   <!-- 滑动窗口 -->
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperChange" class="swiper-container">
     <swiper-item>
