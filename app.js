@@ -1,4 +1,3 @@
-// app.js
 App({
   onLaunch() {
     // 先判断缓存是否存在Token
@@ -10,14 +9,15 @@ App({
         fail: () => {
           this.userLogin();
         }
-      })
+      });
     }
-    
-   // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs) 
+
+    // 展示本地存储能力
+    const logs = wx.getStorageSync('logs') || [];
+    logs.unshift(Date.now());
+    wx.setStorageSync('logs', logs); 
   },
+
   userLogin() {
     wx.login({
       success: res => {
@@ -26,29 +26,55 @@ App({
           url: 'http://localhost:3000/login?code=' + res.code,
           success: res => {
             console.log('后端code登录请求', res.data);
-            let userToken = res.data.data;
+            let userToken = res.data.data.token;
             wx.setStorage({
-              key:'token',
-              data:userToken
-            })
+              key: 'userToken',
+              data: userToken
+            });
+            this.getSessionAndUid(userToken);
           }
-        })
+        });
       }
-    })
+    });
   },
+
+  getSessionAndUid(token) {
+    wx.request({
+      url: 'http://localhost:3000/getSessionAndUid',
+      method: 'POST',
+      header: {
+        'Authorization': token
+      },
+      success: res => {
+        console.log('后端获取session_key和uid请求', res.data);
+        let uid = res.data.data.uid;
+        wx.setStorage({
+          key: 'uid',
+          data: uid
+        });
+        this.globalData.uid = uid; // 设置全局 uid
+      }
+    });
+  },
+
   onShow() {
     // 早于页面组件的onShow执行
   },
+
   // 全局属性
   globalData: {
     requestUrl: 'http://localhost:3000/',
     userInfo: null,
-    userLocation:null
+    userLocation: null,
+    uid: null // 初始化全局 uid
   },
+
   // 全局方法
   globalMethod: {
     foo() {
       console.log('this is foo function');
     }
   }
-}) 
+});
+
+
