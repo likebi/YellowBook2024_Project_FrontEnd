@@ -97,12 +97,8 @@ Page({
     this.setData({
       activeTagLeft: this.data.tabPositions[this.data.currentTab]
     });
-<<<<<<< HEAD
-  
-=======
 
     // 检查全局数据
->>>>>>> 7b7bbed21e87bec9ddb36103c104149dbcc5733b
     const app = getApp();
     if (app.globalData.uid) {
       this.setData({
