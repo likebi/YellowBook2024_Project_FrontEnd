@@ -10,7 +10,7 @@
   </view>
   <view class="user-info">
     <view class="user-name-input">{{nickname}}</view>
-    <text class="id_user">小黄书号: {{Uid}}</text>
+    <text class="id_user">小黄书号: {{Uid}} </text>
   </view>
 
   <view class="editProfil">
