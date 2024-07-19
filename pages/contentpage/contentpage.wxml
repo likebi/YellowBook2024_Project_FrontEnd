@@ -33,7 +33,7 @@
     </view>
 
     <view class="header_comment">
-      <text>共45条评论</text>
+      <text>共{{num_comment}}条评论</text>
     </view>
 
     <view class="commentArea">

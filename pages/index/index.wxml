@@ -62,7 +62,7 @@
     <view class="fontSuggestion"> 
       <text>为您推荐</text>
     </view>
-    <view class="contentSuggestion">
+<view class="contentSuggestion">
   <view class="box-suggestion">
     <view class="first" wx:for="{{items}}" wx:key="id">
       <navigator url="../../pages/contentpage/contentpage">
@@ -77,6 +77,6 @@
     </view>
   </view>
 </view>
-  </view>
+</view>
 </scroll-view>
 </view>
