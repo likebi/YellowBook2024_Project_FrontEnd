@@ -11,60 +11,71 @@
 
 <view class="suggestion-header">
   <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
+    <navigator url="../../pages/hotelcontent/hotelcontent" class="link_sugges_header"><view class="history_header">北京</view></navigator>
+    <navigator url="../../pages/hotelcontentID/hotelcontentID" class="link_sugges_header"><view class="history_header">印尼</view></navigator>
+    <navigator url="../../pages/hotelcontentMY/hotelcontentMY" class="link_sugges_header"><view class="history_header">马来西亚</view></navigator>
+    <navigator url="../../pages/hotelcontent/hotelcontent" class="link_sugges_header"><view class="history_header">Beijing</view></navigator>
+    <navigator url="../../pages/hotelcontentID/hotelcontentID" class="link_sugges_header"><view class="history_header">Indonesia</view></navigator>
+    
   </scroll-view>
 </view>
 
 <text class="title_box">推荐目的地</text>
 <view class="suggestion-box">
   <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
-    <navigator url="../../pages/hotelcontent/hotelcontent" class="link_suggestion_box"><view class="style_box">
+    <navigator url="../../pages/hotelcontent/hotelcontent" class="link_suggestion_box">
+    <view class="style_box">
       <text class="title_suggestion">北京</text>
       <image src="https://th.bing.com/th/id/R.cdbe0fe09e25108143388dc3462f8ce2?rik=1E2m%2bFFHtfoJpg&riu=http%3a%2f%2fimg95.699pic.com%2fphoto%2f50071%2f3462.jpg_wh860.jpg&ehk=ntJVViZ9MFYGb0twTvOv5EBVQ%2f2FACJAWrwttvzJNO0%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill"/>
     </view>
-  </navigator>
+    </navigator>
 
     <view class="style_box2">
+      <navigator url="../../pages/hotelcontentID/hotelcontentID">
       <view class="box_second">
-        <image class="image-suggestion" src="https://youimg1.c-ctrip.com/target/10080d0000006x7424F6D_D_10000_1200.jpg?proc=autoorient" mode="aspectFill"/>
-        <text class="title_suggestion">上海</text>
+        <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.M6g9p33OhZ0sWEE2NzJNUQHaEo?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">印度尼西亚</text>
       </view>
-
+      </navigator>
+      
+      <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
       <view class="box_third">
-        <image class="image-suggestion" src="https://youimg1.c-ctrip.com/target/10080d0000006x7424F6D_D_10000_1200.jpg?proc=autoorient" mode="aspectFill"/>
-        <text class="title_suggestion">上海</text>
+        <image class="image-suggestion" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.hh9OakbNPXsBzJjXVX7w_QHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">马来西亚</text>
       </view>
+      </navigator> 
     </view>
 
     <view class="style_box2">
+      <navigator url="../../pages/hotelcontentID/hotelcontentID">
       <view class="box_second">
-        <image class="image-suggestion" src="https://youimg1.c-ctrip.com/target/10080d0000006x7424F6D_D_10000_1200.jpg?proc=autoorient" mode="aspectFill"/>
-        <text class="title_suggestion">上海</text>
+        <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.M6g9p33OhZ0sWEE2NzJNUQHaEo?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">印度尼西亚</text>
       </view>
-
+      </navigator>
+      
+      <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
       <view class="box_third">
-        <image class="image-suggestion" src="https://youimg1.c-ctrip.com/target/10080d0000006x7424F6D_D_10000_1200.jpg?proc=autoorient" mode="aspectFill"/>
-        <text class="title_suggestion">上海</text>
+        <image class="image-suggestion" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.hh9OakbNPXsBzJjXVX7w_QHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">马来西亚</text>
       </view>
+      </navigator> 
     </view>
 
     <view class="style_box2">
+      <navigator url="../../pages/hotelcontentID/hotelcontentID">
       <view class="box_second">
-        <image class="image-suggestion" src="https://youimg1.c-ctrip.com/target/10080d0000006x7424F6D_D_10000_1200.jpg?proc=autoorient" mode="aspectFill"/>
-        <text class="title_suggestion">上海</text>
+        <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.M6g9p33OhZ0sWEE2NzJNUQHaEo?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">印度尼西亚</text>
       </view>
-
+      </navigator>
+      
+      <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
       <view class="box_third">
-        <image class="image-suggestion" src="https://youimg1.c-ctrip.com/target/10080d0000006x7424F6D_D_10000_1200.jpg?proc=autoorient" mode="aspectFill"/>
-        <text class="title_suggestion">上海</text>
+        <image class="image-suggestion" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.hh9OakbNPXsBzJjXVX7w_QHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">马来西亚</text>
       </view>
+      </navigator> 
     </view>
 
   </scroll-view>

@@ -11,14 +11,12 @@
 
 <view class="suggestion-header">
   <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
-    <navigator url="" class="link_sugges_header"><view class="history_header">Box1</view></navigator>
+    <navigator url="../../pages/foodcontent/foodcontent" class="link_sugges_header"><view class="history_header">北京</view></navigator>
+    <navigator url="../../pages/foodcontentID/foodcontentID" class="link_sugges_header"><view class="history_header">印度尼西亚</view></navigator>
+    <navigator url="../../pages/foodcontentMY/foodcontentMY" class="link_sugges_header"><view class="history_header">Malaysia</view></navigator>
+    <navigator url="../../pages/foodcontentMY/foodcontentMY" class="link_sugges_header"><view class="history_header">马来西亚</view></navigator>
+    <navigator url="../../pages/foodcontent/foodcontent" class="link_sugges_header"><view class="history_header">BEIJING</view></navigator>
+    
   </scroll-view>
 </view>
 
@@ -31,41 +29,56 @@
     </view>
   </navigator>
 
-    <view class="style_box2">
+  <view class="style_box2">
+      <navigator url="../../pages/foodcontentID/foodcontentID">
       <view class="box_second">
-        <image class="image-suggestion" src="https://youimg1.c-ctrip.com/target/10080d0000006x7424F6D_D_10000_1200.jpg?proc=autoorient" mode="aspectFill"/>
-        <text class="title_suggestion">上海</text>
+        <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.M6g9p33OhZ0sWEE2NzJNUQHaEo?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">印度尼西亚</text>
       </view>
-
+      </navigator>
+      
+      <navigator url="../../pages/foodcontentMY/foodcontentMY">
       <view class="box_third">
-        <image class="image-suggestion" src="https://youimg1.c-ctrip.com/target/10080d0000006x7424F6D_D_10000_1200.jpg?proc=autoorient" mode="aspectFill"/>
-        <text class="title_suggestion">上海</text>
+        <image class="image-suggestion" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.hh9OakbNPXsBzJjXVX7w_QHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">马来西亚</text>
       </view>
+      </navigator> 
+    </view>
+
+    <!-- <view class="style_box2">
+      <navigator url="../../pages/foodcontentID/foodcontentID">
+      <view class="box_second">
+        <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.M6g9p33OhZ0sWEE2NzJNUQHaEo?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">印度尼西亚</text>
+      </view>
+      </navigator>
+      
+      <navigator url="../../pages/foodcontentMY/foodcontentMY">
+      <view class="box_third">
+        <image class="image-suggestion" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.hh9OakbNPXsBzJjXVX7w_QHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">马来西亚</text>
+      </view>
+      </navigator> 
     </view>
 
     <view class="style_box2">
+      <navigator url="../../pages/foodcontentID/foodcontentID">
       <view class="box_second">
-        <image class="image-suggestion" src="https://youimg1.c-ctrip.com/target/10080d0000006x7424F6D_D_10000_1200.jpg?proc=autoorient" mode="aspectFill"/>
-        <text class="title_suggestion">上海</text>
+        <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.M6g9p33OhZ0sWEE2NzJNUQHaEo?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">印度尼西亚</text>
       </view>
-
+      </navigator>
+      
+      <navigator url="../../pages/foodcontentMY/foodcontentMY">
       <view class="box_third">
-        <image class="image-suggestion" src="https://youimg1.c-ctrip.com/target/10080d0000006x7424F6D_D_10000_1200.jpg?proc=autoorient" mode="aspectFill"/>
-        <text class="title_suggestion">上海</text>
+        <image class="image-suggestion" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.hh9OakbNPXsBzJjXVX7w_QHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">马来西亚</text>
       </view>
-    </view>
+      </navigator> 
+    </view> -->
 
-    <view class="style_box2">
-      <view class="box_second">
-        <image class="image-suggestion" src="https://youimg1.c-ctrip.com/target/10080d0000006x7424F6D_D_10000_1200.jpg?proc=autoorient" mode="aspectFill"/>
-        <text class="title_suggestion">上海</text>
-      </view>
-
-      <view class="box_third">
-        <image class="image-suggestion" src="https://youimg1.c-ctrip.com/target/10080d0000006x7424F6D_D_10000_1200.jpg?proc=autoorient" mode="aspectFill"/>
-        <text class="title_suggestion">上海</text>
-      </view>
-    </view>
+    
+    
 
   </scroll-view>
 </view>

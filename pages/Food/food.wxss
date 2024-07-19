@@ -25,7 +25,7 @@
 
 .history_header{
   display: inline-block; 
-  width: 90rpx; 
+  width: 200rpx; 
   height: 40rpx; 
   line-height: 40rpx;
   text-align: center;

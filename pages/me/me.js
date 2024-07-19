@@ -105,59 +105,109 @@ Page({
     wx.navigateBack();
   },
 
-  onChooseBackground: function () {
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success: (res) => {
-        this.setData({
-          backgroundImage: res.tempFilePaths[0]
-        });
-        this.saveUserInfo();
-      },
-      fail: (err) => {
-        console.error(err);
-      }
-    });
-  },
+  // onChooseBackground: function () {
+  //   wx.chooseImage({
+  //     count: 1,
+  //     sizeType: ['original', 'compressed'],
+  //     sourceType: ['album', 'camera'],
+  //     success: (res) => {
+  //       this.setData({
+  //         backgroundImage: res.tempFilePaths[0]
+  //       });
+  //       this.saveUserInfo();
+  //     },
+  //     fail: (err) => {
+  //       console.error(err);
+  //     }
+  //   });
+  // },
 
-  onChooseAvatar: function () {
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success: (res) => {
-        this.setData({
-          userImage: res.tempFilePaths[0]
-        });
-        this.saveUserInfo();
-        this.getUserInfo(); // 确保更新用户信息
-      },
-      fail: (err) => {
-        console.error(err);
-      }
-    });
-  },
-
-  saveUserInfo() {
-    wx.setStorageSync('userInfo', {
-      userImage: this.data.userImage,
-      backgroundImage: this.data.backgroundImage,
-      nickname: this.data.nickname,
-      Uid: this.data.Uid,
-    });
-  },
-
-  getUserInfo() {
-    const userInfo = wx.getStorageSync('userInfo') || {};
+   // 获取用户头像
+   onChooseAvatar(e) {
+    console.log(e);
     this.setData({
-      userImage: userInfo.userImage || this.data.userImage,
-      nickname: userInfo.nickname || this.data.nickname,
-      Uid: userInfo.Uid || this.data.Uid,
-      backgroundImage: userInfo.backgroundImage || this.data.backgroundImage,
-    });
+      userImage: e.detail.userImage
+    })
+    this.saveUserInfo();
   },
+  // 选择昵称
+  onChooseNickname(e) {
+    console.log(e);
+    this.setData({
+      nickname: e.detail.value
+    })
+    this.saveUserInfo();
+  },
+  // 存储用户信息
+  saveUserInfo() {
+    // userInfo
+    wx.setStorage({
+      key: 'userInfo',
+      data: {
+        userImage: this.data.userImage,
+        nickname: this.data.nickname
+      }
+    })
+  },
+  // 获取用户信息
+  getUserInfo() {
+    console.log(this, '第一行');
+    let that = this;
+    wx.getStorage({
+      key: 'userInfo',
+      success: function(res) {
+        console.log(that, '函数内');
+        that.setData({
+          userImages: res.data.userImage,
+          nickname: res.data.nickname
+        })
+      }
+      // success: res => {
+      //   this.setData({
+      //     avatar_url: res.data.avatarUrl,
+      //     nickname: res.data.nickName
+      //   })
+      // }
+    })
+  },
+  
+
+  // onChooseAvatar: function () {
+  //   wx.chooseImage({
+  //     count: 1,
+  //     sizeType: ['original', 'compressed'],
+  //     sourceType: ['album', 'camera'],
+  //     success: (res) => {
+  //       this.setData({
+  //         userImage: res.tempFilePaths[0]
+  //       });
+  //       this.saveUserInfo();
+  //       this.getUserInfo(); // 确保更新用户信息
+  //     },
+  //     fail: (err) => {
+  //       console.error(err);
+  //     }
+  //   });
+  // },
+
+  // saveUserInfo() {
+  //   wx.setStorageSync('userInfo', {
+  //     userImage: this.data.userImage,
+  //     backgroundImage: this.data.backgroundImage,
+  //     nickname: this.data.nickname,
+  //     Uid: this.data.Uid,
+  //   });
+  // },
+
+  // getUserInfo() {
+  //   const userInfo = wx.getStorageSync('userInfo') || {};
+  //   this.setData({
+  //     userImage: userInfo.userImage || this.data.userImage,
+  //     nickname: userInfo.nickname || this.data.nickname,
+  //     Uid: userInfo.Uid || this.data.Uid,
+  //     backgroundImage: userInfo.backgroundImage || this.data.backgroundImage,
+  //   });
+  // },
 
   switchTab(e) {
     const index = e.currentTarget.dataset.index;
