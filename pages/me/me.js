@@ -5,9 +5,9 @@ Page({
    */
   data: {
     userImage: '/static/me.png',
-    nickname: 'wechat_user',
     backgroundImage: "https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient",
-    Uid: "123456",
+    Uid: '',
+    nickname:'Wechat_user',
     follow_num: '0',
     fans_num: '0',
     like_num: '0',
@@ -15,7 +15,7 @@ Page({
     activeTagWidth: 64,
     activeTagLeft: 0,
     tabPositions: [22, 136, 250],
-    intro_user: '将用户的头像、昵称、用户 ID 和背景图存储到本地确保用户在不同页面的操作面可以获取到最新的信息。的作用是将当前用户的相关信息',
+    intro_user: '将用户的头',
 
     items: [
       {
@@ -87,13 +87,29 @@ Page({
     ],
   },
 
-
   onLoad: function () {
     this.getUserInfo();
     this.setData({
       activeTagLeft: this.data.tabPositions[this.data.currentTab]
     });
+  
+    // 检查全局数据
+    const app = getApp();
+    if (app.globalData.uid) {
+      this.setData({
+        Uid: app.globalData.uid
+      });
+    } else {
+      // 从本地存储中获取 uid
+      const uid = wx.getStorageSync('Uid');
+      if (uid) {
+        this.setData({
+          Uid: uid
+        });
+      }
+    }
   },
+  
 
   onShow() {
     this.getUserInfo();
@@ -130,84 +146,76 @@ Page({
     })
     this.saveUserInfo();
   },
-  // 选择昵称
-  onChooseNickname(e) {
-    console.log(e);
-    this.setData({
-      nickname: e.detail.value
-    })
-    this.saveUserInfo();
+
+ 
+   // 选择昵称
+onChooseNickname(e) {
+  console.log(e);
+  this.setData({
+    nickname: e.detail.value
+  });
+  this.saveUserInfo();
+  this.sendNicknameToServer(e.detail.value); // 调用函数发送昵称到服务器
+},
+
+// 发送昵称到服务器
+sendNicknameToServer(nickname) {
+  wx.request({
+    url: 'http://localhost:3000/saveNickname', // 替换为你的后端API地址
+    method: 'POST',
+    data: {
+      nickname: nickname,
+      Uid: this.data.Uid // 传递用户UID
+    },
+    header: {
+      'content-type': 'application/json', // 默认值
+      'Authorization': wx.getStorageSync('token') // 需要传递的token
+    },
+    success(res) {
+      console.log('Nickname saved successfully:', res);
+    },
+    fail(err) {
+      console.error('Failed to save nickname:', err);
+    }
+  });
+},
+
+  onChooseBackground: function () {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: (res) => {
+        this.setData({
+          backgroundImage: res.tempFilePaths[0]
+        });
+        this.saveUserInfo();
+      },
+      fail: (err) => {
+        console.error(err);
+      }
+    });
   },
-  // 存储用户信息
+
   saveUserInfo() {
-    // userInfo
-    wx.setStorage({
-      key: 'userInfo',
-      data: {
-        userImage: this.data.userImage,
-        nickname: this.data.nickname
-      }
-    })
+    wx.setStorageSync('userInfo', {
+      userImage: this.data.userImage,
+      backgroundImage: this.data.backgroundImage,
+      nickname: this.data.nickname,
+      Uid: String(this.data.Uid), // 确保这里的变量名一致
+    });
   },
-  // 获取用户信息
+
   getUserInfo() {
-    console.log(this, '第一行');
-    let that = this;
-    wx.getStorage({
-      key: 'userInfo',
-      success: function(res) {
-        console.log(that, '函数内');
-        that.setData({
-          userImages: res.data.userImage,
-          nickname: res.data.nickname
-        })
-      }
-      // success: res => {
-      //   this.setData({
-      //     avatar_url: res.data.avatarUrl,
-      //     nickname: res.data.nickName
-      //   })
-      // }
-    })
+    const userInfo = wx.getStorageSync('userInfo') || {};
+    this.setData({
+      userImage: userInfo.userImage || this.data.userImage,
+      nickname: userInfo.nickname || this.data.nickname,
+      Uid: String(userInfo.Uid || this.data.Uid), // 修复这里的变量名
+      backgroundImage: userInfo.backgroundImage || this.data.backgroundImage,
+    });
   },
   
-
-  // onChooseAvatar: function () {
-  //   wx.chooseImage({
-  //     count: 1,
-  //     sizeType: ['original', 'compressed'],
-  //     sourceType: ['album', 'camera'],
-  //     success: (res) => {
-  //       this.setData({
-  //         userImage: res.tempFilePaths[0]
-  //       });
-  //       this.saveUserInfo();
-  //       this.getUserInfo(); // 确保更新用户信息
-  //     },
-  //     fail: (err) => {
-  //       console.error(err);
-  //     }
-  //   });
-  // },
-
-  // saveUserInfo() {
-  //   wx.setStorageSync('userInfo', {
-  //     userImage: this.data.userImage,
-  //     backgroundImage: this.data.backgroundImage,
-  //     nickname: this.data.nickname,
-  //     Uid: this.data.Uid,
-  //   });
-  // },
-
-  // getUserInfo() {
-  //   const userInfo = wx.getStorageSync('userInfo') || {};
-  //   this.setData({
-  //     userImage: userInfo.userImage || this.data.userImage,
-  //     nickname: userInfo.nickname || this.data.nickname,
-  //     Uid: userInfo.Uid || this.data.Uid,
-  //     backgroundImage: userInfo.backgroundImage || this.data.backgroundImage,
-  //   });
-  // },
 
   switchTab(e) {
     const index = e.currentTarget.dataset.index;
@@ -229,14 +237,5 @@ Page({
     wx.navigateTo({
       url: '/pages/profile/clickProfile',
     });
-  },
-  like_post: function (e) {
-    const index = e.currentTarget.dataset.index;
-    const items = this.data.items;
-    items[index].isLiked = !items[index].isLiked;
-    items[index].loveImage = items[index].isLiked ? '../../static/love.png' : '../../static/love2.png';
-
-    this.setData({ items });
-  },
-
+  }
 })
