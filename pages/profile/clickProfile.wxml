@@ -10,23 +10,25 @@
   </view>
 
   <block>
-    <view style="display: block; width: 100%;">
+    <navigator url="/pages/editName/editName" style="display: block; width: 100%;">
       <view class="user-profile">
         <view class="title-info">
           <text class="profile-info">姓名</text>
           <text class="user-info">{{nickname}}</text>
+          <text class="arrOw">></text>
         </view>
       </view>
-    </view>
+    </navigator>
 
-    <view style="display: block; width: 100%;">
+    <navigator url="/pages/editId/editId" style="display: block; width: 100%;">
       <view class="user-profile">
         <view class="title-info">
           <text class="profile-info">小黄书 ID</text>
           <text class="user-info">{{Uid}}</text>
+          <text class="arrOw">></text>
         </view>
       </view>
-    </view>
+    </navigator>
 
     <navigator url="/pages/editBio/editBio" style="display: block; width: 100%;">
       <view class="user-profile">
@@ -39,7 +41,6 @@
     </navigator>
 
     <navigator url="/pages/editGender/editGender" style="display: block; width: 100%;">
-    <view style="display: block; width: 100%;">
       <view class="user-profile">
         <view class="title-info">
           <text class="profile-info">Gender</text>
@@ -47,7 +48,6 @@
           <text class="arrOw">></text>
         </view>
       </view>
-    </view>
     </navigator>
   </block>
 </view>

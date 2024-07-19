@@ -81,7 +81,7 @@ button {
   font-size: 20px;
   font-weight: 700;
   color: #ccc; 
-  padding: 19%;
+  margin-left: 30rpx; 
   width: auto;
 }
 
@@ -89,6 +89,7 @@ button {
   font-size: 14px;
   color: #ccc; 
   margin-top: 5px;
+  margin-left: 30rpx; 
 }
 
 .editProfil {
