@@ -5,7 +5,11 @@ Page({
     plus: '/static/plus-icon.png',
     htag: '/static/htag.png',
     location: '/static/position.png',
-    images: [] // 用于存储已上传的图片
+    images: [], // 用于存储已上传的图片
+    title: '',
+    content: '',
+    selectedLocation: '',
+    selectedTag: ''
   },
 
   onLoad() {
@@ -14,10 +18,14 @@ Page({
     const savedImages = wx.getStorageSync('Post_image') || [];
     const savedTitle = wx.getStorageSync('Post_title') || '';
     const savedContent = wx.getStorageSync('Post_content') || '';
+    const savedLocation = wx.getStorageSync('Post_location') || '';
+    const savedTag = wx.getStorageSync('Post_tag') || '';
     this.setData({
       images: savedImages,
       title: savedTitle,
-      content: savedContent
+      content: savedContent,
+      selectedLocation: savedLocation,
+      selectedTag: savedTag
     });
   },
 
@@ -37,6 +45,21 @@ Page({
     });
   },
 
+  updateLocation(e) {
+    this.setData({
+      selectedLocation: e.detail.value
+    }, () => {
+      this.savePost_Location(); // 更新本地存储
+    });
+  },
+
+  updateTag(e) {
+    this.setData({
+      selectedTag: e.detail.value
+    }, () => {
+      this.savePost_Tag(); // 更新本地存储
+    });
+  },
 
   // 返回首页
   onBack() {
@@ -58,11 +81,18 @@ Page({
     wx.setStorageSync('Post_content', this.data.content);
   },
 
+  savePost_Location() {
+    wx.setStorageSync('Post_location', this.data.selectedLocation);
+  },
+
+  savePost_Tag() {
+    wx.setStorageSync('Post_tag', this.data.selectedTag);
+  },
+
   // 添加图片
   addImage() {
     const that = this;
     wx.chooseImage({
-      count: 4 - that.data.images.length, // 限制最多选择4张
       count: 4 - that.data.images.length, // 限制最多选择4张
       success(res) {
         const newImages = res.tempFilePaths;
@@ -93,9 +123,13 @@ Page({
     wx.request({
       url: 'https://your-backend-url.com/api/savePost', // 替换为你的后端接口
       method: 'POST',
-      data: that.data.images, // 直接发送数组
-      title: that.data.title,
-      content: that.data.content,
+      data: {
+        images: that.data.images, // 直接发送数组
+        title: that.data.title,
+        content: that.data.content,
+        location: that.data.selectedLocation,
+        tag: that.data.selectedTag
+      },
       success(res) {
         console.log('发布成功:', res.data);
         // 处理发布成功后的逻辑

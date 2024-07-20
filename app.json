@@ -27,7 +27,8 @@
     "pages/tripcontentID/tripcontentID",
     "pages/tripcontentMY/tripcontentMY",
     "pages/foodcontentID/foodcontentID",
-    "pages/foodcontentMY/foodcontentMY"
+    "pages/foodcontentMY/foodcontentMY",
+    "pages/place/place"
   ],
   "requiredPrivateInfos": [
     "getLocation"

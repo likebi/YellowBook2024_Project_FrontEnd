@@ -63,8 +63,16 @@ Page({
       {
         id: 5,
         itemImage: 'https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp',
-        intro:'联想（Lenovo）拯救者27英寸2K FastIPS 原生180H',
+        intro:'联想（LenovoH',
         text: "迷人的灰太狼jmyhngt",
+        loveImage: "../../static/love.png",
+        isLiked: false,
+      },
+      {
+        id: 4,
+        itemImage: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.jXEJdOp1OOMAMi3qB8FpPAHaE8?rs=1&pid=ImgDetMain',
+        intro:'马来西亚椰浆饭',
+        text: "马来西亚better then SGjuyhngfedvcs",
         loveImage: "../../static/love.png",
         isLiked: false,
       },
