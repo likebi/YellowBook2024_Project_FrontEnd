@@ -28,7 +28,7 @@ Page({
       this.savePost_Title(); // 更新本地存储
     });
   },
-  
+
   updateContent(e) {
     this.setData({
       content: e.detail.value
@@ -36,7 +36,7 @@ Page({
       this.savePost_Content(); // 更新本地存储
     });
   },
-  
+
 
   // 返回首页
   onBack() {
@@ -62,6 +62,7 @@ Page({
   addImage() {
     const that = this;
     wx.chooseImage({
+      count: 4 - that.data.images.length, // 限制最多选择4张
       count: 4 - that.data.images.length, // 限制最多选择4张
       success(res) {
         const newImages = res.tempFilePaths;

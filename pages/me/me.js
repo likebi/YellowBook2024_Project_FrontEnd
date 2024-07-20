@@ -105,7 +105,6 @@ Page({
         Uid: app.globalData.uid
       });
     } else {
-      // 从本地存储中获取 uid
       const uid = wx.getStorageSync('Uid');
       if (uid) {
         this.setData({
@@ -113,8 +112,20 @@ Page({
         });
       }
     }
-  },
 
+    if (app.globalData.nickName) {
+      this.setData({
+        nickname: app.globalData.nickName
+      })
+    } else {
+      const nickname = wx.getStorageSync('nickname');
+      if (nickname) {
+        this.setData({
+          nickname: nickname // Ensure nickname is correctly set
+        });
+      }
+    }
+  },
 
   onShow() {
     this.getUserInfo();
@@ -124,6 +135,23 @@ Page({
   back() {
     this.getUserInfo();
     wx.navigateBack();
+  },
+
+  onChooseBackground: function () {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original', 'compressed'],
+      sourceType: ['album', 'camera'],
+      success: (res) => {
+        this.setData({
+          backgroundImage: res.tempFilePaths[0]
+        });
+        this.saveUserInfo();
+      },
+      fail: (err) => {
+        console.error(err);
+      }
+    });
   },
 
   // 获取用户头像
@@ -189,7 +217,7 @@ Page({
     wx.setStorageSync('userInfo', {
       userImage: this.data.userImage,
       backgroundImage: this.data.backgroundImage,
-      nickname: this.data.nickname,
+      nickname: String(this.data.nickname),
       Uid: String(this.data.Uid), // 确保这里的变量名一致
     });
   },
@@ -198,7 +226,7 @@ Page({
     const userInfo = wx.getStorageSync('userInfo') || {};
     this.setData({
       userImage: userInfo.userImage || this.data.userImage,
-      nickname: userInfo.nickname || this.data.nickname,
+      nickname: String(userInfo.nickname || this.data.nickname),
       Uid: String(userInfo.Uid || this.data.Uid), // 修复这里的变量名
       backgroundImage: userInfo.backgroundImage || this.data.backgroundImage,
       intro_user: userInfo.Bio || this.data.intro_user
