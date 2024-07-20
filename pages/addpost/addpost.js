@@ -84,7 +84,7 @@ Page({
     });
   },
 
-  updateTitle(e){
+  handleInput(e){
     console.log(e);
     this.setData({
       title: e.detail.value
@@ -92,7 +92,7 @@ Page({
     this.savePost_Title();
   },
 
-  updateContent(e){
+  handleContent(e){
     console.log(e);
     this.setData({
       content: e.detail.value
