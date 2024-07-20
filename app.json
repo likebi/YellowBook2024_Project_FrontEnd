@@ -27,19 +27,17 @@
     "pages/tripcontentID/tripcontentID",
     "pages/tripcontentMY/tripcontentMY",
     "pages/foodcontentID/foodcontentID",
-    "pages/foodcontentMY/foodcontentMY"
+    "pages/foodcontentMY/foodcontentMY",
+    "pages/AI-chat1/AI-chat1"
   ],
-
   "requiredPrivateInfos": [
     "getLocation"
   ],
-
   "permission": {
     "scope.userLocation": {
       "desc": "您的位置将用于小程序位接口的效果展示"
     }
   },
-
   "tabBar": {
     "color": "#555555",
     "selectedColor": "#ff6600",
@@ -65,7 +63,7 @@
     ]
   },
   "window": {
-    "backgroundTextStyle":"light",
+    "backgroundTextStyle": "light",
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "旅游",
     "navigationBarBackgroundColor": "#fff"

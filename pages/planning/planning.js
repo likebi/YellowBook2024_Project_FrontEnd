@@ -68,6 +68,20 @@ Page({
     wx.navigateTo({ 
       url: '/pages/AI-chat/AI-chat',
     })
+  },
+  onHandlerPageTo1(){
+    wx.navigateTo({ 
+      url: '/pages/AI-chat1/AI-chat1',
+    })
+  },
+    onHandlerPageTo2(){
+    wx.navigateTo({ 
+      url: '/pages/AI-chat/AI-chat',
+    })
+  },
+    onHandlerPageTo(){
+    wx.navigateTo({ 
+      url: '/pages/AI-chat/AI-chat',
+    })
   }
-
 })
