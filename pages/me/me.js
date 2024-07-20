@@ -126,12 +126,8 @@ Page({
       }
     }
   },
-<<<<<<< HEAD
-  
-=======
 
 
->>>>>>> 7b7bbed21e87bec9ddb36103c104149dbcc5733b
   onShow() {
     this.getUserInfo();
   },
