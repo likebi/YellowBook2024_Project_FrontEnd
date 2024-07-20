@@ -84,6 +84,22 @@ Page({
     });
   },
 
+  updateTitle(e){
+    console.log(e);
+    this.setData({
+      title: e.detail.value
+    });
+    this.savePost_Title();
+  },
+
+  updateContent(e){
+    console.log(e);
+    this.setData({
+      content: e.detail.value
+    });
+    this.savePost_Content();
+  },
+
   submitPost() {
     const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
 
@@ -92,11 +108,6 @@ Page({
       return;
     }
 
-    const title = ''; // 从用户输入中获取
-    const content = ''; // 从用户输入中获取
-    const tag = ''; // 从用户输入中获取
-    const location = ''; // 从用户输入中获取
-
     wx.request({
       url: 'http://localhost:3000/userpost', // 替换为你后端的帖子创建接口
       method: 'POST',
@@ -104,11 +115,11 @@ Page({
         'Authorization': token// 设置授权头
       },
       data: {
-        images: that.data.images, // 直接发送数组
-        title: that.data.title,
-        content: that.data.content,
-        location: that.data.selectedLocation,
-        tag: that.data.selectedTag
+        images: this.data.images, // 直接发送数组
+        title: this.data.title,
+        content: this.data.content,
+        location: this.data.selectedLocation,
+        tag: this.data.selectedTag
       },
       success(res) {
         console.log('发布成功:', res.data);
