@@ -10,9 +10,29 @@
     </block>
   </view>
   
+<<<<<<< HEAD
+  <!-- 文字上传区域 -->
+  <input class="title" type="text" name="title" placeholder="添加标题会有更多赞哦~" bindinput="handleInput" data-field="title"/>
+  <textarea class="content" value="" placeholder="添加正文" auto-focus bindinput="handleInput" data-field="content"/>
+  
+  <!-- 话题标签区域 -->
+  <view class="element">
+    <image class="htag" src="{{htag}}" mode="aspectFit"/>
+    <navigator class="select-input" url="">参与话题</navigator>
+    <view class="arrowr" bindtap="">{{arrowr}}</view>
+  </view>
+  
+  <!-- 添加地点区域 -->
+  <view class="location">
+    <image class="htag" src="{{location}}" mode="aspectFit"/>
+    <navigator class="select-input" url="">添加地点</navigator>
+    <view class="arrowr" bindtap="">{{arrowr}}</view>
+  </view>
+=======
   <input class="title" type="text" name="title" auto-focus placeholder="添加标题会有更多赞哦~" data-key="title" bindinput="updateTitle" value="{{title}}" />
   <input type="text"/>
 <textarea class="content" name="content" data-key="content" bindinput="updateContent" value="{{content}}"></textarea>
+>>>>>>> 28a78087cdf411bcd3b883f5b5aee322637a5354
   
   <view class="element" bindtap="htag">
   <image class="htag" src="{{htag}}" mode="aspectFit" />
