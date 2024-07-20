@@ -12,7 +12,7 @@ Page({
     userImage: '/static/me.png',
     backgroundImage: "https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient",
     Uid: '',
-    nickname:'',
+    nickname: '',
     follow_num: '0',
     fans_num: '0',
     like_num: '0',
@@ -112,8 +112,8 @@ Page({
         });
       }
     }
-  
-    if(app.globalData.nickName){
+
+    if (app.globalData.nickName) {
       this.setData({
         nickname: app.globalData.nickName
       })
@@ -127,6 +127,7 @@ Page({
     }
   },
   
+
   onShow() {
     this.getUserInfo();
   },
