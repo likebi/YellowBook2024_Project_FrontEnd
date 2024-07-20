@@ -21,7 +21,7 @@
   <!-- 添加地点区域 -->
   <view class="location">
     <image class="htag" src="{{location}}" mode="aspectFit"/>
-    <navigator class="select-input" url="">添加地点</navigator>
+    <navigator class="select-input" url="/pages/place/place">添加地点</navigator>
     <view class="arrowr" bindtap="">{{arrowr}}</view>
   </view>
   

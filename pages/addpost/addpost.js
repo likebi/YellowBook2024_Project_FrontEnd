@@ -38,4 +38,5 @@ Page({
     // 处理发布逻辑
     console.log('发布内容:', this.data.images);
   }
+  
 });
