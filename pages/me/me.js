@@ -12,7 +12,7 @@ Page({
     userImage: '/static/me.png',
     backgroundImage: "https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient",
     Uid: '',
-    nickname: 'Wechat_user',
+    nickname: '',
     follow_num: '0',
     fans_num: '0',
     like_num: '0',

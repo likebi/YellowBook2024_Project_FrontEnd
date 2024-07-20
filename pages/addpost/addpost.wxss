@@ -1,4 +1,4 @@
-/* pages/addpost/addpost.wxsss */
+/* pages/addpost/addpost.wxss */
 .container1 {
   display: flex;
   flex-direction: column;
@@ -7,18 +7,32 @@
   margin: 0;
   height: 100vh;
   width: 90vw;
-  margin-left:5vw ;
+  margin-left: 5vw;
 }
+
 .upload-box {
   margin-top: 15px;
   width: 100%;
   padding-bottom: 50rpx;
 }
 
+.uploaded-image-container {
+  position: relative;
+  display: inline-block;
+  margin-right: 5px;
+}
+
 .uploaded-image {
-  width: 100px; 
-  height: 100px; 
-  margin-right: 5px; 
+  width: 100px;
+  height: 100px;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 45rpx;
+  right: 0;
+  width: 20px;
+  height: 20px;
 }
 
 .header {
@@ -26,14 +40,18 @@
   height: 60rpx;
   margin-bottom: 10rpx;
 }
+
 .arrow {
   font-size: 40rpx;
   margin-bottom: 50rpx;
   margin-left: 2%;
-}.arrowr {
+}
+
+.arrowr {
   font-size: 50rpx;
   color: #999;
 }
+
 .upload-icon {
   font-size: 6rem;
   display: flex;
@@ -42,20 +60,23 @@
   border-radius: 10rpx;
   background-color: rgba(200, 200, 200, 0.3);
   margin-left: 3%;
-  width: 5%; 
+  width: 5%;
   height: 30rpx;
   padding: 80rpx;
 }
+
 #file {
   position: absolute;
   top: 0;
   margin-left: 3%;
   width: 30%;
 }
-.input-text{
+
+.input-text {
   width: 100%;
   height: auto;
 }
+
 .title {
   width: 100%;
   padding-left: 4%;
@@ -63,6 +84,7 @@
   padding-bottom: 30rpx;
   font-size: 16px;
 }
+
 .content {
   margin-top: 20rpx;
   padding-left: 4%;
@@ -71,18 +93,22 @@
   font-size: 14px;
   border-bottom: 1px solid rgba(200, 200, 200, 0.6);
 }
+
 .element {
+  margin-top: 50px;
   width: 100%;
   padding: 20rpx 5%;
   border-bottom: 1px solid rgba(200, 200, 200, 0.6);
   display: flex;
   align-items: center;
 }
+
 .htag {
   height: 50rpx;
   width: 50rpx;
   margin-right: 10rpx;
 }
+
 .location {
   width: 100%;
   padding: 20rpx 5%;
@@ -90,21 +116,23 @@
   display: flex;
   align-items: center;
 }
+
 .select-input {
   width: 75%;
   padding-left: 18px;
   font-size: 30rpx;
 }
+
 .post-box {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 500rpx;
 }
+
 .post-btn {
   border-radius: 20px;
   color: #fff;
   font-size: 15px;
   background-color: #f02f2fef;
 }
-
