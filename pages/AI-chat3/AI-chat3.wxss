@@ -1,0 +1,112 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 95vh;
+  padding: 5%;
+}
+.allcontainer {
+  background-color: #494949;
+}
+.textAIchat {
+  margin-left: 25px;
+  color: white;
+}
+.headerAIchat-box {
+  width: auto;
+  height: auto;
+  background-color: #494949;
+  border-bottom: 1px solid #ccc;
+}
+.headerAIchat {
+  width: 150px;
+  height: auto;
+  overflow-y: auto;
+  margin-left: 145px;
+  border-radius: 5px;
+  align-items: center;
+}
+.messages {
+  flex: 1;
+  overflow-y: auto; /*so that the send message button and input stay top , NOT OVERFLOW*/
+  background-color: #494949; /*page background*/
+}
+
+
+.message {
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 100%;
+  display: flex;
+}
+
+.message[data-sender="user"] {
+  display: flex;
+  justify-content: flex-end;/* align the user message to the right*/
+  background-color: #494949;
+  color: #FFFFFF;
+  border: 1px solid grey;
+  border-radius: 4px;
+  
+}
+
+.message[data-sender="bot"] {
+  background-color: #494949;
+  color: #FFFFFF;
+  justify-content: flex-start;
+}
+.welcome-messageText {
+  border: solid 1px white;
+  /* border-radius: 5px; */
+  font-size: 17px;
+  font-style: normal;
+  margin-bottom: 30px;
+}
+.wellmessage-text {
+  margin: 0 auto;
+  color: #FFFFFF;
+  font: 14px;
+  margin-bottom: 30px;
+}
+.message-text {
+  margin-left: 10px;
+  margin-right: 10px;
+  color: #FFFFFF;
+}
+
+.input-area {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  background-color: #494949;
+}
+.inputbox {
+  color: #FFFFFF;
+  background-color: #494949;
+  width: 250px;
+}
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+
+.sendButton {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #858585;
+  color: #ffffff;
+  margin: 2%;
+}
+.user-imageAIbox {
+  width: auto;
+  height: auto;
+}
+.image-userAI {
+  width: 25px;
+  height: 25px;
+  border: solid 1px transparent;
+}

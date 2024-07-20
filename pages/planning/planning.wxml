@@ -11,4 +11,16 @@
     <text class="title-center">{{item.destination}}</text>
     <image class="backgroundImag" src="{{item.backgroundImage}}" mode="aspectFill"/>
   </view>
+  <view class="history" wx:for="{{items2}}" wx:key="id" bind:tap="onHandlerPageTo2">
+    <text class="title-center">{{item.destination}}</text>
+    <image class="backgroundImag" src="{{item.backgroundImage}}" mode="aspectFill"/>
+  </view>
+  <view class="history" wx:for="{{items3}}" wx:key="id" bind:tap="onHandlerPageTo3">
+    <text class="title-center">{{item.destination}}</text>
+    <image class="backgroundImag" src="{{item.backgroundImage}}" mode="aspectFill"/>
+  </view>
+  <view class="history" wx:for="{{items4}}" wx:key="id" bind:tap="onHandlerPageTo4">
+    <text class="title-center">{{item.destination}}</text>
+    <image class="backgroundImag" src="{{item.backgroundImage}}" mode="aspectFill"/>
+  </view>
 </view>
