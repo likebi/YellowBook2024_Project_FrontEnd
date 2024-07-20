@@ -28,7 +28,7 @@
     "pages/tripcontentMY/tripcontentMY",
     "pages/foodcontentID/foodcontentID",
     "pages/foodcontentMY/foodcontentMY",
-    "pages/AI-chat1/AI-chat1"
+    "pages/place/place"
   ],
   "requiredPrivateInfos": [
     "getLocation"

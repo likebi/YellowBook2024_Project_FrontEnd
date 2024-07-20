@@ -1,9 +1,6 @@
 <view id="container">
   <!-- 顶部按钮 -->
   <view class="header">
-    <view class="arrow-left" bindtap="onBack">
-      {{arrowl}}
-    </view>
 
     <view class="follow-container">
       <view class="follow-window">

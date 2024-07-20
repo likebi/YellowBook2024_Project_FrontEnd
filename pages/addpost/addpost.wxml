@@ -1,31 +1,33 @@
-<scroll-view class="container1" scroll-y="true">
-  <!-- 图片上传区域s -->
-  <view class="upload-box">
+
+<view class="container1">  <!-- 图片上传区域 -->
+<view class="upload-box">
     <image class="upload-icon" src="{{plus}}" mode="aspectFit" bindtap="addImage"/>
     <block wx:for="{{images}}" wx:key="index">
-      <image class="uploaded-image" src="{{item}}" mode="aspectFit"/>
+      <view class="uploaded-image-container">
+        <image class="uploaded-image" src="{{item}}" mode="aspectFit"/>
+        <image class="delete-btn" src="../../static/wrong.png" data-index="{{index}}" bindtap="removeImage" />
+      </view>
     </block>
   </view>
   
-  <!-- 文字上传区域 -->
-  <input class="title" type="text" name="title" placeholder="添加标题会有更多赞哦~"/>
-  <textarea class="content" value="" placeholder="添加正文" auto-focus/>
+  <input class="title" type="text" name="title" auto-focus placeholder="添加标题会有更多赞哦~" data-key="title" bindinput="updateTitle" value="{{title}}" />
+  <input type="text"/>
+<textarea class="content" name="content" data-key="content" bindinput="updateContent" value="{{content}}"></textarea>
   
-  <!-- 话题标签区域 -->
-  <view class="element">
-    <image class="htag" src="{{htag}}" mode="aspectFit"/>
-    <navigator class="select-input" url="">参与话题</navigator>
-    <view class="arrowr" bindtap="">{{arrowr}}</view>
-  </view>
-  
-  <!-- 添加地点区域 -->
-  <view class="location">
-    <image class="htag" src="{{location}}" mode="aspectFit"/>
-    <navigator class="select-input" url="">添加地点</navigator>
-    <view class="arrowr" bindtap="">{{arrowr}}</view>
-  </view>
-  
+  <view class="element" bindtap="htag">
+  <image class="htag" src="{{htag}}" mode="aspectFit" />
+  <navigator class="select-input" url="">参与话题</navigator>
+  <view class="arrowr">{{arrowr}}</view>
+</view>
+
+<!-- 添加地点区域 -->
+<view class="location" bindtap="location">
+  <image class="htag" src="{{location}}" mode="aspectFit" />
+  <navigator class="select-input" url="/pages/place/place">添加地点</navigator>
+  <view class="arrowr">{{arrowr}}</view>
+</view>
+
   <view class="post-box">
     <button class="post-btn" bindtap="submitPost">发布笔记</button>
   </view>
-</scroll-view>
+</view>

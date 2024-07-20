@@ -1,0 +1,22 @@
+<view id="container">
+
+
+  <!-- 搜索栏 -->
+  <view class="search-container">
+    <view class="search-window">
+      <image class="icon" src="/static/sousuo.png" />
+      <input type="text" class="search-input" placeholder="输入搜索内容" bindinput="onInput" value="{{value}}" />
+    </view>
+    <view class="search-button" bindtap="onSearch">搜索</view>
+  </view>
+
+  <!-- 内容部分 -->
+  <view class="content">
+    <!-- 搜索结果 -->
+    <view class="search-results" wx:if="{{searchResults.length > 0}}">
+      <view wx:for="{{searchResults}}" wx:key="id" class="search-result-item">
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>

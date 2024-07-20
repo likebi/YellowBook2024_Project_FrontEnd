@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
 
   /**
@@ -15,7 +16,7 @@ Page({
     activeTagWidth: 64,
     activeTagLeft: 0,
     tabPositions: [22, 136, 250],
-    intro_user: '将用户的头像、昵称、用户 ID 和背景图存储到本地确保用户在不同页面的操作面可以获取到最新的信息。的作用是将当前用户的相关信息',
+    intro_user: '将用户的头像、昵称、用户 ID 和背最新的信息。的作用是将当前用户的相关信息',
   },
 
   onLoad: function () {
