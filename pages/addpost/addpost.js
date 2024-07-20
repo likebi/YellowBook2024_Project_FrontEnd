@@ -1,8 +1,4 @@
 Page({
-
-  /**
-   * 页面的初始数据s
-   */
   data: {
     arrowl: '<',
     arrowr: '>',
@@ -19,7 +15,48 @@ Page({
     });
   },
 
-  // 添加图片
+  // 保存图片到本地存储
+  savePost_image() {
+    wx.setStorageSync('Post_image', this.data.images);
+  },
+
+  savePost_Title() {
+    wx.setStorageSync('Post_title', this.data.title);
+  },
+
+  savePost_Content() {
+    wx.setStorageSync('Post_content', this.data.content);
+  },
+
+  savePost_Location() {
+    wx.setStorageSync('Post_location', this.data.selectedLocation);
+  },
+
+  savePost_Tag() {
+    wx.setStorageSync('Post_tag', this.data.selectedTag);
+  },
+
+  // 保存图片到本地存储
+  savePost_image() {
+    wx.setStorageSync('Post_image', this.data.images);
+  },
+
+  savePost_Title() {
+    wx.setStorageSync('Post_title', this.data.title);
+  },
+
+  savePost_Content() {
+    wx.setStorageSync('Post_content', this.data.content);
+  },
+
+  savePost_Location() {
+    wx.setStorageSync('Post_location', this.data.selectedLocation);
+  },
+
+  savePost_Tag() {
+    wx.setStorageSync('Post_tag', this.data.selectedTag);
+  },
+
   addImage() {
     const that = this;
     wx.chooseImage({
@@ -28,36 +65,59 @@ Page({
         const newImages = res.tempFilePaths;
         that.setData({
           images: that.data.images.concat(newImages) // 添加新图片
+        }, () => {
+          that.savePost_image(); // 保存图片到本地存储
         });
       },
     });
   },
 
-  // 提交笔记
+  // 删除图片
+  removeImage(e) {
+    const index = e.currentTarget.dataset.index;
+    const images = this.data.images;
+    images.splice(index, 1);
+    this.setData({
+      images: images
+    }, () => {
+      this.savePost_image(); // 保存修改后的图片数组到本地存储
+    });
+  },
+
   submitPost() {
-    // 处理发布逻辑
-    console.log('发布内容:', this.data.images);
+    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+
+    if (!token) {
+      console.error('未找到授权 token');
+      return;
+    }
+
     const title = ''; // 从用户输入中获取
     const content = ''; // 从用户输入中获取
     const tag = ''; // 从用户输入中获取
     const location = ''; // 从用户输入中获取
 
     wx.request({
-      url: 'https://example.com/submitpost', // 替换为你后端的帖子创建接口
+      url: 'http://localhost:3000/userpost', // 替换为你后端的帖子创建接口
       method: 'POST',
+      header: {
+        'Authorization': token// 设置授权头
+      },
       data: {
-        title: title,
-        content: content,
-        imageUrl: imageUrl,
-        tag: tag,
-        location: location
+        images: that.data.images, // 直接发送数组
+        title: that.data.title,
+        content: that.data.content,
+        location: that.data.selectedLocation,
+        tag: that.data.selectedTag
       },
-      success: function (res) {
-        console.log('帖子发布成功', res.data);
+      success(res) {
+        console.log('发布成功:', res.data);
+        // 处理发布成功后的逻辑
       },
-       fail: function (error) {
-        console.log('帖子发布失败', error);
+      fail(err) {
+        console.log('发布失败:', err);
+        // 处理发布失败后的逻辑
       }
-    })
+    });;
   }
 });
