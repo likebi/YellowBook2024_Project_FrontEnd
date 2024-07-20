@@ -23,7 +23,7 @@ Page({
   addImage() {
     const that = this;
     wx.chooseImage({
-      count: 4 - that.data.images.length, // 限制最多选择9张
+      count: 4 - that.data.images.length, // 限制最多选择4张
       success(res) {
         const newImages = res.tempFilePaths;
         that.setData({
@@ -37,6 +37,28 @@ Page({
   submitPost() {
     // 处理发布逻辑
     console.log('发布内容:', this.data.images);
+    const title = ''; // 从用户输入中获取
+    const content = ''; // 从用户输入中获取
+    const tag = ''; // 从用户输入中获取
+    const location = ''; // 从用户输入中获取
+
+    wx.request({
+      url: 'https://example.com/submitpost', // 替换为你后端的帖子创建接口
+      method: 'POST',
+      data: {
+        title: title,
+        content: content,
+        imageUrl: imageUrl,
+        tag: tag,
+        location: location
+      },
+      success: function (res) {
+        console.log('帖子发布成功', res.data);
+      },
+       fail: function (error) {
+        console.log('帖子发布失败', error);
+      }
+    })
   }
   
 });

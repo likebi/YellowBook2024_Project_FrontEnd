@@ -126,8 +126,6 @@ Page({
       }
     }
   },
-  
-
 
   onShow() {
     this.getUserInfo();
