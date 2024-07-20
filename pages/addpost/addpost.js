@@ -1,8 +1,4 @@
 Page({
-
-  /**
-   * 页面的初始数据s
-   */
   data: {
     arrowl: '<',
     arrowr: '>',
@@ -12,14 +8,12 @@ Page({
     images: [] // 用于存储已上传的图片
   },
 
-  // 返回首页
   onBack() {
     wx.navigateTo({
       url: '/pages/index/index',
     });
   },
 
-  // 添加图片
   addImage() {
     const that = this;
     wx.chooseImage({
@@ -33,31 +27,38 @@ Page({
     });
   },
 
-  // 提交笔记
   submitPost() {
-    // 处理发布逻辑
-    console.log('发布内容:', this.data.images);
+    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+
+    if (!token) {
+      console.error('未找到授权 token');
+      return;
+    }
+
     const title = ''; // 从用户输入中获取
     const content = ''; // 从用户输入中获取
     const tag = ''; // 从用户输入中获取
     const location = ''; // 从用户输入中获取
 
     wx.request({
-      url: 'https://example.com/submitpost', // 替换为你后端的帖子创建接口
+      url: 'http://localhost:3000/userpost', // 替换为你后端的帖子创建接口
       method: 'POST',
+      header: {
+        'Authorization': token// 设置授权头
+      },
       data: {
         title: title,
         content: content,
-        imageUrl: imageUrl,
+        image_url: this.data.images,
         tag: tag,
         location: location
       },
       success: function (res) {
         console.log('帖子发布成功', res.data);
       },
-       fail: function (error) {
+      fail: function (error) {
         console.log('帖子发布失败', error);
       }
-    })
+    });
   }
 });
