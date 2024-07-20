@@ -2,8 +2,8 @@
   <view class="overlay"></view>
 </view>
 <view class="me-info">
-  <button open-type="chooseImage" bindtap="onChooseBackground" class="change-bg-button">更换背景</button>  
-  <button open-type="chooseImage" bindtap="onChooseBackground" class="change-bg-button">更换背景</button>  
+  <button open-type="chooseImage" bindtap="onChooseBackground" class="change-bg-button">更换背景</button>
+  <button open-type="chooseImage" bindtap="onChooseBackground" class="change-bg-button">更换背景</button>
   <view class="avatar1">
     <button class="button-user" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
       <image src="{{userImage}}" class="user-image" mode="aspectFill" />
@@ -12,75 +12,59 @@
 
   <view class="user-info">
     <view class="nickname">
-        <input type="nickname" placeholder="Wechat_user" class="user-name-input" value="{{nickname}} " bind:change="onChooseNickname">
-        </input>
-      </view>
+      <input type="nickname" placeholder="Wechat_user" class="user-name-input" value="{{nickname}} " bind:change="onChooseNickname">
+      </input>
+    </view>
     <text class="id_user">小黄书号: {{Uid}}</text>
   </view>
 
   <view class="editProfil">
-  <navigator url="/pages/editBio/editBio"  open-type="navigate">
+    <navigator url="/pages/editBio/editBio" open-type="navigate">
       <view>
         {{intro_user}}
-    </view>
+      </view>
     </navigator>
 
   </view>
 
   <view class="profile-stats">
-  <navigator url="/pages/follow/follow" class="stat-item">
-    <text class="number">{{follow_num}}</text>
-    <text class="label">关注</text>
-  </navigator>
-  <navigator url="/pages/follower/follower" class="stat-item">
-    <text class="number">{{fans_num}}</text>
-    <text class="label">粉丝</text>
-  </navigator>
-  <navigator url="/pages/likes/likes" class="stat-item">
-    <text class="number">{{like_num}}</text>
-    <text class="label">点赞</text>
-  </navigator>
-</view>
-      <view class="button_edit" bind:tap="edit_Profile">
-        Edit Profile
-      </view>
+    <navigator url="/pages/follow/follow" class="stat-item">
+      <text class="number">{{follow_num}}</text>
+      <text class="label">关注</text>
+    </navigator>
+    <navigator url="/pages/follower/follower" class="stat-item">
+      <text class="number">{{fans_num}}</text>
+      <text class="label">粉丝</text>
+    </navigator>
+    <navigator url="/pages/likes/likes" class="stat-item">
+      <text class="number">{{like_num}}</text>
+      <text class="label">点赞</text>
+    </navigator>
+  </view>
+  <view class="button_edit" bind:tap="edit_Profile">
+    Edit Profile
+  </view>
 </view>
 
 <view class="container">
   <!-- 顶部标签栏 -->
   <view class="reds-sticky">
     <view class="reds-tabs-list">
-      <view
-        class="reds-tab-item sub-tab-list {{currentTab == 0 ? 'active' : ''}}"
-        bindtap="switchTab"
-        data-index="0"
-      >
+      <view class="reds-tab-item sub-tab-list {{currentTab == 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">
         <span class="content_title">笔记</span>
       </view>
-      <view
-        class="reds-tab-item sub-tab-list {{currentTab == 1 ? 'active' : ''}}"
-        bindtap="switchTab"
-        data-index="1"
-      >
+      <view class="reds-tab-item sub-tab-list {{currentTab == 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">
         <span class="content_title">收藏</span>
       </view>
-      <view
-        class="reds-tab-item sub-tab-list {{currentTab == 2 ? 'active' : ''}}"
-        bindtap="switchTab"
-        data-index="2"
-      >
+      <view class="reds-tab-item sub-tab-list {{currentTab == 2 ? 'active' : ''}}" bindtap="switchTab" data-index="2">
         <span class="content_title">点赞</span>
       </view>
       <view class="active-tag" style="width: {{activeTagWidth}}px; left: {{activeTagLeft}}px;"></view>
     </view>
   </view>
+  
   <!-- 滑动窗口 -->
-  <swiper
-    current="{{currentTab}}"
-    duration="300"
-    bindchange="swiperChange"
-    class="swiper-container"
-  >
+  <swiper current="{{currentTab}}" duration="300" bindchange="swiperChange" class="swiper-container">
     <swiper-item>
       <scroll-view class="content" scroll-y>
         <view class="contentSuggestion">
@@ -102,43 +86,45 @@
     </swiper-item>
 
     <swiper-item>
-      <view class="content"><scroll-view class="content" scroll-y>
-        <view class="contentSuggestion">
-          <view class="box-suggestion">
-            <view class="first" wx:for="{{items}}" wx:key="id">
-              <navigator url="../../pages/contentpage/contentpage">
-                <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
-                <text class="intro">{{item.intro}}</text>
-              </navigator>
-              <view class="item">
-                <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
-                <text class="item-text">{{item.text}}</text>
-                <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+      <view class="content">
+        <scroll-view class="content" scroll-y>
+          <view class="contentSuggestion">
+            <view class="box-suggestion">
+              <view class="first" wx:for="{{items}}" wx:key="id">
+                <navigator url="../../pages/contentpage/contentpage">
+                  <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
+                  <text class="intro">{{item.intro}}</text>
+                </navigator>
+                <view class="item">
+                  <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
+                  <text class="item-text">{{item.text}}</text>
+                  <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+                </view>
               </view>
             </view>
           </view>
-        </view>
-      </scroll-view></view>
+        </scroll-view>
+      </view>
     </swiper-item>
     <swiper-item>
       <view class="content">
         <scroll-view class="content" scroll-y>
-        <view class="contentSuggestion">
-          <view class="box-suggestion">
-            <view class="first" wx:for="{{items}}" wx:key="id">
-              <navigator url="../../pages/contentpage/contentpage">
-                <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
-                <text class="intro">{{item.intro}}</text>
-              </navigator>
-              <view class="item">
-                <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
-                <text class="item-text">{{item.text}}</text>
-                <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+          <view class="contentSuggestion">
+            <view class="box-suggestion">
+              <view class="first" wx:for="{{items}}" wx:key="id">
+                <navigator url="../../pages/contentpage/contentpage">
+                  <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
+                  <text class="intro">{{item.intro}}</text>
+                </navigator>
+                <view class="item">
+                  <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
+                  <text class="item-text">{{item.text}}</text>
+                  <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+                </view>
               </view>
             </view>
           </view>
-        </view>
-      </scroll-view>
+        </scroll-view>
       </view>
     </swiper-item>
   </swiper>

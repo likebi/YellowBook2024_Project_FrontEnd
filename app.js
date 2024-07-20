@@ -48,15 +48,21 @@ App({
       success: res => {
         console.log('后端获取session_key和uid请求', res.data);
         let uid = res.data.data.uid;
+        let nickName = res.data.data.nickName; // 注意这里nickName的路径
         wx.setStorage({
           key: 'Uid',
           data: uid
         });
-        this.globalData.uid = uid; // 设置全局 uid
+        wx.setStorage({
+          key: 'nickname',
+          data: nickName
+        });
+        this.globalData.uid = uid;
+        this.globalData.nickName = nickName;
       }
     });
   },
-
+  
   onShow() {
     // 早于页面组件的onShow执行
   },

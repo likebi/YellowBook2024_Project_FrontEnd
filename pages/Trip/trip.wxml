@@ -45,7 +45,71 @@
       </navigator> 
     </view>
 
-    <!-- <view class="style_box2">
+    <view class="style_box2">
+      <navigator url="../../pages/hotelcontentID/hotelcontentID">
+      <view class="box_second">
+        <image class="image-suggestion" src="https://ts1.cn.mm.bing.net/th/id/R-C.124e2e59bf1d0ced6dcefa2b11655539?rik=rzI3nWSLvv%2fDUw&riu=http%3a%2f%2fs1.picswalls.com%2fwallpapers%2f2014%2f08%2f08%2findonesia-background_02052993_164.jpg&ehk=OCdGGZYHKoIIS2fUPbd6apjFJvDiCdocNxQlj3Mc4As%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill"/>
+        <text class="title_suggestion">印度尼西亚</text>
+      </view>
+      </navigator>
+      
+      <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
+      <view class="box_third">
+        <image class="image-suggestion" src="https://www.medisata.com/assets/images/wisata/christ-church-_melaka.jpg" mode="aspectFill"/>
+        <text class="title_suggestion">马来西亚</text>
+      </view>
+      </navigator> 
+    </view>
+
+    <view class="style_box2">
+      <navigator url="../../pages/hotelcontentID/hotelcontentID">
+      <view class="box_second">
+        <image class="image-suggestion" src="https://ts1.cn.mm.bing.net/th/id/R-C.124e2e59bf1d0ced6dcefa2b11655539?rik=rzI3nWSLvv%2fDUw&riu=http%3a%2f%2fs1.picswalls.com%2fwallpapers%2f2014%2f08%2f08%2findonesia-background_02052993_164.jpg&ehk=OCdGGZYHKoIIS2fUPbd6apjFJvDiCdocNxQlj3Mc4As%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill"/>
+        <text class="title_suggestion">印度尼西亚</text>
+      </view>
+      </navigator>
+      
+      <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
+      <view class="box_third">
+        <image class="image-suggestion" src="https://www.medisata.com/assets/images/wisata/christ-church-_melaka.jpg" mode="aspectFill"/>
+        <text class="title_suggestion">马来西亚</text>
+      </view>
+      </navigator> 
+    </view>
+
+    <view class="style_box2">
+      <navigator url="../../pages/hotelcontentID/hotelcontentID">
+      <view class="box_second">
+        <image class="image-suggestion" src="https://ts1.cn.mm.bing.net/th/id/R-C.124e2e59bf1d0ced6dcefa2b11655539?rik=rzI3nWSLvv%2fDUw&riu=http%3a%2f%2fs1.picswalls.com%2fwallpapers%2f2014%2f08%2f08%2findonesia-background_02052993_164.jpg&ehk=OCdGGZYHKoIIS2fUPbd6apjFJvDiCdocNxQlj3Mc4As%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill"/>
+        <text class="title_suggestion">印度尼西亚</text>
+      </view>
+      </navigator>
+      
+      <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
+      <view class="box_third">
+        <image class="image-suggestion" src="https://www.medisata.com/assets/images/wisata/christ-church-_melaka.jpg" mode="aspectFill"/>
+        <text class="title_suggestion">马来西亚</text>
+      </view>
+      </navigator> 
+    </view>
+
+    <view class="style_box2">
+      <navigator url="../../pages/hotelcontentID/hotelcontentID">
+      <view class="box_second">
+        <image class="image-suggestion" src="https://ts1.cn.mm.bing.net/th/id/R-C.124e2e59bf1d0ced6dcefa2b11655539?rik=rzI3nWSLvv%2fDUw&riu=http%3a%2f%2fs1.picswalls.com%2fwallpapers%2f2014%2f08%2f08%2findonesia-background_02052993_164.jpg&ehk=OCdGGZYHKoIIS2fUPbd6apjFJvDiCdocNxQlj3Mc4As%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill"/>
+        <text class="title_suggestion">印度尼西亚</text>
+      </view>
+      </navigator>
+      
+      <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
+      <view class="box_third">
+        <image class="image-suggestion" src="https://www.medisata.com/assets/images/wisata/christ-church-_melaka.jpg" mode="aspectFill"/>
+        <text class="title_suggestion">马来西亚</text>
+      </view>
+      </navigator> 
+    </view>
+
+    <view class="style_box2">
       <navigator url="../../pages/tripcontentID/tripcontentID">
       <view class="box_second">
         <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.M6g9p33OhZ0sWEE2NzJNUQHaEo?rs=1&pid=ImgDetMain" mode="aspectFill"/>
@@ -75,7 +139,7 @@
         <text class="title_suggestion">马来西亚</text>
       </view>
       </navigator> 
-    </view> -->
+    </view>
   </scroll-view>
 </view>
 

@@ -221,10 +221,14 @@ button{
   flex-direction: column; 
   align-items: center; 
   width: 70px;
-  height: 70px; 
+  height: 70px;
+  border: #EAEAEA solid 3px; 
+  border-radius: 4%;
+  background-color: #FFFFFF;
 }
 
 .icon_function {
+  padding-top: 5px;
   width: 80rpx;
   height: 80rpx;
 }
@@ -232,6 +236,8 @@ button{
 .icon-title {
   margin-top: 5px; 
   font-size: 14px; 
+  font-weight: 600;
+
 }
 
 
@@ -244,20 +250,23 @@ button{
 }
 
 .box-suggestion {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 一行两列 */
+    display: flex; /* 使用flex布局 */
+    flex-wrap: wrap; /* 允许换行 */
+    justify-content: space-around;
   }
   
-  .first {
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 10px;
-  }
-
-
-button-sug{
+.first {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  background-color: #E5E4E4  ;
+  border: #E5E4E4 solid 1px  ;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  height: auto;
+  background-color: #ffffff;
+}
+.button-sug{
   display: inline-block;
 }
 
@@ -274,13 +283,15 @@ button-sug{
   -webkit-line-clamp: 2; /* 限制显示两行 */
   -webkit-box-orient: vertical; /* 垂直排列 */
   margin: 10px 20rpx;
-  font-size: 20rpx;
+  font-size: 30rpx;
 }
 
 .item {
   position: relative;
   display: flex;
   align-items: center;
+  height: 40px;
+  width: auto;
 }
 
 .item-image {
@@ -300,6 +311,11 @@ button-sug{
 }
 
 .item-text {
+  overflow: hidden; /* 超出内容隐藏 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  display: -webkit-box; /* 使用 Flexbox 进行布局 */
+  -webkit-line-clamp: 3; /* 限制显示两行 */
+  -webkit-box-orient: vertical; /* 垂直排列 */
   width: 190rpx;
   font-size: 12px; 
   color: #333; 
