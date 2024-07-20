@@ -1,13 +1,33 @@
-<view class="container">
-  <view class="messages">
-    <block wx:for="{{messages}}" wx:key="index">
-      <view class="message" data-sender="{{item.sender}}">
-        <text class="message-text">{{item.text}}</text>
-      </view>
-    </block>
+<view class="allcontainer">
+  <view class="headerAIchat-box">
+    <view class="headerAIchat">
+      <text class="textAIchat">旅游GPT</text>
+    </view>
   </view>
-  <view class="input-area">
-    <input bindinput="bindMessageInput" value="{{userMessage}}" placeholder="输入消息..." />
-    <button bindtap="sendMessage">发送</button>
+
+    <view class="container">
+      <view class="messages">
+        <view class="welcome-messageText">
+          <text class="wellmessage-text">您好！我是您的旅行规划助手。我可以帮您制定一份符合您需求的旅行计划。请告诉我您的预算、目的地偏好、住宿需求和交通方式等信息，我将为您提供详细的旅行建议。</text>
+          
+        </view>
+    
+      <block wx:for="{{messages}}" wx:key="index">
+        <view class="message" data-sender="{{item.sender}}">
+          <view wx:if="{{item.sender === 'bot'}}" class="user-imageAIbox">
+            <image class="image-userAI" src="/static/ChatGPTwhite.png" mode=""/>
+          </view>
+             <!--add a wx:if statement, if the sender is user appear left ,if bot right-->
+          <text class="message-text">{{item.text}}</text>
+          <view wx:if="{{item.sender === 'user'}}" class="user-imageAIbox">
+            <image class="image-userAI" src="/static/ChatGPTwhite.png" mode=""/>
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="input-area">
+      <input class="inputbox" bindinput="bindMessageInput" value="{{userMessage}}" placeholder="输入消息..." bindconfirm="sendMessage" confirm-type="send"/>
+      <button class="sendButton" size="mini" bindtap="sendMessage" bind:tap="enter">发送</button>
+    </view>      <!--bindconfirm="sendMessage" listen enter press button-->
   </view>
 </view>

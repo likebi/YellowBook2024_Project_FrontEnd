@@ -1,67 +1,34 @@
 // pages/planning/planning.js
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
+    items:[
+      {
+        id: 1,
+        destination:'北京',
+        backgroundImage:'https://bpic.588ku.com/back_list_pic/21/09/02/518698a4f8476f7d4f5557753b02a5b6.jpg' ,
 
-  },
+      },
+      // {
+      //   id: 2,
+      //   destination:'上海',
+      //   backgroundImage:'https://tse4-mm.cn.bing.net/th/id/OIP-C.4GWdpl_jObPIBKbw2jnlugHaE7?rs=1&pid=ImgDetMain' ,
 
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad(options) {
+      // },
+    ],
+    items1:[
+      {
+        id: 1,
+        destination:'北京',
+        backgroundImage:'https://bpic.588ku.com/back_list_pic/21/09/02/518698a4f8476f7d4f5557753b02a5b6.jpg' ,
 
-  },
+      },
+      // {
+      //   id: 2,
+      //   destination:'上海',
+      //   backgroundImage:'https://tse4-mm.cn.bing.net/th/id/OIP-C.4GWdpl_jObPIBKbw2jnlugHaE7?rs=1&pid=ImgDetMain' ,
 
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady() {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow() {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide() {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage() {
-
+      // },
+    ]
   },
 
   onHandlerPageTo(){

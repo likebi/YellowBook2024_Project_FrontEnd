@@ -10,7 +10,7 @@ Page({
 
   onLoad() {
     // 初始化，加载保存的会话记录
-    const savedConversation = wx.getStorageSync('currentConversation1') || null;
+    const savedConversation = wx.getStorageSync('currentConversation') || null;
     if (savedConversation) {
       this.setData({
         conversationId: savedConversation.conversationId,
@@ -27,7 +27,10 @@ Page({
       userMessage: e.detail.value
     });
   },
-
+  bindConfirmsendmessage(e) {
+    this.sendMessage();
+  },
+    
   sendMessage() {
     const message = this.data.userMessage.trim();
     const apiKey = 'app-kmsUTWTOmDWv8ZqT9vuNrC5I'; // 替换为正确的 API 密钥
@@ -121,8 +124,8 @@ Page({
 
   saveCurrentConversation() {
     const { conversationId, messages } = this.data;
-    const currentConversation1 = { conversationId, messages };
-    wx.setStorageSync('currentConversation1', currentConversation1);
+    const currentConversation = { conversationId, messages };
+    wx.setStorageSync('currentConversation', currentConversation);
   },
 
   saveConversation() {
@@ -150,7 +153,7 @@ Page({
       conversationId,
       messages
     });
-    wx.setStorageSync('currentConversation1', { conversationId, messages });
+    wx.setStorageSync('currentConversation', { conversationId, messages });
     wx.showToast({
       title: '会话已加载',
       icon: 'success'

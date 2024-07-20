@@ -27,7 +27,10 @@ Page({
       userMessage: e.detail.value
     });
   },
-
+  bindConfirmsendmessage(e) {
+    this.sendMessage();
+  },
+    
   sendMessage() {
     const message = this.data.userMessage.trim();
     const apiKey = 'app-kmsUTWTOmDWv8ZqT9vuNrC5I'; // 替换为正确的 API 密钥
