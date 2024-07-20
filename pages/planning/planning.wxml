@@ -4,8 +4,19 @@
     <text class="title">旅徒</text>
   </view>
   <view class="history" bind:tap="onHandlerPageTo">
-    北京之旅
+    会话1
   </view>
+  <view class="history" bind:tap="onHandlerPageTo1">
+    会话2
+  </view>  <view class="history" bind:tap="onHandlerPageTo2">
+    会话3
+  </view>  <view class="history" bind:tap="onHandlerPageTo3">
+    会话4
+  </view>
+  <view class="history" bind:tap="onHandlerPageTo4">
+    会话5
+  </view>
+
   <view class="type-bar">
     <view class="input-bar">
       <input class="type" type="text" placeholder="发消息"/>
