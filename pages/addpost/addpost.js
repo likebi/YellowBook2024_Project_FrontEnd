@@ -2,10 +2,38 @@ Page({
   data: {
     arrowl: '<',
     arrowr: '>',
+    arrow3: '▼',
     plus: '/static/plus-icon.png',
     htag: '/static/htag.png',
     location: '/static/position.png',
-    images: [] // 用于存储已上传的图片
+    images: [], // 用于存储已上传的图片
+    showpostElement: false,
+    inputText:'',
+    options: [
+      { value:'1', locations: '北京' },
+      { value:'2', locations: '上海' },
+      { value:'3', locations: '重庆' },
+      { value:'4', locations: '厦门' },
+      { value:'5', locations: '成都' },
+      { value:'6', locations: '苏州' },
+      { value:'7', locations: '广州' },
+      { value:'8', locations: '深圳' },
+      { value:'9', locations: '香港' },
+      { value:'10', locations: '长沙' },
+      { value:'11', locations: '武汉' },
+      { value:'12', locations: '吉隆坡' },
+      { value:'13', locations: '雅加达' },
+      { value:'14', locations: '曼谷' },
+      { value:'15', locations: '新加坡' },
+      { value:'16', locations: '西班牙' },
+      { value:'17', locations: '漳州' },
+      { value:'18', locations: '泉州' },
+      { value:'19', locations: '贵州' },
+      { value:'20', locations: '哈尔滨' },
+    ],
+    selectedLocation: {},
+    arrowIcon: '▼'
+
   },
 
   // 返回首页
@@ -55,6 +83,36 @@ Page({
 
   savePost_Tag() {
     wx.setStorageSync('Post_tag', this.data.selectedTag);
+  },
+  //显示隐藏的输入框
+  toggle_post_element: function() {
+    console.log('Toggling dropdown:', !this.data.dropdownVisible);
+    this.setData({
+      showpostElement: !this.data.showpostElement
+    })
+  },
+  // 显示用户输入东西在屏幕
+  onInputChange: function(event) {
+    this.setData({
+        inputText: event.detail.value
+    })
+  },
+  // 显示菜单
+  toggleDropdown: function() {
+    console.log('Toggling dropdown:', !this.data.dropdownVisible);
+    this.setData({
+      dropdownVisible: !this.data.dropdownVisible,
+    });
+  },
+  // 点击城市然后返回Value并关闭菜单
+  onOptionSelect: function(event) {
+    const selectedValue = event.currentTarget.dataset.value;
+    const selectedOption = this.data.options.find(option => option.value === selectedValue);
+    console.log('Selected option:', selectedOption);
+    this.setData({
+      selectedLocation: selectedOption,
+      dropdownVisible: false,
+    })
   },
 
   addImage() {

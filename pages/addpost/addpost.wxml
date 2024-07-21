@@ -14,19 +14,59 @@
   <input class="title" type="text" name="title" placeholder="添加标题会有更多赞哦~" bindinput="handleInput" data-field="title"/>
   <textarea class="content" value="" placeholder="添加正文" auto-focus bindinput="handleContent" data-field="content"/>
   
-  <!-- 话题标签区域 -->
-  <view class="element">
-    <image class="htag" src="{{htag}}" mode="aspectFit"/>
-    <navigator class="select-input" url="">参与话题</navigator>
-    <view class="arrowr" bindtap="">{{arrowr}}</view>
+  <view class="suggestion-header">
+    <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;"> <!--width for the scroll width path | white-space: nowrap is for <scroll-view> does not wrap onto the next line. son it will continue on the line-->
+      <!-- <navigator url="../../pages/hotelcontent/hotelcontent" class="link_sugges_header"><view class="history_header">北京</view></navigator>
+      <navigator url="../../pages/hotelcontentID/hotelcontentID" class="link_sugges_header"><view class="history_header">印尼</view></navigator>
+      <navigator url="../../pages/hotelcontentMY/hotelcontentMY" class="link_sugges_header"><view class="history_header">马来西亚</view></navigator>
+      <navigator url="../../pages/hotelcontent/hotelcontent" class="link_sugges_header"><view class="history_header">Beijing</view></navigator>
+      <navigator url="../../pages/hotelcontentID/hotelcontentID" class="link_sugges_header"><view class="history_header">Indonesia</view></navigator> -->
+      <text class="history_header">moscow</text>
+      <text class="history_header">moscow</text>
+      <text class="history_header">moscow</text>
+      <text class="history_header">moscow</text>
+      <text class="history_header">moscow</text>
+      <text class="history_header">moscow</text>
+      <text class="history_header">moscow</text>
+      <text class="history_header">moscow</text>
+      <text class="history_header">moscow</text>
+      
+      
+
+
+    </scroll-view>
   </view>
+
+  <!-- 话题标签区域 -->
+  <view class="post-element">
+    <image class="htag" src="{{htag}}" mode="aspectFit"/>
+    <button class="post-element-button" bind:tap="toggle_post_element">
+      参与话题
+    </button>
+    <view class="arrowr2" bindtap="">{{arrowr}}</view>
+  </view>
+  <view wx:if="{{showpostElement}}" class="add-postElement">
+      <textarea id="textarea"  maxlength="-1" placeholder="参与话题..." bindinput="onInputChange" value="{{inputText}}"></textarea><!--maxlength="-1" for unlimited typing -->
+  </view>
+
   
 <!-- 添加地点区域 -->
 <view class="location" bindtap="location">
   <image class="htag" src="{{location}}" mode="aspectFit" />
-  <navigator class="select-input" url="/pages/place/place">添加地点</navigator>
-  <view class="arrowr">{{arrowr}}</view>
+  <button class="post-element-button" bind:tap="toggleDropdown">
+      添加地点
+    </button>
+  
+  <view class="arrow3" bind:tap="toggleDropdown">{{arrow3}}</view>
 </view>
+<view wx:if="{{dropdownVisible}}" class="dropdownMenu"> 
+    <block wx:for="{{options}}" wx:key="value">
+      <view class="dropdown-item" bindtap="onOptionSelect" data-value="{{item.value}}">
+        {{item.locations}}
+      </view>
+    </block>
+  </view>
+  
 
   <view class="post-box">
     <button class="post-btn" bindtap="submitPost">发布笔记</button>
