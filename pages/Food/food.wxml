@@ -81,32 +81,18 @@
   </scroll-view>
 </view>
 
-<view class="suggestion_title">旅游住在哪儿?</view>
+<view class="suggestion_title">好吃的都在哪儿?</view>
 
 <view class="contentSuggestion">
-      <view class="box-suggestion">
-        <view class="first" wx:for="{{items}}" wx:key="id">
-          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
-            <image class="image1" src="{{item.userImage}}" mode="aspectFill" />
-            <text class="intro">{{item.intro}}</text>
-
-          </navigator>
-          <view class="item">
-            <view class="comment-image-box">
-              <image src="{{item.userimageComment}}" class="item-image" mode="aspectFill"></image>
-            </view>
-            <!-- <image src="{{item.userimageComment}}" class="item-image" mode="aspectFill"></image> -->
-            <view class="comment-textcomment-box">
-              <text class="item-text">{{item.text}}</text>
-            </view>
-            <!-- <text class="item-text">{{item.text}}</text> -->
-            <view class="comment-like-box">
-              <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-            </view>
-            <!-- <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image> -->
-          </view>
-      </view>
+  <view class="box-suggestion">
+    <view class="first" wx:for="{{items}}" wx:key="id" bind:tap="navigateToContentPage" data-id="{{item.id}}">
+        <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
+        <text class="intro">{{item.intro}}</text>
+      <view class="item">
+          <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
+          <text class="item-text">{{item.text}}</text>
+          <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+        </view>
     </view>
-
-      
-    </view>
+  </view>
+</view>
