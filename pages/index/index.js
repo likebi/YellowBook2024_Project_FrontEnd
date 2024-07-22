@@ -20,8 +20,6 @@ Page({
     dropdownVisible: false,
     options: [
       { label: '发布', value: '/pages/addpost/addpost' },
-      { label: '选项2', value: 'page2' },
-      { label: '选项3', value: 'page3' }
     ],
     items: [],
   },

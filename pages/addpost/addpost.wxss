@@ -44,7 +44,12 @@
   margin-bottom: 50rpx;
   margin-left: 2%;
 }
-
+.arrowr2 {
+  font-size: 50rpx;
+  color: #999;
+  margin-right: 10px;
+  padding: 10px;
+}
 .arrowr {
   font-size: 50rpx;
   color: #999;
@@ -92,14 +97,59 @@
   border-bottom: 1px solid rgba(200, 200, 200, 0.6);
 }
 
-.element {
+.post-element {
   width: 100%;
+  height: auto;
   padding: 20rpx 5%;
   border-bottom: 1px solid rgba(200, 200, 200, 0.6);
   display: flex;
   align-items: center;
 }
-
+.add-postElement {
+  margin-top: 10px;
+  height: 320px;
+  background-color: #f0f0f0;
+  padding: 10px;
+  border-radius: 5px;
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+}
+#textarea {
+  display: block;
+  width: 100%;
+  height: 300px;
+  padding: 8px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+.post-element-button {
+  border: none;
+  margin-right: 30px;
+  background-color: #FFFFFF;
+}
+.suggestion-header {
+  width: auto;
+  margin-bottom: 40rpx;
+}
+.history_header {
+  display: inline-block; /*ensures that the content display inline in one line*/
+  margin-top: 10px;
+  width: 170rpx; 
+  height: 40rpx; 
+  line-height: 40rpx;
+  text-align: center;
+  background-color: #ABABAB; 
+  margin-right: 10px;
+  border-radius: 40rpx;
+  font-size: 25rpx;
+  color: #FFFFFF;
+}
+.link_sugges_header{
+  display: inline-block;
+}
 .htag {
   height: 50rpx;
   width: 50rpx;
@@ -114,10 +164,27 @@
   align-items: center;
 }
 
-.select-input {
-  width: 75%;
-  padding-left: 18px;
-  font-size: 30rpx;
+.dropdown-menu {
+  position: absolute; /* 绝对定位 */
+  top: 40px; /* 根据需要调整位置 */
+  right:6px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* 确保在最上层 */
+}
+.dropdown-item {
+  text-align: center;
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+.arrow3 {
+  margin-right: 22px;
+  display: block;
 }
 
 .post-box {

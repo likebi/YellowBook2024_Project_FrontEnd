@@ -3,29 +3,24 @@
   <view class="title-bar">
     <text class="title">旅徒</text>
   </view>
-  <view class="history" bind:tap="onHandlerPageTo">
-    会话1
+  <view class="history" wx:for="{{items}}" wx:key="id" bind:tap="onHandlerPageTo">
+    <text class="title-center">{{item.destination}}</text>
+    <image class="backgroundImag" src="{{item.backgroundImage}}" mode="aspectFill"/>
   </view>
-  <view class="history" bind:tap="onHandlerPageTo1">
-    会话2
-  </view>  <view class="history" bind:tap="onHandlerPageTo2">
-    会话3
-  </view>  <view class="history" bind:tap="onHandlerPageTo3">
-    会话4
+  <view class="history" wx:for="{{items1}}" wx:key="id" bind:tap="onHandlerPageTo1">
+    <text class="title-center">{{item.destination}}</text>
+    <image class="backgroundImag" src="{{item.backgroundImage}}" mode="aspectFill"/>
   </view>
-  <view class="history" bind:tap="onHandlerPageTo4">
-    会话5
+  <view class="history" wx:for="{{items2}}" wx:key="id" bind:tap="onHandlerPageTo2">
+    <text class="title-center">{{item.destination}}</text>
+    <image class="backgroundImag" src="{{item.backgroundImage}}" mode="aspectFill"/>
   </view>
-
-  <view class="type-bar">
-    <view class="input-bar">
-      <input class="type" type="text" placeholder="发消息"/>
-    </view> 
-   <button class="send-btn">
-    <image class="send" src="/static/fasong.png" mode="aspectFit"/>
-   </button>
-   <button class="attach-btn">
-    <image class="attach" src="/static/jia.png" mode="aspectFit"/>
-   </button>
+  <view class="history" wx:for="{{items3}}" wx:key="id" bind:tap="onHandlerPageTo3">
+    <text class="title-center">{{item.destination}}</text>
+    <image class="backgroundImag" src="{{item.backgroundImage}}" mode="aspectFill"/>
+  </view>
+  <view class="history" wx:for="{{items4}}" wx:key="id" bind:tap="onHandlerPageTo4">
+    <text class="title-center">{{item.destination}}</text>
+    <image class="backgroundImag" src="{{item.backgroundImage}}" mode="aspectFill"/>
   </view>
 </view>

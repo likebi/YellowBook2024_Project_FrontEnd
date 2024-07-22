@@ -89,6 +89,7 @@ Page({
       }
     }
   },
+  
 
   onShow() {
     this.getUserInfo();
