@@ -8,7 +8,13 @@ Page({
     location: '/static/position.png',
     images: [], // 用于存储已上传的图片
     showpostElement: false,
+    dropdownVisibleHeader: false,
     inputText:'',
+    threeoptions: [
+      { values:'1', selectOption: '酒店' },
+      { values:'2', selectOption: '旅游' },
+      { values:'3', selectOption: '美食' },
+    ],
     options: [
       { value:'1', locations: '北京' },
       { value:'2', locations: '上海' },
@@ -31,7 +37,8 @@ Page({
       { value:'19', locations: '贵州' },
       { value:'20', locations: '哈尔滨' },
     ],
-    selectedLocation: {},
+    selectedLocation: '', // console返回values
+    selectedHeader: '',// console返回values
     arrowIcon: '▼'
 
   },
@@ -84,6 +91,22 @@ Page({
   savePost_Tag() {
     wx.setStorageSync('Post_tag', this.data.selectedTag);
   },
+  // Function to handle suggestion click
+  onSuggestionClick(event) {
+    const selectedValue = event.currentTarget.dataset.value; // Get the value of the clicked suggestion
+    this.setData({
+      inputText: `${this.data.inputText} ${selectedValue}` // Append the selected suggestion to existing text `${this.data.inputText} = insert value of suggested header when click moscow --> (#moscow) ${selectedValue} = append again value when click 北京 ---> (#北京) together (#moscow) (#北京)
+    })
+  },
+
+  // Function to handle textarea input
+  handleContent(event) {
+    // Update the inputText property with textarea value
+    const newValue = event.detail.value;
+    this.setData({
+      inputText: newValue // Update the inputText property with textarea value
+    })
+  },
   //显示隐藏的输入框
   toggle_post_element: function() {
     console.log('Toggling dropdown:', !this.data.dropdownVisible);
@@ -93,9 +116,17 @@ Page({
   },
   // 显示用户输入东西在屏幕
   onInputChange: function(event) {
+    const inputValue = event.detail.value;
+    console.clear(); // Clear the console before logging the new value
+    console.log('Typing value:', inputValue); // print the typing value
     this.setData({
-        inputText: event.detail.value
+        inputText: inputValue
     })
+  },
+  toggle_dropdownHeader() {
+    this.setData({
+      dropdownVisibleHeader: !this.data.dropdownVisibleHeader
+    });
   },
   // 显示菜单
   toggleDropdown: function() {
@@ -109,9 +140,29 @@ Page({
     const selectedValue = event.currentTarget.dataset.value;
     const selectedOption = this.data.options.find(option => option.value === selectedValue);
     console.log('Selected option:', selectedOption);
+    if (selectedOption) {
+      this.setData({
+        selectedLocation: selectedOption.locations, // Update the displayed location
+        dropdownVisible: false, // Hide the dropdown menu after selection
+      });
+    }
+    // this.setData({
+    //   selectedLocation: selectedOption,
+    //   dropdownVisible: false,
+    // })
+  },
+  onOptionSelectHeader(event) {
+    const selectedValue = event.currentTarget.dataset.value;
+    const selectedOption = this.data.threeoptions.find(option => option.values === selectedValue);
+    //this.data.(this fucntion data is in threeoptions) ---> array data 
+    //find method search element in array (find(option => option.(values is the name in the data) === selectedValue);)
+    //function(option) {
+    //    return option.values === selectedValue;
+     //   }
+    console.log('Selected Header Option:', selectedOption);
     this.setData({
-      selectedLocation: selectedOption,
-      dropdownVisible: false,
+      selectedHeader: selectedOption.selectOption, 
+      dropdownVisibleHeader: false,
     })
   },
 
