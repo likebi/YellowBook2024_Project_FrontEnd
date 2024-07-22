@@ -50,28 +50,7 @@ Page({
     });
   },
 
-  // 保存图片到本地存储
-  savePost_image() {
-    wx.setStorageSync('Post_image', this.data.images);
-  },
-
-  savePost_Title() {
-    wx.setStorageSync('Post_title', this.data.title);
-  },
-
-  savePost_Content() {
-    wx.setStorageSync('Post_content', this.data.content);
-  },
-
-  savePost_Location() {
-    wx.setStorageSync('Post_location', this.data.selectedLocation);
-  },
-
-  savePost_Tag() {
-    wx.setStorageSync('Post_tag', this.data.selectedTag);
-  },
-
-  // 保存图片到本地存储
+  
   savePost_image() {
     wx.setStorageSync('Post_image', this.data.images);
   },

@@ -58,19 +58,16 @@
 </view>
 
 
-
     <view class="fontSuggestion"> 
       <text>为您推荐</text>
     </view>
 <view class="contentSuggestion">
   <view class="box-suggestion">
-    <view class="first" wx:for="{{items}}" wx:key="id">
-      <navigator url="../../pages/contentpage/contentpage">
+    <view class="first" wx:for="{{items}}" wx:key="id" bind:tap="navigateToContentPage" data-id="{{item.id}}">
         <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
         <text class="intro">{{item.intro}}</text>
-      </navigator>
       <view class="item">
-          <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
+          <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
           <text class="item-text">{{item.text}}</text>
           <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
         </view>

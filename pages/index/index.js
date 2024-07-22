@@ -1,9 +1,8 @@
-
 Page({
   data: {
-    latitude:null,
-    longtitude:null,
-    city:'',
+    latitude: null,
+    longitude: null,
+    city: '',
 
     demoText1: 'https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient',
     demoText2: 'https://th.bing.com/th/id/R.496ccc48796a3ce6fbcdd0173436c3da?rik=aLk8AbZezYqp6g&riu=http%3a%2f%2fwww.gjlysy.com%2fupload%2fimage%2f20190918%2f15687778356989439.jpg&ehk=i3eyZiPsIs3qi7QZB0KQTq1bdwKt%2f9F%2fewvOm%2fnYakE%3d&risl=&pid=ImgRaw&r=0',
@@ -13,7 +12,6 @@ Page({
     autoplay: true,
     interval: 4000,
     duration: 500,
-    userImage: '/static/me.png',
     nickname: 'wechat_user',
     current: 0,
     Arrow1: "<",
@@ -23,60 +21,39 @@ Page({
     options: [
       { label: '发布', value: '/pages/addpost/addpost' },
     ],
-  
-    items: [
-      {
-        id: 1,
-        itemImage: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.1xIwmlF2qTdBieTBW7pkFAHaE8?rs=1&pid=ImgDetMain',
-        intro:'SOTO BETAWI 印度尼西亚黄椰汤',
-        text: "Agus",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 2,
-        itemImage: 'https://video.cgtn.com/news/2022-09-29/Shanghai-s-Huangpu-River-boosts-economy-in-Yangtze-River-Delta-1dIM1NhfZKM/video/5f46a45b50c2455bbd175b1056c5122f/5f46a45b50c2455bbd175b1056c5122f.jpeg',
-        intro:'我的城市',
-        text: "真的的上海人",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-
-      {
-        id: 3,
-        itemImage: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.iACihbLRXkucP2AK7dhGfgHaEK?rs=1&pid=ImgDetMain',
-        intro:'北海道冬天温泉市',
-        text: "北海道666",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 4,
-        itemImage: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.jXEJdOp1OOMAMi3qB8FpPAHaE8?rs=1&pid=ImgDetMain',
-        intro:'马来西亚椰浆饭',
-        text: "马来西亚better then SGjuyhngfedvcs",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 5,
-        itemImage: 'https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp',
-        intro:'联想（LenovoH',
-        text: "迷人的灰太狼jmyhngt",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 4,
-        itemImage: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.jXEJdOp1OOMAMi3qB8FpPAHaE8?rs=1&pid=ImgDetMain',
-        intro:'马来西亚椰浆饭',
-        text: "马来西亚better then SGjuyhngfedvcs",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-    ],
+    items: [],
   },
 
+  // 使用 wx.request 发送请求
+  fetchUserData() {
+    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+
+    if (!token) {
+      console.error('未找到授权 token');
+      return;
+    }
+      wx.request({
+        url: 'http://localhost:3000/items', // 你的后端 API 地址
+        method: 'GET',
+        header: {
+          'Authorization': token
+        },
+        success: (res) => {
+          if (res.data.code === 200) {
+            // 将返回的数据设置到 page 的 items 数据中
+            this.setData({
+              items: res.data.data
+            });
+          } else {
+            console.error('获取数据失败:', res.data.msg);
+          }
+        },
+        fail: (err) => {
+          console.error('请求失败:', err);
+        }
+      });
+    },
+    
 
   onOptionSelect(e) {
     const value = e.currentTarget.dataset.value;
@@ -87,13 +64,24 @@ Page({
       dropdownVisible: false
     });
   },
-  
+
+
+
+  navigateToContentPage: function(event) {
+    const id = event.currentTarget.dataset.id; 
+    console.log(`${id}`)
+    wx.navigateTo({
+      url: `/pages/contentpage/contentpage?id=${id}`,
+    });
+},
+
   onLoad: function () {
     this.setData({
       background: [this.data.demoText1, this.data.demoText2, this.data.demoText3]
     });
     this.getUserInfo();
     this.getUserLocation();
+    this.fetchUserData();  // 调用 fetchUserData 方法
   },
 
   nextImage: function () {
@@ -114,8 +102,6 @@ Page({
 
     this.setData({ items });
   },
-
-
 
   getUserInfo() {
     wx.getStorage({
@@ -192,7 +178,6 @@ Page({
     });
   },
 
-
   getCity(latitude, longitude) {
     const that = this;
     const key = 'CRPBZ-XCN3L-H2RPB-MUXAK-2SMP3-V4FWI'; // 替换为您申请的腾讯位置服务密钥
@@ -224,7 +209,6 @@ Page({
     });
   },
 
-
   saveUserInfo() {
     wx.setStorage({
       key: 'userInfo',
@@ -245,4 +229,3 @@ Page({
     this.setData({ dropdownVisible: false });
   },
 });
-

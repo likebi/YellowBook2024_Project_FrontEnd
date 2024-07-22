@@ -90,7 +90,7 @@
         <scroll-view class="content" scroll-y>
           <view class="contentSuggestion">
             <view class="box-suggestion">
-              <view class="first" wx:for="{{items}}" wx:key="id">
+              <view class="first" wx:for="{{items2}}" wx:key="id">
                 <navigator url="../../pages/contentpage/contentpage">
                   <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
                   <text class="intro">{{item.intro}}</text>
@@ -111,7 +111,7 @@
         <scroll-view class="content" scroll-y>
           <view class="contentSuggestion">
             <view class="box-suggestion">
-              <view class="first" wx:for="{{items}}" wx:key="id">
+              <view class="first" wx:for="{{items3}}" wx:key="id">
                 <navigator url="../../pages/contentpage/contentpage">
                   <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
                   <text class="intro">{{item.intro}}</text>

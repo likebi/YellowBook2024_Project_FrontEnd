@@ -56,16 +56,16 @@
 }
 
 .upload-icon {
-  font-size: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10rpx;
-  background-color: rgba(200, 200, 200, 0.3);
   margin-left: 3%;
   width: 5%;
   height: 30rpx;
   padding: 80rpx;
+  background-color: rgba(200, 200, 200, 0.3);
+  font-size: 6rem;
 }
 
 #file {
