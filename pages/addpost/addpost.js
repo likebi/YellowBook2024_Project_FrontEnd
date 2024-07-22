@@ -2,12 +2,35 @@ Page({
   data: {
     arrowl: '<',
     arrowr: '>',
+    arrow3: '▼',
     plus: '/static/plus-icon.png',
     htag: '/static/htag.png',
     location: '/static/position.png',
-    images: [] // 用于存储已上传的图片
+    images: [], // 用于存储已上传的图片
+    showpostElement: false,
+    dropdownVisibleHeader: false,
+    inputText:'',
+    threeoptions: [
+      { values:'1', selectOption: '酒店' },
+      { values:'2', selectOption: '旅游' },
+      { values:'3', selectOption: '美食' },
+    ],
+    options: [], // 初始化为空数组
+    selectedLocation: '', // console返回values
+    selectedHeader: '',// console返回values
+    arrowIcon: '▼'
+
   },
 
+    // 页面加载时请求地点数据
+    onLoad() {
+      const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+      if (token) {
+        this.fetchLocations(token);
+      } else {
+        console.error('未找到授权 token');
+      }
+    },
   // 返回首页
   onBack() {
     wx.navigateTo({
@@ -15,7 +38,7 @@ Page({
     });
   },
 
-  // 保存图片到本地存储
+  
   savePost_image() {
     wx.setStorageSync('Post_image', this.data.images);
   },
@@ -35,26 +58,79 @@ Page({
   savePost_Tag() {
     wx.setStorageSync('Post_tag', this.data.selectedTag);
   },
-
-  // 保存图片到本地存储
-  savePost_image() {
-    wx.setStorageSync('Post_image', this.data.images);
+  // Function to handle suggestion click
+  onSuggestionClick(event) {
+    const selectedValue = event.currentTarget.dataset.value; // Get the value of the clicked suggestion
+    this.setData({
+      inputText: `${this.data.inputText} ${selectedValue}` // Append the selected suggestion to existing text `${this.data.inputText} = insert value of suggested header when click moscow --> (#moscow) ${selectedValue} = append again value when click 北京 ---> (#北京) together (#moscow) (#北京)
+    })
   },
 
-  savePost_Title() {
-    wx.setStorageSync('Post_title', this.data.title);
+  // Function to handle textarea input
+  handleContent(event) {
+    // Update the inputText property with textarea value
+    const newValue = event.detail.value;
+    this.setData({
+      inputText: newValue // Update the inputText property with textarea value
+    })
   },
-
-  savePost_Content() {
-    wx.setStorageSync('Post_content', this.data.content);
+  //显示隐藏的输入框
+  toggle_post_element: function() {
+    console.log('Toggling dropdown:', !this.data.dropdownVisible);
+    this.setData({
+      showpostElement: !this.data.showpostElement
+    })
   },
-
-  savePost_Location() {
-    wx.setStorageSync('Post_location', this.data.selectedLocation);
+  // 显示用户输入东西在屏幕
+  onInputChange: function(event) {
+    const inputValue = event.detail.value;
+    console.clear(); // Clear the console before logging the new value
+    console.log('Typing value:', inputValue); // print the typing value
+    this.setData({
+        inputText: inputValue
+    })
   },
-
-  savePost_Tag() {
-    wx.setStorageSync('Post_tag', this.data.selectedTag);
+  toggle_dropdownHeader() {
+    this.setData({
+      dropdownVisibleHeader: !this.data.dropdownVisibleHeader
+    });
+  },
+  // 显示菜单
+  toggleDropdown: function() {
+    console.log('Toggling dropdown:', !this.data.dropdownVisible);
+    this.setData({
+      dropdownVisible: !this.data.dropdownVisible,
+    });
+  },
+  // 点击城市然后返回Value并关闭菜单
+  onOptionSelect: function(event) {
+    const selectedValue = event.currentTarget.dataset.value;
+    const selectedOption = this.data.options.find(option => option.value === selectedValue);
+    console.log('Selected option:', selectedOption);
+    if (selectedOption) {
+      this.setData({
+        selectedLocation: selectedOption.locations, // Update the displayed location
+        dropdownVisible: false, // Hide the dropdown menu after selection
+      });
+    }
+    // this.setData({
+    //   selectedLocation: selectedOption,
+    //   dropdownVisible: false,
+    // })
+  },
+  onOptionSelectHeader(event) {
+    const selectedValue = event.currentTarget.dataset.value;
+    const selectedOption = this.data.threeoptions.find(option => option.values === selectedValue);
+    //this.data.(this fucntion data is in threeoptions) ---> array data 
+    //find method search element in array (find(option => option.(values is the name in the data) === selectedValue);)
+    //function(option) {
+    //    return option.values === selectedValue;
+     //   }
+    console.log('Selected Header Option:', selectedOption);
+    this.setData({
+      selectedHeader: selectedOption.selectOption, 
+      dropdownVisibleHeader: false,
+    })
   },
 
   addImage() {
@@ -99,6 +175,33 @@ Page({
     });
     this.savePost_Content();
   },
+
+  fetchLocations(token) {
+    wx.request({
+      url: 'http://localhost:3000/locations',
+      method: 'GET',
+      header: {
+        'Authorization': token
+      },
+      success: (res) => {
+        if (res.data.code === 200) {
+          const formattedOptions = res.data.data.map((item, index) => ({
+            value: (index + 1).toString(), // 生成唯一的值，例如 '1', '2', '3'...
+            locations: item.id
+          }));
+          this.setData({
+            options: formattedOptions // 更新地点数据
+          });
+        } else {
+          console.error('Failed to fetch locations:', res.data.msg);
+        }
+      },
+      fail: (err) => {
+        console.error('Failed to fetch locations:', err);
+      }
+    });
+  },
+
 
   submitPost() {
     const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token

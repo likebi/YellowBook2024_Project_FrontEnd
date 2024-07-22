@@ -1,11 +1,10 @@
 <view class="post-page">
   <view class="touch-area" bindtouchstart="handleTouchStart" bindtouchmove="handleTouchMove" bindtouchend="handleTouchEnd">
-    <view class="item" wx:for="{{post_text}}" wx:key="id">
+    <view class="item">
       <view class="item" bindtap="navigateToUserPage">
          <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
             <text class="item-text">{{item.userName}}</text>
       </view>
-
       <view class="button_follow" bindtap="toggleFollow">{{followStatus ? '已关注' : '关注'}}</view>
     </view>
 
@@ -13,7 +12,7 @@
       <swiper interval="2500" circular="true" indicator-dots="true" class="swipper-size">
         <swiper-item wx:for="{{imgurl}}" wx:key="index">
           <view class="swiper-img">
-            <image src="{{item.img}}" class="centered-image" mode="aspectFit"/>
+            <image src="{{imgurl.img}}" class="centered-image" mode="aspectFit"/>
           </view>
         </swiper-item>
       </swiper>

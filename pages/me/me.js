@@ -22,78 +22,41 @@ Page({
     tabPositions: [22, 136, 250],
     intro_user: 'Bio',
 
-    items: [
-      {
-        id: 1,
-        itemImage: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.1xIwmlF2qTdBieTBW7pkFAHaE8?rs=1&pid=ImgDetMain',
-        intro: 'SOTO BETAWI 印度尼西亚黄椰汤cdscsdvsvsvsvrvervsrfvsev srvsvsrevs',
-        text: "Agus",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 2,
-        itemImage: 'https://video.cgtn.com/news/2022-09-29/Shanghai-s-Huangpu-River-boosts-economy-in-Yangtze-River-Delta-1dIM1NhfZKM/video/5f46a45b50c2455bbd175b1056c5122f/5f46a45b50c2455bbd175b1056c5122f.jpeg',
-        intro: '我的城市',
-        text: "真的的上海人",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-
-      {
-        id: 3,
-        itemImage: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.iACihbLRXkucP2AK7dhGfgHaEK?rs=1&pid=ImgDetMain',
-        intro: '北海道冬天温泉市',
-        text: "北海道666",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 4,
-        itemImage: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.jXEJdOp1OOMAMi3qB8FpPAHaE8?rs=1&pid=ImgDetMain',
-        intro: '马来西亚椰浆饭',
-        text: "马来西亚better then SG",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 5,
-        itemImage: 'https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp',
-        intro: '联想（Lenovo）拯救者27英寸2K FastIPS 原生180Hz',
-        text: "迷人的灰太狼",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-
-      {
-        id: 3,
-        itemImage: 'https://tse1-mm.cn.bing.net/th/id/OIP-C.iACihbLRXkucP2AK7dhGfgHaEK?rs=1&pid=ImgDetMain',
-        intro: '北海道冬天温泉市',
-        text: "北海道666",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 4,
-        itemImage: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.jXEJdOp1OOMAMi3qB8FpPAHaE8?rs=1&pid=ImgDetMain',
-        intro: '马来西亚椰浆饭',
-        text: "马来西亚better then SG",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-      {
-        id: 5,
-        itemImage: 'https://img14.360buyimg.com/mobilecms/s360x360_jfs/t1/100867/28/30156/133110/668275e8Fac838305/6f1ddab707bbfd08.jpg!q70.dpg.webp',
-        intro: '联想（Lenovo）拯救者27英寸2K FastIPS 原生180Hz',
-        text: "迷人的灰太狼",
-        loveImage: "../../static/love.png",
-        isLiked: false,
-      },
-    ],
+    items: [],
   },
+
+   // 使用 wx.request 发送请求
+   fetchUserData() {
+    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+    if (!token) {
+      console.error('未找到授权 token');
+      return;
+    }
+      wx.request({
+        url: 'http://localhost:3000/notes', // 你的后端 API 地址
+        method: 'GET',
+        header: {
+          'Authorization': token
+        },
+        success: (res) => {
+          if (res.data.code === 200) {
+            // 将返回的数据设置到 page 的 items 数据中
+            this.setData({
+              items: res.data.data
+            });
+          } else {
+            console.error('获取数据失败:', res.data.msg);
+          }
+        },
+        fail: (err) => {
+          console.error('请求失败:', err);
+        }
+      });
+    },
 
   onLoad: function () {
     this.getUserInfo();
+    this.fetchUserData();
     this.setData({
       activeTagLeft: this.data.tabPositions[this.data.currentTab]
     });

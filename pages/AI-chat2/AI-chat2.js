@@ -10,7 +10,7 @@ Page({
 
   onLoad() {
     // 初始化，加载保存的会话记录
-    const savedConversation = wx.getStorageSync('currentConversation1') || null;
+    const savedConversation = wx.getStorageSync('currentConversation2') || null;
     if (savedConversation) {
       this.setData({
         conversationId: savedConversation.conversationId,
@@ -124,8 +124,8 @@ Page({
 
   saveCurrentConversation() {
     const { conversationId, messages } = this.data;
-    const currentConversation1 = { conversationId, messages };
-    wx.setStorageSync('currentConversation1', currentConversation1);
+    const currentConversation2 = { conversationId, messages };
+    wx.setStorageSync('currentConversation2', currentConversation2);
   },
 
   saveConversation() {
@@ -153,7 +153,7 @@ Page({
       conversationId,
       messages
     });
-    wx.setStorageSync('currentConversation1', { conversationId, messages });
+    wx.setStorageSync('currentConversation2', { conversationId, messages });
     wx.showToast({
       title: '会话已加载',
       icon: 'success'
