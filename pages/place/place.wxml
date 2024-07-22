@@ -1,6 +1,4 @@
 <view id="container">
-
-
   <!-- 搜索栏 -->
   <view class="search-container">
     <view class="search-window">
@@ -17,6 +15,12 @@
       <view wx:for="{{searchResults}}" wx:key="id" class="search-result-item">
         <text>{{item}}</text>
       </view>
+    </view>
+  </view>
+
+  <view class="allplaceview">
+    <view wx:for="{{locations}}" wx:key="index" bindtap="onLocationClick" data-id="{{item.id}}">
+      <text>{{item.id}}</text>
     </view>
   </view>
 </view>
