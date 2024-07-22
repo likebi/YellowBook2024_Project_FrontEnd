@@ -23,8 +23,8 @@
 .follow-window {
   display: flex;
   margin-left: 10rpx;
-  width: 90vw;
   gap: 10rpx;
+  font-weight: 700;
 }
 
 .followed{
