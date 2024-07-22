@@ -49,6 +49,7 @@ App({
         console.log('后端获取session_key和uid请求', res.data);
         let uid = res.data.data.uid;
         let nickName = res.data.data.nickName; // 注意这里nickName的路径
+        let userImage = res.data.data.userImage;
         wx.setStorage({
           key: 'Uid',
           data: uid
@@ -57,8 +58,13 @@ App({
           key: 'nickname',
           data: nickName
         });
+        wx.setStorage({
+          key: 'userImage',
+          data: userImage
+        });
         this.globalData.uid = uid;
         this.globalData.nickName = nickName;
+        this.globalData.userImage = userImage;
       }
     });
   },
@@ -72,7 +78,8 @@ App({
     requestUrl: 'http://localhost:3000/',
     userInfo: null,
     userLocation: null,
-    uid: null // 初始化全局 uid
+    uid: null, // 初始化全局 uid
+    userImage: null
   },
 
   // 全局方法

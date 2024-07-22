@@ -118,3 +118,8 @@
   padding: 10rpx;
   border-bottom: 1px solid #ddd;
 }
+
+
+.allplaceview{
+  font-size: large;
+}

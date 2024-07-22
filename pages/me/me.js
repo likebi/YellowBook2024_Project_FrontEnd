@@ -9,7 +9,7 @@ Page({
    * Page initial data
    */
   data: {
-    userImage: '/static/me.png',
+    userImage: '',
     backgroundImage: "https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient",
     Uid: '',
     nickname: '',
@@ -88,13 +88,24 @@ Page({
         });
       }
     }
+
+    if (app.globalData.userImage) {
+      this.setData({
+        userImage: app.globalData.userImage
+      })
+    } else {
+      const userImage = wx.getStorageSync('userImage');
+      if (userImage) {
+        this.setData({
+          userImage: userImage 
+        });
+      }
+    }
   },
-  
 
   onShow() {
     this.getUserInfo();
   },
-
 
   back() {
     this.getUserInfo();
@@ -121,61 +132,63 @@ Page({
   // 获取用户头像
   onChooseAvatar(e) {
     console.log(e);
-    this.setData({
-      userImage: e.detail.avatarUrl
-    })
-    this.saveUserInfo();
-  },
-
-
-  // 选择昵称
-  onChooseNickname(e) {
-    console.log(e);
-    this.setData({
-      nickname: e.detail.value
-    });
-    this.saveUserInfo();
-    this.sendNicknameToServer(e.detail.value); // 调用函数发送昵称到服务器
-  },
-
-  // 发送昵称到服务器
-  sendNicknameToServer(nickname) {
-    wx.request({
-      url: 'http://localhost:3000/saveNickname', // 替换为你的后端API地址
-      method: 'POST',
-      data: {
-        nickname: nickname,
-        Uid: this.data.Uid // 传递用户UID
-      },
-      header: {
-        'content-type': 'application/json', // 默认值
-        'Authorization': wx.getStorageSync('token') // 需要传递的token
-      },
-      success(res) {
-        console.log('Nickname saved successfully:', res);
-      },
-      fail(err) {
-        console.error('Failed to save nickname:', err);
-      }
+    const avatarUrl = e.detail.avatarUrl;
+  
+    this.base64(avatarUrl, "png").then(base64Data => {
+      console.log(base64Data, 'base64路径'); // base64Data 是 base64 编码的字符串
+      
+      // 更新 data 中的 userImage 为 base64 数据
+      this.setData({
+        userImage: e.detail.avatarUrl
+      });
+  
+      // 确保更新后的数据能传递到服务器
+      this.saveUserInfo();
+      this.sendUserInfoToServer({
+        userImage: base64Data
+      });
+    }).catch(error => {
+      console.error('Base64 转换失败:', error);
     });
   },
 
-  onChooseBackground: function () {
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: ['album', 'camera'],
-      success: (res) => {
-        this.setData({
-          backgroundImage: res.tempFilePaths[0]
-        });
-        this.saveUserInfo();
-      },
-      fail: (err) => {
-        console.error(err);
-      }
-    });
-  },
+// 选择昵称
+onChooseNickname(e) {
+  console.log(e);
+  this.setData({
+    nickname: e.detail.value
+  });
+  this.saveUserInfo();
+  this.sendUserInfoToServer({
+    nickname: e.detail.value
+  });
+},
+
+// 发送用户信息到服务器
+sendUserInfoToServer(data) {
+  // 将data和Uid组合成一个对象
+  const userData = {
+    ...data,
+    Uid: this.data.Uid // 传递用户UID
+  };
+
+  console.log('Sending user data to server:', userData); 
+
+  wx.request({
+    url: 'http://localhost:3000/saveUserInfo', // 替换为你的后端API地址
+    method: 'POST',
+    data: userData,
+    header: {
+      'Authorization': wx.getStorageSync('userToken') // 需要传递的token
+    },
+    success(res) {
+      console.log('User info saved successfully:', res);
+    },
+    fail(err) {
+      console.error('Failed to save user info:', err);
+    }
+  });
+},
 
   saveUserInfo() {
     wx.setStorageSync('userInfo', {
@@ -227,5 +240,21 @@ Page({
     items[index].loveImage = items[index].isLiked ? '../../static/love.png' : '../../static/love2.png';
     this.setData({ items });
   },
+
+  // 图片转64代码
+  base64(url, type) {
+  return new Promise((resolve, reject) => {
+    wx.getFileSystemManager().readFile({
+      filePath: url, //选择图片返回的相对路径
+      encoding: 'base64', //编码格式
+      success: res => {
+        // resolve('data:image/' + type.toLocaleLowerCase() + ';base64,' + res.data)
+        resolve(res.data)
+      },
+      fail: res => reject(res.errMsg)
+    })
+  })
+},
+
 
 })

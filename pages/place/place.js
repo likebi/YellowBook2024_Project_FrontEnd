@@ -1,13 +1,16 @@
 Page({
   data: {
-    buttonState:'button-default',
+    buttonState: 'button-default',
     arrowl: '<',
     value: '',
     historyList: [],
-    searchResults: [] // 添加一个用于存储搜索结果的数组
+    searchResults: [], // 添加一个用于存储搜索结果的数组
+    locations: [],
+    token: '' // 存储 token
   },
   onLoad() {
     this.getRecord();
+    this.getTokenAndFetchLocations();
   },
   // 处理输入事件
   onInput(event) {
@@ -38,58 +41,55 @@ Page({
   onSearch() {
     const val = this.data.value;
     if (val) {
-      this.judge(val);
       this.setData({
         value: ''
       });
       this.performSearch(val); // 调用搜索函数
     }
   },
-  // 判断历史记录是否超过10条
-  judge(val) {
-    let historyList = this.data.historyList;
-    if (historyList.length < 10) {
-      if (!historyList.includes(val)) {
-        if (val.length > 4) {
-          val = val.slice(0, 3).trim() + '...';
-        }
-        historyList.unshift(val);
-        this.setRecord(historyList);
-        this.setData({
-          historyList
-        });
-      }
-    } else {
-      if (!historyList.includes(val)) {
-        if (val.length > 4) {
-          val = val.slice(0, 3).trim() + '...';
-        }
-        let i = historyList.indexOf(val);
-        if (i !== -1) {
-          historyList.splice(i, 1);
-        }
-        historyList.unshift(val);
-        this.setRecord(historyList);
-        this.setData({
-          historyList
-        });
-      }
-    }
-  },
-  // 模拟搜索函数，更新搜索结果
+  
   performSearch(query) {
-    // 模拟搜索结果，可以根据实际需求替换为实际的搜索逻辑
-    const searchResults = [
-      `Result for ${query} 1`,
-      `Result for ${query} 2`,
-      `Result for ${query} 3`,
-      `Result for ${query} 4`
-    ];
-    this.setData({
-      searchResults
+    // 获取 token
+    const token = wx.getStorageSync('userToken');
+    
+    if (!token) {
+      console.error('No authorization token found');
+      this.setData({
+        searchResults: []
+      });
+      return;
+    }
+    
+    console.log('Performing search with query:', query);
+    
+    wx.request({
+      url: `http://localhost:3000/searchlocations?query=${encodeURIComponent(query)}`, // 使用新的搜索 API 路径
+      method: 'GET',
+      header: {
+        'Authorization': token // 确保添加了 'Bearer' 前缀或根据实际需求调整
+      },
+      success: (res) => {
+        console.log('Search response:', res); // 打印响应
+        if (res.data.code === 200) {
+          this.setData({
+            searchResults: res.data.data
+          });
+        } else {
+          console.error('搜索失败:', res.data.msg);
+          this.setData({
+            searchResults: []
+          });
+        }
+      },
+      fail: (err) => {
+        console.error('搜索请求失败:', err);
+        this.setData({
+          searchResults: []
+        });
+      }
     });
   },
-  // 是否展示modal
+      // 是否展示modal
   showModal() {
     this.setData({
       show: true
@@ -117,7 +117,7 @@ Page({
   onFollowed() {
     console.log('Followed button clicked');
     this.setData({
-      buttonState:this.data.buttonState === 'button-default'? 'button-clicked':'button-default'
+      buttonState: this.data.buttonState === 'button-default' ? 'button-clicked' : 'button-default'
     })
   },
   // 处理粉丝按钮点击事件
@@ -128,5 +128,50 @@ Page({
   onOrderChange() {
     console.log('Order button clicked');
     // 在这里添加排序逻辑
-  }
+  },
+
+  // 获取 token 并获取地点数据
+  getTokenAndFetchLocations() {
+    const token = wx.getStorageSync('userToken'); // 获取 token
+    if (token) {
+      this.setData({ token }); // 设置 token 到 data 中
+      this.fetchLocations(token);
+    } else {
+      console.error('No authorization token found');
+    }
+  },
+
+  fetchLocations(token) {
+    wx.request({
+      url: 'http://localhost:3000/locations',
+      method: 'GET',
+      header: {
+        'Authorization': token
+      },
+      success: (res) => {
+        if (res.data.code === 200) {
+          console.log('成功', res.data.data);
+          this.setData({
+            locations: res.data.data // 确保这部分数据与前端展示匹配
+          });
+        } else {
+          console.error('Failed to fetch locations:', res.data.msg);
+        }
+      },
+      fail: (err) => {
+        console.error('Failed to fetch locations:', err);
+      }
+    });
+  },
+
+    // 点击地点事件处理函数
+    onLocationClick(event) {
+      const locationId = event.currentTarget.dataset.id; // 获取点击的地点 ID
+      console.log('Clicked location ID:', locationId);
+  
+      // 在这里你可以做任何你想做的操作，比如跳转到详情页面
+      wx.navigateTo({
+        url: `/path/to/detail/page?locationId=${locationId}` // 修改为你的页面路径
+      });
+    }
 });
