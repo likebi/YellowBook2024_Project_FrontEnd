@@ -76,3 +76,51 @@
   padding: 50rpx;
   margin-bottom: 10rpx;
 }
+
+.discover-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.discover-item {
+  display: flex;
+  margin-bottom: 20rpx;
+  border: 1px solid #ddd;
+  border-radius: 20rpx;
+  overflow: hidden;
+}
+
+.discover-image {
+  width: 200rpx;
+  height: 150rpx;
+}
+
+.discover-content {
+  flex: 1;
+  padding: 10rpx;
+}
+
+.discover-title-text {
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-bottom: 10rpx;
+}
+
+.discover-footer {
+  display: flex;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.discover-user-image {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.discover-username {
+  font-size: 24rpx;
+  color: #666;
+}
+

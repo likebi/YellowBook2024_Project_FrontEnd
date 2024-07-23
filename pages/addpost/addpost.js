@@ -221,7 +221,7 @@ Page({
     Promise.all(base64Promises)
       .then(base64Images => {
         wx.request({
-          url: 'http://localhost:3000/post/userpost', // 修改为正确路径
+          url: 'http://localhost:3000/post/userpost', // 替换为你后端的帖子创建接口
           method: 'POST',
           header: {
             'Authorization': token,
@@ -237,7 +237,13 @@ Page({
           success(res) {
             console.log('发布成功:', res.data);
             // 处理发布成功后的逻辑
-          },
+            wx.navigateBack({
+          delta: 0,
+          success: (res) => {},
+          fail: (res) => {},
+          complete: (res) => {},
+        })
+      },
           fail(err) {
             console.log('发布失败:', err);
             // 处理发布失败后的逻辑
