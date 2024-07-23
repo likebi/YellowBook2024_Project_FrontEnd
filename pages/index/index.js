@@ -22,6 +22,14 @@ Page({
     items: [],
   },
 
+  navigateToContentPage: function(event) {
+    const id = event.currentTarget.dataset.id; 
+    console.log(`${id}`)
+    wx.navigateTo({
+      url: `/pages/contentpage/contentpage?id=${id}`,
+    });
+},
+
   onLoad: function () {
     this.setData({
       background: [this.data.demoText1, this.data.demoText2, this.data.demoText3]
