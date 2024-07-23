@@ -14,8 +14,8 @@
   <input class="title" type="text" name="title" placeholder="添加标题会有更多赞哦~" bindinput="handleInput" data-field="title"/>
   <textarea class="content" value="" maxlength="-1" placeholder="添加正文" auto-focus bindinput="handleContent" data-field="content"></textarea>
   
-  <view class="suggestion-header">
-    <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;"> <!--width for the scroll width path | white-space: nowrap is for <scroll-view> does not wrap onto the next line. son it will continue on the line-->
+  <!-- <view class="suggestion-header">
+    <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;"> width for the scroll width path | white-space: nowrap is for <scroll-view> does not wrap onto the next line. son it will continue on the line
       <text class="history_header" bindtap="onSuggestionClick" data-value="#马来西亚Vs新加坡肉骨茶">马来西亚Vs新加坡肉骨茶</text>
       <text class="history_header" bindtap="onSuggestionClick" data-value="#北京万里长城">北京万里长城</text>
       <text class="history_header" bindtap="onSuggestionClick" data-value="#马来西亚">马来西亚</text>
@@ -27,15 +27,15 @@
       
 
     </scroll-view>
-  </view>
+  </view> -->
 
   <!-- 话题标签区域 -->
   <view class="post-element">
     <image class="htag" src="{{htag}}" mode="aspectFit"/>
-    <button class="post-element-button" bind:tap="toggle_post_element">
+    <button class="post-element-button" bind:tap="toggle_dropdownHeader"><!--toggle_post_element-->
       {{selectedHeader || '参与话题'}}
     </button>
-    <view class="arrowr2" bindtap="toggle_dropdownHeader">{{arrowr}}</view>
+    <view class="arrow3" bindtap="toggle_dropdownHeader">{{arrowIcon}}</view><!--toggle_dropdownHeader-->
   </view>
   
   <!-- New drop-down menu -->
@@ -48,9 +48,9 @@
   </view>
   
 
-  <view wx:if="{{showpostElement}}" class="add-postElement">
+  <!-- <view wx:if="{{showpostElement}}" class="add-postElement">
       <textarea id="textarea"  maxlength="-1" placeholder="参与话题..." bindinput="onInputChange" value="{{inputText}}"></textarea>
-  </view>
+  </view> -->
   
   <!--maxlength="-1" for unlimited typing -->
 <!-- 添加地点区域 -->

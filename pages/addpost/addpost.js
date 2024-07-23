@@ -38,7 +38,6 @@ Page({
     });
   },
 
-  
   savePost_image() {
     wx.setStorageSync('Post_image', this.data.images);
   },
@@ -202,23 +201,17 @@ Page({
     });
   },
 
-
   submitPost() {
-    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
-
-    if (!token) {
-      console.error('未找到授权 token');
-      return;
-    }
-
+    const token = wx.getStorageSync('userToken');
     wx.request({
       url: 'http://localhost:3000/post/userpost', // 替换为你后端的帖子创建接口
       method: 'POST',
       header: {
-        'Authorization': token// 设置授权头
+        'Authorization': token, 
+        'Content-Type': 'application/json' // 确保格式正确
       },
       data: {
-        images: this.data.images, // 直接发送数组
+        images: this.data.images,
         title: this.data.title,
         content: this.data.content,
         location: this.data.selectedLocation,
@@ -238,6 +231,6 @@ Page({
         console.log('发布失败:', err);
         // 处理发布失败后的逻辑
       }
-    });;
-  }
+    });
+  }  
 });

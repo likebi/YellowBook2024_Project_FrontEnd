@@ -22,6 +22,57 @@ Page({
     items: [],
   },
 
+  // 使用 wx.request 发送请求
+  fetchUserData() {
+    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+
+    if (!token) {
+      console.error('未找到授权 token');
+      return;
+    }
+      wx.request({
+        url: 'http://localhost:3000', // 你的后端 API 地址
+        method: 'GET',
+        header: {
+          'Authorization': token
+        },
+        success: (res) => {
+          if (res.data.code === 200) {
+            console.log('success');
+            this.setData({
+              items: res.data.data
+            });
+          } else {
+            console.error('获取数据失败:', res.data.msg);
+          }
+        },
+        fail: (err) => {
+          console.error('请求失败:', err);
+        }
+      });
+    },
+    
+
+  onOptionSelect(e) {
+    const value = e.currentTarget.dataset.value;
+    wx.navigateTo({
+      url: value
+    });
+    this.setData({
+      dropdownVisible: false
+    });
+  },
+
+
+
+  navigateToContentPage: function(event) {
+    const id = event.currentTarget.dataset.id; 
+    console.log(`${id}`)
+    wx.navigateTo({
+      url: `/pages/contentpage/contentpage?id=${id}`,
+    });
+},
+
   onLoad: function () {
     this.setData({
       background: [this.data.demoText1, this.data.demoText2, this.data.demoText3]
