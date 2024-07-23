@@ -33,14 +33,14 @@ Page({
       return;
     }
       wx.request({
-        url: 'http://localhost:3000/items', // 你的后端 API 地址
+        url: 'http://localhost:3000', // 你的后端 API 地址
         method: 'GET',
         header: {
           'Authorization': token
         },
         success: (res) => {
           if (res.data.code === 200) {
-            // 将返回的数据设置到 page 的 items 数据中
+            console.log('success');
             this.setData({
               items: res.data.data
             });
