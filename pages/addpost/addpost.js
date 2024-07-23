@@ -18,7 +18,8 @@ Page({
     options: [], // 初始化为空数组
     selectedLocation: '', // console返回values
     selectedHeader: '',// console返回values
-    arrowIcon: '▼'
+    arrowIcon: '▼',
+    modalHidden: true,//发布提示隐藏
 
   },
 
@@ -160,6 +161,7 @@ Page({
   },
 
   handleInput(e){
+    console.clear(); // Clear the console before logging the new value
     console.log(e);
     this.setData({
       title: e.detail.value
@@ -168,6 +170,7 @@ Page({
   },
 
   handleContent(e){
+    console.clear(); // Clear the console before logging the new value
     console.log(e);
     this.setData({
       content: e.detail.value
@@ -226,5 +229,28 @@ Page({
         // 处理发布失败后的逻辑
       }
     });
-  }  
+  },
+  submitPost: function() {
+    // Simulate post submission (you would actually call your backend here)后端接这里
+    wx.showLoading({ title: '上传ing...' });
+    
+    setTimeout(() => {
+      wx.hideLoading();
+      this.setData({ modalHidden: false });
+    }, 3000); // Simulating network delay 模拟上传加载
+  },
+  // 跳转首页
+  goHome: function() {
+    this.setData({ modalHidden: true });
+    wx.switchTab({
+      url: '/pages/index/index'
+    });
+  },
+  //跳转我
+  goProfile: function() {
+    this.setData({ modalHidden: true });
+    wx.switchTab({
+      url: '/pages/me/me'
+    });
+  }
 });

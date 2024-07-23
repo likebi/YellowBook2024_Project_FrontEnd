@@ -1,6 +1,5 @@
-
-<view class="container1">  <!-- 图片上传区域 -->
-<view class="upload-box">
+<view class="container1"> <!-- 图片上传区域 -->
+  <view class="upload-box">
     <image class="upload-icon" src="{{plus}}" mode="aspectFit" bindtap="addImage"/>
     <block wx:for="{{images}}" wx:key="index">
       <view class="uploaded-image-container">
@@ -13,29 +12,16 @@
   <!-- 文字上传区域 -->
   <input class="title" type="text" name="title" placeholder="添加标题会有更多赞哦~" bindinput="handleInput" data-field="title"/>
   <textarea class="content" value="" maxlength="-1" placeholder="添加正文" auto-focus bindinput="handleContent" data-field="content"></textarea>
+  <!-- maxlength = 无线输入 -->
   
-  <!-- <view class="suggestion-header">
-    <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;"> width for the scroll width path | white-space: nowrap is for <scroll-view> does not wrap onto the next line. son it will continue on the line
-      <text class="history_header" bindtap="onSuggestionClick" data-value="#马来西亚Vs新加坡肉骨茶">马来西亚Vs新加坡肉骨茶</text>
-      <text class="history_header" bindtap="onSuggestionClick" data-value="#北京万里长城">北京万里长城</text>
-      <text class="history_header" bindtap="onSuggestionClick" data-value="#马来西亚">马来西亚</text>
-      <text class="history_header" bindtap="onSuggestionClick" data-value="#上海迪斯尼乐园">上海迪斯尼乐园</text>
-      <text class="history_header" bindtap="onSuggestionClick" data-value="#印度尼西亚">印度尼西亚</text>
-      <text class="history_header" bindtap="onSuggestionClick" data-value="#猫山王榴莲">猫山王榴莲</text>
-      <text class="history_header" bindtap="onSuggestionClick" data-value="#槟城char kway teow">槟城char kway teow</text>
-      
-      
-
-    </scroll-view>
-  </view> -->
-
   <!-- 话题标签区域 -->
   <view class="post-element">
     <image class="htag" src="{{htag}}" mode="aspectFit"/>
-    <button class="post-element-button" bind:tap="toggle_dropdownHeader"><!--toggle_post_element-->
+    <button class="post-element-button" bind:tap="toggle_dropdownHeader">
       {{selectedHeader || '参与话题'}}
+      <!-- 如果选择城市存在会切换选择的城市/不然默认‘添加地点’ -->
     </button>
-    <view class="arrow3" bindtap="toggle_dropdownHeader">{{arrowIcon}}</view><!--toggle_dropdownHeader-->
+    <view class="arrow3" bindtap="toggle_dropdownHeader">{{arrowIcon}}</view>
   </view>
   
   <!-- New drop-down menu -->
@@ -47,21 +33,15 @@
     </block>
   </view>
   
-
-  <!-- <view wx:if="{{showpostElement}}" class="add-postElement">
-      <textarea id="textarea"  maxlength="-1" placeholder="参与话题..." bindinput="onInputChange" value="{{inputText}}"></textarea>
-  </view> -->
-  
-  <!--maxlength="-1" for unlimited typing -->
-<!-- 添加地点区域 -->
-<view class="location" bindtap="location">
-  <image class="htag" src="{{location}}" mode="aspectFit" />
-  <button class="post-element-button" bind:tap="toggleDropdown">
-      {{selectedLocation || '添加地点'}}  <!-- 如果选择城市存在会切换选择的城市/不然默认‘添加地点’ -->
+  <!-- 添加地点区域 -->
+  <view class="location" bindtap="location">
+    <image class="htag" src="{{location}}" mode="aspectFit" />
+    <button class="post-element-button" bind:tap="toggleDropdown">
+      {{selectedLocation || '添加地点'}}
     </button>
+    <view class="arrow3" bind:tap="toggleDropdown">{{arrow3}}</view>
+  </view>
   
-  <view class="arrow3" bind:tap="toggleDropdown">{{arrow3}}</view>
-</view>
   <view wx:if="{{dropdownVisible}}" class="dropdownMenu"> 
     <block wx:for="{{options}}" wx:key="value">
       <view class="dropdown-item" bindtap="onOptionSelect" data-value="{{item.value}}">
@@ -69,9 +49,19 @@
       </view>
     </block>
   </view>
-  
 
   <view class="post-box">
     <button class="post-btn" bindtap="submitPost">发布笔记</button>
   </view>
-</view>
+  
+  <view wx:if="{{!modalHidden}}" class="notification">
+    <view class="modal-content">
+      <view class="notif-title">成功</view>
+      <view class="notif-title2">发布成功上传！</view>
+      <view class="modal-buttons">
+        <button bindtap="goHome">返回首页</button>
+        <button bindtap="goProfile">返回我</button>
+      </view>
+    </view>
+  </view>
+</view> 

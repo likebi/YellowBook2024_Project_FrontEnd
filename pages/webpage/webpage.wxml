@@ -1,0 +1,7 @@
+
+<view>
+  <button bindtap="openExternalWebpage">Open Webpage in Browser</button>
+</view>
+<view>
+  <image src="{{qrCodeUrl}}" mode="widthFix"></image>
+</view>
