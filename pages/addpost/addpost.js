@@ -212,7 +212,7 @@ Page({
     }
 
     wx.request({
-      url: 'http://localhost:3000/userpost', // 替换为你后端的帖子创建接口
+      url: 'http://localhost:3000/post/userpost', // 替换为你后端的帖子创建接口
       method: 'POST',
       header: {
         'Authorization': token// 设置授权头
@@ -227,6 +227,12 @@ Page({
       success(res) {
         console.log('发布成功:', res.data);
         // 处理发布成功后的逻辑
+        wx.navigateBack({
+          delta: 0,
+          success: (res) => {},
+          fail: (res) => {},
+          complete: (res) => {},
+        })
       },
       fail(err) {
         console.log('发布失败:', err);

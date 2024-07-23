@@ -7,7 +7,6 @@
         <input type="text" class="search-input" placeholder="输入搜索内容" bindinput="onInput" value="{{value}}" />
       </view>
     </view>
-
     <view class="search-button" bindtap="onSearch">搜索</view>
   </view>
 
@@ -15,15 +14,27 @@
   <view class="history">
     <text class="history-title">历史记录</text>
     <view class="history-list">
-      <view wx:for="{{historyList}}" wx:key="index" class="history-item">
-        <text>{{item}}</text>
+      <view wx:for="{{historyList}}" wx:key="index" class="history-item" bindtap="onHistoryItemTap" data-value="{{item}}">
+      <text>{{item}}</text>
+    </view>
+  </view>
+</view>
+
+
+  <!-- 搜索发现 -->
+<view class="discover">
+  <text class="discover-title">搜索发现</text>
+  <view class="discover-list">
+    <view wx:for="{{discoverList}}" wx:key="index" class="discover-item" bindtap="onDiscoverItemTap" data-id="{{item.id}}">
+      <image class="discover-image" src="{{item.itemImage}}" mode="aspectFill" />
+      <view class="discover-content">
+        <text class="discover-title-text">{{item.intro}}</text>
+        <view class="discover-footer">
+          <image class="discover-user-image" src="{{item.userImage}}" />
+          <text class="discover-username">{{item.text}}</text>
+        </view>
       </view>
     </view>
   </view>
-
-  <!-- 搜索发现 -->
-  <view class="discover">
-    <text class="discover-title">搜索发现</text>
-    <!-- 你可以在这里添加搜索发现内容 -->
-  </view>
+</view>
 </view>
