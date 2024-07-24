@@ -39,7 +39,7 @@
     <view class="contentSuggestion">
       <view class="box-suggestion">
         <view class="first" wx:for="{{items}}" wx:key="id">
-          <navigator url="/pages/contentpage/contentpage?id={{item.id}}">
+          <navigator url="/pages/webpage/webpage">
             <image class="image1" src="{{item.foodImage}}" mode="aspectFill" />
             <text class="intro">{{item.foodTitle}}</text>
             <image src="{{item.fivestarImage}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>

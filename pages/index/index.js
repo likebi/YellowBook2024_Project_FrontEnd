@@ -11,7 +11,6 @@ Page({
     autoplay: true,
     interval: 4000,
     duration: 500,
-    nickname: 'wechat_user',
     current: 0,
     Arrow1: "<",
     Arrow2: ">",
@@ -69,14 +68,14 @@ Page({
     const currentLikeCount = Number(this.data.items[index].liked_count) || 0;
     const newLikeCount = isLiked ? currentLikeCount + 1 : currentLikeCount - 1;
     const likeImage = isLiked ? '../../static/love2.png' : '../../static/love.png';
-  
+
     // 更新前端数据
     this.setData({
       [`items[${index}].isLiked`]: isLiked,
       [`items[${index}].liked_count`]: newLikeCount,
       [`items[${index}].loveImage`]: likeImage
     });
-  
+
     // 发送点赞请求到后端
     wx.request({
       url: `http://localhost:3000/contentpage/contentpage/like/${postId}`,
@@ -104,8 +103,8 @@ Page({
         });
       }
     });
-  },  
-    
+  },
+
   onOptionSelect(e) {
     const value = e.currentTarget.dataset.value;
     wx.navigateTo({
@@ -116,8 +115,8 @@ Page({
     });
   },
 
-  navigateToContentPage: function(event) {
-    const id = event.currentTarget.dataset.id; 
+  navigateToContentPage: function (event) {
+    const id = event.currentTarget.dataset.id;
     console.log(`${id}`)
     wx.navigateTo({
       url: `/pages/contentpage/contentpage?id=${id}`,
@@ -130,7 +129,23 @@ Page({
     });
     this.getUserInfo();
     this.getUserLocation();
-    this.fetchUserData();  // 调用 fetchUserData 方法
+    const app = getApp();
+    app.checkUserToken(() => {
+      this.fetchUserData();
+    });
+  },
+
+  fetchUserData() {
+    const app = getApp();
+    app.fetchUserData((err, data) => {
+      if (err) {
+        console.error('获取数据失败:', err);
+      } else {
+        this.setData({
+          items: data
+        });
+      }
+    });
   },
 
   nextImage: function () {
@@ -162,25 +177,21 @@ Page({
     console.log('触发了 onReachBottom');
     this.fetchUserData();  // 调用 fetchUserData 方法
   },
-  
+
   //获取用户位置授权
   getUserLocation() {
     const that = this;
     wx.getSetting({
       success(res) {
         if (res.authSetting['scope.userLocation']) {
-          // 用户已经授权，可以直接调用 getLocation 获取位置信息
           that.getLocation();
         } else {
-          // 未授权，主动发起授权请求
           wx.authorize({
             scope: 'scope.userLocation',
             success() {
-              // 授权成功，调用 getLocation 获取位置信息
               that.getLocation();
             },
             fail() {
-              // 授权失败，处理未授权情况
               wx.showModal({
                 title: '授权失败',
                 content: '需要授权位置信息才能正常使用，请在设置中开启授权',
@@ -193,23 +204,19 @@ Page({
     });
   },
 
-  //授权后用户位置返回
   getLocation() {
     const that = this;
     wx.getLocation({
       type: 'wgs84',
       success(res) {
-        console.log('用户位置:', res);
         that.setData({
           latitude: res.latitude,
           longitude: res.longitude
         });
-        // 将位置存储到全局数据中
         getApp().globalData.userLocation = {
           latitude: res.latitude,
           longitude: res.longitude
         };
-        // 调用方法获取城市名称
         that.getCity(res.latitude, res.longitude);
       },
       fail(err) {
@@ -225,13 +232,12 @@ Page({
 
   getCity(latitude, longitude) {
     const that = this;
-    const key = 'CRPBZ-XCN3L-H2RPB-MUXAK-2SMP3-V4FWI'; // 替换为您申请的腾讯位置服务密钥
+    const key = 'CRPBZ-XCN3L-H2RPB-MUXAK-2SMP3-V4FWI';
     const url = `https://apis.map.qq.com/ws/geocoder/v1/?location=${latitude},${longitude}&key=${key}&get_poi=0`;
 
     wx.request({
       url: url,
       success: (res) => {
-        console.log('城市信息:', res.data);
         if (res.data.status === 0) {
           const city = res.data.result.address_component.city;
           that.setData({
@@ -245,7 +251,6 @@ Page({
         }
       },
       fail: (err) => {
-        console.error('请求失败:', err);
         wx.showToast({
           title: '请求城市信息失败',
           icon: 'none'
@@ -274,3 +279,6 @@ Page({
     this.setData({ dropdownVisible: false });
   },
 });
+
+
+

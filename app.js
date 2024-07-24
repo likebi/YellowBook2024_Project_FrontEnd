@@ -1,44 +1,45 @@
 App({
   onLaunch() {
-    // 先判断缓存是否存在Token
+    this.checkUserToken(this.fetchUserData);
+  },
+
+  checkUserToken(callback) {
     let userToken = wx.getStorageSync('userToken');
-    if (!userToken) { // Token不存在
-      this.userLogin();
-    } else { // 缓存有Token
+    if (!userToken) {
+      this.userLogin(callback);
+    } else {
       wx.checkSession({
+        success: () => {
+          if (callback) callback();
+        },
         fail: () => {
-          this.userLogin();
+          this.userLogin(callback);
         }
       });
     }
-
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || [];
-    logs.unshift(Date.now());
-    wx.setStorageSync('logs', logs); 
   },
 
-  userLogin() {
+  userLogin(callback) {
     wx.login({
       success: res => {
-        // console.log(res);
         wx.request({
           url: 'http://localhost:3000/login?code=' + res.code,
           success: res => {
-            console.log('后端code登录请求', res.data);
             let userToken = res.data.data.token;
             wx.setStorage({
               key: 'userToken',
-              data: userToken
+              data: userToken,
+              success: () => {
+                this.getSessionAndUid(userToken, callback);
+              }
             });
-            this.getSessionAndUid(userToken);
           }
         });
       }
     });
   },
 
-  getSessionAndUid(token) {
+  getSessionAndUid(token, callback) {
     wx.request({
       url: 'http://localhost:3000/getSessionAndUid',
       method: 'POST',
@@ -46,9 +47,9 @@ App({
         'Authorization': token
       },
       success: res => {
-        console.log('后端获取session_key和uid请求', res.data);
         let uid = res.data.data.uid;
-        let nickName = res.data.data.nickName; // 注意这里nickName的路径
+        let nickName = res.data.data.nickName;
+        let userImage = res.data.data.userImage;
         wx.setStorage({
           key: 'Uid',
           data: uid
@@ -57,30 +58,51 @@ App({
           key: 'nickname',
           data: nickName
         });
+        wx.setStorage({
+          key: 'userImage',
+          data: userImage
+        });
         this.globalData.uid = uid;
         this.globalData.nickName = nickName;
+        this.globalData.userImage = userImage;
+        if (callback) callback();
       }
     });
   },
   
-  onShow() {
-    // 早于页面组件的onShow执行
+  fetchUserData(callback) {
+    const token = wx.getStorageSync('userToken');
+    if (!token) {
+      console.error('未找到授权 token');
+      if (callback) callback('No authorization token found', null);
+    } else {
+      wx.request({
+        url: 'http://localhost:3000/items',
+        method: 'GET',
+        header: {
+          'Authorization': token
+        },
+        success: (res) => {
+          if (res.data.code === 200) {
+            if (callback) callback(null, res.data.data);
+          } else {
+            console.error('获取数据失败:', res.data.msg);
+            if (callback) callback(res.data.msg, null);
+          }
+        },
+        fail: (err) => {
+          console.error('请求失败:', err);
+          if (callback) callback(err, null);
+        }
+      });
+    }
   },
 
-  // 全局属性
   globalData: {
     requestUrl: 'http://localhost:3000/',
     userInfo: null,
     userLocation: null,
-    uid: null // 初始化全局 uid
-  },
-
-  // 全局方法
-  globalMethod: {
-    foo() {
-      console.log('this is foo function');
-    }
+    uid: null,
+    userImage: null
   }
 });
-
-
