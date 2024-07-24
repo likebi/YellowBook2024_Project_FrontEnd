@@ -1,7 +1,6 @@
 Page({
   data: {
     imgurl: [
-      
     ],
     followStatus: false,
     item:[{
@@ -13,9 +12,6 @@ Page({
       // content_date:'0709',
       // position_content:'江南',
     }],
-
-
-
     comments: [{
       // id: 1,
       userImage: 'https://cdn.donmai.us/sample/7d/b4/__elysia_and_elysia_honkai_and_1_more_drawn_by_macaroni_0101__sample-7db413e1f173d044760ea7e281633813.jpg',
@@ -31,6 +27,7 @@ Page({
     endX: 0,
     endY: 0,
     isSwipe: false
+
   },
 
   onLoad: function (options) {
@@ -42,44 +39,55 @@ Page({
 
    // 使用 wx.request 发送请求
    fetchPostData(postId) {
-    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
-
+    const token = wx.getStorageSync('userToken');
+  
     if (!token) {
-        console.error('未找到授权 token');
-        return;
+      console.error('未找到授权 token');
+      return;
     }
+  
     wx.request({
-        url: `http://localhost:3000/contentpage/${postId}`, // 你的后端 API 地址
-        method: 'GET',
-        header: {
-            'Authorization': token
-        },
-        success: (res) => {
-            if (res.data.code === 200) {
-                this.setData({
-                    item: res.data.data,
-                    imgurl: { img: res.data.data.image_url } // 将 image_url 作为对象传递
-                });
-                console.log('Item data:', this.image_url);
-                console.log('获取数据成功:', res.data.msg); 
-            } else {
-                console.error('获取数据失败:', res.data.msg);
-            }
-        },
-        fail: (err) => {
-            console.error('请求失败:', err);
+      url: `http://localhost:3000/contentpage/${postId}`,
+      method: 'GET',
+      header: {
+        'Authorization': token
+      },
+      success: (res) => {
+        if (res.data.code === 200) {
+          const item = res.data.data;
+          this.setData({
+            item: {
+              id: item.id,
+              ContentUid: item.ContentUid, // 确保这里正确设置
+              userImage: item.userImage,
+              image_url: item.image_url,
+              userName: item.userName,
+              title_post: item.title_post,
+              text_post: item.text_post,
+              content_date: item.content_date,
+              position_content: item.position_content,
+              loveImage: item.loveImage,
+              isLiked: item.isLiked
+            },
+            imgurl: { img: item.image_url }
+          });
+          console.log('Item data:', this.data.item);
+          console.log('获取数据成功:', res.data.msg);
+        } else {
+          console.error('获取数据失败:', res.data.msg);
         }
+      },
+      fail: (err) => {
+        console.error('请求失败:', err);
+      }
     });
-},
-
-
+  },
 
   toggleFollow() {
     this.setData({
       followStatus: !this.data.followStatus
     });
   },
-
 
   handleTouchStart(event) {
     this.setData({
@@ -99,6 +107,10 @@ Page({
       this.setData({
         isSwipe: true // 设置标志位为滑动
       });
+    } else {
+      this.setData({
+        isSwipe: false // 重置滑动标志位
+      });
     }
     this.setData({
       endX,
@@ -106,15 +118,21 @@ Page({
     });
   },
 
-  handleTouchEnd() {
-    if (this.data.isSwipe) {
-      // 跳转到用户主页
-      wx.navigateTo({
-        url: '../userPage/userPage'
-      });
-    }
-  },
-
+  handleTouchEnd(event) {
+      const ContentUid = this.data.item.ContentUid;
+      console.log('HandleTouchEnd - UserID:', ContentUid);
+      console.log('HandleTouchEnd - IsSwipe:', this.data.isSwipe); // 添加调试信息
+      const targetUrl = `/pages/userPage/userPage?ContentUid=${ContentUid}`;
+      console.log('Navigating to:', targetUrl);
+      if (ContentUid) {
+        wx.navigateTo({
+          url: targetUrl
+        });
+      } else {
+        console.error('ContentUid is missing or swipe not detected');
+      }
+    },
+    
   like_post: function (e) {
     const index = e.currentTarget.dataset.index;
     const comments = this.data.comments;
