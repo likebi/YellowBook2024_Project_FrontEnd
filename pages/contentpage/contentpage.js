@@ -282,7 +282,8 @@ Page({
       endX,
       endY
     });
-  },
+  }
+},
 
   handleTouchEnd(event) {
       const ContentUid = this.data.item.ContentUid;
@@ -300,7 +301,7 @@ Page({
     },
     
   like_post: function (e) {
-  handleTouchEnd() {
+    handleTouchEnd()
     if (this.data.isSwipe) {
       wx.navigateTo({
         url: '../userPage/userPage'
