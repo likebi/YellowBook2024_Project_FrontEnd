@@ -120,8 +120,9 @@ Page({
   onDiscoverItemTap(event) {
     const id = event.currentTarget.dataset.id; // 获取点击的发现内容的ID
     if (id) {
+      console.log('点击');
       wx.navigateTo({
-        url: `/pages/post/post?id=${id}` // 跳转到帖子页面，并传递帖子ID
+        url: `/pages/contentpage/contentpage?id=${id}` // 跳转到帖子页面，并传递帖子ID
       });
     } else {
       console.warn('No ID found for clicked discover item.');

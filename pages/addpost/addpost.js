@@ -19,6 +19,7 @@ Page({
     selectedLocation: '', // console返回values
     selectedHeader: '', // console返回values
     arrowIcon: '▼',
+    modalHidden: true, // 发布提示隐藏
   },
 
   // 页面加载时请求地点数据
@@ -68,7 +69,6 @@ Page({
 
   // Function to handle textarea input
   handleContent(event) {
-    // Update the inputText property with textarea value
     const newValue = event.detail.value;
     this.setData({
       inputText: newValue // Update the inputText property with textarea value
@@ -76,7 +76,7 @@ Page({
   },
 
   // 显示隐藏的输入框
-  toggle_post_element: function() {
+  toggle_post_element() {
     console.log('Toggling dropdown:', !this.data.dropdownVisible);
     this.setData({
       showpostElement: !this.data.showpostElement,
@@ -84,10 +84,10 @@ Page({
   },
 
   // 显示用户输入东西在屏幕
-  onInputChange: function(event) {
+  onInputChange(event) {
     const inputValue = event.detail.value;
     console.clear(); // Clear the console before logging the new value
-    console.log('Typing value:', inputValue); // print the typing value
+    console.log('Typing value:', inputValue); // Print the typing value
     this.setData({
       inputText: inputValue,
     });
@@ -100,7 +100,7 @@ Page({
   },
 
   // 显示菜单
-  toggleDropdown: function() {
+  toggleDropdown() {
     console.log('Toggling dropdown:', !this.data.dropdownVisible);
     this.setData({
       dropdownVisible: !this.data.dropdownVisible,
@@ -108,7 +108,7 @@ Page({
   },
 
   // 点击城市然后返回Value并关闭菜单
-  onOptionSelect: function(event) {
+  onOptionSelect(event) {
     const selectedValue = event.currentTarget.dataset.value;
     const selectedOption = this.data.options.find(option => option.value === selectedValue);
     console.log('Selected option:', selectedOption);
@@ -125,7 +125,7 @@ Page({
     const selectedOption = this.data.threeoptions.find(option => option.values === selectedValue);
     console.log('Selected Header Option:', selectedOption);
     this.setData({
-      selectedHeader : selectedOption.selectOption,
+      selectedHeader: selectedOption.selectOption,
       selectedTag: selectedOption.selectOption,
       dropdownVisibleHeader: false,
     });
@@ -156,20 +156,6 @@ Page({
       images: images,
     }, () => {
       this.savePost_image(); // 保存修改后的图片数组到本地存储
-    });
-  },
-
-  // 图片转64代码
-  base64(url) {
-    return new Promise((resolve, reject) => {
-      wx.getFileSystemManager().readFile({
-        filePath: url, //选择图片返回的相对路径
-        encoding: 'base64', //编码格式
-        success: res => {
-          resolve(res.data);
-        },
-        fail: res => reject(res.errMsg),
-      });
     });
   },
 
@@ -238,21 +224,28 @@ Page({
             console.log('发布成功:', res.data);
             // 处理发布成功后的逻辑
             wx.navigateBack({
-          delta: 0,
-          success: (res) => {},
-          fail: (res) => {},
-          complete: (res) => {},
-        })
-      },
+              delta: 1, // Navigate back one page
+              success: (res) => {
+                console.log('Successfully navigated back');
+              },
+              fail: (res) => {
+                console.error('Navigation failed:', res);
+              },
+              complete: (res) => {
+                console.log('Navigation complete');
+              }
+            });
+          },
           fail(err) {
             console.log('发布失败:', err);
             // 处理发布失败后的逻辑
-          },
+          }
         });
       })
       .catch(err => {
-        console.error('Base64转换失败:', err);
+        console.error('Base64 conversion failed:', err);
       });
-  },
+  }
 });
+
 
