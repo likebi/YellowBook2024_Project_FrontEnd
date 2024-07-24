@@ -54,14 +54,5 @@
     <button class="post-btn" bindtap="submitPost">发布笔记</button>
   </view>
   
-  <view wx:if="{{!modalHidden}}" class="notification">
-    <view class="modal-content">
-      <view class="notif-title">成功</view>
-      <view class="notif-title2">发布成功上传！</view>
-      <view class="modal-buttons">
-        <button bindtap="goHome">返回首页</button>
-        <button bindtap="goProfile">返回我</button>
-      </view>
-    </view>
-  </view>
+  
 </view> 
