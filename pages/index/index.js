@@ -3,7 +3,6 @@ Page({
     latitude: null,
     longitude: null,
     city: '',
-
     demoText1: 'https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient',
     demoText2: 'https://th.bing.com/th/id/R.496ccc48796a3ce6fbcdd0173436c3da?rik=aLk8AbZezYqp6g&riu=http%3a%2f%2fwww.gjlysy.com%2fupload%2fimage%2f20190918%2f15687778356989439.jpg&ehk=i3eyZiPsIs3qi7QZB0KQTq1bdwKt%2f9F%2fewvOm%2fnYakE%3d&risl=&pid=ImgRaw&r=0',
     demoText3: 'https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient',
@@ -22,39 +21,91 @@ Page({
       { label: '发布', value: '/pages/addpost/addpost' },
     ],
     items: [],
+    page: 1 // 初始化页数为1
   },
 
   // 使用 wx.request 发送请求
   fetchUserData() {
     const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+    const { page } = this.data;
 
     if (!token) {
       console.error('未找到授权 token');
       return;
     }
-      wx.request({
-        url: 'http://localhost:3000/items', // 你的后端 API 地址
-        method: 'GET',
-        header: {
-          'Authorization': token
-        },
-        success: (res) => {
-          if (res.data.code === 200) {
-            // 将返回的数据设置到 page 的 items 数据中
-            this.setData({
-              items: res.data.data
-            });
-          } else {
-            console.error('获取数据失败:', res.data.msg);
-          }
-        },
-        fail: (err) => {
-          console.error('请求失败:', err);
-        }
-      });
-    },
-    
 
+    wx.request({
+      url: `http://localhost:3000/firstPages/items?page=${page}`, // 增加分页参数
+      method: 'GET',
+      header: {
+        'Authorization': token
+      },
+      success: (res) => {
+        if (res.data.code === 200) {
+          // 将新的数据追加到 items 中
+          this.setData({
+            items: this.data.items.concat(res.data.data), // 追加新数据
+            page: page + 1 // 更新页数
+          });
+        } else {
+          console.error('获取数据失败:', res.data.msg);
+        }
+      },
+      fail: (err) => {
+        console.error('请求失败:', err);
+      }
+    });
+  },
+
+  like_post(event) {
+    const token = wx.getStorageSync('userToken');
+    if (!token) {
+      console.error('未找到授权 token');
+      return;
+    }
+    const index = event.currentTarget.dataset.index;
+    const postId = this.data.items[index].id;
+    const isLiked = !this.data.items[index].isLiked;
+    const currentLikeCount = Number(this.data.items[index].liked_count) || 0;
+    const newLikeCount = isLiked ? currentLikeCount + 1 : currentLikeCount - 1;
+    const likeImage = isLiked ? '../../static/love2.png' : '../../static/love.png';
+  
+    // 更新前端数据
+    this.setData({
+      [`items[${index}].isLiked`]: isLiked,
+      [`items[${index}].liked_count`]: newLikeCount,
+      [`items[${index}].loveImage`]: likeImage
+    });
+  
+    // 发送点赞请求到后端
+    wx.request({
+      url: `http://localhost:3000/contentpage/contentpage/like/${postId}`,
+      method: 'POST',
+      header: {
+        'Authorization': token
+      },
+      data: {
+        isLiked: isLiked
+      },
+      success: (res) => {
+        console.log('Response from server (like post):', res.data);
+        if (res.data.code !== 200) {
+          wx.showToast({
+            title: '点赞失败: ' + res.data.msg,
+            icon: 'none'
+          });
+        }
+      },
+      fail: (err) => {
+        console.error('请求失败:', err);
+        wx.showToast({
+          title: '请求失败',
+          icon: 'none'
+        });
+      }
+    });
+  },  
+    
   onOptionSelect(e) {
     const value = e.currentTarget.dataset.value;
     wx.navigateTo({
@@ -65,15 +116,13 @@ Page({
     });
   },
 
-
-
   navigateToContentPage: function(event) {
     const id = event.currentTarget.dataset.id; 
     console.log(`${id}`)
     wx.navigateTo({
       url: `/pages/contentpage/contentpage?id=${id}`,
     });
-},
+  },
 
   onLoad: function () {
     this.setData({
@@ -94,15 +143,6 @@ Page({
     this.setData({ current: currentPageIndex });
   },
 
-  like_post: function (e) {
-    const index = e.currentTarget.dataset.index;
-    const items = this.data.items;
-    items[index].isLiked = !items[index].isLiked;
-    items[index].loveImage = items[index].isLiked ? '../../static/love.png' : '../../static/love2.png';
-
-    this.setData({ items });
-  },
-
   getUserInfo() {
     wx.getStorage({
       key: 'userInfo',
@@ -118,6 +158,11 @@ Page({
     });
   },
 
+  onReachBottom() {
+    console.log('触发了 onReachBottom');
+    this.fetchUserData();  // 调用 fetchUserData 方法
+  },
+  
   //获取用户位置授权
   getUserLocation() {
     const that = this;
