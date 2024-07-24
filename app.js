@@ -77,7 +77,7 @@ App({
       if (callback) callback('No authorization token found', null);
     } else {
       wx.request({
-        url: 'http://localhost:3000/items',
+        url: 'http://localhost:3000/firstPages/items',
         method: 'GET',
         header: {
           'Authorization': token
