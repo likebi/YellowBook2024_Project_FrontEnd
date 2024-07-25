@@ -28,17 +28,17 @@
 }
 
 .item-text {
+  width: 180px;
   margin-left: 3rpx;
   font-weight: 550;
   font-size: 13px; 
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji, BlinkMacSystemFont, Helvetica Neue, Arial, PingFang SC, PingFang TC, PingFang HK, Microsoft Yahei, Microsoft JhengHei;
   color: var(--color-secondary-label);
 }
 
 .button_follow{
   display: flex;
   justify-content: center;
-  margin-left: 390rpx;
+  margin-left: 70rpx;
   width: 80rpx;
   height: 45rpx;
   line-height: 45rpx;

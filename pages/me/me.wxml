@@ -65,23 +65,32 @@
   <!-- 滑动窗口 -->
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperChange" class="swiper-container">
     <!-- 笔记 -->
-    <swiper-item>
-      <scroll-view class="content" scroll-y>
-        <view class="contentSuggestion">
-          <view class="box-suggestion">
-            <view class="first" wx:for="{{items}}" wx:key="id" data-id="{{item.id}}" bindtap="navigateToContentPage">
-              <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
-              <text class="intro">{{item.intro}}</text>
-              <view class="item">
-                <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
-                <text class="item-text">{{item.text}}</text>
-                <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-              </view>
+<swiper-item>
+  <scroll-view class="content" scroll-y>
+    <view class="contentSuggestion">
+      <view class="box-suggestion">
+        <view class="first" wx:for="{{items}}" wx:key="id">
+          <!-- 图片和简介实现导航 -->
+          <image class="image1" src="{{item.itemImage}}" mode="aspectFill" bindtap="navigateToContentPage" data-id="{{item.id}}"/>
+          <text class="intro" bindtap="navigateToContentPage" data-id="{{item.id}}">{{item.intro}}</text>
+
+          <!-- 其余部分不需要导航 -->
+          <view class="item">
+            <view class="left">
+              <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
+              <text class="item-text">{{item.text}}</text>
             </view>
+            <view class="right">
+              <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-id="{{item.id}}"></image>
+              <text class="liked_count">{{item.liked_count}}</text>
+            </view>
+
           </view>
         </view>
-      </scroll-view>
-    </swiper-item>
+      </view>
+    </view>
+  </scroll-view>
+</swiper-item>
 
     <!-- 收藏 -->
     <swiper-item>

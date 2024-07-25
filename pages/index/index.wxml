@@ -1,6 +1,8 @@
 <view class="page">
   <scroll-view scroll-y="true" bindscrolltolower="onReachBottom">
     <view class="container">
+
+      <!-- 位置和搜索框 -->
       <view class="first_container">
         <view class="index-position">
           <image src="../../static/position.png" class="image-type" />
@@ -26,6 +28,7 @@
         </view>
       </view>
 
+      <!-- 轮播图 -->
       <view class="page-section page-section-spacing swiper">
         <swiper id="mySwiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}">
           <block wx:for="{{background}}" wx:for-item="item" wx:for-index="index" wx:key="index">
@@ -38,39 +41,45 @@
         <view bindtap="nextImage" class="rightArrow">{{Arrow2}}</view>
       </view>
 
+      <!-- 功能图标 -->
       <view class="container_icon">
         <view class="selected">
           <navigator class="index_selected" url="/pages/Hotel/hotel">
-            <image src="../../static/hotel.png" class="icon_function" mode=""/>
+            <image src="../../static/hotel.png" class="icon_function" />
             <text class="icon-title">酒店</text>
           </navigator>
           <navigator class="index_selected" url="/pages/Trip/trip">
-            <image src="../../static/trip.png" class="icon_function" mode=""/>
+            <image src="../../static/trip.png" class="icon_function" />
             <text class="icon-title">旅游</text>
           </navigator>
           <navigator class="index_selected" url="/pages/Food/food">
-            <image src="../../static/food.png" class="icon_function" mode=""/>
+            <image src="../../static/food.png" class="icon_function" />
             <text class="icon-title">美食</text>
           </navigator>
         </view>
       </view>
 
+      <!-- 推荐部分 -->
       <view class="fontSuggestion"> 
         <text>为您推荐</text>
       </view>
-      
+
+      <!-- 内容推荐 -->
       <view class="contentSuggestion">
         <view class="box-suggestion">
           <view class="first" wx:for="{{items}}" wx:key="id">
-            <!-- 图片和简介实现导航 -->
             <image class="image1" src="{{item.itemImage}}" mode="aspectFill" bindtap="navigateToContentPage" data-id="{{item.id}}"/>
             <text class="intro" bindtap="navigateToContentPage" data-id="{{item.id}}">{{item.intro}}</text>
             
-            <!-- 其余部分不需要导航 -->
             <view class="item">
-              <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
-              <text class="item-text">{{item.text}}</text>
-              <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+              <view class="left">
+                <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
+                <text class="item-text">{{item.text}}</text>
+              </view>
+              <view class="right">
+                <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+                <text class="liked_count">{{item.liked_count}}</text>
+              </view>
             </view>
           </view>
         </view>

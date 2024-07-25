@@ -47,6 +47,7 @@ Page({
             this.setData({
               items: res.data.data
             });
+            
           } else {
             console.error('获取数据失败:', res.data.msg);
           }
@@ -56,7 +57,6 @@ Page({
         }
       });
     },
-
   onLoad: function () {
     this.getUserInfo();
     this.fetchUserData();
@@ -155,6 +155,77 @@ Page({
     });
   },
 
+  like_post(event) {
+    const token = wx.getStorageSync('userToken');
+    if (!token) {
+      console.error('未找到授权 token');
+      return;
+    }
+    console.log('Event data:', event.currentTarget.dataset); // 添加调试输出
+    const postId = event.currentTarget.dataset.id; // 从事件数据中获取 ID
+    console.log(postId);
+    if (!postId) {
+      console.error('无法获取帖子 ID');
+      return;
+    }
+    
+    console.log('Liking post with ID:', postId);
+    
+    // 找到 item 中对应的 postId
+    const items = this.data.items;
+    const itemIndex = items.findIndex(item => item.id === postId);
+    
+    if (itemIndex === -1) {
+      console.error('未找到对应的 item');
+      return;
+    }
+    
+    const item = items[itemIndex];
+    const currentLikeCount = Number(item.liked_count) || 0;
+    const isLiked = !item.isLiked;
+    const newLikeCount = isLiked ? currentLikeCount + 1 : currentLikeCount - 1;
+    const likeImage = isLiked ? '../../static/love2.png' : '../../static/love.png';
+    
+    // 更新前端数据
+    items[itemIndex] = {
+      ...item,
+      isLiked: isLiked,
+      liked_count: newLikeCount,
+      loveImage: likeImage
+    };
+    
+    this.setData({
+      items: [...items] // 触发更新
+    });
+    
+    // 发送点赞请求到后端
+    wx.request({
+      url: `http://localhost:3000/contentpage/contentpage/like/${postId}`,
+      method: 'POST',
+      header: {
+        'Authorization': token
+      },
+      data: {
+        isLiked: isLiked
+      },
+      success: (res) => {
+        console.log('Response from server (like post):', res.data);
+        if (res.data.code !== 200) {
+          wx.showToast({
+            title: '点赞失败: ' + res.data.msg,
+            icon: 'none'
+          });
+        }
+      },
+      fail: (err) => {
+        console.error('请求失败:', err);
+        wx.showToast({
+          title: '请求失败',
+          icon: 'none'
+        });
+      }
+    });
+  },
 // 选择昵称
 onChooseNickname(e) {
   console.log(e);
@@ -166,6 +237,7 @@ onChooseNickname(e) {
     nickname: e.detail.value
   });
 },
+
 
 // 发送用户信息到服务器
 sendUserInfoToServer(data) {
@@ -249,13 +321,6 @@ sendUserInfoToServer(data) {
     });
   },
 
-  like_post: function (e) {
-    const index = e.currentTarget.dataset.index;
-    const items = this.data.items;
-    items[index].isLiked = !items[index].isLiked;
-    items[index].loveImage = items[index].isLiked ? '../../static/love.png' : '../../static/love2.png';
-    this.setData({ items });
-  },
 
   // 图片转64代码
   base64(url, type) {
