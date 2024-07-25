@@ -1,0 +1,58 @@
+<view class="container1"> <!-- 图片上传区域 -->
+  <view class="upload-box">
+    <image class="upload-icon" src="{{plus}}" mode="aspectFit" bindtap="addImage"/>
+    <block wx:for="{{images}}" wx:key="index">
+      <view class="uploaded-image-container">
+        <image class="uploaded-image" src="{{item}}" mode="aspectFit"/>
+        <image class="delete-btn" src="../../static/wrong.png" data-index="{{index}}" bindtap="removeImage" />
+      </view>
+    </block>
+  </view>
+  
+  <!-- 文字上传区域 -->
+  <input class="title" type="text" name="title" placeholder="添加标题会有更多赞哦~" bindinput="handleInput" data-field="title"/>
+  <textarea class="content" value="" maxlength="-1" placeholder="添加正文" auto-focus bindinput="handleContent" data-field="content"></textarea>
+  <!-- maxlength = 无线输入 -->
+  
+  <!-- 话题标签区域 -->
+  <view class="post-element">
+    <image class="htag" src="{{htag}}" mode="aspectFit"/>
+    <button class="post-element-button" bind:tap="toggle_dropdownHeader">
+      {{selectedHeader || '参与话题'}}
+      <!-- 如果选择城市存在会切换选择的城市/不然默认‘添加地点’ -->
+    </button>
+    <view class="arrow3" bindtap="toggle_dropdownHeader">{{arrowIcon}}</view>
+  </view>
+  
+  <!-- New drop-down menu -->
+  <view wx:if="{{dropdownVisibleHeader}}" class="dropdownMenuHeader"> 
+    <block wx:for="{{threeoptions}}" wx:key="id">
+      <view class="dropdown-item-header" bindtap="onOptionSelectHeader" data-value="{{item.values}}">
+        {{item.selectOption}}
+      </view>
+    </block>
+  </view>
+  
+  <!-- 添加地点区域 -->
+  <view class="location" bindtap="location">
+    <image class="htag" src="{{location}}" mode="aspectFit" />
+    <button class="post-element-button" bind:tap="toggleDropdown">
+      {{selectedLocation || '添加地点'}}
+    </button>
+    <view class="arrow3" bind:tap="toggleDropdown">{{arrow3}}</view>
+  </view>
+  
+  <view wx:if="{{dropdownVisible}}" class="dropdownMenu"> 
+    <block wx:for="{{options}}" wx:key="value">
+      <view class="dropdown-item" bindtap="onOptionSelect" data-value="{{item.value}}">
+        {{item.locations}}
+      </view>
+    </block>
+  </view>
+
+  <view class="post-box">
+    <button class="post-btn" bindtap="submitPost">发布笔记</button>
+  </view>
+  
+  
+</view> 

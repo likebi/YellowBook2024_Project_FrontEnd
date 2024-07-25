@@ -5,6 +5,7 @@
     "pages/follower/follower",
     "pages/follow/follow",
     "pages/addpost/addpost",
+    "pages/addpost2/addpost2",
     "pages/search/search",
     "pages/AI-chat/AI-chat",
     "pages/AI-chat1/AI-chat1",
@@ -44,26 +45,34 @@
     }
   },
   "tabBar": {
-    "color": "#555555",
-    "selectedColor": "#ff6600",
+    "color": "F2F2F2",
+    "selectedColor": "970017",
+    "backgroundColor": "0CB5C6",
+    "borderStyle": "white",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "./static/index.png",
-        "selectedIconPath": "./static/index.png"
+        "iconPath": "./static/首页 (1).png",
+        "selectedIconPath": "./static/首页.png"
       },
       {
         "pagePath": "pages/planning/planning",
         "text": "规划",
-        "iconPath": "./static/plan.png",
-        "selectedIconPath": "./static/plan.png"
+        "iconPath": "./static/规划black.png",
+        "selectedIconPath": "./static/规划3.png"
+      },
+      {
+        "pagePath": "pages/addpost2/addpost2",
+        "text": "发布",
+        "iconPath": "./static/pluscircleblack.png",
+        "selectedIconPath": "./static/pluswhite.png"
       },
       {
         "pagePath": "pages/me/me",
         "text": "我的",
-        "iconPath": "./static/me.png",
-        "selectedIconPath": "./static/me.png"
+        "iconPath": "./static/profileblack.png",
+        "selectedIconPath": "./static/3.png"
       }
     ]
   },
@@ -71,7 +80,7 @@
     "backgroundTextStyle": "light",
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "旅游",
-    "navigationBarBackgroundColor": "#fff"
+    "navigationBarBackgroundColor": "#95F0F4"
   },
   "style": "v2",
   "componentFramework": "glass-easel",
