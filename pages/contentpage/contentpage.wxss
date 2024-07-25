@@ -109,7 +109,6 @@
   margin-left: auto;
 }
 
-
 .image_collum{
   width: 50rpx;
   height: 50rpx;
@@ -154,51 +153,68 @@
   height: 60rpx;
 }
 
-.user_comment{
-  position: relative;
+.user_comment {
   display: flex;
   margin: 10rpx 20rpx;
-  height: 75px;
+  height: auto; /* 允许高度自动适应内容 */
 }
 
-.commentuser-image{
+.commentuser-image {
   width: 50px; 
   height: 50px; 
   border-radius: 50%;
 }
 
-.commentuser-name{
+.commentuser_info {
   display: flex;
   flex-direction: column;
   margin-left: 20rpx;
+  flex: 1; /* 使得评论信息区域可以扩展 */
+}
+
+.commentuser-name {
   font-size: 28rpx;
   color: #666;
 }
 
-.commentuser-text{
-  margin-left: 20rpx;
-  font-size: 15px;
+.commentuser-text {
+  width: 220px; /* 固定宽度，超过部分自动换行 */
+  font-size: 16px;
   font-weight: 500;
+  word-break: break-word; /* 强制在单词边界内换行 */
+  white-space: normal; /* 确保文本能正常换行 */
+  margin-top: 5rpx; /* 增加一点上边距以改善布局 */
 }
 
-.commentuser-position{
-  margin-left: 40rpx;
+.commentuser-position {
+  margin-top: 5rpx;
   font-size: 12px;
   font-weight: 500;
   color: #999;
 }
 
-.icon_love{
-  position: absolute;
+.icon-container{
+  position: relative;
+  display: flex;
+  width: 40px;
+
+}
+.icon_love {
+  position: relative;
+  justify-content: flex-end;
   right: 5px;
   top: 6px;
   width: 60rpx;
   height: 60rpx;
-  
-}
-.liked_count{
-  position: absolute;
-  bottom: 15px;
-  right: 16px;
 }
 
+.liked_count {
+  position: absolute;
+  justify-content: flex-end;
+  right: 20px;
+  bottom:0px;
+}
+
+.title_end {
+  text-align: center;
+}
