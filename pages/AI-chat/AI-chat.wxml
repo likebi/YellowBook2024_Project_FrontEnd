@@ -15,19 +15,19 @@
       <block wx:for="{{messages}}" wx:key="index">
         <view class="message" data-sender="{{item.sender}}">
           <view wx:if="{{item.sender === 'bot'}}" class="user-imageAIbox">
-            <image class="image-userAI" src="/static/ChatGPTwhite.png" mode=""/>
+            <image class="image-userAI" src="/static/robot-black.png" mode=""/>
           </view>
              <!--add a wx:if statement, if the sender is user appear left ,if bot right-->
           <text class="message-text">{{item.text}}</text>
           <view wx:if="{{item.sender === 'user'}}" class="user-imageAIbox">
-            <image class="image-userAI" src="/static/ChatGPTwhite.png" mode=""/>
+            <image class="image-userAI" src="/static/smile-solid.png" mode=""/>
           </view>
         </view>
       </block>
     </view>
     <view class="input-area">
       <input class="inputbox" bindinput="bindMessageInput" value="{{userMessage}}" placeholder="输入消息..." bindconfirm="sendMessage" confirm-type="send"/>
-      <button class="sendButton" size="mini" bindtap="sendMessage" bind:tap="enter">发送</button>
+      <button class="sendButton" size="mini" bindtap="sendMessage" bind:tap="enter">Send</button>
     </view>      <!--bindconfirm="sendMessage" listen enter press button-->
   </view>
 </view>

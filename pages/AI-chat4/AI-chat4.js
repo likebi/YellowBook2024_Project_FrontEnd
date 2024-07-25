@@ -124,7 +124,7 @@ Page({
 
   saveCurrentConversation() {
     const { conversationId, messages } = this.data;
-    const currentConversation2 = { conversationId, messages };
+    const currentConversation4 = { conversationId, messages };
     wx.setStorageSync('currentConversation4', currentConversation4);
   },
 

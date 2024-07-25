@@ -264,7 +264,12 @@ button{
 button-sug{
   display: inline-block;
 }
-
+.contentSuggestion{
+  width: auto;
+  height: auto;
+  margin: 3%;
+ }
+ 
 .box-suggestion {
   display: flex;/* 使用flex布局*/
   flex-wrap: wrap; /*允许换行*/

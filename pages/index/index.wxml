@@ -1,32 +1,34 @@
 <view class="page">
-  <scroll-view scroll-y="true" bindscrolltolower="onReachBottom">
-    <view class="container">
-
+    <scroll-view scroll-y="true" bindscrolltolower="onReachBottom">
+  <view class="outer-container">
+      <view class="container">
+      <view class="overlay"></view>
+  
       <!-- 位置和搜索框 -->
       <view class="first_container">
-        <view class="index-position">
-          <image src="../../static/position.png" class="image-type" />
-          <text class="position-name">{{namePosition}}</text>
-        </view>
+          <view class="index-position">
+            <image src="../../static/locationwhite.png" class="image-type" />
+            <text class="position-name">{{namePosition}}</text>
+          </view>
 
         <view class="search-container">
           <view class="search-window">
-            <image class="icon" src="../../static/search.png" />
+            <image class="icon" src="../../static/Searchwhite.png" />
             <navigator url="/pages/search/search" class="search-link">输入搜索内容</navigator>
           </view>
         </view>
 
-        <view class="dropdown-container">
-          <image src="../../static/plus.png" bindtap="toggleDropdown" class="dropdown-img" />
-          <view wx:if="{{dropdownVisible}}" class="dropdown-menu">
-            <block wx:for="{{options}}" wx:key="value">
-              <view class="dropdown-item" bindtap="onOptionSelect" data-value="{{item.value}}">
-                {{item.label}}
-              </view>
-            </block>
-          </view>
+      <view class="dropdown-container">
+        <image src="../../static/pluswhite.png" bindtap="toggleDropdown" class="dropdown-img"/>
+        <view wx:if="{{dropdownVisible}}" class="dropdown-menu">
+          <block wx:for="{{options}}" wx:key="value">
+            <view class="dropdown-item" bindtap="onOptionSelect" data-value="{{item.value}}">
+              {{item.label}}
+            </view>
+          </block>
         </view>
       </view>
+    </view>
 
       <!-- 轮播图 -->
       <view class="page-section page-section-spacing swiper">
@@ -41,23 +43,23 @@
         <view bindtap="nextImage" class="rightArrow">{{Arrow2}}</view>
       </view>
 
-      <!-- 功能图标 -->
-      <view class="container_icon">
-        <view class="selected">
-          <navigator class="index_selected" url="/pages/Hotel/hotel">
-            <image src="../../static/hotel.png" class="icon_function" />
-            <text class="icon-title">酒店</text>
-          </navigator>
-          <navigator class="index_selected" url="/pages/Trip/trip">
-            <image src="../../static/trip.png" class="icon_function" />
-            <text class="icon-title">旅游</text>
-          </navigator>
-          <navigator class="index_selected" url="/pages/Food/food">
-            <image src="../../static/food.png" class="icon_function" />
-            <text class="icon-title">美食</text>
-          </navigator>
-        </view>
-      </view>
+    <view class="container_icon">
+    <view class="selected">
+      <navigator class="index_selected" url="/pages/Hotel/hotel">
+        <image src="../../static/hotelsss.png" class="icon_function" mode=""/>
+        <text class="icon-title">酒店</text>
+      </navigator>
+      <navigator class="index_selected" url="/pages/Trip/trip">
+        <image src="../../static/trip_click2.png" class="icon_function" mode=""/>
+        <text class="icon-title">旅游</text>
+      </navigator>
+      <navigator class="index_selected" url="/pages/Food/food">
+        <image src="../../static/Food-Icons-18.png" class="icon_function" mode=""/>
+        <text class="icon-title">美食</text>
+      </navigator>
+    </view>
+  </view> 
+</view>
 
       <!-- 推荐部分 -->
       <view class="fontSuggestion"> 

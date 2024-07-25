@@ -3,7 +3,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  height: 110vh;
   justify-content: center;
+  background-image: url('https://png.pngtree.com/thumb_back/fw800/background/20231014/pngtree-blue-sky-anime-wallpaper-illustration-image_13942380.jpg'); /* Set the background image */
 }
 
 .title-bar {
