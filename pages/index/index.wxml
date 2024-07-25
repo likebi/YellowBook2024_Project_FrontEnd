@@ -1,25 +1,21 @@
 <view class="page">
-    <scroll-view scroll-y="true" bindscrolltolower="onReachBottom">
-  <view class="outer-container">
-      <view class="container">
-      <view class="overlay"></view>
-  
-      <!-- 位置和搜索框 -->
-      <view class="first_container">
-          <view class="index-position">
-            <image src="../../static/locationwhite.png" class="image-type" />
-            <text class="position-name">{{namePosition}}</text>
-          </view>
+  <view class="container">
+    <!-- 位置和搜索框 -->
+    <view class="first_container">
+      <view class="index-position">
+        <image src="../../static/position.png" class="image-type" />
+        <text class="position-name">{{namePosition}}</text>
+      </view>
 
-        <view class="search-container">
-          <view class="search-window">
-            <image class="icon" src="../../static/Searchwhite.png" />
-            <navigator url="/pages/search/search" class="search-link">输入搜索内容</navigator>
-          </view>
+      <view class="search-container">
+        <view class="search-window">
+          <image class="icon" src="../../static/search.png" />
+          <navigator url="/pages/search/search" class="search-link">输入搜索内容</navigator>
         </view>
+      </view>
 
       <view class="dropdown-container">
-        <image src="../../static/pluswhite.png" bindtap="toggleDropdown" class="dropdown-img"/>
+        <image src="../../static/plus.png" bindtap="toggleDropdown" class="dropdown-img" />
         <view wx:if="{{dropdownVisible}}" class="dropdown-menu">
           <block wx:for="{{options}}" wx:key="value">
             <view class="dropdown-item" bindtap="onOptionSelect" data-value="{{item.value}}">
@@ -30,62 +26,61 @@
       </view>
     </view>
 
-      <!-- 轮播图 -->
-      <view class="page-section page-section-spacing swiper">
-        <swiper id="mySwiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}">
-          <block wx:for="{{background}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-            <swiper-item>
-              <image class="swiper-item" src="{{item}}" mode="aspectFill"></image>
-            </swiper-item>
-          </block>
-        </swiper>
-        <view bindtap="prevImage" class="leftArrow">{{Arrow1}}</view>
-        <view bindtap="nextImage" class="rightArrow">{{Arrow2}}</view>
-      </view>
-
-    <view class="container_icon">
-    <view class="selected">
-      <navigator class="index_selected" url="/pages/Hotel/hotel">
-        <image src="../../static/hotelsss.png" class="icon_function" mode=""/>
-        <text class="icon-title">酒店</text>
-      </navigator>
-      <navigator class="index_selected" url="/pages/Trip/trip">
-        <image src="../../static/trip_click2.png" class="icon_function" mode=""/>
-        <text class="icon-title">旅游</text>
-      </navigator>
-      <navigator class="index_selected" url="/pages/Food/food">
-        <image src="../../static/Food-Icons-18.png" class="icon_function" mode=""/>
-        <text class="icon-title">美食</text>
-      </navigator>
+    <!-- 轮播图 -->
+    <view class="page-section page-section-spacing swiper">
+      <swiper id="mySwiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}">
+        <block wx:for="{{background}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+          <swiper-item>
+            <image class="swiper-item" src="{{item}}" mode="aspectFill"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view bindtap="prevImage" class="leftArrow">{{Arrow1}}</view>
+      <view bindtap="nextImage" class="rightArrow">{{Arrow2}}</view>
     </view>
-  </view> 
-</view>
 
-      <!-- 推荐部分 -->
-      <view class="fontSuggestion"> 
-        <text>为您推荐</text>
+    <!-- 功能图标 -->
+    <view class="container_icon">
+      <view class="selected">
+        <navigator class="index_selected" url="/pages/Hotel/hotel">
+          <image src="../../static/hotel.png" class="icon_function" />
+          <text class="icon-title">酒店</text>
+        </navigator>
+        <navigator class="index_selected" url="/pages/Trip/trip">
+          <image src="../../static/trip.png" class="icon_function" />
+          <text class="icon-title">旅游</text>
+        </navigator>
+        <navigator class="index_selected" url="/pages/Food/food">
+          <image src="../../static/food.png" class="icon_function" />
+          <text class="icon-title">美食</text>
+        </navigator>
       </view>
+    </view>
 
-      <!-- 内容推荐 -->
-      <view class="contentSuggestion">
-        <view class="box-suggestion">
-          <view class="first" wx:for="{{items}}" wx:key="id">
-            <image class="image1" src="{{item.itemImage}}" mode="aspectFill" bindtap="navigateToContentPage" data-id="{{item.id}}"/>
-            <text class="intro" bindtap="navigateToContentPage" data-id="{{item.id}}">{{item.intro}}</text>
-            
-            <view class="item">
-              <view class="left">
-                <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
-                <text class="item-text">{{item.text}}</text>
-              </view>
-              <!-- <view class="right">
-                <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-                <text class="liked_count">{{item.liked_count}}</text>
-              </view> -->
+    <!-- 推荐部分 -->
+    <view class="fontSuggestion"> 
+      <text>为您推荐</text>
+    </view>
+
+    <!-- 内容推荐 -->
+    <view class="contentSuggestion">
+      <view class="box-suggestion">
+        <view class="first" wx:for="{{items}}" wx:key="id">
+          <image class="image1" src="{{item.itemImage}}" mode="aspectFill" bindtap="navigateToContentPage" data-id="{{item.id}}"/>
+          <text class="intro" bindtap="navigateToContentPage" data-id="{{item.id}}">{{item.intro}}</text>
+          
+          <view class="item">
+            <view class="left">
+              <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
+              <text class="item-text">{{item.text}}</text>
             </view>
+            <!-- <view class="right">
+              <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+              <text class="liked_count">{{item.liked_count}}</text>
+            </view> -->
           </view>
         </view>
       </view>
     </view>
-  </scroll-view>
+  </view>
 </view>

@@ -3,9 +3,9 @@ Page({
     latitude: null,
     longitude: null,
     city: '',
-    demoText1: 'https://ts1.cn.mm.bing.net/th/id/R-C.a625b2ee7fd73c912f71284e7217ddb7?rik=HP07hFcTWbVOYg&riu=http%3a%2f%2ftraveldigg.com%2fwp-content%2fuploads%2f2016%2f08%2fLangkawi-Beach-Kedah-Malaysia.jpg&ehk=7meom5G62Lca%2bUWMjwHv0jknwXAAeRrV%2bjRrhzl5XT4%3d&risl=&pid=ImgRaw&r=0',
+    demoText1: 'https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient',
     demoText2: 'https://th.bing.com/th/id/R.496ccc48796a3ce6fbcdd0173436c3da?rik=aLk8AbZezYqp6g&riu=http%3a%2f%2fwww.gjlysy.com%2fupload%2fimage%2f20190918%2f15687778356989439.jpg&ehk=i3eyZiPsIs3qi7QZB0KQTq1bdwKt%2f9F%2fewvOm%2fnYakE%3d&risl=&pid=ImgRaw&r=0',
-    demoText3: 'https://hariannusantara.com/wp-content/uploads/2019/06/gambar-pemandangan-indonesia5.jpg',
+    demoText3: 'https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient',
     background: [],
     indicatorDots: true,
     autoplay: true,
@@ -56,29 +56,28 @@ Page({
               items: this.data.items.concat(res.data.data || []),
               page: page + 1
             });
+            wx.stopPullDownRefresh(); // 停止当前的下拉刷新
           } else {
             console.error('返回的数据格式不正确:', res.data.data);
+            wx.stopPullDownRefresh(); // 停止当前的下拉刷新
           }
         } else {
           console.error('获取数据失败:', res.data.msg);
+          wx.stopPullDownRefresh(); // 停止当前的下拉刷新
         }
       },
       fail: (err) => {
         console.error('请求失败:', err);
+        wx.stopPullDownRefresh(); // 停止当前的下拉刷新
       }
     });
   },
 
-  // 下拉刷新事件处理函数
-  onPullDownRefresh: function() {
-    // 清空当前数据，重新获取
-    this.setData({
-      items: [],
-      page: 1
-    }, () => {
-      this.fetchUserData(); // 调用获取数据的函数
+  onPullDownRefresh() {
+    console.log('触发了 onPullDownRefresh');
+    this.setData({ page: 1, items: [] }, () => {
+      this.fetchUserData();
     });
-    wx.stopPullDownRefresh(); // 停止下拉刷新
   },
 
   onOptionSelect(e) {
@@ -141,7 +140,7 @@ Page({
     this.fetchUserData();  // 调用 fetchUserData 方法
   },
 
-  // 获取用户位置授权
+  //获取用户位置授权
   getUserLocation() {
     const that = this;
     wx.getSetting({
@@ -234,5 +233,11 @@ Page({
 
   toggleDropdown() {
     this.setData({ dropdownVisible: !this.data.dropdownVisible });
+  },
+
+  onOptionSelect(e) {
+    const value = e.currentTarget.dataset.value;
+    wx.navigateTo({ url: value });
+    this.setData({ dropdownVisible: false });
   }
 });
