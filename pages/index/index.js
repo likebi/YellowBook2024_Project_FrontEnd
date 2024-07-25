@@ -41,7 +41,7 @@ Page({
       console.error('未找到授权 token');
       return;
     }
-  
+
     wx.request({
       url: `http://localhost:3000/firstPages/items?page=${page}&userId=${Uid}`,
       method: 'GET',
