@@ -14,6 +14,7 @@ Page({
     limit: 4, // 每次加载的评论数量
     hasMoreComments: true, // 是否有更多评论
     loading: false, // 是否正在加载评论
+
   },
 
   onLoad: function (options) {
@@ -24,32 +25,47 @@ Page({
     }
   },
 
-  fetchPostData(postId) {
+   // 使用 wx.request 发送请求
+   fetchPostData(postId) {
     const token = wx.getStorageSync('userToken');
+  
     if (!token) {
       console.error('未找到授权 token');
       return;
     }
+  
     wx.request({
-      url: `http://localhost:3000/contentpage/contentpage/${postId}`,
+      url: `http://localhost:3000/contentpage/${postId}`,
       method: 'GET',
       header: {
         'Authorization': token
       },
       success: (res) => {
         if (res.data.code === 200) {
-          const data = res.data.data;
+          const item = res.data.data;
           const imgurlArray = [
-            data.image_url,
-            data.image_url2,
-            data.image_url3,
-            data.image_url4
+            item.image_url,
+            item.image_url2,
+            item.image_url3,
+            item.image_url4
           ].filter(url => url);
-
           this.setData({
-            item: data,
+            item: {
+              id: item.id,
+              ContentUid: item.ContentUid, // 确保这里正确设置
+              userImage: item.userImage,
+              userName: item.userName,
+              title_post: item.title_post,
+              text_post: item.text_post,
+              content_date: item.content_date,
+              position_content: item.position_content,
+              loveImage: item.loveImage,
+              isLiked: item.isLiked
+            },
             imgurl: imgurlArray
           });
+          console.log('Item data:', this.data.item);
+          console.log('获取数据成功:', res.data.msg);
         } else {
           console.error('获取数据失败:', res.data.msg);
         }
@@ -57,6 +73,7 @@ Page({
       fail: (err) => {
         console.error('请求失败:', err);
       }
+      
     });
   },
 
@@ -258,16 +275,33 @@ Page({
 
     if (deltaX < -50 && Math.abs(deltaX) > Math.abs(deltaY)) {
       this.setData({
-        isSwipe: true
+        isSwipe: true // 设置标志位为滑动
       });
-    }
-    this.setData({
+    } else {
+      this.setData({
       endX,
       endY
     });
-  },
+  }
+},
 
-  handleTouchEnd() {
+  handleTouchEnd(event) {
+      const ContentUid = this.data.item.ContentUid;
+      console.log('HandleTouchEnd - UserID:', ContentUid);
+      console.log('HandleTouchEnd - IsSwipe:', this.data.isSwipe); // 添加调试信息
+      const targetUrl = `/pages/userPage/userPage?ContentUid=${ContentUid}`;
+      console.log('Navigating to:', targetUrl);
+      if (ContentUid) {
+        wx.navigateTo({
+          url: targetUrl
+        });
+      } else {
+        console.error('ContentUid is missing or swipe not detected');
+      }
+    },
+    
+  like_post: function (e) {
+    handleTouchEnd()
     if (this.data.isSwipe) {
       wx.navigateTo({
         url: '../userPage/userPage'

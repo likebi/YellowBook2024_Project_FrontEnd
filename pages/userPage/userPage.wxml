@@ -5,12 +5,12 @@
 <view class="me-info">
   <view class="avatar1">
     <view class="button-user">
-      <image class="user-image" src="{{userImage}}" mode="aspectFill"></image>
+      <image class="user-image" src="{{ContentUserAvatar}}" mode="aspectFill"></image>
     </view> 
   </view>
   <view class="user-info">
-    <view class="user-name-input">{{nickname}}</view>
-    <text class="id_user">小黄书号: {{Uid}} </text>
+    <view class="user-name-input">{{ContentNickName}}</view>
+    <text class="id_user">小黄书号: {{ContentUid}} </text>
   </view>
 
   <view class="editProfil">
