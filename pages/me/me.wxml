@@ -1,9 +1,11 @@
-<view class="background" style="background-image: url('{{ backgroundImage}}'); ">
+<view class="background" style="background-image: url('{{ backgroundImage }}');">
   <view class="overlay"></view>
 </view>
+
 <view class="me-info">
   <button open-type="chooseImage" bindtap="onChooseBackground" class="change-bg-button">更换背景</button>
   <button open-type="chooseImage" bindtap="onChooseBackground" class="change-bg-button">更换背景</button>
+
   <view class="avatar1">
     <button class="button-user" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
       <image src="{{userImage}}" class="user-image" mode="aspectFill" />
@@ -12,19 +14,15 @@
 
   <view class="user-info">
     <view class="nickname">
-      <input type="nickname" placeholder="Wechat_user" class="user-name-input" value="{{nickname}} " bind:change="onChooseNickname">
-      </input>
+      <input type="nickname" placeholder="Wechat_user" class="user-name-input" value="{{nickname}}" bind:change="onChooseNickname" />
     </view>
     <text class="id_user">小黄书号: {{Uid}}</text>
   </view>
 
   <view class="editProfil">
     <navigator url="/pages/editBio/editBio" open-type="navigate">
-      <view>
-        {{intro_user}}
-      </view>
+      <view>{{intro_user}}</view>
     </navigator>
-
   </view>
 
   <view class="profile-stats">
@@ -41,7 +39,8 @@
       <text class="label">点赞</text>
     </navigator>
   </view>
-  <view class="button_edit" bind:tap="edit_Profile">
+
+  <view class="button_edit" bindtap="edit_Profile">
     Edit Profile
   </view>
 </view>
@@ -62,39 +61,46 @@
       <view class="active-tag" style="width: {{activeTagWidth}}px; left: {{activeTagLeft}}px;"></view>
     </view>
   </view>
-  
+
   <!-- 滑动窗口 -->
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperChange" class="swiper-container">
-    <swiper-item>
-      <scroll-view class="content" scroll-y>
-        <view class="contentSuggestion">
-          <view class="box-suggestion">
-            <view class="first" wx:for="{{items}}" wx:key="id">
-              <navigator url="../../pages/contentpage/contentpage">
-                <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
-                <text class="intro">{{item.intro}}</text>
-              </navigator>
-              <view class="item">
-                <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
-                <text class="item-text">{{item.text}}</text>
-                <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-              </view>
+    <!-- 笔记 -->
+<swiper-item>
+  <scroll-view class="content" scroll-y>
+    <view class="contentSuggestion">
+      <view class="box-suggestion">
+        <view class="first" wx:for="{{items}}" wx:key="id">
+          <!-- 图片和简介实现导航 -->
+          <image class="image1" src="{{item.itemImage}}" mode="aspectFill" bindtap="navigateToContentPage" data-id="{{item.id}}"/>
+          <text class="intro" bindtap="navigateToContentPage" data-id="{{item.id}}">{{item.intro}}</text>
+
+          <!-- 其余部分不需要导航 -->
+          <view class="item">
+            <view class="left">
+              <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
+              <text class="item-text">{{item.text}}</text>
             </view>
+            <view class="right">
+              <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-id="{{item.id}}"></image>
+              <text class="liked_count">{{item.liked_count}}</text>
+            </view>
+
           </view>
         </view>
-      </scroll-view>
-    </swiper-item>
+      </view>
+    </view>
+  </scroll-view>
+</swiper-item>
 
+    <!-- 收藏 -->
     <swiper-item>
       <view class="content">
         <scroll-view class="content" scroll-y>
           <view class="contentSuggestion">
             <view class="box-suggestion">
-              <view class="first" wx:for="{{items2}}" wx:key="id">
-                <navigator url="../../pages/contentpage/contentpage">
-                  <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
-                  <text class="intro">{{item.intro}}</text>
-                </navigator>
+              <view class="first" wx:for="{{items2}}" wx:key="id" data-id="{{item.id}}" bindtap="navigateToContentPage">
+                <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
+                <text class="intro">{{item.intro}}</text>
                 <view class="item">
                   <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
                   <text class="item-text">{{item.text}}</text>
@@ -106,16 +112,16 @@
         </scroll-view>
       </view>
     </swiper-item>
+    
+    <!-- 点赞 -->
     <swiper-item>
       <view class="content">
         <scroll-view class="content" scroll-y>
           <view class="contentSuggestion">
             <view class="box-suggestion">
-              <view class="first" wx:for="{{items3}}" wx:key="id">
-                <navigator url="../../pages/contentpage/contentpage">
-                  <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
-                  <text class="intro">{{item.intro}}</text>
-                </navigator>
+              <view class="first" wx:for="{{items3}}" wx:key="id" data-id="{{item.id}}" bindtap="navigateToContentPage">
+                <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
+                <text class="intro">{{item.intro}}</text>
                 <view class="item">
                   <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
                   <text class="item-text">{{item.text}}</text>

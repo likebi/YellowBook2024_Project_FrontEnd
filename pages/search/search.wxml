@@ -4,7 +4,7 @@
     <view class="search-container">
       <view class="search-window">
         <image class="icon" src="/static/sousuo.png" />
-        <input type="text" class="search-input" placeholder="输入搜索内容" bindinput="onInput" bindconfirm="onSearch" value="{{value}}" /> <!--bindconfirm = for enterin search with enter button-->
+        <input type="text" class="search-input" placeholder="输入搜索内容" bindconfirm="onSearch" bindinput="onInput" bindconfirm="onSearch" value="{{value}}" /> <!--bindconfirm = for enterin search with enter button-->
       </view>
     </view>
     <view class="search-button" bindtap="onSearch">搜索</view>

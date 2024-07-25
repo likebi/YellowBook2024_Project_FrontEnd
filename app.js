@@ -3,6 +3,10 @@ App({
     this.checkUserToken(this.fetchUserData);
   },
 
+  globalData: {
+    needRefresh: false
+  },
+
   checkUserToken(callback) {
     let userToken = wx.getStorageSync('userToken');
     if (!userToken) {
@@ -77,7 +81,7 @@ App({
       if (callback) callback('No authorization token found', null);
     } else {
       wx.request({
-        url: 'http://localhost:3000/items',
+        url: 'http://localhost:3000/firstPages/items',
         method: 'GET',
         header: {
           'Authorization': token

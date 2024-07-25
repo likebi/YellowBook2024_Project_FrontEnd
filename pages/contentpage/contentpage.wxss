@@ -28,17 +28,17 @@
 }
 
 .item-text {
+  width: 180px;
   margin-left: 3rpx;
   font-weight: 550;
   font-size: 13px; 
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji, BlinkMacSystemFont, Helvetica Neue, Arial, PingFang SC, PingFang TC, PingFang HK, Microsoft Yahei, Microsoft JhengHei;
   color: var(--color-secondary-label);
 }
 
 .button_follow{
   display: flex;
   justify-content: center;
-  margin-left: 390rpx;
+  margin-left: 70rpx;
   width: 80rpx;
   height: 45rpx;
   line-height: 45rpx;
@@ -95,12 +95,24 @@
   font-size: 16px;
 }
 
-.position-date{
-  padding:30rpx 0;
-  border-bottom: 1px solid rgba(200, 200, 200,0.5);
+.position-date {
+  display: flex;
+  padding: 30rpx 0;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.5);
   font-size: 12px;
   color: #999;
-  width: 100%;
+}
+
+.collect-love-post {
+  display: flex;
+  align-items: center; 
+  margin-left: auto;
+}
+
+
+.image_collum{
+  width: 50rpx;
+  height: 50rpx;
 }
 .position_content{
   padding-left: 10rpx;
@@ -146,6 +158,7 @@
   position: relative;
   display: flex;
   margin: 10rpx 20rpx;
+  height: 75px;
 }
 
 .commentuser-image{
@@ -183,127 +196,9 @@
   height: 60rpx;
   
 }
-
-/*  .user-image-comment {
-  ini kasi jarak antara foto user dengan isi dan juga dengan border 
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 10px;
-  margin-left: 10px;
-}
-.comment-content {
-  /* ini biar comments dari nama isi like dari atas ke bawah 
-  display: flex;
-  flex-direction: column;
-  margin-top: 20rpx;
-}
-.user-name-content {
-  font-weight: bold;
-}
-.comment-text {
-  /* ini kasi jarak antara nama message like di comments 
-  margin-top: 5px;
-}
-.input-section {
-  /* ini biar submit button ada di samping write comment 
-  display: flex;
-}
-.comment-button {
-  /* comment button submit 
-  padding: 10px;
-  background-color: #007aff;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
+.liked_count{
+  position: absolute;
+  bottom: 15px;
+  right: 16px;
 }
 
-.like-section {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
-  cursor: pointer;
-  /* background-color: crimson; 
-  
-}
-.save-section {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
-  cursor: pointer;
-  /* background-color: yellow; 
-}
-.like-icon, .save-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-}
-.like-count {
-  margin-right: 10px;
-} */
-/* .like-icon .liked {
-  filter: none; Remove grayscale filter
-  color: crimson; Change to crimson red
-}
-.save-icon .saved {
-  filter: none; Remove grayscale filter
-  color: yellow; Change to yellow
-} */
-
-/* .like-icon {
-  filter: grayscale(100%); Original color effect
-} 
-.save-icon {
-  filter: grayscale(100%);  Original color effect
-}  */
-
-
-/* .like-section {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
-  cursor: pointer;
-  box-shadow: none;
-  border: none;
-}
-.like-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  box-shadow: none;
-  border: none;
-}
-save-section {
-  display: flex;
-  align-items: center;
-  margin-top: 5px;
-  cursor: pointer;
-}
-.save-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-} 
-input {
- input comments 
-  flex: 1;
-  padding: 10px;
-  margin-right: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-.bottom-comment-box {
-  border: soild 1px black;
-  width: auto;
-  height: auto;
-}
-.bottom-comment-right {
-  display: flex;
-  flex-direction: row;
-}
-.bottom-comment-image {
-  width: 30px;
-  height: 30px;
-}
-
- */
