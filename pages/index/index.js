@@ -17,7 +17,7 @@ Page({
     namePosition: '',
     dropdownVisible: false,
     options: [
-      { label: '发布', value: '/pages/addpost/addpost' },
+      { label: '发布', value: '/pages/addpost/addpost'},
     ],
     items: [],
     page: 1 // 初始化页数为1
@@ -80,11 +80,18 @@ Page({
     });
   },
 
-  onOptionSelect(e) {
-    const value = e.currentTarget.dataset.value;
+  onOptionSelect(event) {
+    const { value } = event.currentTarget.dataset;
     wx.navigateTo({
-      url: value
+      url: value,
+      success: (res) => {
+        console.log('Navigation successful:', res);
+      },
+      fail: (err) => {
+        console.error('Navigation failed:', err);
+      },
     });
+    // Close the dropdown menu after selection
     this.setData({
       dropdownVisible: false
     });
