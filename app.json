@@ -63,7 +63,7 @@
         "selectedIconPath": "./static/规划3.png"
       },
       {
-        "pagePath": "pages/addpost2/addpost2",
+        "pagePath": "pages/addpost/addpost",
         "text": "发布",
         "iconPath": "./static/pluscircleblack.png",
         "selectedIconPath": "./static/pluswhite.png"
