@@ -58,20 +58,44 @@
   </view>
 
   <!-- 滑动窗口 -->
-  <swiper
-    current="{{currentTab}}"
-    duration="300"
-    bindchange="swiperChange"
-    class="swiper-container"
-  >
+  <swiper current="{{currentTab}}" duration="300" bindchange="swiperChange" class="swiper-container">
     <swiper-item>
-      <view class="content">这里是笔记的内容</view>
+      <scroll-view class="content" scroll-y>
+        <view class="contentSuggestion">
+          <view class="box-suggestion">
+            <view class="first" wx:for="{{items}}" wx:key="id" data-id="{{item.id}}" bindtap="navigateToContentPage">
+              <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
+              <text class="intro">{{item.intro}}</text>
+              <view class="item">
+                <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
+                <text class="item-text">{{item.text}}</text>
+                <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
     </swiper-item>
+
     <swiper-item>
-      <view class="content">这里是收藏的内容</view>
-    </swiper-item>
-    <swiper-item>
-      <view class="content">这里是点赞的内容</view>
+      <view class="content">
+        <scroll-view class="content" scroll-y>
+          <view class="contentSuggestion">
+            <view class="box-suggestion">
+              <view class="first" wx:for="{{items2}}" wx:key="id" data-id="{{item.id}}" bindtap="navigateToContentPage">
+                <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
+                <text class="intro">{{item.intro}}</text>
+                <view class="item">
+                  <image src="../../static/test.png" class="item-image" mode="aspectFill"></image>
+                  <text class="item-text">{{item.text}}</text>
+                  <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
     </swiper-item>
   </swiper>
 </view>
+

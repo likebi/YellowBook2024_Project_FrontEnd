@@ -21,6 +21,8 @@
   z-index: 1;
 }
 
+
+
 .me-info {
   position: relative; 
   z-index: 2; 
@@ -81,16 +83,15 @@ button {
   font-size: 20px;
   font-weight: 700;
   color: #ccc; 
-  padding: 0;
+  margin-left: 30rpx; 
   width: auto;
-  margin-left: 20rpx;
 }
 
 .id_user {
   font-size: 14px;
   color: #ccc; 
   margin-top: 5px;
-  margin-left: 20rpx;
+  margin-left: 30rpx; 
 }
 
 .editProfil {
@@ -175,7 +176,7 @@ button {
 
 .swiper-container {
   flex: 1;
-  width: 80%;
+  width: 100%;
   margin-top: 15px;
 }
 
@@ -188,7 +189,6 @@ button {
   align-items: center;
   justify-content: center;
   height: 100%;
-  background-color: #ff0000;
 }
 
 .button_edit {
@@ -204,4 +204,89 @@ button {
   border-radius: 10px;
   font-size: 12px;
   color: #fff; /* 字体颜色 */
+}
+.box-suggestion {
+  display: flex; /* 使用flex布局 */
+  flex-wrap: wrap; /* 允许换行 */
+  justify-content: space-around; /* 在主轴上平均分配空间 */
+}
+
+.first {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  height: auto;
+  background-color: #fff;
+}
+
+
+button-sug{
+display: inline-block;
+}
+
+
+.image1 {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.intro {
+  overflow: hidden; /* 超出内容隐藏 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  display: -webkit-box; /* 使用 Flexbox 进行布局 */
+  -webkit-line-clamp: 2; /* 限制显示两行 */
+  -webkit-box-orient: vertical; /* 垂直排列 */
+  margin: 10px 20rpx;
+  font-size: 30rpx;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 40px;
+  width: 100%;
+  padding: 0 20rpx;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.item-image {
+  width: 25px;  
+  height: 25px; 
+  border-radius: 40rpx;
+  margin-right: 10px; 
+}
+
+.item-love {
+  width: 20px;
+  height: 20px; 
+  margin-right: 5px;
+}
+
+.liked_count {
+  font-size: 20rpx;
+  margin-right: 15px;
+}
+
+.item-text {
+  overflow: hidden; /* 超出内容隐藏 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  display: -webkit-box; /* 使用 Flexbox 进行布局 */
+  -webkit-line-clamp: 2; /* 限制显示两行 */
+  -webkit-box-orient: vertical; /* 垂直排列 */
+  width: 160rpx;
+  font-size: 12px; 
+  color: #333; 
 }
