@@ -6,7 +6,7 @@
          <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
             <text class="item-text">{{item.userName}}</text>
       </view>
-      <view class="button_follow" bindtap="toggleFollow">{{followStatus ? '已关注' : '关注'}}</view>
+      <view class="button_follow" bindtap="toggleFollow">{{isFollowing ? '已关注' : '关注'}}</view>
     </view>
 
     <view class="swiper-post">
@@ -54,8 +54,6 @@
   <image src="{{item.loveImage}}" class="icon_love" data-index="{{index}}" bindtap="like_comment"/>
   <text class="liked_count">{{item.liked_count}}</text> <!-- 使用 liked_count -->
 </view>
-
-
   </view>
 </view>
 </scroll-view>

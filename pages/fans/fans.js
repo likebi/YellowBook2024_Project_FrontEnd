@@ -1,35 +1,46 @@
+// pages/fansList/fansList.js
 Page({
   data: {
-
-    arrowl: '<',
-    value: '',
-    followedList: [
-      // 示例数据，可以根据需要替换
-      { id: 1, name: 'User 1', followerNumber: '100', background: '/static/me.png' },
-      { id: 2, name: 'User 2', followerNumber: '200', background: '/static/me.png' },
-      { id: 3, name: 'User 3', followerNumber: '100', background: '/static/me.png' },
-      { id: 4, name: 'User 4', followerNumber: '100', background: '/static/me.png' },
-      { id: 5, name: 'User 5', followerNumber: '100', background: '/static/me.png' },
-      { id: 6, name: 'User 6', followerNumber: '100', background: '/static/me.png' }
-    ],
+    fansList: []
   },
 
+  onLoad() {
+    this.fetchFansList();
+  },
+
+  fetchFansList() {
+    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+    let Uid = wx.getStorageSync('Uid');
   
-  // 存储本地数据
-  setRecord(val) {
-    wx.setStorage({
-      key: 'history',
-      data: JSON.stringify(val)
+    if (!token) {
+      console.error('未找到授权 token');
+      return;
+    }
+    wx.request({
+      url: `http://localhost:3000/follow/getFansList/${Uid}`, // 替换为你的后端 API 地址
+      method: 'GET',
+      header: {
+        'Authorization': token
+      },
+      success: (res) => {
+        console.log('Response data:', res.data); // 调试输出
+        if (res.data.code === 200) {
+          // 将返回的数据设置到 page 的 fansList 数据中
+          this.setData({
+            fansList: res.data.data
+          });
+        } else {
+          console.error('获取数据失败:', res.data.msg);
+        }
+      },
+      fail: (err) => {
+        console.error('请求失败:', err);
+      }
     });
   },
 
   // 处理返回事件
   onBack() {
     wx.navigateBack();
-  },
-  // 处理排序按钮点击事件
-  onOrderChange() {
-    console.log('Order button clicked');
-    // 在这里添加排序逻辑
   }
 });

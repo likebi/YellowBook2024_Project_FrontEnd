@@ -26,11 +26,11 @@
   </view>
 
   <view class="profile-stats">
-    <navigator url="/pages/follow/follow" class="stat-item">
+    <navigator url="/pages/follower/follower" class="stat-item">
       <text class="number">{{follow_num}}</text>
       <text class="label">关注</text>
     </navigator>
-    <navigator url="/pages/follower/follower" class="stat-item">
+    <navigator url="/pages/fans/fans" class="stat-item">
       <text class="number">{{fans_num}}</text>
       <text class="label">粉丝</text>
     </navigator>

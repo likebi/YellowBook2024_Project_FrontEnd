@@ -111,5 +111,16 @@ Page({
     wx.navigateTo({
       url: '/pages/profile/clickProfile',
     });
-  }
+  },
+
+  like_post: function (e) {
+    const index = e.currentTarget.dataset.index;
+    const items = this.data.items;
+    items[index].isLiked = !items[index].isLiked;
+    items[index].loveImage = items[index].isLiked ? '../../static/love.png' : '../../static/love2.png';
+    this.setData({ items });
+  },
+
+
+
 });

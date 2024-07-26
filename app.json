@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/fans/fans",
     "pages/follower/follower",
-    "pages/follow/follow",
     "pages/addpost/addpost",
     "pages/search/search",
     "pages/AI-chat/AI-chat",
