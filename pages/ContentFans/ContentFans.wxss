@@ -1,0 +1,62 @@
+/* pages/fansList/fansList.wxss */
+#container {
+  padding: 20rpx;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.arrow-left {
+  font-size: 50rpx;
+  cursor: pointer;
+}
+
+.follow-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.follow-window {
+  display: flex;
+  margin-left: 10rpx;
+  width: 90vw;
+  gap: 10rpx;
+}
+
+.followed {
+  padding: 10rpx 20rpx;
+  border: none;
+  color: black;
+  border-radius: 30rpx;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.profile-background {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-size: 18rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.followed-window {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}

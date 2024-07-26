@@ -1,0 +1,167 @@
+/* pages/ContentFollower/ContentFollower.wxss */
+#container {
+  padding: 20rpx;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.arrow-left {
+  font-size: 50rpx;
+  cursor: pointer;
+}
+
+.follow-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.follow-window {
+  display: flex;
+  margin-left: 10rpx;
+  gap: 10rpx;
+  font-weight: 700;
+}
+
+.followed{
+  padding: 10rpx 20rpx;
+  border: none;
+  color: black;
+  border-radius: 30rpx;
+  cursor: pointer;
+
+}
+
+
+
+
+.icon {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+
+.search-input {
+  flex: 1;
+  padding: 10rpx;
+  border: none;
+}
+
+.search-button {
+  padding: 10rpx 20rpx;
+  border: none;
+  background-color: none;
+  color: #007AFF;
+  border-radius: 30rpx;
+  cursor: pointer;
+}
+
+.content {
+  width: 100%;
+  margin-top: 10rpx;
+}
+
+.first_collum {
+  position: relative;
+  height: 70rpx;
+  align-items: center;
+}
+
+.myfollow {
+  position: absolute;
+  top: 5rpx;
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+  width: 40vw;
+}
+
+.myfollowed {
+  margin: 10rpx;
+  padding-top: 40rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+
+.order-button {
+  position: absolute;
+  right:  10rpx;
+  width: 30vw !important;
+  height: 3vh !important;
+  display: flex;
+  align-items: center;
+  padding: 10rpx 20rpx;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  color: #333;
+  border-radius: 30rpx;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.followed-window {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+/* 定义按钮的基础样式 */
+.button {
+  padding: 10rpx 20rpx;
+  border: none;
+  border-radius: 30rpx;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s; /* 添加过渡效果 */
+}
+
+/* 默认状态 */
+.button-default {
+  background-color:none;
+}
+
+/* 点击状态 */
+.button-clicked {
+  background-color:azure;
+}
+
+
+.follow_sum {
+  padding-top: 10rpx;
+}
+
+.profile-background {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-size: 18rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.follower-number {
+  font-size: 16rpx;
+  color: #888;
+}
+/* 保持原样式不变，添加搜索结果的样式 */
+.search-results {
+  margin-bottom: 50rpx;
+}
+
+.search-result-item {
+  padding: 10rpx;
+  border-bottom: 1px solid #ddd;
+}

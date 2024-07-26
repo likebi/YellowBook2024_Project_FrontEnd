@@ -32,7 +32,9 @@
     "pages/foodcontentID/foodcontentID",
     "pages/foodcontentMY/foodcontentMY",
     "pages/place/place",
-    "pages/webpage/webpage"
+    "pages/webpage/webpage",
+    "pages/ContentFans/ContentFans",
+    "pages/ContentFollower/ContentFollower"
   ],
   "requiredPrivateInfos": [
     "getLocation"
