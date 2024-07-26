@@ -1,98 +1,100 @@
 <!-- wxml 文件 -->
-<view class="header">
+<view class="outer-box">
+  <view class="header">
   <view class="search-container">
     <view class="search-window">
-      <image class="icon" src="/static/sousuo.png" />
+      <image class="icon" src="/static/Searchwhite.png" />
       <input type="text" class="search-input" placeholder="输入搜索内容" bindinput="onInput" value="{{value}}" />
     </view>
   </view>
   <view class="search-button" bindtap="onSearch">搜索</view>
 </view>
 
-<view class="suggestion-header">
-  <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
-    <navigator url="../../pages/hotelcontent/hotelcontent" class="link_sugges_header"><view class="history_header">北京</view></navigator>
-    <navigator url="../../pages/hotelcontentID/hotelcontentID" class="link_sugges_header"><view class="history_header">印尼</view></navigator>
-    <navigator url="../../pages/hotelcontentMY/hotelcontentMY" class="link_sugges_header"><view class="history_header">马来西亚</view></navigator>
-    <navigator url="../../pages/hotelcontent/hotelcontent" class="link_sugges_header"><view class="history_header">Beijing</view></navigator>
-    <navigator url="../../pages/hotelcontentID/hotelcontentID" class="link_sugges_header"><view class="history_header">Indonesia</view></navigator>
-    
-  </scroll-view>
-</view>
+  <view class="suggestion-header">
+    <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
+      <navigator url="../../pages/foodcontent/foodcontent" class="link_sugges_header"><view class="history_header">北京</view></navigator>
+      <navigator url="../../pages/foodcontentMY/foodcontentMY" class="link_sugges_header"><view class="history_header">马来西亚</view></navigator>
+      <navigator url="../../pages/foodcontentMY/foodcontentMY" class="link_sugges_header"><view class="history_header">Beijing</view></navigator>
+      <navigator url="../../pages/foodcontentID/foodcontentID" class="link_sugges_header"><view class="history_header">Indonesia</view></navigator>
+      <navigator url="../../pages/foodcontentID/foodcontentID" class="link_sugges_header"><view class="history_header">印尼</view></navigator>
+      
+    </scroll-view>
+  </view>
 
-<text class="title_box">推荐目的地</text>
-<view class="suggestion-box">
-  <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
-    <navigator url="../../pages/hotelcontent/hotelcontent" class="link_suggestion_box">
-    <view class="style_box">
-      <text class="title_suggestion">北京</text>
-      <image src="https://th.bing.com/th/id/R.cdbe0fe09e25108143388dc3462f8ce2?rik=1E2m%2bFFHtfoJpg&riu=http%3a%2f%2fimg95.699pic.com%2fphoto%2f50071%2f3462.jpg_wh860.jpg&ehk=ntJVViZ9MFYGb0twTvOv5EBVQ%2f2FACJAWrwttvzJNO0%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill"/>
-    </view>
-    </navigator>
-
-    <view class="style_box2">
-      <navigator url="../../pages/hotelcontentID/hotelcontentID">
-      <view class="box_second">
-        <image class="image-suggestion" src="https://ts1.cn.mm.bing.net/th/id/R-C.124e2e59bf1d0ced6dcefa2b11655539?rik=rzI3nWSLvv%2fDUw&riu=http%3a%2f%2fs1.picswalls.com%2fwallpapers%2f2014%2f08%2f08%2findonesia-background_02052993_164.jpg&ehk=OCdGGZYHKoIIS2fUPbd6apjFJvDiCdocNxQlj3Mc4As%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill"/>
-        <text class="title_suggestion">印度尼西亚</text>
+  <text class="title_box">推荐美食</text>
+  <view class="suggestion-box">
+    <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
+      <navigator url="../../pages/foodcontent/foodcontent" class="link_suggestion_box">
+      <view class="style_box">
+        <text class="title_suggestion">北京</text>
+        <image src="https://ts1.cn.mm.bing.net/th/id/R-C.c065a211d3f4e7a91d82d93efb023323?rik=AE8QLPEb%2fl6YVg&riu=http%3a%2f%2fwww.chinatourguide.com%2fchina_photos%2fbeijing%2fattractions%2fBeijing_Roast_Duck_chef_2.JPG&ehk=qkDR4GdiLJhqT3yZSrV0Wz9u%2bkolGUaPWVL94hx3YrQ%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" mode="aspectFill"/>
       </view>
       </navigator>
-      
-      <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
-      <view class="box_third">
-        <image class="image-suggestion" src="https://www.medisata.com/assets/images/wisata/christ-church-_melaka.jpg" mode="aspectFill"/>
-        <text class="title_suggestion">马来西亚</text>
-      </view>
-      </navigator> 
-    </view>
 
-    <view class="style_box2">
-      <navigator url="../../pages/hotelcontentID/hotelcontentID">
-      <view class="box_second">
-        <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.M6g9p33OhZ0sWEE2NzJNUQHaEo?rs=1&pid=ImgDetMain" mode="aspectFill"/>
-        <text class="title_suggestion">印度尼西亚</text>
-      </view>
-      </navigator>
-      
-      <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
-      <view class="box_third">
-        <image class="image-suggestion" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.hh9OakbNPXsBzJjXVX7w_QHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
-        <text class="title_suggestion">马来西亚</text>
-      </view>
-      </navigator> 
-    </view>
-
-    <view class="style_box2">
-      <navigator url="../../pages/hotelcontentID/hotelcontentID">
-      <view class="box_second">
-        <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.M6g9p33OhZ0sWEE2NzJNUQHaEo?rs=1&pid=ImgDetMain" mode="aspectFill"/>
-        <text class="title_suggestion">印度尼西亚</text>
-      </view>
-      </navigator>
-      
-      <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
-      <view class="box_third">
-        <image class="image-suggestion" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.hh9OakbNPXsBzJjXVX7w_QHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
-        <text class="title_suggestion">马来西亚</text>
-      </view>
-      </navigator> 
-    </view>
-
-  </scroll-view>
-</view>
-
-<view class="suggestion_title">好吃的都在哪儿?</view>
-
-<view class="contentSuggestion">
-  <view class="box-suggestion">
-    <view class="first" wx:for="{{items}}" wx:key="id" bind:tap="navigateToContentPage" data-id="{{item.id}}">
-        <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
-        <text class="intro">{{item.intro}}</text>
-      <view class="item">
-          <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
-          <text class="item-text">{{item.text}}</text>
-          <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+      <view class="style_box2">
+        <navigator url="../../pages/foodcontentID/foodcontentID">
+        <view class="box_second">
+          <image class="image-suggestion" src="https://www.indonesia.travel/content/dam/indtravelrevamp/en/trip-ideas/don-t-leave-indonesia-before-you-get-a-taste-of-these-12-favorite-local-foods/rendang.jpg" mode="aspectFill"/>
+          <text class="title_suggestion">印度尼西亚</text>
         </view>
+        </navigator>
+        
+        <navigator url="../../pages/foodcontentMY/foodcontentMY">
+        <view class="box_third">
+          <image class="image-suggestion" src="https://emma.com.my/wp-content/uploads/2021/01/Laksa-Nyonya-1152x768.jpg" mode="aspectFill"/>
+          <text class="title_suggestion">马来西亚</text>
+        </view>
+        </navigator> 
+      </view>
+
+      <view class="style_box2">
+        <navigator url="../../pages/foodcontentID/foodcontentID">
+        <view class="box_second">
+          <image class="image-suggestion" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.3IBt3JbSRnxffhu6RqzG_gAAAA?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+          <text class="title_suggestion">泰国</text>
+        </view>
+        </navigator>
+        
+        <navigator url="../../pages/foodcontentMY/foodcontentMY">
+        <view class="box_third">
+          <image class="image-suggestion" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.jeIEITMsvyGpxm4r-jyRqwHaFE?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+          <text class="title_suggestion">日本</text>
+        </view>
+        </navigator> 
+      </view>
+
+      <view class="style_box2">
+        <navigator url="../../pages/foodcontentID/foodcontentID">
+        <view class="box_second">
+          <image class="image-suggestion" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.xAON6Jm6-aONWdF6FJKJsQAAAA?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+          <text class="title_suggestion">越南</text>
+        </view>
+        </navigator>
+        
+        <navigator url="../../pages/foodcontentMY/foodcontentMY">
+        <view class="box_third">
+          <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.RydYFeZp9TUGJA1F77s9GAHaJ4?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+          <text class="title_suggestion">韩国</text>
+        </view>
+        </navigator> 
+      </view>
+
+    </scroll-view>
+  </view>
+
+  <view class="suggestion_title">好吃的都在哪儿?</view>
+
+  <view class="contentSuggestion">
+    <view class="box-suggestion">
+      <view class="first" wx:for="{{items}}" wx:key="id" bind:tap="navigateToContentPage" data-id="{{item.id}}">
+          <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
+          <text class="intro">{{item.intro}}</text>
+        <view class="item">
+            <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
+            <text class="item-text">{{item.text}}</text>
+            <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+          </view>
+      </view>
     </view>
   </view>
 </view>

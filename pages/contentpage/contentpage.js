@@ -14,7 +14,6 @@ Page({
     limit: 4, // 每次加载的评论数量
     hasMoreComments: true, // 是否有更多评论
     loading: false, // 是否正在加载评论
-
   },
 
   onLoad: function (options) {
@@ -24,48 +23,43 @@ Page({
       this.fetchComments(postId);
     }
   },
-
-   // 使用 wx.request 发送请求
-   fetchPostData(postId) {
+  fetchPostData(postId) {
+    let Uid = wx.getStorageSync('Uid');
+    console.log(Uid);
+    if (!Uid) {
+      console.error('未找到用户 ID');
+      return;
+    }
     const token = wx.getStorageSync('userToken');
-  
     if (!token) {
       console.error('未找到授权 token');
       return;
     }
-  
+
     wx.request({
-      url: `http://localhost:3000/contentpage/${postId}`,
-      method: 'GET',
+      url: `http://localhost:3000/contentpage/contentpage/${postId}`,
+      method: 'POST',
       header: {
-        'Authorization': token
+        'Authorization': token,
+        'Content-Type': 'application/json'
+      },
+      data: {
+        userId: Uid
       },
       success: (res) => {
         if (res.data.code === 200) {
-          const item = res.data.data;
+          const data = res.data.data;
           const imgurlArray = [
-            item.image_url,
-            item.image_url2,
-            item.image_url3,
-            item.image_url4
+            data.image_url,
+            data.image_url2,
+            data.image_url3,
+            data.image_url4
           ].filter(url => url);
+
           this.setData({
-            item: {
-              id: item.id,
-              ContentUid: item.ContentUid, // 确保这里正确设置
-              userImage: item.userImage,
-              userName: item.userName,
-              title_post: item.title_post,
-              text_post: item.text_post,
-              content_date: item.content_date,
-              position_content: item.position_content,
-              loveImage: item.loveImage,
-              isLiked: item.isLiked
-            },
+            item: data,
             imgurl: imgurlArray
           });
-          console.log('Item data:', this.data.item);
-          console.log('获取数据成功:', res.data.msg);
         } else {
           console.error('获取数据失败:', res.data.msg);
         }
@@ -73,10 +67,8 @@ Page({
       fail: (err) => {
         console.error('请求失败:', err);
       }
-      
     });
-  },
-
+},
   fetchComments(postId) {
     if (this.data.loading) return;
     this.setData({ loading: true });
@@ -125,58 +117,68 @@ Page({
       this.fetchComments(this.data.item.id);
     }
   },
+
   like_post() {
+    let Uid = wx.getStorageSync('Uid');
+    console.log(Uid);
+    if (!Uid) {
+        console.error('未找到用户 ID');
+        return;
+    }
+
     const token = wx.getStorageSync('userToken');
     if (!token) {
-      console.error('未找到授权 token');
-      return;
+        console.error('未找到授权 token');
+        return;
     }
+
     const postId = this.data.item.id;
     console.log('Liking post with ID:', postId);
     const currentLikeCount = Number(this.data.item.liked_count) || 0;
     const isLiked = !this.data.item.isLiked;
     const newLikeCount = isLiked ? currentLikeCount + 1 : currentLikeCount - 1;
-    console.log('3:', newLikeCount);
     const likeImage = isLiked ? '../../static/love2.png' : '../../static/love.png';
-  
+
     // 更新前端数据
     this.setData({
-      item: {
-        ...this.data.item,
-        isLiked: isLiked,
-        liked_count: newLikeCount, // 修正这里
-        loveImage:likeImage
-      }
-    });
-  
-     // 发送点赞请求到后端
-     wx.request({
-      url: `http://localhost:3000/contentpage/contentpage/like/${postId}`,
-      method: 'POST',
-      header: {
-        'Authorization': token
-      },
-      data: {
-        isLiked: isLiked
-      },
-      success: (res) => {
-        console.log('Response from server (like post):', res.data);
-        if (res.data.code !== 200) {
-          wx.showToast({
-            title: '点赞失败: ' + res.data.msg,
-            icon: 'none'
-          });
+        item: {
+            ...this.data.item,
+            isLiked: isLiked,
+            liked_count: newLikeCount,
+            loveImage: likeImage
         }
-      },
-      fail: (err) => {
-        console.error('请求失败:', err);
-        wx.showToast({
-          title: '请求失败',
-          icon: 'none'
-        });
-      }
     });
-  },  
+
+    // 发送点赞请求到后端
+    wx.request({
+        url: `http://localhost:3000/contentpage/contentpage/like/${postId}`,
+        method: 'POST',
+        header: {
+            'Authorization': token
+        },
+        data: {
+            userId: Uid, // 添加 userId
+            isLiked: isLiked
+        },
+        success: (res) => {
+            console.log('Response from server (like post):', res.data);
+            if (res.data.code !== 200) {
+                wx.showToast({
+                    title: '点赞失败: ' + res.data.msg,
+                    icon: 'none'
+                });
+            }
+        },
+        fail: (err) => {
+            console.error('请求失败:', err);
+            wx.showToast({
+                title: '请求失败',
+                icon: 'none'
+            });
+        }
+    });
+},
+
   onPullDownRefresh: function() {
     const postId = this.data.item.id;
     this.setData({
@@ -275,33 +277,16 @@ Page({
 
     if (deltaX < -50 && Math.abs(deltaX) > Math.abs(deltaY)) {
       this.setData({
-        isSwipe: true // 设置标志位为滑动
+        isSwipe: true
       });
-    } else {
-      this.setData({
+    }
+    this.setData({
       endX,
       endY
     });
-  }
-},
+  },
 
-  handleTouchEnd(event) {
-      const ContentUid = this.data.item.ContentUid;
-      console.log('HandleTouchEnd - UserID:', ContentUid);
-      console.log('HandleTouchEnd - IsSwipe:', this.data.isSwipe); // 添加调试信息
-      const targetUrl = `/pages/userPage/userPage?ContentUid=${ContentUid}`;
-      console.log('Navigating to:', targetUrl);
-      if (ContentUid) {
-        wx.navigateTo({
-          url: targetUrl
-        });
-      } else {
-        console.error('ContentUid is missing or swipe not detected');
-      }
-    },
-    
-  like_post: function (e) {
-    handleTouchEnd()
+  handleTouchEnd() {
     if (this.data.isSwipe) {
       wx.navigateTo({
         url: '../userPage/userPage'

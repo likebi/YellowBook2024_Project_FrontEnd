@@ -251,6 +251,8 @@ button{
 .contentSuggestion{
  width: auto;
  height: auto;
+ margin: 3%;
+
 }
 .box-suggestion {
   width: auto;
@@ -260,9 +262,9 @@ button{
 .first {
   display: flex;
   flex-direction: column;
-  width: 95%;
+  width: 100%;
   background-color: white;
-  border-radius: 10px;
+  border-radius: 30px;
   margin-bottom: 20px;
   height: auto;
   background-color: #fff;

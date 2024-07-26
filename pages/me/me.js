@@ -19,7 +19,7 @@ Page({
     currentTab: 0,
     activeTagWidth: 64,
     activeTagLeft: 0,
-    tabPositions: [22, 136, 250],
+    tabPositions: [22, 135],
     intro_user: 'Bio',
 
     items: [],
@@ -28,8 +28,7 @@ Page({
    // 使用 wx.request 发送请求
    fetchUserData() {
     const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
-    // let Uid = wx.getStorageSync('Uid');
-    let Uid = 9;
+    let Uid = wx.getStorageSync('Uid');
     console.log(Uid)
     if (!token) {
       console.error('未找到授权 token');
@@ -57,9 +56,43 @@ Page({
         }
       });
     },
+
+    // 使用 wx.request 发送请求
+fetchUserlikeData() {
+  const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+  let Uid = wx.getStorageSync('Uid');
+  console.log(Uid)
+  if (!token) {
+    console.error('未找到授权 token');
+    return;
+  }
+  wx.request({
+    url: `http://localhost:3000/notes/like/${Uid}`, // 你的后端 API 地址
+    method: 'GET',
+    header: {
+      'Authorization': token
+    },
+    success: (res) => {
+      if (res.data.code === 200) {
+        // 将返回的数据设置到 page 的 items 数据中
+        this.setData({
+          items2: res.data.data
+        });
+      } else {
+        console.error('获取数据失败:', res.data.msg);
+      }
+    },
+    fail: (err) => {
+      console.error('请求失败:', err);
+    }
+  });
+},
+
+
   onLoad: function () {
     this.getUserInfo();
     this.fetchUserData();
+    this.fetchUserlikeData() ;
     this.setData({
       activeTagLeft: this.data.tabPositions[this.data.currentTab]
     });
@@ -155,77 +188,6 @@ Page({
     });
   },
 
-  like_post(event) {
-    const token = wx.getStorageSync('userToken');
-    if (!token) {
-      console.error('未找到授权 token');
-      return;
-    }
-    console.log('Event data:', event.currentTarget.dataset); // 添加调试输出
-    const postId = event.currentTarget.dataset.id; // 从事件数据中获取 ID
-    console.log(postId);
-    if (!postId) {
-      console.error('无法获取帖子 ID');
-      return;
-    }
-    
-    console.log('Liking post with ID:', postId);
-    
-    // 找到 item 中对应的 postId
-    const items = this.data.items;
-    const itemIndex = items.findIndex(item => item.id === postId);
-    
-    if (itemIndex === -1) {
-      console.error('未找到对应的 item');
-      return;
-    }
-    
-    const item = items[itemIndex];
-    const currentLikeCount = Number(item.liked_count) || 0;
-    const isLiked = !item.isLiked;
-    const newLikeCount = isLiked ? currentLikeCount + 1 : currentLikeCount - 1;
-    const likeImage = isLiked ? '../../static/love2.png' : '../../static/love.png';
-    
-    // 更新前端数据
-    items[itemIndex] = {
-      ...item,
-      isLiked: isLiked,
-      liked_count: newLikeCount,
-      loveImage: likeImage
-    };
-    
-    this.setData({
-      items: [...items] // 触发更新
-    });
-    
-    // 发送点赞请求到后端
-    wx.request({
-      url: `http://localhost:3000/contentpage/contentpage/like/${postId}`,
-      method: 'POST',
-      header: {
-        'Authorization': token
-      },
-      data: {
-        isLiked: isLiked
-      },
-      success: (res) => {
-        console.log('Response from server (like post):', res.data);
-        if (res.data.code !== 200) {
-          wx.showToast({
-            title: '点赞失败: ' + res.data.msg,
-            icon: 'none'
-          });
-        }
-      },
-      fail: (err) => {
-        console.error('请求失败:', err);
-        wx.showToast({
-          title: '请求失败',
-          icon: 'none'
-        });
-      }
-    });
-  },
 // 选择昵称
 onChooseNickname(e) {
   console.log(e);
