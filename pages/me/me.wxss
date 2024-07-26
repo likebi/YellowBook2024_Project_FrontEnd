@@ -290,3 +290,7 @@ display: inline-block;
   font-size: 12px; 
   color: #333; 
 }
+
+.delete-button{
+  font-size: 12px;
+}

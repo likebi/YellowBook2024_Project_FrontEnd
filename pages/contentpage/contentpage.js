@@ -14,6 +14,7 @@ Page({
     limit: 4, // 每次加载的评论数量
     hasMoreComments: true, // 是否有更多评论
     loading: false, // 是否正在加载评论
+    user_id:'',
   },
 
   onLoad: function (options) {
@@ -58,7 +59,8 @@ Page({
 
           this.setData({
             item: data,
-            imgurl: imgurlArray
+            imgurl: imgurlArray,
+            user_id:data.user_id
           });
         } else {
           console.error('获取数据失败:', res.data.msg);
@@ -191,6 +193,7 @@ Page({
   },
 
   submitComment() {
+    const userId=wx.getStorageSync('Uid')
     const token = wx.getStorageSync('userToken'); // 获取 token
     if (!token) {
       console.error('未找到授权 token');
@@ -205,9 +208,6 @@ Page({
       });
       return;
     }
-    
-    // const userId = wx.getStorageSync('Uid'); // 从本地存储获取用户 ID
-    const userId = 9; // 从本地存储获取用户 ID
   
     wx.request({
       url: `http://localhost:3000/comment/comments`, // 后端 API 地址
@@ -286,13 +286,21 @@ Page({
     });
   },
 
-  handleTouchEnd() {
-    if (this.data.isSwipe) {
+  handleTouchEnd(event) {
+    const ContentUid = this.data.item.ContentUid;
+    console.log('HandleTouchEnd - UserID:', ContentUid);
+    console.log('HandleTouchEnd - IsSwipe:', this.data.isSwipe); // 添加调试信息
+    const targetUrl = `/pages/userPage/userPage?ContentUid=${ContentUid}`;
+    console.log('Navigating to:', targetUrl);
+    if (ContentUid && this.data.isSwipe) {
       wx.navigateTo({
-        url: '../userPage/userPage'
+        url: targetUrl
       });
+    } else {
+      console.error('ContentUid is missing or swipe not detected');
     }
   },
+
 
   like_comment(e) {
     const token = wx.getStorageSync('userToken');
@@ -351,9 +359,11 @@ Page({
   },  
 
   navigateToUserPage() {
+    const ContentUid = this.data.item.ContentUid;
+
     if (!this.data.isSwipe) {
       wx.navigateTo({
-        url: '../userPage/userPage'
+        url: `/pages/userPage/userPage?ContentUid=${ContentUid}`
       });
     }
   },

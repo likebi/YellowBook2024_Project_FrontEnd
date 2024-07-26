@@ -56,7 +56,85 @@ Page({
         }
       });
     },
+    removePost(e) {
+      const postId = e.currentTarget.dataset.id;
+      
+      const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+      let Uid = wx.getStorageSync('Uid');
+      console.log(Uid)
+      if (!token) {
+        console.error('未找到授权 token');
+        return;
+      }
+  
+      wx.showModal({
+          title: '提示',
+          content: '确定要删除这篇笔记吗？',
+          success: (res) => {
+              if (res.confirm) {
+                  wx.request({
+                      url: `http://localhost:3000/notes/delete/${postId}`, // 确保 URL 格式正确
+                      method: 'DELETE',
+                      header: {
+                          'Authorization': token 
+                      },
+                      success: (res) => {
+                          if (res.data.code === 200) {
+                              wx.showToast({
+                                  title: '删除成功',
+                                  icon: 'success'
+                              });
+                              // 更新页面数据
+                              this.fetchUserData();
+                          } else {
+                              wx.showToast({
+                                  title: '删除失败',
+                                  icon: 'none'
+                              });
+                          }
+                      },
+                      fail: (err) => {
+                          console.error('请求失败:', err);
+                          wx.showToast({
+                              title: '请求失败',
+                              icon: 'none'
+                          });
+                      }
+                  });
+              }
+          }
+      });
+  },  
 
+  fetchLikeNum () {
+    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+      let Uid = wx.getStorageSync('Uid');
+      console.log(Uid)
+      if (!token) {
+        console.error('未找到授权 token');
+        return;
+      }
+
+    wx.request({
+      url: `http://localhost:3000/notes/countlike/${Uid}`, // 你的后端 API 地址
+      method: 'GET',
+      header: {
+        'Authorization': token
+      },
+      success: (res) => {
+        if (res.data.code === 200) {
+          this.setData({
+            like_num: res.data.data.likeCount // 假设后端返回的数据结构中包含 `like_num`
+          });
+        } else {
+          console.error('获取数据失败:', res.data.msg);
+        }
+      },
+      fail: (err) => {
+        console.error('请求失败:', err);
+      }
+    });
+  },
     // 使用 wx.request 发送请求
 fetchUserlikeData() {
   const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
@@ -93,6 +171,7 @@ fetchUserlikeData() {
     this.getUserInfo();
     this.fetchUserData();
     this.fetchUserlikeData() ;
+    this.fetchLikeNum();
     this.setData({
       activeTagLeft: this.data.tabPositions[this.data.currentTab]
     });
@@ -141,6 +220,9 @@ fetchUserlikeData() {
 
   onShow() {
     this.getUserInfo();
+    this.fetchUserData();
+    this.fetchUserlikeData();
+    this.fetchLikeNum();
   },
 
   back() {
@@ -267,7 +349,12 @@ sendUserInfoToServer(data) {
       currentTab: index,
       activeTagLeft: this.data.tabPositions[index]
     });
-  },
+  
+    // 切换到点赞标签页时刷新点赞数据
+    if (index === 1) {
+      this.fetchUserlikeData();
+    }
+  },  
 
   swiperChange(e) {
     const current = e.detail.current;
@@ -275,7 +362,12 @@ sendUserInfoToServer(data) {
       currentTab: current,
       activeTagLeft: this.data.tabPositions[current]
     });
-  },
+  
+    // 滑动到点赞页面时刷新点赞数据
+    if (current === 1) {
+      this.fetchUserlikeData();
+    }
+  },  
 
   edit_Profile() {
     wx.navigateTo({
@@ -298,6 +390,4 @@ sendUserInfoToServer(data) {
     })
   })
 },
-
-
 })

@@ -61,26 +61,28 @@
 
   <!-- 滑动窗口 -->
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperChange" class="swiper-container">
-    <!-- 笔记 -->
-    <swiper-item>
-      <scroll-view class="content" scroll-y>
-        <view class="contentSuggestion">
-          <view class="box-suggestion">
-            <view class="first" wx:for="{{items}}" wx:key="id">
-              <image class="image1" src="{{item.itemImage}}" mode="aspectFill" bindtap="navigateToContentPage" data-id="{{item.id}}"/>
-              <text class="intro" bindtap="navigateToContentPage" data-id="{{item.id}}">{{item.intro}}</text>
-              
-              <view class="item">
-                <view class="left">
-                  <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
-                  <text class="item-text">{{item.text}}</text>
-                </view>
-              </view>
+<!-- 笔记 -->
+<swiper-item>
+  <scroll-view class="content" scroll-y>
+    <view class="contentSuggestion">
+      <view class="box-suggestion">
+        <view class="first" wx:for="{{items}}" wx:key="id">
+          <image class="image1" src="{{item.itemImage}}" mode="aspectFill" bindtap="navigateToContentPage" data-id="{{item.id}}"/>
+          <text class="intro" bindtap="navigateToContentPage" data-id="{{item.id}}">{{item.intro}}</text>
+          
+          <view class="item">
+            <view class="left">
+              <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
+              <text class="item-text">{{item.text}}</text>
             </view>
+            <button class="delete-button" bindtap="removePost" data-id="{{item.id}}">删除</button>
           </view>
         </view>
-      </scroll-view>
-    </swiper-item>
+      </view>
+    </view>
+  </scroll-view>
+</swiper-item>
+
 
     <!-- 点赞 -->
     <swiper-item>
