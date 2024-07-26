@@ -1,5 +1,7 @@
 #container {
+  height: 200vh;
   padding: 20rpx;
+  background-image: url('https://wallpapercave.com/wp/wp6055222.jpg'); /* Set the background image */
 }
 
 .header {
@@ -17,14 +19,15 @@
 .search-window {
   display: flex;
   align-items: center;
-  border: 1px solid #ddd;
+  border: 1px solid black;
   border-radius: 30rpx;
   padding: 0 10rpx;
+  color: black;
 }
 
 .icon {
-  width: 30rpx;
-  height: 30rpx;
+  width: 20px;
+  height: 20px;
 }
 
 .search-input {
@@ -32,11 +35,12 @@
   padding: 5rpx 20rpx;
   border: none;
   font-size: 25rpx;
+  color: black;
 }
 
 .search-button {
   cursor: pointer;
-  color: #999;
+  color: black;
 }
 
 .history {
@@ -57,24 +61,29 @@
 }
 
 .history-item {
+  width: auto;
   display: flex;
   margin: 10rpx;
   padding: 10rpx;
   border: 1px solid #ddd;
   border-radius: 40rpx;
   font-size: 25rpx;
-  background-color: rgba(200, 200, 200, 0.4);
+  background-color: #2CC4D3;
+  color: black;
 }
 
 .discover {
-  margin-bottom: 20rpx;
+  margin-bottom: 30px;
 }
 
+.discover-title-box {
+  margin-bottom: 20px;
+}
 .discover-title {
   font-weight: 700;
   font-size: 30rpx;
   padding: 50rpx;
-  margin-bottom: 10rpx;
+  margin-bottom: 30rpx;
 }
 
 .discover-list {
@@ -84,10 +93,13 @@
 
 .discover-item {
   display: flex;
-  margin-bottom: 20rpx;
+  margin: 3%;
+  /* margin-bottom: 20rpx; */
   border: 1px solid #ddd;
   border-radius: 20rpx;
   overflow: hidden;
+  background-color: #2CC4D3;
+  
 }
 
 .discover-image {
@@ -121,6 +133,7 @@
 
 .discover-username {
   font-size: 24rpx;
-  color: #666;
+  color: black;
+  font-weight: 600;
 }
 

@@ -1,3 +1,10 @@
+.outer-box {
+  height: 42vh;
+  width: auto;
+  background-image: url('https://img.freepik.com/premium-photo/blue-sky-with-clouds-blue-sky-with-clouds-in-manga-anime-comic-style-digital-art-style-illustration-painting_743201-5170.jpg'); 
+  border-bottom: 1px solid grey;
+  border-radius: 0rpx 0rpx 50rpx 50rpx ;
+}
 #container {
   padding: 20rpx;
 }
@@ -30,7 +37,7 @@
   height: 40rpx; 
   line-height: 40rpx;
   text-align: center;
-  background-color: #ABABAB; 
+  background-color: #2CC4D3; 
   margin-right: 10px;
   border-radius: 40rpx;
   font-size: 20rpx;
@@ -54,17 +61,19 @@
 .icon {
   width: 30rpx;
   height: 30rpx;
+  margin-right: 10px;
 }
 
 .search-input {
   flex: 1;
   padding: 10rpx;
   border: none;
+  color: #FFFFFF;
 }
 
 .search-button {
   cursor: pointer;
-  color: #999;
+  color: #ffffff;
 }
 
 .title_box{
@@ -77,7 +86,6 @@
   margin-left: 40rpx;
   margin-top: 20rpx;
   height: 280rpx;
-  background-color: lightblue;
   height: auto;
 }
 .link_suggestion_box{

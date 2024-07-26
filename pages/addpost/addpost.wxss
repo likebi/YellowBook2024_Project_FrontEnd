@@ -228,7 +228,7 @@
   border-radius: 20px;
   color: #fff;
   font-size: 15px;
-  background-color: #f02f2fef;
+  background-color: #2CC4D3;
 }
 .notification {
   position: fixed;

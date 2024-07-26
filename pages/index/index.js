@@ -17,99 +17,81 @@ Page({
     namePosition: '',
     dropdownVisible: false,
     options: [
-      { label: '发布', value: '/pages/addpost/addpost' },
+      { label: '发布', value: '/pages/addpost/addpost'},
     ],
     items: [],
     page: 1 // 初始化页数为1
   },
 
-  // 使用 wx.request 发送请求
-  fetchUserData() {
-    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
-    const { page } = this.data;
+  onShow: function () {
+    this.getUserInfo();
+    this.fetchUserData(); // 调用获取数据的函数
+  },
 
+  fetchUserData() {
+    const token = wx.getStorageSync('userToken');
+    const { page } = this.data;
+    let Uid = wx.getStorageSync('Uid');
+    console.log('Fetching data for userId:', Uid); // Debugging
+    if (!Uid) {
+      console.error('未找到用户 ID');
+      return;
+    }
     if (!token) {
       console.error('未找到授权 token');
       return;
     }
 
     wx.request({
-      url: `http://localhost:3000/firstPages/items?page=${page}`, // 增加分页参数
+      url: `http://localhost:3000/firstPages/items?page=${page}&userId=${Uid}`,
       method: 'GET',
       header: {
         'Authorization': token
       },
       success: (res) => {
+        console.log('Response data:', res.data); // Debugging
         if (res.data.code === 200) {
-          // 将新的数据追加到 items 中
-          this.setData({
-            items: this.data.items.concat(res.data.data), // 追加新数据
-            page: page + 1 // 更新页数
-          });
+          if (Array.isArray(res.data.data)) {
+            this.setData({
+              items: this.data.items.concat(res.data.data || []),
+              page: page + 1
+            });
+            wx.stopPullDownRefresh(); // 停止当前的下拉刷新
+          } else {
+            console.error('返回的数据格式不正确:', res.data.data);
+            wx.stopPullDownRefresh(); // 停止当前的下拉刷新
+          }
         } else {
           console.error('获取数据失败:', res.data.msg);
+          wx.stopPullDownRefresh(); // 停止当前的下拉刷新
         }
       },
       fail: (err) => {
         console.error('请求失败:', err);
+        wx.stopPullDownRefresh(); // 停止当前的下拉刷新
       }
     });
   },
 
-  like_post(event) {
-    const token = wx.getStorageSync('userToken');
-    if (!token) {
-      console.error('未找到授权 token');
-      return;
-    }
-    const index = event.currentTarget.dataset.index;
-    const postId = this.data.items[index].id;
-    const isLiked = !this.data.items[index].isLiked;
-    const currentLikeCount = Number(this.data.items[index].liked_count) || 0;
-    const newLikeCount = isLiked ? currentLikeCount + 1 : currentLikeCount - 1;
-    const likeImage = isLiked ? '../../static/love2.png' : '../../static/love.png';
-
-    // 更新前端数据
-    this.setData({
-      [`items[${index}].isLiked`]: isLiked,
-      [`items[${index}].liked_count`]: newLikeCount,
-      [`items[${index}].loveImage`]: likeImage
-    });
-
-    // 发送点赞请求到后端
-    wx.request({
-      url: `http://localhost:3000/contentpage/contentpage/like/${postId}`,
-      method: 'POST',
-      header: {
-        'Authorization': token
-      },
-      data: {
-        isLiked: isLiked
-      },
-      success: (res) => {
-        console.log('Response from server (like post):', res.data);
-        if (res.data.code !== 200) {
-          wx.showToast({
-            title: '点赞失败: ' + res.data.msg,
-            icon: 'none'
-          });
-        }
-      },
-      fail: (err) => {
-        console.error('请求失败:', err);
-        wx.showToast({
-          title: '请求失败',
-          icon: 'none'
-        });
-      }
+  onPullDownRefresh() {
+    console.log('触发了 onPullDownRefresh');
+    this.setData({ page: 1, items: [] }, () => {
+      this.fetchUserData();
     });
   },
 
-  onOptionSelect(e) {
-    const value = e.currentTarget.dataset.value;
+  onOptionSelect(event) {
+    const { value } = event.currentTarget.dataset;
     wx.navigateTo({
-      url: value
+      url: value,
+      success: (res) => {
+        console.log('Navigation successful:', res);
+      },
+      fail: (err) => {
+        console.error('Navigation failed:', err);
+      },
     });
+    // Close the dropdown menu after selection
     this.setData({
       dropdownVisible: false
     });
@@ -132,19 +114,6 @@ Page({
     const app = getApp();
     app.checkUserToken(() => {
       this.fetchUserData();
-    });
-  },
-
-  fetchUserData() {
-    const app = getApp();
-    app.fetchUserData((err, data) => {
-      if (err) {
-        console.error('获取数据失败:', err);
-      } else {
-        this.setData({
-          items: data
-        });
-      }
     });
   },
 
@@ -277,8 +246,5 @@ Page({
     const value = e.currentTarget.dataset.value;
     wx.navigateTo({ url: value });
     this.setData({ dropdownVisible: false });
-  },
+  }
 });
-
-
-

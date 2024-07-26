@@ -44,16 +44,20 @@
       <image src="../../static/comments.png" class="comment-icon" bindtap="submitComment"/>
     </view>
 
-    <view class="user_comment" wx:for="{{comments}}" wx:key="id">
+<view class="user_comment" wx:for="{{comments}}" wx:key="id">
   <image src="{{item.userImage}}" class="commentuser-image" mode="aspectFill"></image>
   <view class="commentuser_info">
     <text class="commentuser-name">{{item.userName}}</text>
     <text class="commentuser-text">{{item.comment}}</text>
     <text class="commentuser-position">{{item.day}}天前 {{item.place}}</text>
   </view>
-  <image src="{{item.loveImage}}" class="icon_love" data-index="{{index}}" bindtap="like_comment"/>
-  <text class="liked_count">{{item.liked_count}}</text> <!-- 使用 liked_count -->
+  <view class="icon-container">
+    <image src="{{item.loveImage}}" class="icon_love" data-index="{{index}}" bindtap="like_comment"/>
+    <text class="liked_count">{{item.liked_count}}</text> <!-- 使用 liked_count -->
+  </view>
 </view>
+
+<view class="title_end">——The End——</view>
   </view>
 </view>
 </scroll-view>

@@ -49,7 +49,6 @@
             <view class="hotel-header">
               <image src="{{item.locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
               <text class="room-intro">{{item.tripLocation}}</text>
-              <image src="{{item.loveImage}}" class="item-love1" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
             </view>
             
             <view class="item">
@@ -57,15 +56,8 @@
                 <text>{{item.tripRating}}</text>
                 <image class="review-star" src="{{item.tripreviewStar}}"/>
               </view>
-              <text class="item-text1">{{item.tripPrice}}</text>
-              <view class="booknow-box">
-                <text>预定</text>
-              </view>
             </view>
-         
         </view>
-        
-
       </view>
     </view>
   </view>

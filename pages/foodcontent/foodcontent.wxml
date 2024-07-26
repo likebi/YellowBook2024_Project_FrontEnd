@@ -48,7 +48,6 @@
             <view class="hotel-header">
               <image src="{{item.locationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
               <text class="room-intro">{{item.foodLocation}}</text>
-              <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}" ></image>
             </view>
             
             <view class="item">
@@ -56,12 +55,7 @@
                 <text>{{item.foodRating}}</text>
                 <image class="review-star" src="{{item.foodfiveStars}}"/>
               </view>
-              <text class="item-text">{{item.text}}</text>
-              <view class="booknow-box">
-                <text>预定</text>
-              </view>
             </view>
-          
         </view>
       </view>
     </view>

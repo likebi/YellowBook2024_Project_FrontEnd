@@ -200,10 +200,10 @@ Page({
       },
     });
   },
-
   submitPost() {
     const token = wx.getStorageSync('userToken');
     const base64Promises = this.data.images.map(image => this.base64(image));
+    
     Promise.all(base64Promises)
       .then(base64Images => {
         wx.request({
@@ -230,6 +230,19 @@ Page({
               },
               fail: (res) => {
                 console.error('Navigation failed:', res);
+                // If navigation fails, redirect to another page
+                wx.switchTab({
+                  url: '/pages/index/index', // Replace with the actual path of the page you want to redirect to
+                  success: (res) => {
+                    console.log('Successfully redirected');
+                  },
+                  fail: (res) => {
+                    console.error('Redirection failed:', res);
+                  },
+                  complete: (res) => {
+                    console.log('Redirection complete');
+                  }
+                });
               },
               complete: (res) => {
                 console.log('Navigation complete');
@@ -246,7 +259,7 @@ Page({
         console.error('Base64 conversion failed:', err);
       });
   },
-
+  
   base64(url, type) {
     return new Promise((resolve, reject) => {
       wx.getFileSystemManager().readFile({
@@ -257,9 +270,11 @@ Page({
           resolve(res.data)
         },
         fail: res => reject(res.errMsg)
-      })
-    })
+      });
+    });
   }
+  
+  
 });
 
 

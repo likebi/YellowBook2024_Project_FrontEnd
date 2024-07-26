@@ -48,17 +48,12 @@
             <view class="hotel-header">
               <image src="{{item.hotellocationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
               <text class="room-intro">{{item.hotelDescription}}</text>
-              <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
             </view>
             
             <view class="item">
               <view class="review-box">
                 <text>{{item.hotelReview}}</text>
                 <image class="review-star" src="{{item.hotelstarRating}}"/>
-              </view>
-              <text class="item-text">{{item.hotelPrice}}</text>
-              <view class="booknow-box">
-                <text>预定</text>
               </view>
             </view>
         </view>

@@ -3,6 +3,10 @@ App({
     this.checkUserToken(this.fetchUserData);
   },
 
+  globalData: {
+    needRefresh: false
+  },
+
   checkUserToken(callback) {
     let userToken = wx.getStorageSync('userToken');
     if (!userToken) {

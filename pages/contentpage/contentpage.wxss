@@ -26,17 +26,17 @@
 }
 
 .item-text {
+  width: 180px;
   margin-left: 3rpx;
   font-weight: 550;
   font-size: 13px; 
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji, BlinkMacSystemFont, Helvetica Neue, Arial, PingFang SC, PingFang TC, PingFang HK, Microsoft Yahei, Microsoft JhengHei;
   color: var(--color-secondary-label);
 }
 
 .button_follow {
   display: flex;
   justify-content: center;
-  margin-left: 390rpx;
+  margin-left: 70rpx;
   width: 80rpx;
   height: 45rpx;
   line-height: 45rpx;
@@ -103,7 +103,7 @@
   margin-left: auto;
 }
 
-.image_collum {
+.image_collum{
   width: 50rpx;
   height: 50rpx;
 }
@@ -148,10 +148,9 @@
 }
 
 .user_comment {
-  position: relative;
   display: flex;
   margin: 10rpx 20rpx;
-  height: 75px;
+  height: auto; /* 允许高度自动适应内容 */
 }
 
 .commentuser-image {
@@ -160,29 +159,43 @@
   border-radius: 50%;
 }
 
-.commentuser-name {
+.commentuser_info {
   display: flex;
   flex-direction: column;
   margin-left: 20rpx;
+  flex: 1; /* 使得评论信息区域可以扩展 */
+}
+
+.commentuser-name {
   font-size: 28rpx;
   color: #666;
 }
 
 .commentuser-text {
-  margin-left: 20rpx;
-  font-size: 15px;
+  width: 220px; /* 固定宽度，超过部分自动换行 */
+  font-size: 16px;
   font-weight: 500;
+  word-break: break-word; /* 强制在单词边界内换行 */
+  white-space: normal; /* 确保文本能正常换行 */
+  margin-top: 5rpx; /* 增加一点上边距以改善布局 */
 }
 
 .commentuser-position {
-  margin-left: 40rpx;
+  margin-top: 5rpx;
   font-size: 12px;
   font-weight: 500;
   color: #999;
 }
 
+.icon-container{
+  position: relative;
+  display: flex;
+  width: 40px;
+
+}
 .icon_love {
-  position: absolute;
+  position: relative;
+  justify-content: flex-end;
   right: 5px;
   top: 6px;
   width: 60rpx;
@@ -191,8 +204,11 @@
 
 .liked_count {
   position: absolute;
-  bottom: 15px;
-  right: 16px;
+  justify-content: flex-end;
+  right: 20px;
+  bottom:0px;
 }
 
-
+.title_end {
+  text-align: center;
+}

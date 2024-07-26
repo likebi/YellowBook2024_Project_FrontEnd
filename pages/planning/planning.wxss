@@ -3,7 +3,9 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  height: auto;
   justify-content: center;
+  background-image: url('https://img.freepik.com/premium-photo/blue-sky-with-clouds-blue-sky-with-clouds-in-manga-anime-comic-style-digital-art-style-illustration-painting_743201-5170.jpg'); /* Set the background image */
 }
 
 .title-bar {
@@ -15,6 +17,7 @@
 .title {
   width: 100%;
   text-align: center;
+  color: white;
 }
 
 .history {

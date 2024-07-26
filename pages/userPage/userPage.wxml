@@ -59,7 +59,6 @@
 
   <!-- 滑动窗口 -->
   <swiper current="{{currentTab}}" duration="300" bindchange="swiperChange" class="swiper-container">
-    <!-- 笔记 -->
     <swiper-item>
       <scroll-view class="content" scroll-y>
         <view class="contentSuggestion">
@@ -78,7 +77,6 @@
       </scroll-view>
     </swiper-item>
 
-    <!-- 收藏 -->
     <swiper-item>
       <view class="content">
         <scroll-view class="content" scroll-y>
@@ -100,3 +98,4 @@
     </swiper-item>
   </swiper>
 </view>
+
