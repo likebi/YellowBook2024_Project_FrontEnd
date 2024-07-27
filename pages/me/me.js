@@ -17,7 +17,7 @@ Page({
     activeTagWidth: 64,
     activeTagLeft: 0,
     tabPositions: [22, 135],
-    intro_user: '',
+    intro_user: '这人害羞：没有简介',
     items: [],
 },
 
