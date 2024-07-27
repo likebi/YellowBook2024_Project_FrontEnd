@@ -1,6 +1,6 @@
 Page({
   data: {
-    postUrl: 'https://hotels.ctrip.com/hotels/list?countryId=1&city=1&provinceId=0&checkin=2024/07/23&checkout=2024/07/24&optionId=1&optionType=City&directSearch=0&display=%E5%8C%97%E4%BA%AC%2C%20%E4%B8%AD%E5%9B%BD&crn=1&adult=1&children=0&searchBoxArg=t&travelPurpose=0&ctm_ref=ix_sb_dl&domestic=1&',
+    postUrl: 'https://you.ctrip.com/photos/sight/shanghai2/r107597.html',
     // qrCodeUrl: '' // URL for the generated QR code
   },
   // onLoad: function() {
