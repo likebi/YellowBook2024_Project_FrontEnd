@@ -13,30 +13,19 @@
           <navigator url="/pages/search/search" class="search-link">输入搜索内容</navigator>
         </view>
       </view>
-
-      <view class="dropdown-container">
-        <image src="../../static/pluscirclewhite.png" bindtap="toggleDropdown" class="dropdown-img" />
-        <view wx:if="{{dropdownVisible}}" class="dropdown-menu">
-          <block wx:for="{{options}}" wx:key="value">
-            <view class="dropdown-item" bindtap="onOptionSelect" data-value="{{item.value}}">
-              {{item.label}}
-            </view>
-          </block>
-        </view>
-      </view>
     </view>
 
     <!-- 轮播图 -->
     <view class="page-section page-section-spacing swiper">
       <swiper id="mySwiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}">
-        <block wx:for="{{background}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-          <swiper-item>
-            <image class="swiper-item" src="{{item}}" mode="aspectFill"></image>
-          </swiper-item>
-        </block>
-      </swiper>
-      <view bindtap="prevImage" class="leftArrow">{{Arrow1}}</view>
-      <view bindtap="nextImage" class="rightArrow">{{Arrow2}}</view>
+      <block wx:for="{{background}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+        <swiper-item bind:tap="navigateToLink" data-url="https://you.ctrip.com/sight/borobudur14417/48376.html?renderPlatform=">
+          <image class="swiper-item" src="{{item}}" mode="aspectFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view bindtap="prevImage" class="leftArrow">{{Arrow1}}</view>
+    <view bindtap="nextImage" class="rightArrow">{{Arrow2}}</view>
     </view>
 
     <!-- 功能图标 -->

@@ -353,7 +353,7 @@ Page({
   navigateToUserPage() {
     if (!this.data.isSwipe) {
       wx.navigateTo({
-        url: '../userPage/userPage'
+        url: `/userPage/userPage?ContentUid=${ContentUid}`
       });
     }
   },
