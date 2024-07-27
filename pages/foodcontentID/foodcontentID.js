@@ -30,7 +30,7 @@ Page({
       {
         id: 1,
         hotelImage:'https://dimg04.c-ctrip.com/images/1mc1w12000enmdcwd8C74_R_600_400_R5_D.jpg',
-        hotelIntroduction:'food KOREA',
+        hotelIntroduction:'food Indonesia',
         hotelPrice: "1490¥",
         hotelReview:'4.8',
         hotelstarRating:'/static/stars.png',
