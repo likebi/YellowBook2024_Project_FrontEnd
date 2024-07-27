@@ -167,6 +167,7 @@ Page({
     this.savePost_Title();
   },
 
+
   handleContent(e) {
     console.log(e);
     this.setData({
@@ -200,6 +201,19 @@ Page({
       },
     });
   },
+
+  clearFormData() {
+    // 清空 data 中的表单字段
+    this.setData({
+      title: '',
+      content: '',
+      selectedLocation: '',
+      selectedTag: '',
+      images: [],
+      dropdownVisibleHeader: false,
+      selectedHeader: ''
+    });
+  },
   submitPost() {
     const token = wx.getStorageSync('userToken');
     const base64Promises = this.data.images.map(image => this.base64(image));
@@ -220,11 +234,14 @@ Page({
             location: this.data.selectedLocation,
             tag: this.data.selectedTag,
           },
-          success(res) {
+          success: (res) => {
             console.log('发布成功:', res.data);
-            // 处理发布成功后的逻辑
+            // 清空表单字段
+            this.clearFormData();
+
+            // Navigate back one page
             wx.navigateBack({
-              delta: 1, // Navigate back one page
+              delta: 1,
               success: (res) => {
                 console.log('Successfully navigated back');
               },
@@ -249,7 +266,7 @@ Page({
               }
             });
           },
-          fail(err) {
+          fail: (err) => {
             console.log('发布失败:', err);
             // 处理发布失败后的逻辑
           }
@@ -259,7 +276,7 @@ Page({
         console.error('Base64 conversion failed:', err);
       });
   },
-  
+
   base64(url, type) {
     return new Promise((resolve, reject) => {
       wx.getFileSystemManager().readFile({

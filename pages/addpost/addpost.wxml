@@ -9,10 +9,11 @@
     </block>
   </view>
   
-  <!-- 文字上传区域 -->
-  <input class="title" type="text" name="title" placeholder="添加标题会有更多赞哦~" bindinput="handleInput" data-field="title"/>
-  <textarea class="content" value="" maxlength="-1" placeholder="添加正文" auto-focus bindinput="handleContent" data-field="content"></textarea>
-  <!-- maxlength = 无线输入 -->
+<!-- 文字上传区域 -->
+<input class="title" type="text" name="title" placeholder="添加标题会有更多赞哦~" bindinput="handleInput" data-field="title" value="{{title}}"/>
+<textarea class="content" value="{{content}}" maxlength="-1" placeholder="添加正文" auto-focus bindinput="handleContent" data-field="content"></textarea>
+<!-- maxlength = 无线输入 -->
+
   
   <!-- 话题标签区域 -->
   <view class="post-element">
