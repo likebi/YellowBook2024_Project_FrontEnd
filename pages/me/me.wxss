@@ -31,15 +31,6 @@
   justify-content: center;
 }
 
-.change-bg-button {
-  width: 100px !important;
-  position: absolute;
-  top: 10px; 
-  right: 1px; 
-  font-size: 14px;
-  border: none;
-  color: #ccc; 
-}
 
 button {
   border: none;
@@ -191,20 +182,6 @@ button {
   height: 100%;
 }
 
-.button_edit {
-  position: absolute;
-  right: 60px;
-  bottom: 8px;
-  margin-top: 5px;
-  width: 80px;
-  height: 25px;
-  line-height: 25px;
-  text-align: center;
-  background-color: rgba(56, 52, 52, 0.4);
-  border-radius: 10px;
-  font-size: 12px;
-  color: #fff; /* 字体颜色 */
-}
 .box-suggestion {
   display: flex; /* 使用flex布局 */
   flex-wrap: wrap; /* 允许换行 */

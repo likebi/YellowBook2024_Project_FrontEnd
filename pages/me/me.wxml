@@ -3,9 +3,6 @@
 </view>
 
 <view class="me-info">
-  <button open-type="chooseImage" bindtap="onChooseBackground" class="change-bg-button">更换背景</button>
-  <button open-type="chooseImage" bindtap="onChooseBackground" class="change-bg-button">更换背景</button>
-
   <view class="avatar1">
     <button class="button-user" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
       <image src="{{userImage}}" class="user-image" mode="aspectFill" />
@@ -40,9 +37,6 @@
     </navigator>
   </view>
 
-  <view class="button_edit" bindtap="edit_Profile">
-    Edit Profile
-  </view>
 </view>
 
 <view class="container">
