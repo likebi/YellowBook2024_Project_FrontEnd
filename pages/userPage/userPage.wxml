@@ -51,7 +51,7 @@
         bindtap="switchTab"
         data-index="1"
       >
-        <span class="content_title">收藏</span>
+        <span class="content_title">点赞</span>
       </view>
       <view class="active-tag" style="width: {{activeTagWidth}}px; left: {{activeTagLeft}}px;"></view>
     </view>

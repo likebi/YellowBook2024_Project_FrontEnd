@@ -28,6 +28,7 @@ Page({
       });
       this.sendUserInfo(ContentUid);
       this.fetchUserData();
+      this.fetchUserlikeData();
     }
     this.getUserInfo();
     this.setData({
@@ -67,7 +68,6 @@ Page({
 // 使用 wx.request 发送请求
 fetchUserData() {
   const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
-  // let Uid = wx.getStorageSync('Uid');
   let Uid = this.data.ContentUid; // 硬编码的 Uid，用于调试或测试
   console.log(Uid);
   if (!token) {
@@ -95,6 +95,37 @@ fetchUserData() {
     }
   });
 },
+
+fetchUserlikeData() {
+  const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+  let Uid = this.data.ContentUid; // 硬编码的 Uid，用于调试或测试
+  console.log(Uid)
+  if (!token) {
+    console.error('未找到授权 token');
+    return;
+  }
+  wx.request({
+    url: `http://localhost:3000/notes/like/${Uid}`, // 你的后端 API 地址
+    method: 'GET',
+    header: {
+      'Authorization': token
+    },
+    success: (res) => {
+      if (res.data.code === 200) {
+        // 将返回的数据设置到 page 的 items 数据中
+        this.setData({
+          items2: res.data.data
+        });
+      } else {
+        console.error('获取数据失败:', res.data.msg);
+      }
+    },
+    fail: (err) => {
+      console.error('请求失败:', err);
+    }
+  });
+},
+
   
 
   back() {

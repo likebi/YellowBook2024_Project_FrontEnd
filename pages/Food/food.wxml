@@ -84,17 +84,19 @@
 
   <view class="suggestion_title">好吃的都在哪儿?</view>
 
-  <view class="contentSuggestion">
-    <view class="box-suggestion">
-      <view class="first" wx:for="{{items}}" wx:key="id" bind:tap="navigateToContentPage" data-id="{{item.id}}">
-          <image class="image1" src="{{item.itemImage}}" mode="aspectFill" />
-          <text class="intro">{{item.intro}}</text>
-        <view class="item">
-            <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
-            <text class="item-text">{{item.text}}</text>
-            <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+   <!-- 内容推荐 -->
+   <view class="contentSuggestion">
+      <view class="box-suggestion">
+        <view class="first" wx:for="{{items}}" wx:key="id">
+          <image class="image1" src="{{item.itemImage}}" mode="aspectFill" bindtap="navigateToContentPage" data-id="{{item.id}}"/>
+          <text class="intro" bindtap="navigateToContentPage" data-id="{{item.id}}">{{item.intro}}</text>
+          <view class="item">
+            <view class="left">
+              <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
+              <text class="item-text">{{item.text}}</text>
+            </view>
           </view>
+        </view>
       </view>
     </view>
-  </view>
 </view>

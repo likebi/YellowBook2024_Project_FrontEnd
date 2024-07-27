@@ -68,16 +68,11 @@
         <view class="first" wx:for="{{items}}" wx:key="id">
           <image class="image1" src="{{item.itemImage}}" mode="aspectFill" bindtap="navigateToContentPage" data-id="{{item.id}}"/>
           <text class="intro" bindtap="navigateToContentPage" data-id="{{item.id}}">{{item.intro}}</text>
-          
           <view class="item">
             <view class="left">
               <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
               <text class="item-text">{{item.text}}</text>
             </view>
-            <!-- <view class="right">
-              <image src="{{item.loveImage}}" class="item-love" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
-              <text class="liked_count">{{item.liked_count}}</text>
-            </view> -->
           </view>
         </view>
       </view>

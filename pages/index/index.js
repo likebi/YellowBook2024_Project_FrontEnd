@@ -207,8 +207,10 @@ Page({
     wx.request({
       url: url,
       success: (res) => {
+        console.log('位置：', res);
         if (res.data.status === 0) {
           const city = res.data.result.address_component.city;
+          wx.setStorageSync('location', city);
           that.setData({
             namePosition: city
           });
