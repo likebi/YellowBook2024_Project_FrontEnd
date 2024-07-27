@@ -15,8 +15,8 @@
     <navigator url="../../pages/hotelcontent/hotelcontent" class="link_sugges_header"><view class="history_header">北京</view></navigator>
     <navigator url="../../pages/hotelcontentID/hotelcontentID" class="link_sugges_header"><view class="history_header">印尼</view></navigator>
     <navigator url="../../pages/hotelcontentMY/hotelcontentMY" class="link_sugges_header"><view class="history_header">马来西亚</view></navigator>
-    <navigator url="../../pages/hotelcontent/hotelcontent" class="link_sugges_header"><view class="history_header">日本</view></navigator>
-    <navigator url="../../pages/hotelcontentID/hotelcontentID" class="link_sugges_header"><view class="history_header">韩国</view></navigator>
+    <navigator url="../../pages/hotelcontentJP/hotelcontentJP" class="link_sugges_header"><view class="history_header">日本</view></navigator>
+    <navigator url="../../pages/hotelcontentKR/hotelcontentKR" class="link_sugges_header"><view class="history_header">韩国</view></navigator>
     
   </scroll-view>
 </view>
@@ -39,7 +39,7 @@
       </view>
       </navigator>
       
-      <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
+      <navigator url="../../pages/hotelcontentSG/hotelcontentSG">
       <view class="box_third">
         <image class="image-suggestion" src="https://tse1-mm.cn.bing.net/th/id/OIP-C.E_CER8Y2Xp336_vfub_zBgHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
         <text class="title_suggestion">新加坡</text>
@@ -48,7 +48,7 @@
     </view>
 
     <view class="style_box2">
-      <navigator url="../../pages/hotelcontentID/hotelcontentID">
+      <navigator url="../../pages/hotelcontentTH/hotelcontentTH">
       <view class="box_second">
         <image class="image-suggestion" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.434qgZ30EBjL1ApJYhgQoAHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
         <text class="title_suggestion">泰国</text>
@@ -64,14 +64,14 @@
     </view>
 
     <view class="style_box2">
-      <navigator url="../../pages/hotelcontentID/hotelcontentID">
+      <navigator url="../../pages/hotelcontentJP/hotelcontentJP">
       <view class="box_second">
         <image class="image-suggestion" src="https://tse1-mm.cn.bing.net/th/id/OIP-C.7CVJ2d29GvD0CjmojqgOQAHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
         <text class="title_suggestion">日本</text>
       </view>
       </navigator>
       
-      <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
+      <navigator url="../../pages/hotelcontentKR/hotelcontentKR">
       <view class="box_third">
         <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.muYqaSm8lQ2JJ6-uLFSs0AHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
         <text class="title_suggestion">韩国</text>

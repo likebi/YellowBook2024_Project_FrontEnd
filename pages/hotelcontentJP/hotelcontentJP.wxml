@@ -1,0 +1,66 @@
+<scroll-view scroll-y="true" style="height: 100vh;">
+  <view class="container">
+    <view class="first_container">
+      <view class="index-position">
+        <image src="../../static/position.png" class="image-type" />
+        <text class="position-name">{{namePosition}}</text>
+      </view>
+      <view class="header">
+        <view class="search-container">
+          <view class="search-window">
+            <image class="icon" src="/static/sousuo.png" />
+            <input type="text" class="search-input" placeholder="搜索任何酒店相关" bindinput="onInput" value="{{value}}" />
+          </view>
+        </view>
+        <view class="search-button" bindtap="onSearch">搜索</view>
+      </view>
+    </view>
+    
+
+    <view class="page-section page-section-spacing swiper">
+      <swiper id="mySwiper" indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
+        current="{{current}}">
+        <block wx:for="{{background}}" wx:for-item="item" wx:for-index="index" wx:key="index">
+          <swiper-item bind:tap="navigateToLink" data-url= "https://hotels.ctrip.com/hotels/detail/?hotelId=5840930&checkIn=2024-07-27&checkOut=2024-07-28&cityId=228&minprice=&mincurr=&adult=1&children=0&ages=&crn=1&curr=&fgt=&stand=&stdcode=&hpaopts=&mproom=&ouid=&shoppingid=&roomkey=&highprice=-1&lowprice=0&showtotalamt=&hotelUniqueKey=&intl=1">
+            <image class="swiper-item" src="{{item}}" mode="aspectFill"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+      <view bindtap="prevImage" class="leftArrow">{{Arrow1}}</view>
+      <view bindtap="nextImage" class="rightArrow">{{Arrow2}}</view>
+    </view>
+
+  
+    <view class="fontSuggestion"> 
+      <text>为您推荐</text>
+    </view>
+
+    <view class="contentSuggestion">
+      <view class="box-suggestion">
+        <view class="first" wx:for="{{items}}" wx:key="id">
+        <!-- /pages/contentpage/contentpage?id={{item.id}} -->
+          <navigator url="/pages/webpage/webpage">
+            <image class="image1" src="{{item.hotelImage}}" mode="aspectFill" />
+            <text class="intro"> {{item.hotelIntroduction}}</text>
+            <image src="{{item.hotelfiveStars}}" class="item-fivestar" mode="aspectFill" bindtap="like_post" data-index="{{index}}"></image>
+          </navigator>
+
+            <view class="hotel-header">
+              <image src="{{item.hotellocationImage}}" class="item-location" mode="aspectFill" bindtap="like_post"></image>
+              <text class="room-intro">{{item.hotelDescription}}</text>
+            </view>
+            
+            <view class="item">
+              <view class="review-box">
+                <text>{{item.hotelReview}}</text>
+                <image class="review-star" src="{{item.hotelstarRating}}"/>
+              </view>
+            </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+        

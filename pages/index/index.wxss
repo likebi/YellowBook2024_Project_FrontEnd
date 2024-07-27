@@ -88,40 +88,14 @@
   line-height: 30rpx;
 }
 
-.dropdown-container {
-  display: flex;
-  margin-top: 4px;
-  padding-right: 10px;
-  align-items: center;
-}
 
-.dropdown-menu {
-  position: absolute; /* 绝对定位 */
-  top: 40px; /* 根据需要调整位置 */
-  right:6px;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
-  z-index: 1000; /* 确保在最上层 */
-}
+
+
 
 .dropdown-img{
   width: 26px;
   height: 26px;
 }
-
-.dropdown-item {
-  width: 100%;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.dropdown-item:hover {
-  background-color: #f0f0f0;
-}
-
-
 .position-name {
   flex: 1;
   flex-wrap: nowrap; /* 保持文本不换行 */

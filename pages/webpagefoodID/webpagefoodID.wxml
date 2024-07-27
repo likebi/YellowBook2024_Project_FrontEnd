@@ -1,0 +1,13 @@
+<view>
+  <!-- <view>
+    <button bindtap="openExternalWebpage">Open Webpage in Browser</button>
+  </view>
+  <view>
+    <image src="{{qrCodeUrl}}" mode="widthFix"></image>
+  </view> -->
+
+  <!-- <button bindtap="openLink"></button> -->
+  
+  <web-view src="{{indonesiafoodUrl}}"></web-view>
+  <!-- WebView page to handle in-app browsing -->
+</view>

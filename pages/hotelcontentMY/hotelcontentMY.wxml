@@ -22,7 +22,7 @@
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
         current="{{current}}">
         <block wx:for="{{background}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-          <swiper-item>
+          <swiper-item bind:tap="navigateToLink" data-url= "https://hotels.ctrip.com/hotels/detail/?hotelId=115996276&checkIn=2024-07-26&checkOut=2024-07-27&cityId=-1&minprice=&mincurr=&adult=1&children=0&ages=&crn=1&curr=&fgt=&stand=&stdcode=&hpaopts=&mproom=&ouid=&shoppingid=&roomkey=&highprice=-1&lowprice=0&showtotalamt=&hotelUniqueKey=&intl=1">
             <image class="swiper-item" src="{{item}}" mode="aspectFill"></image>
           </swiper-item>
         </block>

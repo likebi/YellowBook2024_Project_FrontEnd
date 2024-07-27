@@ -15,8 +15,8 @@
     <navigator url="../../pages/tripcontent/tripcontent" class="link_sugges_header"><view class="history_header">北京</view></navigator>
     <navigator url="../../pages/tripcontentID/tripcontentID" class="link_sugges_header"><view class="history_header">印尼</view></navigator>
     <navigator url="../../pages/tripcontentMY/tripcontentMY" class="link_sugges_header"><view class="history_header">马来西亚</view></navigator>
-    <navigator url="../../pages/tripcontentMY/tripcontentMY" class="link_sugges_header"><view class="history_header">Malaysia</view></navigator>
-    <navigator url="../../pages/tripcontentID/tripcontentID" class="link_sugges_header"><view class="history_header">JAKARTA</view></navigator>
+    <navigator url="../../pages/tripcontentJP/tripcontentJP" class="link_sugges_header"><view class="history_header">日本</view></navigator>
+    <navigator url="../../pages/tripcontentSG/tripcontentSG" class="link_sugges_header"><view class="history_header">新加坡</view></navigator>
     
   </scroll-view>
 </view>
@@ -47,14 +47,14 @@
     </view>
 
     <view class="style_box2">
-      <navigator url="../../pages/tripcontentID/tripcontentID">
+      <navigator url="../../pages/tripcontentJP/tripcontentJP">
       <view class="box_second">
         <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.wIFembgBTONDbH5VBphtbwHaE7?rs=1&pid=ImgDetMain" mode="aspectFill"/>
         <text class="title_suggestion">日本</text>
       </view>
       </navigator>
       
-      <navigator url="../../pages/tripcontentMY/tripcontentMY">
+      <navigator url="../../pages/tripcontentKR/tripcontentKR">
       <view class="box_third">
         <image class="image-suggestion" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.jzcbywZTtqCTpFT8Iq4_NwHaE9?rs=1&pid=ImgDetMain" mode="aspectFill"/>
         <text class="title_suggestion">韩国</text>
@@ -63,17 +63,17 @@
     </view>
 
     <view class="style_box2">
-      <navigator url="../../pages/tripcontentID/tripcontentID">
+      <navigator url="../../pages/tripcontentTH/tripcontentTH">
       <view class="box_second">
         <image class="image-suggestion" src="https://www.destinationbangkok-fr.com/wp-content/uploads/2018/03/bouddha-couche-wat-pho-2.jpg" mode="aspectFill"/>
-        <text class="title_suggestion">曼谷</text>
+        <text class="title_suggestion">泰国</text>
       </view>
       </navigator>
       
-      <navigator url="../../pages/tripcontentMY/tripcontentMY">
+      <navigator url="../../pages/tripcontentSG/tripcontentSG">
       <view class="box_third">
-        <image class="image-suggestion" src="https://myfamilytravels.com/content/uploads/2021/05/shanghai-disneyland-mickey-cast-greeting-2.jpg" mode="aspectFill"/>
-        <text class="title_suggestion">上海</text>
+        <image class="image-suggestion" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.NMn3upNRnZxytJOF3VaB7wHaE7?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">新加坡</text>
       </view>
       </navigator> 
     </view>  

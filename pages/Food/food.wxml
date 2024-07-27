@@ -14,9 +14,9 @@
     <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
       <navigator url="../../pages/foodcontent/foodcontent" class="link_sugges_header"><view class="history_header">北京</view></navigator>
       <navigator url="../../pages/foodcontentMY/foodcontentMY" class="link_sugges_header"><view class="history_header">马来西亚</view></navigator>
-      <navigator url="../../pages/foodcontentMY/foodcontentMY" class="link_sugges_header"><view class="history_header">Beijing</view></navigator>
-      <navigator url="../../pages/foodcontentID/foodcontentID" class="link_sugges_header"><view class="history_header">Indonesia</view></navigator>
-      <navigator url="../../pages/foodcontentID/foodcontentID" class="link_sugges_header"><view class="history_header">印尼</view></navigator>
+      <navigator url="../../pages/foodcontentVIET/foodcontentVIET" class="link_sugges_header"><view class="history_header">越南</view></navigator>
+      <navigator url="../../pages/foodcontentJP/foodcontentJP" class="link_sugges_header"><view class="history_header">japan</view></navigator>
+      <navigator url="../../pages/foodcontentKR/foodcontentKR" class="link_sugges_header"><view class="history_header">韩国</view></navigator>
       
     </scroll-view>
   </view>
@@ -48,14 +48,14 @@
       </view>
 
       <view class="style_box2">
-        <navigator url="../../pages/foodcontentID/foodcontentID">
+        <navigator url="../../pages/foodcontentTH/foodcontentTH">
         <view class="box_second">
           <image class="image-suggestion" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.3IBt3JbSRnxffhu6RqzG_gAAAA?rs=1&pid=ImgDetMain" mode="aspectFill"/>
           <text class="title_suggestion">泰国</text>
         </view>
         </navigator>
         
-        <navigator url="../../pages/foodcontentMY/foodcontentMY">
+        <navigator url="../../pages/foodcontentJP/foodcontentJP">
         <view class="box_third">
           <image class="image-suggestion" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.jeIEITMsvyGpxm4r-jyRqwHaFE?rs=1&pid=ImgDetMain" mode="aspectFill"/>
           <text class="title_suggestion">日本</text>
@@ -64,14 +64,14 @@
       </view>
 
       <view class="style_box2">
-        <navigator url="../../pages/foodcontentID/foodcontentID">
+        <navigator url="../../pages/foodcontentVIET/foodcontentVIET">
         <view class="box_second">
           <image class="image-suggestion" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.xAON6Jm6-aONWdF6FJKJsQAAAA?rs=1&pid=ImgDetMain" mode="aspectFill"/>
           <text class="title_suggestion">越南</text>
         </view>
         </navigator>
         
-        <navigator url="../../pages/foodcontentMY/foodcontentMY">
+        <navigator url="../../pages/foodcontentKR/foodcontentKR">
         <view class="box_third">
           <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.RydYFeZp9TUGJA1F77s9GAHaJ4?rs=1&pid=ImgDetMain" mode="aspectFill"/>
           <text class="title_suggestion">韩国</text>

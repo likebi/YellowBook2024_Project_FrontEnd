@@ -157,6 +157,7 @@
   width: 50px; 
   height: 50px; 
   border-radius: 50%;
+  justify-content: flex-start;
 }
 
 .commentuser_info {
@@ -164,6 +165,7 @@
   flex-direction: column;
   margin-left: 20rpx;
   flex: 1; /* 使得评论信息区域可以扩展 */
+  width: 40px;
 }
 
 .commentuser-name {
@@ -190,6 +192,7 @@
 .icon-container{
   position: relative;
   display: flex;
+  justify-content: flex-end;
   width: 40px;
 
 }
@@ -205,8 +208,10 @@
 .liked_count {
   position: absolute;
   justify-content: flex-end;
-  right: 20px;
-  bottom:0px;
+  right: 15px;
+  /* bottom: 40px; */
+  padding-top: 90%;
+ 
 }
 
 .title_end {
