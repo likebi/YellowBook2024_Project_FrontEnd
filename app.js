@@ -9,7 +9,7 @@ App({
 
   checkUserToken(callback) {
     let userToken = wx.getStorageSync('userToken');
-    if (!userToken) {
+    if (!userToken || this.isTokenExpired(userToken)) {
       this.userLogin(callback);
     } else {
       wx.checkSession({
@@ -20,6 +20,18 @@ App({
           this.userLogin(callback);
         }
       });
+    }
+  },
+
+  isTokenExpired(token) {
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      const exp = payload.exp * 1000;
+      const now = Date.now();
+      return now > exp;
+    } catch (e) {
+      console.error('Token 解码失败:', e);
+      return true; // 如果解码失败，假设 token 已过期
     }
   },
 
@@ -70,7 +82,7 @@ App({
         wx.setStorage({
           key: 'intro_user',
           data: intro_user
-        })
+        });
         this.globalData.uid = uid;
         this.globalData.nickName = nickName;
         this.globalData.userImage = userImage;
