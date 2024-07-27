@@ -6,7 +6,7 @@
          <image src="{{item.userImage}}" class="item-image" mode="aspectFill"></image>
             <text class="item-text">{{item.userName}}</text>
       </view>
-      <view class="button_follow" bindtap="toggleFollow">{{followStatus ? '已关注' : '关注'}}</view>
+      <view class="button_follow" bindtap="toggleFollow">{{isFollowing ? '已关注' : '关注'}}</view>
     </view>
 
     <view class="swiper-post">

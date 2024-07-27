@@ -1,13 +1,10 @@
+<!-- pages/fansList/fansList.wxml -->
 <view id="container">
   <!-- 顶部按钮 -->
   <view class="header">
-    <view class="arrow-left" bindtap="onBack">
-      {{arrowl}}
-    </view>
-
     <view class="follow-container">
       <view class="follow-window">
-        <text class="followed">粉丝</text>
+        <text class="followed" bindtap="onBack">返回</text>
       </view>
     </view>
   </view>
@@ -15,33 +12,16 @@
   <!-- 内容部分 -->
   <view class="content">
     <view class="first_collum">
-      <view class="myfollow">
-       我的粉丝 （xxx人）
-      </view>
-      <view class="order">
-        <button class="order-button" bindtap="onOrderChange">
-          排序方式
-          <image class="icon" src="/static/paixufangshi.png" mode="" />
-        </button>
-      </view>
+      <view class="myfollow">我的粉丝</view>
     </view>
 
-    <!-- 搜索结果 -->
-    <view class="search-results" wx:if="{{searchResults.length > 0}}">
-      <view wx:for="{{searchResults}}" wx:key="id" class="search-result-item">
-        <text>{{item}}</text>
-      </view>
-    </view>
-    
-    <!-- 关注列表 -->
-    <view class="followed-window" wx:for="{{followedList}}" wx:key="id">
-      <image class="profile-background" src="{{item.background}}" />
+    <!-- 粉丝列表 -->
+    <view class="followed-window" wx:for="{{fansList}}" wx:key="{{item.Uid}}">
+      <image class="profile-background" src="{{item.userAvatar}}" />
       <view class="profile-details">
-        <view class="profile-name">{{item.name}}</view>
-        <view class="follower-number">{{item.followerNumber}}</view>
-      </view>      
+        <view class="profile-name">{{item.nickName}}</view>
+      </view>
     </view>
-
-
   </view>
 </view>
+

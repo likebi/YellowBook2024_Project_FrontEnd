@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/fans/fans",
     "pages/follower/follower",
-    "pages/follow/follow",
     "pages/addpost/addpost",
     "pages/search/search",
     "pages/AI-chat/AI-chat",
@@ -45,6 +44,9 @@
     "pages/foodcontentTH/foodcontentTH",
     "pages/foodcontentVIET/foodcontentVIET",
     "pages/place/place",
+    "pages/webpage/webpage",
+    "pages/ContentFans/ContentFans",
+    "pages/ContentFollower/ContentFollower"
     "pages/webpage/webpage",
     "pages/webpage2/webpage2",
     "pages/webpagebeijing/webpagebeijing",

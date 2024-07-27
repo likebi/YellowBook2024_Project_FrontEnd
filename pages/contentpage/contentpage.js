@@ -1,7 +1,6 @@
 Page({
   data: {
     imgurl: [],
-    followStatus: false,
     item: {},
     comments: [],
     inputValue: '',
@@ -14,13 +13,20 @@ Page({
     limit: 4, // 每次加载的评论数量
     hasMoreComments: true, // 是否有更多评论
     loading: false, // 是否正在加载评论
+    user_id:'',
   },
 
   onLoad: function (options) {
     const postId = options.id;
     if (postId) {
-      this.fetchPostData(postId);
-      this.fetchComments(postId);
+        this.fetchPostData(postId);
+        this.fetchComments(postId);
+        // 确保在正确时间点调用 checkFollowStatus
+        this.setData({
+            isFollowing: false // 初始化为未关注状态
+        }, () => {
+            this.checkFollowStatus(); // 确保在设置数据后调用
+        });
     }
   },
   fetchPostData(postId) {
@@ -58,7 +64,8 @@ Page({
 
           this.setData({
             item: data,
-            imgurl: imgurlArray
+            imgurl: imgurlArray,
+            user_id:data.user_id
           });
         } else {
           console.error('获取数据失败:', res.data.msg);
@@ -191,12 +198,13 @@ Page({
   },
 
   submitComment() {
+    const userId=wx.getStorageSync('Uid')
     const token = wx.getStorageSync('userToken'); // 获取 token
     if (!token) {
       console.error('未找到授权 token');
       return;
     }
-    
+
     const commentText = this.data.inputValue.trim();
     if (!commentText) {
       wx.showToast({
@@ -205,9 +213,6 @@ Page({
       });
       return;
     }
-    
-    // const userId = wx.getStorageSync('Uid'); // 从本地存储获取用户 ID
-    const userId = 9; // 从本地存储获取用户 ID
   
     wx.request({
       url: `http://localhost:3000/comment/comments`, // 后端 API 地址
@@ -222,17 +227,16 @@ Page({
       },
       success: (res) => {
         console.log('Response from server:', res.data); // 输出服务器响应
-          // 清空输入框
-          this.setData({
-            inputValue: ''
-          });
+        // 清空输入框
+        this.setData({
+          inputValue: ''
+        });
         if (res.data.code === 200) {
           wx.showToast({
             title: '评论成功',
             icon: 'success'
           });
           this.fetchComments(this.data.item.id); // 刷新评论
-  
         } else {
           wx.showToast({
             title: '评论失败: ' + res.data.msg, // 显示失败消息
@@ -248,7 +252,8 @@ Page({
         });
       }
     });
-  },  
+  },
+
   onInput(e) {
     this.setData({
       inputValue: e.detail.value
@@ -256,8 +261,62 @@ Page({
   },
 
   toggleFollow() {
-    this.setData({
-      followStatus: !this.data.followStatus
+    // 切换关注状态
+    const newFollowStatus = !this.data.isFollowing;
+
+    // 获取当前用户的 UID
+    const currentUid = wx.getStorageSync('Uid'); // 假设 UID 存储在 'userUid' 键中
+    if (!currentUid) {
+      console.error('未找到当前用户 UID');
+      return;
+    }
+
+    // 获取内容用户的 ContentUid
+    const contentUid = this.data.item.ContentUid;
+    if (!contentUid) {
+      console.error('未找到内容用户 UID');
+      return;
+    }
+
+    // 准备请求数据
+    const requestData = {
+      uid: currentUid,
+      contentUid: contentUid,
+      is_following: newFollowStatus ? 1 : 0
+    };
+
+    // 发送请求到后端
+    wx.request({
+      url: 'http://localhost:3000/follow/toggle', // 替换为你的后端 API 地址
+      method: 'POST',
+      header: {
+        'Authorization': wx.getStorageSync('userToken')
+      },
+      data: requestData,
+      success: (res) => {
+        if (res.data.code === 200) {
+          // 更新前端数据
+          this.setData({
+            isFollowing: newFollowStatus
+          });
+          wx.showToast({
+            title: newFollowStatus ? '关注成功' : '取消关注成功',
+            icon: 'success'
+          });
+        } else {
+          wx.showToast({
+            title: '操作失败: ' + res.data.msg,
+            icon: 'none'
+          });
+        }
+      },
+      fail: (err) => {
+        console.error('请求失败:', err);
+        wx.showToast({
+          title: '请求失败',
+          icon: 'none'
+        });
+      }
     });
   },
 
@@ -286,13 +345,21 @@ Page({
     });
   },
 
-  handleTouchEnd() {
-    if (this.data.isSwipe) {
+  handleTouchEnd(event) {
+    const ContentUid = this.data.item.ContentUid;
+    console.log('HandleTouchEnd - UserID:', ContentUid);
+    console.log('HandleTouchEnd - IsSwipe:', this.data.isSwipe); // 添加调试信息
+    const targetUrl = `/pages/userPage/userPage?ContentUid=${ContentUid}`;
+    console.log('Navigating to:', targetUrl);
+    if (ContentUid && this.data.isSwipe) {
       wx.navigateTo({
-        url: '../userPage/userPage'
+        url: targetUrl
       });
+    } else {
+      console.error('ContentUid is missing or swipe not detected');
     }
   },
+
 
   like_comment(e) {
     const token = wx.getStorageSync('userToken');
@@ -300,15 +367,15 @@ Page({
       console.error('未找到授权 token');
       return;
     }
-  
+
     const index = e.currentTarget.dataset.index;
     const commentId = this.data.comments[index].comment_id;
     const currentLikeCount = this.data.comments[index].liked_count || 0; // 使用 liked_count
     const isLiked = !this.data.comments[index].isLiked;
-  
+
     const newLikeCount = isLiked ? currentLikeCount + 1 : currentLikeCount - 1;
     const likeImage = isLiked ? '../../static/love2.png' : '../../static/love.png';
-  
+
     // 更新前端数据
     const updatedComments = [...this.data.comments];
     updatedComments[index] = {
@@ -317,11 +384,11 @@ Page({
       liked_count: newLikeCount,  // 使用 liked_count
       loveImage: likeImage
     };
-  
+
     this.setData({
       comments: updatedComments
     });
-  
+
     // 发送点赞请求到后端
     wx.request({
       url: `http://localhost:3000/comment/like/${commentId}`,
@@ -348,17 +415,58 @@ Page({
         });
       }
     });
-  },  
+  },
 
   navigateToUserPage() {
+    const ContentUid = this.data.item.ContentUid;
+
     if (!this.data.isSwipe) {
       wx.navigateTo({
-        url: `/userPage/userPage?ContentUid=${ContentUid}`
+        url: `/pages/userPage/userPage?ContentUid=${ContentUid}`
       });
     }
   },
 
   getuserinfo(e) {
     console.log(e);
+  },
+
+  checkFollowStatus: function () {
+    const token = wx.getStorageSync('userToken');
+    if (!token) {
+        console.error('未找到授权 token');
+        return;
+    }
+    const uid = wx.getStorageSync('Uid'); // 当前用户 uid
+    const contentUid = this.data.item.ContentUid; // 内容用户 ContentUid
+
+    if (!contentUid) {
+        console.error('内容用户 UID 为空');
+        return;
+    }
+
+    wx.request({
+        url: 'http://localhost:3000/follow/status',
+        method: 'GET',
+        header: {
+            'Authorization': token
+        },
+        data: {
+            uid: uid,
+            contentUid: contentUid
+        },
+        success: (res) => {
+            if (res.data.code === 200) {
+                this.setData({
+                    isFollowing: res.data.is_following === 1
+                });
+            } else {
+                console.error('获取关注状态失败:', res.data.msg);
+            }
+        },
+        fail: (err) => {
+            console.error('请求失败:', err);
+        }
+    })
   }
 });

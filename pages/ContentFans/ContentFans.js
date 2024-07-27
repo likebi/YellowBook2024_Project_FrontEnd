@@ -1,23 +1,30 @@
-// pages/followedList/followedList.js
+// pages/fansList/fansList.js
 Page({
   data: {
-    followedList: []
+    fansList: [],
+    ContentUid: '' // 添加ContentUid
   },
 
-  onLoad() {
-    this.fetchFollowList();
+  onLoad(options) {
+    const ContentUid = options.ContentUid;
+    if (ContentUid) {
+      this.setData({
+        ContentUid: ContentUid
+      });
+    this.fetchFansList();
+    }
   },
 
-  fetchFollowList() {
+  fetchFansList() {
     const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
-    let Uid = wx.getStorageSync('Uid');
+    const ContentUid = this.data.ContentUid;
   
     if (!token) {
       console.error('未找到授权 token');
       return;
     }
     wx.request({
-      url: `http://localhost:3000/follow/getFollowList/${Uid}`, // 替换为你的后端 API 地址
+      url: `http://localhost:3000/follow/getFansList/${ContentUid}`, // 替换为你的后端 API 地址
       method: 'GET',
       header: {
         'Authorization': token
@@ -25,9 +32,9 @@ Page({
       success: (res) => {
         console.log('Response data:', res.data); // 调试输出
         if (res.data.code === 200) {
-          // 将返回的数据设置到 page 的 followedList 数据中
+          // 将返回的数据设置到 page 的 fansList 数据中
           this.setData({
-            followedList: res.data.data
+            fansList: res.data.data
           });
         } else {
           console.error('获取数据失败:', res.data.msg);
@@ -44,4 +51,3 @@ Page({
     wx.navigateBack();
   }
 });
-
