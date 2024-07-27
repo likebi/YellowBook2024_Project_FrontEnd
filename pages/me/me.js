@@ -17,7 +17,7 @@ Page({
     activeTagWidth: 64,
     activeTagLeft: 0,
     tabPositions: [22, 135],
-    intro_user: 'Bio',
+    intro_user: '',
     items: [],
 },
 
@@ -214,6 +214,20 @@ fetchUserlikeData() {
         });
       }
     }
+
+    if (app.globalData.intro_user) {
+      this.setData({
+        intro_user: app.globalData.intro_user
+      });
+    } else {
+      const intro_user = wx.getStorageSync('intro_user');
+      if (intro_user) {
+        this.setData({
+          intro_user: intro_user
+        });
+      }
+    }
+
   },
 
   onShow() {
@@ -289,6 +303,7 @@ sendUserInfoToServer(data) {
   const userData = {
     ...data,
     Uid: this.data.Uid // 传递用户UID
+
   };
 
   console.log('Sending user data to server:', userData); 
