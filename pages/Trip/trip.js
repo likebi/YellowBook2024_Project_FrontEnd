@@ -42,16 +42,10 @@ Page({
       url: `/pages/contentpage/contentpage?id=${id}`,
     });
 },
-  like_post: function (e) {
-    const index = e.currentTarget.dataset.index;
-    const items = this.data.items;
+ 
 
-    // 切换点赞状态
-    items[index].isLiked = !items[index].isLiked;
-    items[index].loveImage = items[index].isLiked ? '../../static/love2.png' : '../../static/love.png';
 
-    // 更新数据
-    this.setData({ items });
-  },
+
+
 });
 

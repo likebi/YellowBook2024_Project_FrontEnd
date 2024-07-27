@@ -26,23 +26,31 @@ Page({
     const token = wx.getStorageSync('userToken'); // 获取 token
     const uid = userInfo.Uid || wx.getStorageSync('Uid'); // 确保获取到的 UID
     const nickname = userInfo.nickname || wx.getStorageSync('nickname');
-    const userImage = userInfo.userImage || wx.getStorageSync('userImage');
     const intro_user = userInfo.Bio; // 使用更新后的 Bio 作为简介
   
     console.log('Token:', token); // 检查 token
     console.log('Uid:', uid); // 检查 uid
     console.log('Nickname:', nickname); // 检查 nickname
-    console.log('UserImage:', userImage); // 检查 userImage
     console.log('Bio:', intro_user); // 检查 Bio
+  
+    if (!token || !uid || !intro_user) {
+      wx.showToast({
+        title: '缺少必要的信息',
+        icon: 'none',
+        duration: 2000
+      });
+      console.error('缺少必要的信息:', { token, uid, intro_user });
+      return;
+    }
   
     // 发送请求到服务器
     wx.request({
-      url: 'http://localhost:3000/saveUserInfo', // 后端接口地址
+      url: 'http://localhost:3000/saveUserBio', // 后端接口地址
       method: 'POST',
       data: {
-        nickname,
+        nickname, // 将 nickname 也发送到服务器
         Uid: uid,
-        userImage,
+        userImage: userInfo.userImage,
         intro_user
       },
       header: {

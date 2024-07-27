@@ -54,6 +54,7 @@ App({
         let uid = res.data.data.uid;
         let nickName = res.data.data.nickName;
         let userImage = res.data.data.userImage;
+        let intro_user=res.data.data.intro_user;
         wx.setStorage({
           key: 'Uid',
           data: uid
@@ -66,9 +67,14 @@ App({
           key: 'userImage',
           data: userImage
         });
+        wx.setStorage({
+          key: 'intro_user',
+          data: intro_user
+        })
         this.globalData.uid = uid;
         this.globalData.nickName = nickName;
         this.globalData.userImage = userImage;
+        this.globalData.intro_user = intro_user;
         if (callback) callback();
       }
     });

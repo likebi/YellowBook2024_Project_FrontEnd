@@ -29,6 +29,12 @@ Page({
         });
     }
   },
+
+  onReachBottom() {
+    if (this.data.hasMoreComments && !this.data.loading) {
+      this.fetchComments(this.data.item.id);
+    }
+  },
   fetchPostData(postId) {
     let Uid = wx.getStorageSync('Uid');
     console.log(Uid);
@@ -79,7 +85,6 @@ Page({
   fetchComments(postId) {
     if (this.data.loading) return;
     this.setData({ loading: true });
-
     const { offset, limit } = this.data;
 
     wx.request({
@@ -88,14 +93,14 @@ Page({
       header: {
         'Authorization': wx.getStorageSync('userToken')
       },
-      success: (res) => {
+      success: (res)   => {
         if (res.data.code === 200) {
           const newComments = res.data.data;
           if (newComments.length > 0) {
             this.setData({
               comments: offset === 0 ? newComments : this.data.comments.concat(newComments),
               offset: this.data.offset + newComments.length,
-              hasMoreComments: newComments.length === limit
+              hasMoreComments: newComments.length === limit,
             });
           } else {
             this.setData({ hasMoreComments: false });
@@ -200,6 +205,7 @@ Page({
   submitComment() {
     const userId=wx.getStorageSync('Uid')
     const token = wx.getStorageSync('userToken'); // 获取 token
+    const location=wx.getStorageSync('location')
     if (!token) {
       console.error('未找到授权 token');
       return;
@@ -224,6 +230,7 @@ Page({
         postId: this.data.item.id, // 当前帖子 ID
         userId: userId,
         comment: commentText,
+        location: location,
       },
       success: (res) => {
         console.log('Response from server:', res.data); // 输出服务器响应

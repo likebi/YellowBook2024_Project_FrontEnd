@@ -32,7 +32,6 @@
   <view class="collect-love-post">
     <image src="{{item.loveImage}}" mode="" class="image_collum" bindtap="like_post"/>
     <text>{{item.liked_count}}</text>
-    <image src="../../static/collection.png" mode="" class="image_collum" bindtap="like_post"/>
   </view>
 </view>
 
@@ -49,7 +48,7 @@
   <view class="commentuser_info">
     <text class="commentuser-name">{{item.userName}}</text>
     <text class="commentuser-text">{{item.comment}}</text>
-    <text class="commentuser-position">{{item.day}}天前 {{item.place}}</text>
+    <text class="commentuser-position">{{item.day}} {{item.place}}</text>
   </view>
   <view class="icon-container">
     <image src="{{item.loveImage}}" class="icon_love" data-index="{{index}}" bindtap="like_comment"/>

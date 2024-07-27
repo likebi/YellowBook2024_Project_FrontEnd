@@ -3,9 +3,9 @@ Page({
     latitude: null,
     longitude: null,
     city: '',
-    demoText1: 'https://dimg04.c-ctrip.com/images/10040h000000904y8357D_C_1600_1200.jpg',
-    demoText2: 'https://dimg04.c-ctrip.com/images/10061g000001h2g38517E_R_1600_10000.jpg',
-    demoText3: 'https://dimg04.c-ctrip.com/images/10051g000001hmtfy2BD2_C_1600_1200.jpg',
+    demoText1: 'https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient',
+    demoText2: 'https://th.bing.com/th/id/R.496ccc48796a3ce6fbcdd0173436c3da?rik=aLk8AbZezYqp6g&riu=http%3a%2f%2fwww.gjlysy.com%2fupload%2fimage%2f20190918%2f15687778356989439.jpg&ehk=i3eyZiPsIs3qi7QZB0KQTq1bdwKt%2f9F%2fewvOm%2fnYakE%3d&risl=&pid=ImgRaw&r=0',
+    demoText3: 'https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient',
     background: [],
     indicatorDots: true,
     autoplay: true,
@@ -15,22 +15,14 @@ Page({
     Arrow1: "<",
     Arrow2: ">",
     namePosition: '',
+    dropdownVisible: false,
     options: [
-      { label: '发布', value: '/pages/addpost/addpost'},
+      { label: '发布', value: '/pages/addpost/addpost' },
     ],
     items: [],
     page: 1 // 初始化页数为1
   },
-  // Method to navigate to the link
-  navigateToLink(event) {
-    const url = event.currentTarget.dataset.url;
-    wx.navigateTo({
-      url: `/pages/webpage2/webpage2?url=${encodeURIComponent(url)}`, 
-      fail: (err) => {
-        console.error('Navigation failed:', err);
-      }
-    });
-  },
+
   onShow: function () {
     this.getUserInfo();
     this.fetchUserData(); // 调用获取数据的函数
@@ -215,8 +207,10 @@ Page({
     wx.request({
       url: url,
       success: (res) => {
+        console.log('位置：', res);
         if (res.data.status === 0) {
           const city = res.data.result.address_component.city;
+          wx.setStorageSync('location', city);
           that.setData({
             namePosition: city
           });
