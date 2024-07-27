@@ -22,7 +22,7 @@
         autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}"
         current="{{current}}">
         <block wx:for="{{background}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-          <swiper-item>
+          <swiper-item bind:tap="navigateToLink" data-url= "https://you.ctrip.com/sight/bali438/64465.html">
             <image class="swiper-item" src="{{item}}" mode="aspectFill"></image>
           </swiper-item>
         </block>

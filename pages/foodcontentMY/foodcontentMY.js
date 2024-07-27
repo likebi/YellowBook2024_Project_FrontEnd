@@ -30,7 +30,7 @@ Page({
       {
         id: 1,
         hotelImage:'https://dimg04.c-ctrip.com/images/1mc1w12000enmdcwd8C74_R_600_400_R5_D.jpg',
-        hotelIntroduction:'FOOD MALAYSIA',
+        hotelIntroduction:'food malaysia',
         hotelPrice: "1490¥",
         hotelReview:'4.8',
         hotelstarRating:'/static/stars.png',
@@ -82,7 +82,16 @@ Page({
     ],
   },
 
-
+  // Method to navigate to the link
+  navigateToLink(event) {
+    const url = event.currentTarget.dataset.url;
+    wx.navigateTo({
+      url: `/pages/webpagefoodMY/webpagefoodMY?url=${encodeURIComponent(url)}`, 
+      fail: (err) => {
+        console.error('Navigation failed:', err);
+      }
+    });
+  },
   onOptionSelect(e) {
     const value = e.currentTarget.dataset.value;
     wx.navigateTo({

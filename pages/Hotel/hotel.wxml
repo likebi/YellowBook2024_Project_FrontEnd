@@ -10,71 +10,77 @@
     <view class="search-button" bindtap="onSearch">搜索</view>
   </view>
 
-  <!-- 历史搜索记录 -->
-  <view class="suggestion-header">
-    <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
-      <navigator url="../../pages/hotelcontent/hotelcontent" class="link_sugges_header"><view class="history_header">北京</view></navigator>
-      <navigator url="../../pages/hotelcontentID/hotelcontentID" class="link_sugges_header"><view class="history_header">印尼</view></navigator>
-      <navigator url="../../pages/hotelcontentMY/hotelcontentMY" class="link_sugges_header"><view class="history_header">马来西亚</view></navigator>
-      <navigator url="../../pages/hotelcontent/hotelcontent" class="link_sugges_header"><view class="history_header">日本</view></navigator>
-      <navigator url="../../pages/hotelcontentID/hotelcontentID" class="link_sugges_header"><view class="history_header">韩国</view></navigator>
-    </scroll-view>
-  </view>
+<view class="suggestion-header">
+  <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
+    <navigator url="../../pages/hotelcontent/hotelcontent" class="link_sugges_header"><view class="history_header">北京</view></navigator>
+    <navigator url="../../pages/hotelcontentID/hotelcontentID" class="link_sugges_header"><view class="history_header">印尼</view></navigator>
+    <navigator url="../../pages/hotelcontentMY/hotelcontentMY" class="link_sugges_header"><view class="history_header">马来西亚</view></navigator>
+    <navigator url="../../pages/hotelcontentJP/hotelcontentJP" class="link_sugges_header"><view class="history_header">日本</view></navigator>
+    <navigator url="../../pages/hotelcontentKR/hotelcontentKR" class="link_sugges_header"><view class="history_header">韩国</view></navigator>
+    
+  </scroll-view>
+</view>
 
-  <!-- 推荐目的地 -->
-  <text class="title_box">推荐目的地</text>
-  <view class="suggestion-box">
-    <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
-      <navigator url="../../pages/hotelcontent/hotelcontent" class="link_suggestion_box">
-        <view class="style_box">
-          <text class="title_suggestion">北京</text>
-          <image src="https://th.bing.com/th/id/R.cdbe0fe09e25108143388dc3462f8ce2?rik=1E2m%2bFFHtfoJpg&riu=http%3a%2f%2fimg95.699pic.com%2fphoto%2f50071%2f3462.jpg_wh860.jpg&ehk=ntJVViZ9MFYGb0twTvOv5EBVQ%2f2FACJAWrwttvzJNO0%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill"/>
-        </view>
+<text class="title_box">推荐目的地</text>
+<view class="suggestion-box">
+  <scroll-view scroll-x="true" style="white-space: nowrap; width: 100%;">
+    <navigator url="../../pages/hotelcontent/hotelcontent" class="link_suggestion_box">
+    <view class="style_box">
+      <text class="title_suggestion">北京</text>
+      <image src="https://th.bing.com/th/id/R.cdbe0fe09e25108143388dc3462f8ce2?rik=1E2m%2bFFHtfoJpg&riu=http%3a%2f%2fimg95.699pic.com%2fphoto%2f50071%2f3462.jpg_wh860.jpg&ehk=ntJVViZ9MFYGb0twTvOv5EBVQ%2f2FACJAWrwttvzJNO0%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill"/>
+    </view>
+    </navigator>
+
+    <view class="style_box2">
+      <navigator url="../../pages/hotelcontentID/hotelcontentID">
+      <view class="box_second">
+        <image class="image-suggestion" src="https://ts1.cn.mm.bing.net/th/id/R-C.124e2e59bf1d0ced6dcefa2b11655539?rik=rzI3nWSLvv%2fDUw&riu=http%3a%2f%2fs1.picswalls.com%2fwallpapers%2f2014%2f08%2f08%2findonesia-background_02052993_164.jpg&ehk=OCdGGZYHKoIIS2fUPbd6apjFJvDiCdocNxQlj3Mc4As%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill"/>
+        <text class="title_suggestion">印度尼西亚</text>
+      </view>
       </navigator>
-      <view class="style_box2">
-        <navigator url="../../pages/hotelcontentID/hotelcontentID">
-          <view class="box_second">
-            <image class="image-suggestion" src="https://ts1.cn.mm.bing.net/th/id/R-C.124e2e59bf1d0ced6dcefa2b11655539?rik=rzI3nWSLvv%2fDUw&riu=http%3a%2f%2fs1.picswalls.com%2fwallpapers%2f2014%2f08%2f08%2findonesia-background_02052993_164.jpg&ehk=OCdGGZYHKoIIS2fUPbd6apjFJvDiCdocNxQlj3Mc4As%3d&risl=&pid=ImgRaw&r=0" mode="aspectFill"/>
-            <text class="title_suggestion">印度尼西亚</text>
-          </view>
-        </navigator>
-        <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
-          <view class="box_third">
-            <image class="image-suggestion" src="https://tse1-mm.cn.bing.net/th/id/OIP-C.E_CER8Y2Xp336_vfub_zBgHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
-            <text class="title_suggestion">新加坡</text>
-          </view>
-        </navigator>
+      
+      <navigator url="../../pages/hotelcontentSG/hotelcontentSG">
+      <view class="box_third">
+        <image class="image-suggestion" src="https://tse1-mm.cn.bing.net/th/id/OIP-C.E_CER8Y2Xp336_vfub_zBgHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">新加坡</text>
       </view>
-      <view class="style_box2">
-        <navigator url="../../pages/hotelcontentID/hotelcontentID">
-          <view class="box_second">
-            <image class="image-suggestion" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.434qgZ30EBjL1ApJYhgQoAHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
-            <text class="title_suggestion">泰国</text>
-          </view>
-        </navigator>
-        <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
-          <view class="box_third">
-            <image class="image-suggestion" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.hh9OakbNPXsBzJjXVX7w_QHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
-            <text class="title_suggestion">马来西亚</text>
-          </view>
-        </navigator>
+      </navigator> 
+    </view>
+
+    <view class="style_box2">
+      <navigator url="../../pages/hotelcontentTH/hotelcontentTH">
+      <view class="box_second">
+        <image class="image-suggestion" src="https://tse4-mm.cn.bing.net/th/id/OIP-C.434qgZ30EBjL1ApJYhgQoAHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">泰国</text>
       </view>
-      <view class="style_box2">
-        <navigator url="../../pages/hotelcontentID/hotelcontentID">
-          <view class="box_second">
-            <image class="image-suggestion" src="https://tse1-mm.cn.bing.net/th/id/OIP-C.7CVJ2d29GvD0CjmojqgOQAHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
-            <text class="title_suggestion">日本</text>
-          </view>
-        </navigator>
-        <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
-          <view class="box_third">
-            <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.muYqaSm8lQ2JJ6-uLFSs0AHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
-            <text class="title_suggestion">韩国</text>
-          </view>
-        </navigator>
+      </navigator>
+      
+      <navigator url="../../pages/hotelcontentMY/hotelcontentMY">
+      <view class="box_third">
+        <image class="image-suggestion" src="https://tse2-mm.cn.bing.net/th/id/OIP-C.hh9OakbNPXsBzJjXVX7w_QHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">马来西亚</text>
       </view>
-    </scroll-view>
-  </view>
+      </navigator> 
+    </view>
+
+    <view class="style_box2">
+      <navigator url="../../pages/hotelcontentJP/hotelcontentJP">
+      <view class="box_second">
+        <image class="image-suggestion" src="https://tse1-mm.cn.bing.net/th/id/OIP-C.7CVJ2d29GvD0CjmojqgOQAHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">日本</text>
+      </view>
+      </navigator>
+      
+      <navigator url="../../pages/hotelcontentKR/hotelcontentKR">
+      <view class="box_third">
+        <image class="image-suggestion" src="https://tse3-mm.cn.bing.net/th/id/OIP-C.muYqaSm8lQ2JJ6-uLFSs0AHaE8?rs=1&pid=ImgDetMain" mode="aspectFill"/>
+        <text class="title_suggestion">韩国</text>
+      </view>
+      </navigator> 
+    </view>
+
+  </scroll-view>
+</view>
 
   <!-- 内容推荐 -->
   <view class="suggestion_title">旅游住在哪儿?</view>

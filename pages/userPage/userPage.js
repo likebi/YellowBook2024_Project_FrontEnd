@@ -6,8 +6,8 @@ Page({
     ContentNickName: '',
     backgroundImage: "https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient",
     ContentUid: '', // 修改为默认空字符串
-    follow_num: '0',
-    fans_num: '0',
+    follow_num: 0,
+    fans_num: 0,
     like_num: '0',
     currentTab: 0,
     activeTagWidth: 64,
@@ -15,7 +15,7 @@ Page({
     tabPositions: [22, 136, 250],
     intro_user: '',
 
-    item:[]
+    item: []
   },
 
   onLoad: function (options) {
@@ -28,6 +28,8 @@ Page({
       });
       this.sendUserInfo(ContentUid);
       this.fetchUserData();
+      this.fetchFollowNum();
+      this.fetchFansNum();
       this.fetchUserlikeData();
     }
     this.getUserInfo();
@@ -35,13 +37,15 @@ Page({
       activeTagLeft: this.data.tabPositions[this.data.currentTab]
     });
   },
-  
+
 
   onShow() {
     this.getUserInfo();
+    this.fetchFollowNum();
+    this.fetchFansNum();
   },
 
-  sendUserInfo(ContentUid){
+  sendUserInfo(ContentUid) {
     const token = wx.getStorageSync('userToken');
     wx.request({
       url: 'http://localhost:3000/ContentUserPage/getContentUserUid',
@@ -62,71 +66,71 @@ Page({
       fail: (err) => {  // 使用箭头函数
         console.log('发送失败', err)
       }
-    })    
-},
+    })
+  },
 
-// 使用 wx.request 发送请求
-fetchUserData() {
-  const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
-  let Uid = this.data.ContentUid; // 硬编码的 Uid，用于调试或测试
-  console.log(Uid);
-  if (!token) {
-    console.error('未找到授权 token');
-    return;
-  }
-  wx.request({
-    url: `http://localhost:3000/notes/notes/${Uid}`, // 你的后端 API 地址
-    method: 'GET',
-    header: {
-      'Authorization': token
-    },
-    success: (res) => {
-      if (res.data.code === 200) {
-        // 将返回的数据设置到 page 的 items 数据中
-        this.setData({
-          items: res.data.data
-        });
-      } else {
-        console.error('获取数据失败:', res.data.msg);
-      }
-    },
-    fail: (err) => {
-      console.error('请求失败:', err);
+  // 使用 wx.request 发送请求
+  fetchUserData() {
+    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+    let Uid = this.data.ContentUid; // 硬编码的 Uid，用于调试或测试
+    console.log(Uid);
+    if (!token) {
+      console.error('未找到授权 token');
+      return;
     }
-  });
-},
-
-fetchUserlikeData() {
-  const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
-  let Uid = this.data.ContentUid; // 硬编码的 Uid，用于调试或测试
-  console.log(Uid)
-  if (!token) {
-    console.error('未找到授权 token');
-    return;
-  }
-  wx.request({
-    url: `http://localhost:3000/notes/like/${Uid}`, // 你的后端 API 地址
-    method: 'GET',
-    header: {
-      'Authorization': token
-    },
-    success: (res) => {
-      if (res.data.code === 200) {
-        // 将返回的数据设置到 page 的 items 数据中
-        this.setData({
-          items2: res.data.data
-        });
-      } else {
-        console.error('获取数据失败:', res.data.msg);
+    wx.request({
+      url: `http://localhost:3000/notes/notes/${Uid}`, // 你的后端 API 地址
+      method: 'GET',
+      header: {
+        'Authorization': token
+      },
+      success: (res) => {
+        if (res.data.code === 200) {
+          // 将返回的数据设置到 page 的 items 数据中
+          this.setData({
+            items: res.data.data
+          });
+        } else {
+          console.error('获取数据失败:', res.data.msg);
+        }
+      },
+      fail: (err) => {
+        console.error('请求失败:', err);
       }
-    },
-    fail: (err) => {
-      console.error('请求失败:', err);
-    }
-  });
-},
+    });
+  },
 
-  
+  fetchUserlikeData() {
+    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+    let Uid = this.data.ContentUid; // 硬编码的 Uid，用于调试或测试
+    console.log(Uid)
+    if (!token) {
+      console.error('未找到授权 token');
+      return;
+    }
+    wx.request({
+      url: `http://localhost:3000/notes/like/${Uid}`, // 你的后端 API 地址
+      method: 'GET',
+      header: {
+        'Authorization': token
+      },
+      success: (res) => {
+        if (res.data.code === 200) {
+          // 将返回的数据设置到 page 的 items 数据中
+          this.setData({
+            items2: res.data.data
+          });
+        } else {
+          console.error('获取数据失败:', res.data.msg);
+        }
+      },
+      fail: (err) => {
+        console.error('请求失败:', err);
+      }
+    });
+  },
+
+
 
   back() {
     this.getUserInfo();
@@ -175,7 +179,7 @@ fetchUserlikeData() {
     });
   },
 
-  navigateToContentPage: function(event) {
+  navigateToContentPage: function (event) {
     const id = event.currentTarget.dataset.id; // 获取点击的发现内容的ID
     if (id) {
       console.log('点击');
@@ -187,10 +191,89 @@ fetchUserlikeData() {
     }
   },
 
-
-  edit_Profile() {
+  navigateToContentFollower: function () {
+    const ContentUid = this.data.ContentUid;
     wx.navigateTo({
-      url: '/pages/profile/clickProfile',
+      url: `/pages/ContentFollower/ContentFollower?ContentUid=${ContentUid}`
+    });
+  },
+
+  navigateToContentFans: function () {
+    const ContentUid = this.data.ContentUid;
+    wx.navigateTo({
+      url: `/pages/ContentFans/ContentFans?ContentUid=${ContentUid}`
+    });
+  },
+
+  like_post: function (e) {
+    const index = e.currentTarget.dataset.index;
+    const items = this.data.items;
+    items[index].isLiked = !items[index].isLiked;
+    items[index].loveImage = items[index].isLiked ? '../../static/love.png' : '../../static/love2.png';
+    this.setData({ items });
+  },
+
+  fetchFollowNum() {
+    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+    let userId = this.data.ContentUid;
+
+    if (!token) {
+      console.error('未找到授权 token');
+      return;
+    }
+
+    wx.request({
+      url: `http://localhost:3000/follow/getFollowNum/${userId}`, // 你的后端 API 地址
+      method: 'GET',
+      header: {
+        'Authorization': token
+      },
+      success: (res) => {
+        if (res.data.code === 200) {
+          const followNum = res.data.data.follow_num !== undefined ? res.data.data.follow_num : 0;
+          // 将返回的数据设置到 page 的 follow_num 数据中
+          this.setData({
+            follow_num: followNum
+          });
+        } else {
+          console.error('获取数据失败:', res.data.msg);
+        }
+      },
+      fail: (err) => {
+        console.error('请求失败:', err);
+      }
+    });
+  },
+
+  fetchFansNum() {
+    const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+    let userId = this.data.ContentUid;
+
+    if (!token) {
+      console.error('未找到授权 token');
+      return;
+    }
+
+    wx.request({
+      url: `http://localhost:3000/follow/getFansNum/${userId}`, // 你的后端 API 地址
+      method: 'GET',
+      header: {
+        'Authorization': token
+      },
+      success: (res) => {
+        if (res.data.code === 200) {
+          const fansNum = res.data.data.fans_num !== undefined ? res.data.data.fans_num : 0;
+          // 将返回的数据设置到 page 的 fans_num 数据中
+          this.setData({
+            fans_num: fansNum
+          });
+        } else {
+          console.error('获取数据失败:', res.data.msg);
+        }
+      },
+      fail: (err) => {
+        console.error('请求失败:', err);
+      }
     });
   }
 });

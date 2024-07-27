@@ -17,7 +17,7 @@ Page({
     namePosition: '',
     dropdownVisible: false,
     options: [
-      { label: '发布', value: '/pages/addpost/addpost'},
+      { label: '发布', value: '/pages/addpost/addpost' },
     ],
     items: [],
     page: 1 // 初始化页数为1

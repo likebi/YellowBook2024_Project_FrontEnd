@@ -82,6 +82,16 @@ Page({
     ],
   },
 
+  // Method to navigate to the link
+  navigateToLink(event) {
+    const url = event.currentTarget.dataset.url;
+    wx.navigateTo({
+      url: `/pages/webpagetripMY/webpagetripMY?url=${encodeURIComponent(url)}`, 
+      fail: (err) => {
+        console.error('Navigation failed:', err);
+      }
+    });
+  },
 
   onOptionSelect(e) {
     const value = e.currentTarget.dataset.value;

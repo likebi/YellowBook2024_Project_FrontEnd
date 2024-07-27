@@ -5,25 +5,21 @@ Page({
     }
   },
 
-  /**
-   * Page initial data
-   */
   data: {
     userImage: '',
     backgroundImage: "https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient",
     Uid: '',
     nickname: '',
-    follow_num: '0',
-    fans_num: '0',
-    like_num: '0',
+    follow_num: 0, // 初始化为数字
+    fans_num: 0,
+    like_num: 0,
     currentTab: 0,
     activeTagWidth: 64,
     activeTagLeft: 0,
     tabPositions: [22, 135],
-    intro_user: 'Bio',
-
+    intro_user: '这人害羞：没有简介',
     items: [],
-  },
+},
 
    // 使用 wx.request 发送请求
    fetchUserData() {
@@ -172,6 +168,8 @@ fetchUserlikeData() {
     this.fetchUserData();
     this.fetchUserlikeData() ;
     this.fetchLikeNum();
+    this.fetchFollowNum();
+    this.fetchFansNum();
     this.setData({
       activeTagLeft: this.data.tabPositions[this.data.currentTab]
     });
@@ -216,6 +214,20 @@ fetchUserlikeData() {
         });
       }
     }
+
+    if (app.globalData.intro_user) {
+      this.setData({
+        intro_user: app.globalData.intro_user
+      });
+    } else {
+      const intro_user = wx.getStorageSync('intro_user');
+      if (intro_user) {
+        this.setData({
+          intro_user: intro_user
+        });
+      }
+    }
+
   },
 
   onShow() {
@@ -223,6 +235,8 @@ fetchUserlikeData() {
     this.fetchUserData();
     this.fetchUserlikeData();
     this.fetchLikeNum();
+    this.fetchFollowNum();
+    this.fetchFansNum();
   },
 
   back() {
@@ -289,6 +303,7 @@ sendUserInfoToServer(data) {
   const userData = {
     ...data,
     Uid: this.data.Uid // 传递用户UID
+
   };
 
   console.log('Sending user data to server:', userData); 
@@ -390,4 +405,68 @@ sendUserInfoToServer(data) {
     })
   })
 },
+
+fetchFollowNum() {
+  const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+  let userId = this.data.Uid;
+
+  if (!token) {
+      console.error('未找到授权 token');
+      return;
+  }
+
+  wx.request({
+      url: `http://localhost:3000/follow/getFollowNum/${userId}`, // 你的后端 API 地址
+      method: 'GET',
+      header: {
+          'Authorization': token
+      },
+      success: (res) => {
+          if (res.data.code === 200) {
+              const followNum = res.data.data.follow_num !== undefined ? res.data.data.follow_num : 0;
+              // 将返回的数据设置到 page 的 follow_num 数据中
+              this.setData({
+                  follow_num: followNum
+              });
+          } else {
+              console.error('获取数据失败:', res.data.msg);
+          }
+      },
+      fail: (err) => {
+          console.error('请求失败:', err);
+      }
+  });
+},
+
+fetchFansNum() {
+  const token = wx.getStorageSync('userToken'); // 从本地存储中获取 token
+  let userId = this.data.Uid;
+
+  if (!token) {
+      console.error('未找到授权 token');
+      return;
+  }
+
+  wx.request({
+      url: `http://localhost:3000/follow/getFansNum/${userId}`, // 你的后端 API 地址
+      method: 'GET',
+      header: {
+          'Authorization': token
+      },
+      success: (res) => {
+          if (res.data.code === 200) {
+              const fansNum = res.data.data.fans_num !== undefined ? res.data.data.fans_num : 0;
+              // 将返回的数据设置到 page 的 fans_num 数据中
+              this.setData({
+                  fans_num: fansNum
+              });
+          } else {
+              console.error('获取数据失败:', res.data.msg);
+          }
+      },
+      fail: (err) => {
+          console.error('请求失败:', err);
+      }
+  });
+}
 })
