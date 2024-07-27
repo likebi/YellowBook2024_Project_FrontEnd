@@ -1,4 +1,9 @@
-/* pages/fansList/fansList.wxss */
+.outer-box {
+  width: auto;
+  height: 100vh;
+  background-image: url('https://tse1-mm.cn.bing.net/th/id/OIP-C.sKTD8YyMo16Xp2q5x7UqowHaNK?rs=1&pid=ImgDetMain'); 
+}
+
 #container {
   padding: 20rpx;
 }
@@ -8,6 +13,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20rpx;
+  height: 50vh;
 }
 
 .arrow-left {
@@ -21,11 +27,12 @@
   justify-content: center;
 }
 
-.follow-window {
+.followed-window {
   display: flex;
-  margin-left: 10rpx;
-  width: 90vw;
-  gap: 10rpx;
+  align-items: center;
+  margin-bottom: 20rpx;
+  border-bottom: 1px solid white;
+  padding-bottom: 10px;
 }
 
 .followed {
@@ -35,6 +42,28 @@
   border-radius: 30rpx;
   cursor: pointer;
   font-weight: bold;
+  border: solid 1px black;
+  background-color: #2CC4D3;
+}
+.first_collum {
+  position: relative;
+  height: 70rpx;
+  align-items: center;
+  color: white;
+}
+.myfollowed {
+  margin: 10rpx;
+  padding-top: 40rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.myfollow {
+  position: absolute;
+  top: 5rpx;
+  font-size: 30rpx;
+  margin-bottom: 10rpx;
+  width: 30vw;
+  border-bottom: 1px solid white;
 }
 
 .profile-background {
@@ -42,6 +71,7 @@
   height: 100rpx;
   border-radius: 50%;
   margin-right: 20rpx;
+  border: 1px solid black;
 }
 
 .profile-details {
@@ -50,7 +80,7 @@
 }
 
 .profile-name {
-  font-size: 18rpx;
+  font-size: 14px;
   font-weight: bold;
   margin-bottom: 10rpx;
 }

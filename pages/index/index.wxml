@@ -19,7 +19,7 @@
     <view class="page-section page-section-spacing swiper">
       <swiper id="mySwiper" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" current="{{current}}">
       <block wx:for="{{background}}" wx:for-item="item" wx:for-index="index" wx:key="index">
-        <swiper-item bind:tap="navigateToLink" data-url="https://you.ctrip.com/sight/borobudur14417/48376.html?renderPlatform=">
+        <swiper-item bind:tap="navigateToLink" data-url="https://you.ctrip.com/photos/sight/shanghai2/r107597.html">
           <image class="swiper-item" src="{{item}}" mode="aspectFill"></image>
         </swiper-item>
       </block>

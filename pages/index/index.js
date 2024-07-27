@@ -3,9 +3,9 @@ Page({
     latitude: null,
     longitude: null,
     city: '',
-    demoText1: 'https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient',
-    demoText2: 'https://th.bing.com/th/id/R.496ccc48796a3ce6fbcdd0173436c3da?rik=aLk8AbZezYqp6g&riu=http%3a%2f%2fwww.gjlysy.com%2fupload%2fimage%2f20190918%2f15687778356989439.jpg&ehk=i3eyZiPsIs3qi7QZB0KQTq1bdwKt%2f9F%2fewvOm%2fnYakE%3d&risl=&pid=ImgRaw&r=0',
-    demoText3: 'https://youimg1.c-ctrip.com/target/0101c1200061ynv4356C0_D_10000_1200.jpg?proc=autoorient',
+    demoText1: 'https://dimg04.c-ctrip.com/images/100j12000000s2xr7A953_R_1600_10000.jpg',
+    demoText2: 'https://dimg04.c-ctrip.com/images/0102j120008n42f289F46_R_1600_10000.jpg',
+    demoText3: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.kz5XURqMjvc31LUsOkDT9AHaE7?rs=1&pid=ImgDetMain',
     background: [],
     indicatorDots: true,
     autoplay: true,
@@ -21,6 +21,16 @@ Page({
     ],
     items: [],
     page: 1 // 初始化页数为1
+  },
+  // Method to navigate to the link
+  navigateToLink(event) {
+    const url = event.currentTarget.dataset.url;
+    wx.navigateTo({
+      url: `/pages/webpage/webpage?url=${encodeURIComponent(url)}`, 
+      fail: (err) => {
+        console.error('Navigation failed:', err);
+      }
+    });
   },
 
   onShow: function () {
