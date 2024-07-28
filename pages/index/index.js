@@ -20,17 +20,8 @@ Page({
       { label: '发布', value: '/pages/addpost/addpost' },
     ],
     items: [],
-    page: 1 // 初始化页数为1
-  },
-  // Method to navigate to the link
-  navigateToLink(event) {
-    const url = event.currentTarget.dataset.url;
-    wx.navigateTo({
-      url: `/pages/webpage2/webpage2?url=${encodeURIComponent(url)}`, 
-      fail: (err) => {
-        console.error('Navigation failed:', err);
-      }
-    });
+    page: 1, // 初始化页数为1
+    weather: {} // 新增用于存储天气信息的数据
   },
 
   onShow: function () {
@@ -224,6 +215,7 @@ Page({
           that.setData({
             namePosition: city
           });
+          that.getWeather(city); // 获取天气信息
         } else {
           wx.showToast({
             title: '获取城市信息失败',
@@ -240,6 +232,38 @@ Page({
     });
   },
 
+  getWeather(city) {
+    const key = '6495fc91f56ed1eadda8e9131fb7de5a'; // 替换为你的高德API密钥
+    const weatherUrl = `https://restapi.amap.com/v3/weather/weatherInfo?key=${key}&city=${city}`;
+  
+    wx.request({
+      url: weatherUrl,
+      success: (res) => {
+        console.log('天气：', res);
+        if (res.data.status === '1' && res.data.lives && res.data.lives.length > 0) {
+          const weather = res.data.lives[0];
+          console.log('获取到的天气信息：', weather);
+          this.setData({
+            weather: weather
+          });
+        } else {
+          console.error('获取天气信息失败:', res.data.info);
+          wx.showToast({
+            title: '获取天气信息失败',
+            icon: 'none'
+          });
+        }
+      },
+      fail: (err) => {
+        console.error('请求天气信息失败:', err);
+        wx.showToast({
+          title: '请求天气信息失败',
+          icon: 'none'
+        });
+      }
+    });
+  },
+  
   saveUserInfo() {
     wx.setStorage({
       key: 'userInfo',

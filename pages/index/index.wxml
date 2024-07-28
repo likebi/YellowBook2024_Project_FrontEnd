@@ -4,7 +4,7 @@
     <view class="first_container">
       <view class="index-position">
         <image src="../../static/locationwhite.png" class="image-type" />
-        <text class="position-name">{{namePosition}}</text>
+        <text class="position-name">{{namePosition}} {{weather.weather}} {{weather.temperature}}°</text>
       </view>
 
       <view class="search-container">
