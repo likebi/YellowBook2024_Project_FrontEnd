@@ -26,7 +26,7 @@ Page({
   navigateToLink(event) {
     const url = event.currentTarget.dataset.url;
     wx.navigateTo({
-      url: `/pages/webpage/webpage?url=${encodeURIComponent(url)}`, 
+      url: `/pages/webpage2/webpage2?url=${encodeURIComponent(url)}`, 
       fail: (err) => {
         console.error('Navigation failed:', err);
       }

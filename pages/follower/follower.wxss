@@ -1,7 +1,7 @@
 .outer-box {
   width: auto;
   height: 100vh;
-  background-image: url('https://tse1-mm.cn.bing.net/th/id/OIP-C.sKTD8YyMo16Xp2q5x7UqowHaNK?rs=1&pid=ImgDetMain'); /* Set the background image */
+  background-image: url('https://tse3-mm.cn.bing.net/th/id/OIP-C.RQRpR9svNEAIWCOxxiDyJQHaN2?rs=1&pid=ImgDetMain'); /* Set the background image */
 }
 
 #container {
@@ -75,6 +75,16 @@
 }
 
 .first_collum {
+  width: auto;
+  position: relative;
+  height: 70rpx;
+  left: 100px;
+  align-items: center;
+  color: white;
+  margin-bottom: 30px;
+}
+.second_collum {
+  width: auto;
   position: relative;
   height: 70rpx;
   align-items: center;
@@ -84,10 +94,20 @@
 .myfollow {
   position: absolute;
   top: 5rpx;
-  font-size: 30rpx;
-  margin-bottom: 10rpx;
+  font-size: 20px;
+  padding-bottom: 5px;
   width: 30vw;
-  border-bottom: 1px solid white;
+  border-bottom: solid 1px white;
+  padding-left: 70px;
+  
+}
+.myfollow2 {
+  position: absolute;
+  top: 5rpx;
+  font-size: 18px;
+  padding-bottom: 10px;
+  width: 30vw;
+  /* padding-left: 45px; */
 }
 
 .myfollowed {
@@ -151,7 +171,7 @@
   height: 100rpx;
   border-radius: 50%;
   margin-right: 20rpx;
-  border: 1px solid black;
+  border: 1px solid white;
 }
 
 .profile-details {
@@ -164,6 +184,7 @@
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 10rpx;
+  color: white;
 }
 
 .follower-number {

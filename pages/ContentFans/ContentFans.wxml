@@ -3,7 +3,7 @@
     <!-- 内容部分 -->
     <view class="content">
       <view class="first_collum">
-        <view class="myfollow">我的粉丝</view>
+        <view class="myfollow">粉丝</view>
       </view>
 
     <!-- 粉丝列表 -->

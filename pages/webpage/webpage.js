@@ -1,6 +1,6 @@
 Page({
   data: {
-    postUrl: 'https://you.ctrip.com/photos/sight/shanghai2/r107597.html',
+    postUrl: 'https://www.ctrip.com/?allianceid=4902&sid=22921635&msclkid=62bedefc8cc31c09dc34b8592f05d5fa&keywordid=82052126199546',
     // qrCodeUrl: '' // URL for the generated QR code
   },
   // onLoad: function() {

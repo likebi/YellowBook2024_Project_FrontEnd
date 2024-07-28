@@ -1,6 +1,6 @@
 Page({
   data: {
-    recomendedUrl: 'https://you.ctrip.com/sight/borobudur14417/48376.html?renderPlatform=',
+    recomendedUrl: 'https://you.ctrip.com/sight/bali438/64465.html',
     
   },
   openLink: function() {
